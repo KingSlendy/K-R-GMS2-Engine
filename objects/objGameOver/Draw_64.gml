@@ -1,0 +1,1 @@
+draw_sprite(sprite_index, 0, view_wport[0] / 2, view_hport[0] / 2);
