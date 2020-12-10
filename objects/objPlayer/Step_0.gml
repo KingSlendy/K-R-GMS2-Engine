@@ -5,17 +5,17 @@ if (frozen) {
 	dir = 0;
 }
 
-var onBlock = check_block(0, global.grav);
-var onVineR = (place_meeting(x - 1, y, objVineR) && !onBlock);
-var onVineL = (place_meeting(x + 1, y, objVineL) && !onBlock);
-gravity = (!onBlock) ? 0.4 * global.grav : 0;
+var on_block = check_block(0, global.grav);
+var on_vineR = (place_meeting(x - 1, y, objVineR) && !on_block);
+var on_vineL = (place_meeting(x + 1, y, objVineL) && !on_block);
+gravity = (!on_block) ? 0.4 * global.grav : 0;
 
 if (dir != 0) {
-	if (!onVineR && !onVineL) {
+	if (!on_vineR && !on_vineL) {
 		xscale = dir;
 	}
 	
-	if ((dir == -1 && !onVineL) || (dir == 1 && !onVineR)) {
+	if ((dir == 1 && !on_vineR) || (dir == -1 && !on_vineL)) {
 		hspeed = max_hspeed * dir;
 		image_speed = 0.5;
 		sprite_index = PLAYER_ACTIONS.RUN;
@@ -26,10 +26,16 @@ if (dir != 0) {
 	sprite_index = PLAYER_ACTIONS.IDLE;
 }
 
-if (vspeed * global.grav < 0) {
-	sprite_index = PLAYER_ACTIONS.JUMP;
-} else if (vspeed * global.grav > 0) {
-	sprite_index = PLAYER_ACTIONS.FALL;
+if (!on_platform) {
+	if (vspeed * global.grav < 0) {
+		sprite_index = PLAYER_ACTIONS.JUMP;
+	} else if (vspeed * global.grav > 0) {
+		sprite_index = PLAYER_ACTIONS.FALL;
+	}
+} else {
+	if (!check_platform(0, 4 * global.grav)) {
+        on_platform = false;
+    }
 }
 
 if (abs(vspeed) > max_vspeed) {
@@ -38,7 +44,7 @@ if (abs(vspeed) > max_vspeed) {
 
 if (!frozen) {
 	if (global.controls.jump.is_pressed()) {
-		if (jump_total > 0 && onBlock) {
+		if (jump_total > 0 && (on_block || on_platform || check_platform(0, 0))) {
 			vspeed = -(jump_height[0] * global.grav);
 			sprite_index = PLAYER_ACTIONS.JUMP;
 			reset_jumps();
@@ -72,20 +78,20 @@ if (!frozen) {
 		}
 	}
 	
-	if (onVineL || onVineR) {
-		xscale = (onVineR) ? 1 : -1;
+	if (on_vineR || on_vineL) {
+		xscale = (on_vineR) ? 1 : -1;
 	    vspeed = 2 * global.grav;
 	    sprite_index = PLAYER_ACTIONS.SLIDE;
 	    image_speed = 1 / 2;
     
-	    if ((onVineL && global.controls.left.is_pressed()) || (onVineR && global.controls.right.is_pressed())) {
+	    if ((on_vineR && global.controls.right.is_pressed()) || (on_vineL && global.controls.left.is_pressed())) {
 	        if (global.controls.jump.is_held()) {
-	            hspeed = (onVineR) ? 15 : -15;
+	            hspeed = (on_vineR) ? 15 : -15;
 	            vspeed = -9 * global.grav;
 	            audio_play_sound(sndWalljump, 0, false);
 	            sprite_index = PLAYER_ACTIONS.JUMP;
 	        } else {
-	            hspeed = (onVineR) ? 3 : -3;
+	            hspeed = (on_vineR) ? 3 : -3;
 	            sprite_index = PLAYER_ACTIONS.FALL;
 	        }
 	    }
@@ -93,7 +99,7 @@ if (!frozen) {
 }
 #endregion
 
-#region Collisions
+#region Block Collisions
 if (check_block(hspeed, 0)) {
 	x = (hspeed > 0) ? floor(x) : ceil(x);
 	

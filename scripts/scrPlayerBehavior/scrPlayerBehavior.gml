@@ -10,6 +10,10 @@ function check_block(plus_h, plus_v) {
 	return place_meeting(x + plus_h, y + plus_v, objBlock)
 }
 
+function check_platform(plus_h, plus_v) {
+	return place_meeting(x + plus_h, y + plus_v, objPlatform);
+}
+
 function check_killer() {
 	if (!place_meeting(x, y, objBlock) && place_meeting(x, y, objPlayerKiller)) {
 		kill_player();
