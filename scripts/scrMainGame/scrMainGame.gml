@@ -1,10 +1,3 @@
-function cleanup_game() {
-	global.grav = 1;
-	global.deaths = 0;
-	global.time = 0;
-	global.clear = false;
-}
-
 function save_game(position) {
 	if (position) {
 		global.save_player.sroom = room_get_name(room);
@@ -24,7 +17,7 @@ function save_game(position) {
 	};
 	
 	var json = json_stringify(data);
-	save_string(string_interp("Data{0}", global.save_num + 1), json);
+	save_string(string_interp("Data{0}", global.save_num + 1), json, true);
 }
 
 function load_game(position) {
@@ -32,8 +25,9 @@ function load_game(position) {
 		instance_destroy(objPlayer);
 	}
 	
-	var json = load_string(string_interp("Data{0}", global.save_num + 1));
+	var json = load_string(string_interp("Data{0}", global.save_num + 1), true);
 	var data = json_parse(json);
+	
 	global.save_player = data.player;
 	global.deaths = data.info.deaths;
 	global.time = data.info.time;
@@ -56,6 +50,13 @@ function load_game(position) {
 	}
 }
 
+function cleanup_game() {
+	global.grav = 1;
+	global.deaths = 0;
+	global.time = 0;
+	global.clear = false;
+}
+
 function restart_game() {
 	if (global.death_music) {
 	    audio_stop_sound(bgmGameOver);
@@ -70,9 +71,35 @@ function restart_game() {
 }
 
 function save_config() {
+	var data = {
+		controls: global.controls,
+		display: global.display
+	};
 	
+	var json = json_stringify(data);
+	save_string("Config.ini", json, false);
 }
 
 function load_config() {
+	if (!file_exists("Config.ini")) {
+		save_config();
+	}
 	
+	var json = load_string("Config.ini", false);
+	var data = json_parse(json);
+	
+	global.controls = data.controls;
+	global.display = data.display;
+	
+	set_display();
+}
+
+function set_display() {
+	window_set_fullscreen(global.display.fullscreen);
+	
+	if (global.display.vsync) {
+		display_reset(0, global.display.vsync);
+	}
+	
+	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
 }

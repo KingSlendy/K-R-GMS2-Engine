@@ -1,3 +1,3 @@
-if (global.controls.shoot.is_pressed()) {
+if (is_pressed(global.controls.shoot)) {
     active_save();
 }

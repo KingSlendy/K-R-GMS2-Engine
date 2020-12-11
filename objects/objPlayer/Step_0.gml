@@ -1,11 +1,11 @@
 #region Movement
-var dir = (global.controls.right.is_held() - global.controls.left.is_held());
+var dir = (is_held(global.controls.right) - is_held(global.controls.left));
 
 if (frozen) {
 	dir = 0;
 }
 
-var on_block = check_block(0, global.grav);
+on_block = check_block(0, global.grav);
 var on_vineR = (place_meeting(x - 1, y, objVineR) && !on_block);
 var on_vineL = (place_meeting(x + 1, y, objVineL) && !on_block);
 gravity = (!on_block) ? 0.4 * global.grav : 0;
@@ -43,7 +43,7 @@ if (abs(vspeed) > max_vspeed) {
 }
 
 if (!frozen) {
-	if (global.controls.jump.is_pressed()) {
+	if (is_pressed(global.controls.jump)) {
 		if (jump_total > 0 && (on_block || on_platform || check_platform(0, 0))) {
 			vspeed = -(jump_height[0] * global.grav);
 			sprite_index = PLAYER_ACTIONS.JUMP;
@@ -65,13 +65,13 @@ if (!frozen) {
 		}
 	}
 	
-	if (global.controls.jump.is_released()) {
+	if (is_released(global.controls.jump)) {
 		if (vspeed * global.grav < 0) {
 			vspeed *= 0.45;
 		}
 	}
 	
-	if (global.controls.shoot.is_pressed()) {
+	if (is_pressed(global.controls.shoot)) {
 		if (instance_number(objBullet) < 4) {
 		    instance_create_layer(x, y, "Instances", objBullet);
 			audio_play_sound(sndShoot, 0, false);
@@ -84,8 +84,8 @@ if (!frozen) {
 	    sprite_index = PLAYER_ACTIONS.SLIDE;
 	    image_speed = 1 / 2;
     
-	    if ((on_vineR && global.controls.right.is_pressed()) || (on_vineL && global.controls.left.is_pressed())) {
-	        if (global.controls.jump.is_held()) {
+	    if ((on_vineR && is_pressed(global.controls.right)) || (on_vineL && is_pressed(global.controls.left))) {
+	        if (is_held(global.controls.jump)) {
 	            hspeed = (on_vineR) ? 15 : -15;
 	            vspeed = -9 * global.grav;
 	            audio_play_sound(sndWalljump, 0, false);

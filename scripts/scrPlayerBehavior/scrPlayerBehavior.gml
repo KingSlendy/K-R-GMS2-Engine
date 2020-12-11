@@ -24,25 +24,20 @@ function check_killer() {
 }
 
 function kill_player() {
-	if (global.game_started) {
-        if (instance_exists(objPlayer)) {
-            with (objPlayer) {
-				instance_create_layer(x, y, "Instances", objBloodEmitter);
-                instance_destroy();
-            }
-            
-			instance_create_layer(0, 0, "Instances", objGameOver);
-            global.deaths++;
-			audio_play_sound(sndDeath, 0, false);
-			
-			if (global.death_music) {
-                audio_pause_sound(global.current_music);
-                audio_play_sound(bgmGameOver, 0, false);
-            }
+    if (instance_exists(objPlayer)) {
+        with (objPlayer) {
+			instance_create_layer(x, y, "Instances", objBloodEmitter);
+            instance_destroy();
         }
-    } else {
-        instance_destroy(objPlayer);
-        room_restart();
+            
+		instance_create_layer(0, 0, "Instances", objGameOver);
+        global.deaths++;
+		audio_play_sound(sndDeath, 0, false);
+			
+		if (global.death_music) {
+            audio_pause_sound(global.current_music);
+            audio_play_sound(bgmGameOver, 0, false);
+        }
     }
 }
 

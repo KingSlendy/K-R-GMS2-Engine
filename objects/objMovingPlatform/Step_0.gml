@@ -19,7 +19,7 @@ if (speed != 0 || yspeed != 0) {
 		if (!check_block(0, global.grav)) {
 	        y += other.vspeed + other.yspeed;
         
-	        if (!check_block(other.hspeed, 0)) {
+	        if (!on_block) {
 	            x += other.hspeed;
 	        }
 		}

@@ -86,3 +86,7 @@ function draw_text_outline(x, y, text, border_color) {
 	draw_set_colour(color);
 	draw_text(x, y, text);
 }
+
+function get_frames(seconds) {
+	return game_get_speed(gamespeed_fps) * seconds;
+}

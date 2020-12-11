@@ -6,7 +6,7 @@
     "path": "folders/Scripts/System.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scrButtonFunctions",
+  "name": "scrInitConfig",
   "tags": [],
   "resourceType": "GMScript",
 }

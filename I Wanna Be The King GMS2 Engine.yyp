@@ -1,9 +1,9 @@
 {
   "resources": [
     {"id":{"name":"objSaveFlipped","path":"objects/objSaveFlipped/objSaveFlipped.yy",},"order":3,},
-    {"id":{"name":"scrButtonFunctions","path":"scripts/scrButtonFunctions/scrButtonFunctions.yy",},"order":2,},
+    {"id":{"name":"scrInitConfig","path":"scripts/scrInitConfig/scrInitConfig.yy",},"order":1,},
     {"id":{"name":"sprSave","path":"sprites/sprSave/sprSave.yy",},"order":0,},
-    {"id":{"name":"scrSetOptions","path":"scripts/scrSetOptions/scrSetOptions.yy",},"order":1,},
+    {"id":{"name":"scrSetOptions","path":"scripts/scrSetOptions/scrSetOptions.yy",},"order":2,},
     {"id":{"name":"objSpikeRight","path":"objects/objSpikeRight/objSpikeRight.yy",},"order":4,},
     {"id":{"name":"objCherry","path":"objects/objCherry/objCherry.yy",},"order":1,},
     {"id":{"name":"sndShoot","path":"sounds/sndShoot/sndShoot.yy",},"order":2,},
