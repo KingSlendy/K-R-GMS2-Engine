@@ -16,7 +16,8 @@ global.controls_menu = {
 	up: vk_up,
 	down: vk_down,
 	accept: vk_shift,
-	back: ord("Z")
+	back: ord("Z"),
+	options: vk_enter
 };
 
 global.controls_misc = {

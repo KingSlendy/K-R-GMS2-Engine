@@ -9,9 +9,9 @@ function save_game(position) {
 	var data = {
 		player: global.save_player,
 		info: {
+			difficulty: global.difficulty,
 			deaths: global.deaths,
 			time: global.time,
-			difficulty: global.difficulty,
 			clear: global.clear
 		}
 	};
@@ -55,6 +55,28 @@ function cleanup_game() {
 	global.deaths = 0;
 	global.time = 0;
 	global.clear = false;
+}
+
+function start_game(diff) {
+	var save = string_interp("Data{0}", global.save_num);
+	var length = array_length(global.difficulties);
+
+	if (diff == length - 1) {
+	    load_game(true);
+	} else {
+		diff = clamp(diff, 0, length - 1);
+
+	    if (file_exists(save)) {
+	        file_delete(save);
+	    }
+        
+	    global.game_started = true;
+	    global.auto_save = true;
+	    global.difficulty = diff;
+
+	    instance_destroy(objPlayer);
+	    room_goto(global.start_room);
+	}
 }
 
 function restart_game() {
@@ -102,4 +124,10 @@ function set_display() {
 	}
 	
 	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
+}
+
+function change_volume() {
+	var dir = (is_held(global.controls.right) - is_held(global.controls.left));
+	global.display.vol += 0.01 * dir;
+	global.display.vol = clamp(global.display.vol, 0, 1);
 }

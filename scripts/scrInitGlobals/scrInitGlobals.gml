@@ -1,4 +1,4 @@
-global.game_started = true;
+global.game_started = false;
 global.game_paused = false;
 global.caption_last = "";
 

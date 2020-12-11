@@ -17,9 +17,7 @@ if (!global.game_paused) {
 		restart_game();
 	}
 } else {
-	var dir = (is_held(global.controls.right) - is_held(global.controls.left));
-	global.display.vol += 0.01 * dir;
-	global.display.vol = clamp(global.display.vol, 0, 1);
+	change_volume();
 }
 
 if (pause_delay < global.total_pause_delay) {
@@ -62,5 +60,52 @@ if (!global.game_paused) {
 //Close game
 if (is_pressed(global.controls_misc.quit)) {
 	game_end();
+}
+#endregion
+
+#region Debug Inputs
+if (global.debug_enable) {
+	if (is_pressed(global.controls_debug.overlay)) {
+		global.debug_overlay ^= true;
+	}
+	
+	if (is_pressed(global.controls_debug.god_mode)) {
+		global.debug_god_mode ^= true;
+	}
+	
+	if (is_pressed(global.controls_debug.inf_jump)) {
+		global.debug_inf_jump ^= true;
+	}
+	
+	if (instance_exists(objPlayer)) {
+		if (global.debug_inf_jump) {
+			with (objPlayer) {
+				jump_total = -1;
+			}
+		}
+	
+		if (is_pressed(global.controls_debug.teleport)) {
+			objPlayer.x = mouse_x;
+			objPlayer.y = mouse_y;
+		}
+	
+		if (is_pressed(global.controls_debug.save)) {
+			save_game(true);
+		}
+		
+		if (is_pressed(global.controls_debug.roomU)) {
+			if (room_get_name(room_previous(room)) != "rInit") {
+				instance_destroy(objPlayer);
+				room_goto_previous();
+			}
+		}
+		
+		if (is_pressed(global.controls_debug.roomD)) {
+			if (room != room_last) {
+				instance_destroy(objPlayer);
+				room_goto_next();
+			}
+		}
+	}
 }
 #endregion

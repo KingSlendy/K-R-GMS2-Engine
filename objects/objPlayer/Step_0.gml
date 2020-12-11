@@ -88,13 +88,21 @@ if (!frozen) {
 	        if (is_held(global.controls.jump)) {
 	            hspeed = (on_vineR) ? 15 : -15;
 	            vspeed = -9 * global.grav;
-	            audio_play_sound(sndWalljump, 0, false);
+	            audio_play_sound(sndVine, 0, false);
 	            sprite_index = PLAYER_ACTIONS.JUMP;
 	        } else {
 	            hspeed = (on_vineR) ? 3 : -3;
 	            sprite_index = PLAYER_ACTIONS.FALL;
 	        }
 	    }
+	}
+	
+	if (global.debug_enable && on_block) {
+		dir = (is_pressed(global.controls_debug.alignR) - is_pressed(global.controls_debug.alignL));
+		
+		if (dir != 0) {
+			hspeed = dir;
+		}
 	}
 }
 #endregion

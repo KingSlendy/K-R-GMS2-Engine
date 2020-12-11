@@ -24,7 +24,7 @@ function check_killer() {
 }
 
 function kill_player() {
-    if (instance_exists(objPlayer)) {
+    if (!global.debug_god_mode && instance_exists(objPlayer)) {
         with (objPlayer) {
 			instance_create_layer(x, y, "Instances", objBloodEmitter);
             instance_destroy();

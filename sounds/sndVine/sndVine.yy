@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.5,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sndWalljump.wav",
+  "soundFile": "sndVine.wav",
   "duration": 0.17915,
   "parent": {
     "name": "SFX",
     "path": "folders/Sounds/SFX.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sndWalljump",
+  "name": "sndVine",
   "tags": [],
   "resourceType": "GMSound",
 }
