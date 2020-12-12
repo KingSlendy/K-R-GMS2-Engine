@@ -6,7 +6,7 @@
     "path": "folders/Scripts/System/Initialization.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scrInitDebug",
+  "name": "scrControlsConfig",
   "tags": [],
   "resourceType": "GMScript",
 }

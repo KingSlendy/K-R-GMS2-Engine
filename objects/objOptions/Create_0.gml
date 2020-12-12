@@ -38,30 +38,38 @@ options = {
 		}),
 		
 		new Option("Reset Defaults", function() {
-			global.display.vol = 1;
-			global.display.fullscreen = false;
-			global.display.vsync = false;
-			global.display.smooth = false;
+			scrOptionsConfig();
 			set_display();
 		}, function() {
 			return "";
 		}),
 		
-		/*new Option("Change Controls", function() {
+		new Option("Change Controls", function() {
 			menu = 1;
 			audio_play_sound(sndJump, 0, false);
 		}, function() {
 			return "";
-		})*/
-	]/*,
+		})
+	],
 	
 	controls: [
-		new Option("left"),
-		new Option("right"),
-		new Option("up")
-	]*/
+		"Left",
+		"Right",
+		"Up",
+		"Down",
+		"Jump",
+		"Shoot",
+		"Restart",
+		"Pause",
+		new Option("Reset Defaults", function() {
+			scrControlsConfig();
+		}, function() {
+			return "";
+		})
+	]
 };
 
 menu = 0;
 select = array_create(2, 0);
 spacing = 50;
+changing_controls = false;

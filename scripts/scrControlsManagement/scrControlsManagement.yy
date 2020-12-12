@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Initialization",
-    "path": "folders/Scripts/System/Initialization.yy",
+    "name": "Management",
+    "path": "folders/Scripts/System/Management.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scrInitDebug",
+  "name": "scrControlsManagement",
   "tags": [],
   "resourceType": "GMScript",
 }
