@@ -22,12 +22,12 @@ function get_music() {
 	var loop = true;
 
 	switch (room) {
-	    /*case rTitle:
+	    case rTitle:
 	    case rFiles:
 	    case rOptions:
 	    case rTest:
 	        music = bgmGuyRock;
-	        break;*/
+	        break;
         
 	    default: music = -1; break;
 	}

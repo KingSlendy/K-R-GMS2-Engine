@@ -1,3 +1,7 @@
+if (!is_pressed(vk_anykey)) {
+	exit;
+}
+
 var length = array_length(global.difficulties);
 
 if (menu == 0) {

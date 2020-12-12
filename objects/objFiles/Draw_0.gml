@@ -6,7 +6,6 @@ for (var i = 0; i < global.total_saves; i++) {
     draw_set_alpha(1);
 	draw_set_font(fntMenu);
     draw_set_color(c_black);
-	draw_set_halign(fa_left);
     draw_text(x, y + spacing * i, string_interp("Data{0}", i + 1));
     
 	//Difficulty
@@ -42,7 +41,7 @@ for (var i = 0; i < global.total_saves; i++) {
     }
         
     if (select[0] == i) {
-        draw_sprite(sprCherry, 0, 48, y + 60 + spacing * i);
+        draw_sprite(sprCherry, 0, 52, y + 60 + spacing * i);
         draw_sprite(sprCherry, 0, room_width - 56, y + 60 + spacing * i);
     }
 }
@@ -52,3 +51,4 @@ draw_set_halign(fa_center);
 draw_text(225, 550, "[Z] Back");
 draw_text(380, 550, "[Enter] Options");
 draw_text(550, 550, "[Shift] Accept");
+draw_set_halign(fa_left);

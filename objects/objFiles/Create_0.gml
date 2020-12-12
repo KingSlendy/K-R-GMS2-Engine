@@ -11,12 +11,11 @@ for (var i = 0; i < global.total_saves; i++) {
     if (file_exists(string_interp("Data{0}", i + 1))) {
         global.save_num = i;
         load_game(false);
-		datas[i] = {
-			difficulty: global.difficulties[global.difficulty],
-			deaths: global.deaths,
-			time: global.time,
-			clear: global.clear
-		}
+		var data = datas[i];
+		data.difficulty = global.difficulties[global.difficulty];
+		data.deaths = global.deaths;
+		data.time = global.time;
+		data.clear = global.clear;
     }
 }
 
