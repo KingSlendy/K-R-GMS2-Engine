@@ -15,5 +15,5 @@ if (outside_room()) {
         other.y -= room_height;
     }
 	
-	event_inherited();
+	room_goto(room_to);
 }
