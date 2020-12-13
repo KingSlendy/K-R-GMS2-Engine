@@ -13,7 +13,9 @@ function save_game(position) {
 			deaths: global.deaths,
 			time: global.time,
 			clear: global.clear
-		}
+		},
+		
+		items: global.items
 	};
 	
 	var json = json_stringify(data);
@@ -33,6 +35,7 @@ function load_game(position) {
 	global.time = data.info.time;
 	global.difficulty = data.info.difficulty;
 	global.clear = data.info.clear;
+	global.items = data.items;
 	
 	if (position) {
 		global.game_started = true;
@@ -55,6 +58,10 @@ function cleanup_game() {
 	global.deaths = 0;
 	global.time = 0;
 	global.clear = false;
+	global.items = {
+		secrets: array_create(8, false),
+		bosses: array_create(8, false)
+	};
 }
 
 function start_game(diff) {

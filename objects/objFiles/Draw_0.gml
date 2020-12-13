@@ -26,13 +26,17 @@ for (var i = 0; i < global.total_saves; i++) {
     draw_text(x, y + 78 + spacing * i, string_interp("Deaths: {0}", data.deaths));
     draw_text(x, y + 100 + spacing * i, string_interp("Time: {0}", formatted_time(data.time)));
     
-    //for (var j = 0; j < global.totalItems; j++) {
-        //draw_sprite_ext(itemsImages[j], 0, x + 160 + 32 * j, y + 16 + spacing * i, 1, 1, 0, cond_exp(items[i, j], c_white, c_black), 1);
-    //}
+	var length = array_length(global.items.secrets);
+	
+    for (var j = 0; j < length; j++) {
+        draw_sprite_ext(images_secrets[j], 0, x + 160 + 32 * j, y + 16 + spacing * i, 1, 1, 0, (data.items.secrets[j]) ? c_white : c_black, 1);
+    }
+	
+	length = array_length(global.items.secrets);
     
-    //for (var j = 0; j < global.totalBossItems; j++) {
-        //draw_sprite_ext(bossItemsImages[j], 0, x + 160 + 32 * j, y + 48 + spacing * i, 1, 1, 0, cond_exp(bossItems[i, j], c_white, c_black), 1);
-    //}
+    for (var j = 0; j < length; j++) {
+        draw_sprite_ext(images_bosses[j], 0, x + 160 + 32 * j, y + 48 + spacing * i, 1, 1, 0, (data.items.bosses[j]) ? c_white : c_black, 1);
+    }
         
     if (data.clear) {
 		draw_set_font(fntMenu4);
