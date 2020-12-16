@@ -144,6 +144,4 @@ if (check_block(0, vspeed)) {
 if (check_block(hspeed, vspeed)) {
 	hspeed = 0;
 }
-
-check_killer();
 #endregion

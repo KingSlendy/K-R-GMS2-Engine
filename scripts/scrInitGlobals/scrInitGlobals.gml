@@ -17,4 +17,7 @@ cleanup_game();
 global.current_music = -1;
 
 global.last_xscale = 1;
+
+global.connected = false;
+
 randomize();

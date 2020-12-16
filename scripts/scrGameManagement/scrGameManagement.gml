@@ -20,6 +20,25 @@ function save_game(position) {
 	
 	var json = json_stringify(data);
 	save_string(string_interp("Data{0}", global.save_num + 1), json, true);
+	
+	#region Online
+	if (global.connected && global.online.race && position) {
+		var __ONLINE_p = objPlayer;
+				
+		with (objWorld) {
+			buffer_seek(__ONLINE_buffer, buffer_seek_start, 0);
+				
+			if (instance_exists(__ONLINE_p)) {
+				buffer_write(__ONLINE_buffer, buffer_u8, 5);
+				buffer_write(__ONLINE_buffer, buffer_u8, global.grav);
+				buffer_write(__ONLINE_buffer, buffer_s32, __ONLINE_p.x);
+				buffer_write(__ONLINE_buffer, buffer_f64, __ONLINE_p.y);
+				buffer_write(__ONLINE_buffer, buffer_s16, room);
+				network_send_raw(__ONLINE_socket, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
+			}
+		}
+	}
+	#endregion
 }
 
 function load_game(position) {
@@ -51,6 +70,26 @@ function load_game(position) {
 			room_restart();
 		}
 	}
+	
+	#region Online
+	with (objWorld) {
+		if (__ONLINE_sSaved) {
+			if (room_exists(__ONLINE_sRoom)) {
+				var __ONLINE_p = objPlayer;
+
+				if (global.grav != __ONLINE_sGravity) {
+					flip_grav();
+				}
+
+				__ONLINE_p.x = __ONLINE_sX;
+				__ONLINE_p.y = __ONLINE_sY;
+				room_goto(__ONLINE_sRoom);
+			}
+		
+			__ONLINE_sSaved = false;
+		}
+	}
+	#endregion
 }
 
 function cleanup_game() {
@@ -101,8 +140,9 @@ function restart_game() {
 
 function save_config() {
 	var data = {
+		display: global.display,
 		controls: global.controls,
-		display: global.display
+		online: global.online,
 	};
 	
 	var json = json_stringify(data);
@@ -117,8 +157,9 @@ function load_config() {
 	var json = load_string("Config.ini", false);
 	var data = json_parse(json);
 	
-	global.controls = data.controls;
 	global.display = data.display;
+	global.controls = data.controls;
+	global.online = data.online;
 	
 	set_display();
 }

@@ -90,3 +90,7 @@ function draw_text_outline(x, y, text, border_color) {
 function get_frames(seconds) {
 	return game_get_speed(gamespeed_fps) * seconds;
 }
+
+function print(str) {
+	show_debug_message(str);
+}

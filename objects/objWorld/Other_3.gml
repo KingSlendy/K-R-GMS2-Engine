@@ -5,3 +5,8 @@ if (global.game_started) {
 }
 
 save_config();
+
+#region Online
+online_disconnect();
+buffer_delete(__ONLINE_buffer);
+#endregion

@@ -79,14 +79,15 @@ if (global.debug_enable) {
 	
 	if (instance_exists(objPlayer)) {
 		if (global.debug_inf_jump) {
-			with (objPlayer) {
-				jump_total = -1;
-			}
+			objPlayer.jump_total = -1;
 		}
 	
-		if (is_pressed(global.controls_debug.teleport)) {
-			objPlayer.x = mouse_x;
-			objPlayer.y = mouse_y;
+		if (is_held(global.controls_debug.teleport)) {
+			with (objPlayer) {
+				x = mouse_x;
+				y = mouse_y;
+				vspeed = 0;
+			}
 		}
 	
 		if (is_pressed(global.controls_debug.save)) {
@@ -94,7 +95,7 @@ if (global.debug_enable) {
 		}
 		
 		if (is_pressed(global.controls_debug.roomU)) {
-			if (room_get_name(room_previous(room)) != "rInit") {
+			if (room_get_name(room_previous(room)) != room_get_name(rOptions)) {
 				instance_destroy(objPlayer);
 				room_goto_previous();
 			}

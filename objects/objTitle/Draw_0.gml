@@ -5,3 +5,4 @@ draw_text(400, 40, "I Wanna Be\nThe King\nGMS2 Engine");
 
 draw_set_font(fntMenu3);
 draw_text(380, 550, "[Shift] Start");
+draw_set_halign(fa_left);

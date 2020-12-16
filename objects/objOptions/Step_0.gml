@@ -26,34 +26,54 @@ if (is_pressed(global.controls_menu.down)) {
     audio_play_sound(sndDoubleJump, 0, false);
 }
 
-if (menu == 0) {
-    select[menu] += array_length(options.menu);
-    select[menu] %= array_length(options.menu);
+var length = array_length(options[menu]);
 
-    if (is_pressed(global.controls_menu.accept) || select[menu] == 0) {
-		options.menu[select[menu]].on_select();
-	}
+switch (menu) {
+	case MENU_OPTIONS.OPTIONS:
+		select[menu] += length;
+	    select[menu] %= length;
+
+	    if (is_pressed(global.controls_menu.accept) || select[menu] == 0) {
+			options[menu][select[menu]].on_select();
+		}
     
-    if (is_pressed(global.controls_menu.back)) {
-        save_config();
-        room_goto(rFiles);
-    }
-} else if (menu == 1) {
-    select[menu] += array_length(options.controls);
-    select[menu] %= array_length(options.controls);
-    
-    if (is_pressed(global.controls_menu.accept)) {
-        if (select[menu] == array_length(options.controls) - 1) {
-            options.controls[select[menu]].on_select();
-        } else {
-            changing_controls = true;
-        }
+	    if (is_pressed(global.controls_menu.back)) {
+	        save_config();
+	        room_goto(rFiles);
+	    }
+		break;
 		
-		audio_play_sound(sndJump, 0, false);
-    }
+	case MENU_OPTIONS.CONTROLS:
+		select[menu] += length;
+	    select[menu] %= length;
+    
+	    if (is_pressed(global.controls_menu.accept)) {
+	        if (select[menu] == length - 1) {
+	            options[menu][select[menu]].on_select();
+	        } else {
+	            changing_controls = true;
+	        }
+		
+			audio_play_sound(sndJump, 0, false);
+	    }
 
-    if (is_pressed(global.controls_menu.back)) {
-        menu = 0;
-        audio_play_sound(sndJump, 0, false);
-    }
+	    if (is_pressed(global.controls_menu.back)) {
+	        menu = MENU_OPTIONS.OPTIONS;
+	        audio_play_sound(sndJump, 0, false);
+	    }
+		break;
+		
+	case MENU_OPTIONS.ONLINE:
+		select[menu] += length;
+	    select[menu] %= length;
+		
+		if (is_pressed(global.controls_menu.accept)) {
+			options[menu][select[menu]].on_select();
+		}
+		
+		if (is_pressed(global.controls_menu.back)) {
+	        menu = MENU_OPTIONS.OPTIONS;
+	        audio_play_sound(sndJump, 0, false);
+	    }
+		break;
 }
