@@ -13,8 +13,8 @@
   "soundFile": "sndVine.wav",
   "duration": 0.17915,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Sounds/SFX.yy",
+    "name": "Player",
+    "path": "folders/Sounds/SFX/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndVine",

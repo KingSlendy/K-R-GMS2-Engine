@@ -13,8 +13,8 @@
   "soundFile": "sndShoot.wav",
   "duration": 0.369263,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Sounds/SFX.yy",
+    "name": "Player",
+    "path": "folders/Sounds/SFX/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndShoot",

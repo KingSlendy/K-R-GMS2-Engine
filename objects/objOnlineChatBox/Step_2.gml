@@ -40,8 +40,8 @@ if (!__ONLINE_hasDestroyed) {
 	var __ONLINE_found = false;
 	var __ONLINE_oChatbox = 0;
 	
-	for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(__ONLINE_chatbox) && !__ONLINE_found); __ONLINE_i++) {
-		__ONLINE_oChatbox = instance_find(__ONLINE_chatbox, __ONLINE_i);
+	for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(object_index) && !__ONLINE_found); __ONLINE_i++) {
+		__ONLINE_oChatbox = instance_find(object_index, __ONLINE_i);
 		
 		if (__ONLINE_oChatbox.__ONLINE_follower == __ONLINE_follower && __ONLINE_oChatbox.id != id) {
 			__ONLINE_found = true;

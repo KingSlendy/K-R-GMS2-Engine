@@ -53,8 +53,8 @@ function online_connect() {
 }
 
 function online_disconnect() {
-	if (instance_exists(__ONLINE_onlinePlayer)) {
-		instance_destroy(__ONLINE_onlinePlayer);
+	if (instance_exists(objOnlinePlayer)) {
+		instance_destroy(objOnlinePlayer);
 	}
 	
 	if (!is_undefined(__ONLINE_socket)) {

@@ -17,14 +17,14 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				var __ONLINE_ID = buffer_read(buffer, buffer_string);
 				var __ONLINE_found = false;
 			
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(__ONLINE_onlinePlayer) && !__ONLINE_found); __ONLINE_i++){
-					if (instance_find(__ONLINE_onlinePlayer, __ONLINE_i).__ONLINE_ID == __ONLINE_ID) {
+				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++){
+					if (instance_find(objOnlinePlayer, __ONLINE_i).__ONLINE_ID == __ONLINE_ID) {
 						__ONLINE_found = true;
 					}
 				}
 			
 				if (!__ONLINE_found) {
-					var __ONLINE_oPlayer = instance_create_layer(0, 0, "Instances", __ONLINE_onlinePlayer);
+					var __ONLINE_oPlayer = instance_create_layer(0, 0, "Instances", objOnlinePlayer);
 					__ONLINE_oPlayer.__ONLINE_ID = __ONLINE_ID;
 					__ONLINE_oPlayer.__ONLINE_name = buffer_read(buffer, buffer_string);
 				}
@@ -35,8 +35,8 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				var __ONLINE_ID = buffer_read(buffer, buffer_string);
 				var __ONLINE_found = false;
 			
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(__ONLINE_onlinePlayer) && !__ONLINE_found); __ONLINE_i++){
-					var __ONLINE_oPlayer = instance_find(__ONLINE_onlinePlayer, __ONLINE_i);
+				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++){
+					var __ONLINE_oPlayer = instance_find(objOnlinePlayer, __ONLINE_i);
 				
 					if (__ONLINE_oPlayer.__ONLINE_ID == __ONLINE_ID) {
 						instance_destroy(__ONLINE_oPlayer);
@@ -58,8 +58,8 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				var __ONLINE_found = false;
 				var __ONLINE_oPlayer = 0;
 				
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(__ONLINE_onlinePlayer) && !__ONLINE_found); __ONLINE_i++) {
-					__ONLINE_oPlayer = instance_find(__ONLINE_onlinePlayer, __ONLINE_i);
+				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++) {
+					__ONLINE_oPlayer = instance_find(objOnlinePlayer, __ONLINE_i);
 					
 					if (__ONLINE_oPlayer.__ONLINE_ID == __ONLINE_ID) {
 						__ONLINE_found = true;
@@ -68,12 +68,13 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				
 				if (__ONLINE_found) {
 					var __ONLINE_message = buffer_read(buffer, buffer_string);
-					var __ONLINE_oChatbox = instance_create_layer(0, 0, "Instances", __ONLINE_chatbox);
+					var __ONLINE_oChatbox = instance_create_layer(0, 0, "Instances", objOnlineChatBox);
 					__ONLINE_oChatbox.__ONLINE_message = __ONLINE_message;
 					__ONLINE_oChatbox.__ONLINE_follower = __ONLINE_oPlayer;
-					//if (__ONLINE_oPlayer.visible) {
-						//audio_play_sound(__ONLINE_sndChatbox, 0, false);
-					//}
+					
+					if (__ONLINE_oPlayer.visible) {
+						audio_play_sound(sndOnlineChatBox, 0, false);
+					}
 				}
 				break;
 		
@@ -87,9 +88,9 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 					__ONLINE_sY = buffer_read(buffer, buffer_f64);
 					__ONLINE_sRoom = buffer_read(buffer, buffer_s16);
 					
-					var __ONLINE_a = instance_create_layer(0, 0, "Instances", __ONLINE_playerSaved);
+					var __ONLINE_a = instance_create_layer(0, 0, "Instances", objOnlineSaved);
 					__ONLINE_a.__ONLINE_name = __ONLINE_sName;
-					//audio_play_sound(__ONLINE_sndSaved, 0, false);
+					audio_play_sound(objOnlineSaved, 0, false);
 				}
 				break;
 		
@@ -112,8 +113,8 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				var __ONLINE_found = false;
 				var __ONLINE_oPlayer = 0;
 				
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(__ONLINE_onlinePlayer) && !__ONLINE_found); __ONLINE_i++){
-					__ONLINE_oPlayer = instance_find(__ONLINE_onlinePlayer, __ONLINE_i);
+				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++){
+					__ONLINE_oPlayer = instance_find(objOnlinePlayer, __ONLINE_i);
 					
 					if (__ONLINE_oPlayer.__ONLINE_ID == __ONLINE_ID) {
 						__ONLINE_found = true;
@@ -121,7 +122,7 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				}
 				
 				if (!__ONLINE_found) {
-					__ONLINE_oPlayer = instance_create_layer(0, 0, "Instances", __ONLINE_onlinePlayer);
+					__ONLINE_oPlayer = instance_create_layer(0, 0, "Instances", objOnlinePlayer);
 					__ONLINE_oPlayer.__ONLINE_ID = __ONLINE_ID;
 				}
 

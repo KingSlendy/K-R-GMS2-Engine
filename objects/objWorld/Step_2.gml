@@ -67,7 +67,7 @@ if (global.connected) {
 				buffer_write_uv(__ONLINE_buffer);
 				network_send_raw(__ONLINE_socket, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
 				
-				var __ONLINE_oChatbox = instance_create_layer(0, 0, "Instances", __ONLINE_chatbox);
+				var __ONLINE_oChatbox = instance_create_layer(0, 0, "Instances", objOnlineChatBox);
 				__ONLINE_oChatbox.__ONLINE_message = __ONLINE_message;
 				__ONLINE_oChatbox.__ONLINE_follower = __ONLINE_p;
 				//audio_play_sound(__ONLINE_sndChatbox, 0, false);

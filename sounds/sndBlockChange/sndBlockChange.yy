@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.5,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sndDeath.wav",
-  "duration": 0.829308,
+  "soundFile": "sndBlockChange.wav",
+  "duration": 0.788673,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sounds/SFX/Player.yy",
+    "name": "Misc",
+    "path": "folders/Sounds/SFX/Misc.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sndDeath",
+  "name": "sndBlockChange",
   "tags": [],
   "resourceType": "GMSound",
 }
