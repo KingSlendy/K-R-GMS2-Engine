@@ -22,7 +22,7 @@ function save_game(position) {
 	save_string(string_interp("Data{0}", global.save_num + 1), json, true);
 	
 	#region Online
-	if (global.connected && global.online.race && position) {
+	if (global.connected && !global.online.race && position) {
 		var __ONLINE_p = objPlayer;
 				
 		with (objWorld) {
@@ -62,32 +62,27 @@ function load_game(position) {
 		global.auto_save = false;
 		global.grav = global.save_player.sgrav;
 		instance_create_layer(global.save_player.sx, global.save_player.sy, "Instances", objPlayer);
-	
-		var get_room = global.save_player.sroom;
-		
-		if (room != get_room) {
-			room_goto(asset_get_index(get_room));
-		} else {
-			room_restart();
-		}
+		room_goto(asset_get_index(global.save_player.sroom));
 	}
 	
 	#region Online
-	with (objWorld) {
-		if (__ONLINE_sSaved) {
-			if (room_exists(__ONLINE_sRoom)) {
-				var __ONLINE_p = objPlayer;
+	if (global.connected && !global.online.race && position) {
+		with (objWorld) {
+			if (__ONLINE_sSaved) {
+				if (room_exists(__ONLINE_sRoom)) {
+					var __ONLINE_p = objPlayer;
 
-				if (global.grav != __ONLINE_sGravity) {
-					flip_grav();
+					if (global.grav != __ONLINE_sGravity) {
+						flip_grav();
+					}
+
+					__ONLINE_p.x = __ONLINE_sX;
+					__ONLINE_p.y = __ONLINE_sY;
+					room_goto(__ONLINE_sRoom);
 				}
-
-				__ONLINE_p.x = __ONLINE_sX;
-				__ONLINE_p.y = __ONLINE_sY;
-				room_goto(__ONLINE_sRoom);
-			}
 		
-			__ONLINE_sSaved = false;
+				__ONLINE_sSaved = false;
+			}
 		}
 	}
 	#endregion

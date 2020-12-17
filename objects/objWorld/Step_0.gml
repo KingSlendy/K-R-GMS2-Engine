@@ -26,7 +26,7 @@ if (pause_delay < global.total_pause_delay) {
 	global.game_paused = !global.game_paused;
 	
 	if (global.game_paused) {
-		pause_screen = sprite_create_from_surface(application_surface, 0, 0, view_wport[0], view_hport[0], false, false, 0, 0);
+		pause_screen = sprite_create_from_surface(application_surface, 0, 0, display_get_gui_width(), display_get_gui_height(), false, false, 0, 0);
 		instance_deactivate_all(true);
 		instance_activate_object(objOnlinePlayer);
 	} else {

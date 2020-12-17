@@ -17,9 +17,10 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				var __ONLINE_ID = buffer_read(buffer, buffer_string);
 				var __ONLINE_found = false;
 			
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++){
-					if (instance_find(objOnlinePlayer, __ONLINE_i).__ONLINE_ID == __ONLINE_ID) {
+				with (objOnlinePlayer) {
+					if (self.__ONLINE_ID == __ONLINE_ID) {
 						__ONLINE_found = true;
+						break;
 					}
 				}
 			
@@ -33,14 +34,11 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 			case 1:
 				//DESTROYED
 				var __ONLINE_ID = buffer_read(buffer, buffer_string);
-				var __ONLINE_found = false;
-			
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++){
-					var __ONLINE_oPlayer = instance_find(objOnlinePlayer, __ONLINE_i);
 				
-					if (__ONLINE_oPlayer.__ONLINE_ID == __ONLINE_ID) {
-						instance_destroy(__ONLINE_oPlayer);
-						__ONLINE_found = true;
+				with (objOnlinePlayer) {
+					if (self.__ONLINE_ID == __ONLINE_ID) {
+						instance_destroy();
+						break;
 					}
 				}
 				break;
@@ -58,11 +56,11 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				var __ONLINE_found = false;
 				var __ONLINE_oPlayer = 0;
 				
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++) {
-					__ONLINE_oPlayer = instance_find(objOnlinePlayer, __ONLINE_i);
-					
-					if (__ONLINE_oPlayer.__ONLINE_ID == __ONLINE_ID) {
+				with (objOnlinePlayer) {
+					if (self.__ONLINE_ID == __ONLINE_ID) {
+						__ONLINE_oPlayer = id;
 						__ONLINE_found = true;
+						break;
 					}
 				}
 				
@@ -81,16 +79,16 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 			case 5:
 				//SOMEONE SAVED
 				if (!global.online.race) {
-					__ONLINE_sSaved = true;
 					__ONLINE_sGravity = buffer_read(buffer, buffer_u8);
 					__ONLINE_sName = buffer_read(buffer, buffer_string);
 					__ONLINE_sX = buffer_read(buffer, buffer_s32);
 					__ONLINE_sY = buffer_read(buffer, buffer_f64);
 					__ONLINE_sRoom = buffer_read(buffer, buffer_s16);
+					__ONLINE_sSaved = true;
 					
-					var __ONLINE_a = instance_create_layer(0, 0, "Instances", objOnlineSaved);
-					__ONLINE_a.__ONLINE_name = __ONLINE_sName;
-					audio_play_sound(objOnlineSaved, 0, false);
+					var __ONLINE_saved = instance_create_layer(0, 0, "Instances", objOnlineSaved);
+					__ONLINE_saved.__ONLINE_name = __ONLINE_sName;
+					audio_play_sound(sndOnlineSaved, 0, false);
 				}
 				break;
 		
@@ -109,15 +107,15 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 			case 1:
 				//RECEIVED MOVED
 				var __ONLINE_ID = buffer_read(buffer, buffer_string);
-				/*var __ONLINE_gameID = */buffer_read(buffer, buffer_string);
+				buffer_read(buffer, buffer_string);
 				var __ONLINE_found = false;
 				var __ONLINE_oPlayer = 0;
 				
-				for (var __ONLINE_i = 0; __ONLINE_i < (instance_number(objOnlinePlayer) && !__ONLINE_found); __ONLINE_i++){
-					__ONLINE_oPlayer = instance_find(objOnlinePlayer, __ONLINE_i);
-					
-					if (__ONLINE_oPlayer.__ONLINE_ID == __ONLINE_ID) {
+				with (objOnlinePlayer) {
+					if (self.__ONLINE_ID == __ONLINE_ID) {
+						__ONLINE_oPlayer = id;
 						__ONLINE_found = true;
+						break;
 					}
 				}
 				

@@ -70,7 +70,7 @@ if (global.connected) {
 				var __ONLINE_oChatbox = instance_create_layer(0, 0, "Instances", objOnlineChatBox);
 				__ONLINE_oChatbox.__ONLINE_message = __ONLINE_message;
 				__ONLINE_oChatbox.__ONLINE_follower = __ONLINE_p;
-				//audio_play_sound(__ONLINE_sndChatbox, 0, false);
+				audio_play_sound(sndOnlineChatBox, 0, false);
 			}
 		}
 	} else {
