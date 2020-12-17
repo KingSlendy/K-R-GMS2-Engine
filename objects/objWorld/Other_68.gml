@@ -3,11 +3,12 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 	var port = async_load[? "port"];
 	var buffer = async_load[? "buffer"];
 	buffer_seek(buffer, buffer_seek_start, 0);
-	var packet;
 	
-	do {
-		packet = buffer_read(buffer, buffer_u8);
-	} until (packet < 7 && packet != 3);
+	if (port == global.online.tcp) {
+		buffer_read_uv(buffer);
+	}
+	
+	var packet = buffer_read(buffer, buffer_u8);
 
 	if (port == global.online.tcp) {
 		switch (packet) {
@@ -48,7 +49,7 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				//INCOMPATIBLE VERSION
 				var __ONLINE_lastVersion = buffer_read(buffer, buffer_string);
 				show_message("Your tool uses the version " + __ONLINE_version + " but the oldest compatible version is " + __ONLINE_lastVersion + ".\nPlease update your tool.");
-				game_end();
+				online_disconnect();
 				exit;
 		
 			case 4:
@@ -97,7 +98,10 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				__ONLINE_selfID = buffer_read(buffer, buffer_string);
 				break;
 				
-			default: show_message("Received unexpected data from the server."); break;
+			default:
+				show_message("Received unexpected data from the server.");
+				online_disconnect();
+				break;
 		}
 	} else if (port == global.online.udp) {
 		switch (packet) {
@@ -137,7 +141,10 @@ if (global.connected && async_load[? "type"] == network_type_data) {
 				}
 				break;
 			
-			default: show_message("Received unexpected data from the server."); break;
+			default:
+				show_message("Received unexpected data from the server.");
+				online_disconnect();
+				break;
 		}
 	}
 }

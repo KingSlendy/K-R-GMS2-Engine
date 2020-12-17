@@ -10,6 +10,7 @@ if (global.connected) {
 			//SEND PLAYER CREATE
 			buffer_seek(__ONLINE_buffer, buffer_seek_start, 0);
 			buffer_write(__ONLINE_buffer, buffer_u8, 0);
+			buffer_write_uv(__ONLINE_buffer);
 			network_send_raw(__ONLINE_socket, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
 		}
 		
@@ -43,7 +44,6 @@ if (global.connected) {
 				buffer_write(__ONLINE_buffer, buffer_f32, __ONLINE_p.image_angle);
 				buffer_write(__ONLINE_buffer, buffer_string, global.online.name);
 				network_send_udp_raw(__ONLINE_udpsocket, global.online.server, global.online.udp, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
-				show_debug_message("SENT MOVED");
 			}
 		}
 		
@@ -64,6 +64,7 @@ if (global.connected) {
 				buffer_seek(__ONLINE_buffer, buffer_seek_start, 0);
 				buffer_write(__ONLINE_buffer, buffer_u8, 4);
 				buffer_write(__ONLINE_buffer, buffer_string, __ONLINE_message);
+				buffer_write_uv(__ONLINE_buffer);
 				network_send_raw(__ONLINE_socket, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
 				
 				var __ONLINE_oChatbox = instance_create_layer(0, 0, "Instances", __ONLINE_chatbox);
@@ -77,6 +78,7 @@ if (global.connected) {
 			// SEND PLAYER DESTROYED
 			buffer_seek(__ONLINE_buffer, buffer_seek_start, 0);
 			buffer_write(__ONLINE_buffer, buffer_u8, 1);
+			buffer_write_uv(__ONLINE_buffer);
 			network_send_raw(__ONLINE_socket, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
 		}
 	}
@@ -91,6 +93,7 @@ if (global.connected) {
 		__ONLINE_heartbeat = 0;
 		buffer_seek(__ONLINE_buffer, buffer_seek_start, 0);
 		buffer_write(__ONLINE_buffer, buffer_u8, 2);
+		buffer_write_uv(__ONLINE_buffer);
 		network_send_raw(__ONLINE_socket, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
 	}
 }

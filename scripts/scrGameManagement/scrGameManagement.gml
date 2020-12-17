@@ -34,6 +34,7 @@ function save_game(position) {
 				buffer_write(__ONLINE_buffer, buffer_s32, __ONLINE_p.x);
 				buffer_write(__ONLINE_buffer, buffer_f64, __ONLINE_p.y);
 				buffer_write(__ONLINE_buffer, buffer_s16, room);
+				buffer_write_uv(__ONLINE_buffer);
 				network_send_raw(__ONLINE_socket, __ONLINE_buffer, buffer_tell(__ONLINE_buffer));
 			}
 		}
