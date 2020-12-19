@@ -3,6 +3,7 @@
 
 [0.9.9]
 -Implemented online functionality using IWPO servers
+-Different platform behavior
 -Added misc SFX
 -Changed minor stuff
 

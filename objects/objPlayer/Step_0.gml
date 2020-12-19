@@ -5,10 +5,11 @@ if (frozen) {
 	dir = 0;
 }
 
-on_block = check_block(0, global.grav);
+on_block = check_object(0, global.grav, objBlock);
+var on_platform = instance_place(x, y + ((vspeed != 0) ? vspeed : global.grav), objPlatform);
 var on_vineR = (place_meeting(x - 1, y, objVineR) && !on_block);
 var on_vineL = (place_meeting(x + 1, y, objVineL) && !on_block);
-gravity = (!on_block) ? 0.4 * global.grav : 0;
+gravity = (!on_block && !platform_top(on_platform)) ? 0.4 * global.grav : 0;
 
 if (dir != 0) {
 	if (!on_vineR && !on_vineL) {
@@ -26,16 +27,10 @@ if (dir != 0) {
 	sprite_index = PLAYER_ACTIONS.IDLE;
 }
 
-if (!on_platform) {
-	if (vspeed * global.grav < 0) {
-		sprite_index = PLAYER_ACTIONS.JUMP;
-	} else if (vspeed * global.grav > 0) {
-		sprite_index = PLAYER_ACTIONS.FALL;
-	}
-} else {
-	if (!check_platform(0, 4 * global.grav)) {
-        on_platform = false;
-    }
+if (vspeed * global.grav < 0) {
+	sprite_index = PLAYER_ACTIONS.JUMP;
+} else if (vspeed * global.grav > 0) {
+	sprite_index = PLAYER_ACTIONS.FALL;
 }
 
 if (abs(vspeed) > max_vspeed) {
@@ -44,7 +39,7 @@ if (abs(vspeed) > max_vspeed) {
 
 if (!frozen) {
 	if (is_pressed(global.controls.jump)) {
-		if (jump_total > 0 && (on_block || on_platform || check_platform(0, 0))) {
+		if (jump_total > 0 && (on_block || on_platform != noone)) {
 			vspeed = -(jump_height[0] * global.grav);
 			sprite_index = PLAYER_ACTIONS.JUMP;
 			reset_jumps();
@@ -88,8 +83,8 @@ if (!frozen) {
 	        if (is_held(global.controls.jump)) {
 	            hspeed = (on_vineR) ? 15 : -15;
 	            vspeed = -9 * global.grav;
-	            audio_play_sound(sndVine, 0, false);
 	            sprite_index = PLAYER_ACTIONS.JUMP;
+				audio_play_sound(sndVine, 0, false);
 	        } else {
 	            hspeed = (on_vineR) ? 3 : -3;
 	            sprite_index = PLAYER_ACTIONS.FALL;
@@ -108,10 +103,10 @@ if (!frozen) {
 #endregion
 
 #region Block Collisions
-if (check_block(hspeed, 0)) {
+if (check_object(hspeed, 0, objBlock)) {
 	x = (hspeed > 0) ? floor(x) : ceil(x);
 	
-	while (!check_block(sign(hspeed), 0)) {
+	while (!check_object(sign(hspeed), 0, objBlock)) {
 		x += sign(hspeed);
 		
 		if (check_killer()) {
@@ -122,10 +117,10 @@ if (check_block(hspeed, 0)) {
 	hspeed = 0;
 }
 
-if (check_block(0, vspeed)) {
+if (check_object(0, vspeed, objBlock)) {
 	y = (vspeed > 0) ? floor(y) : ceil(y);
 	
-	while (!check_block(0, sign(vspeed))) {
+	while (!check_object(0, sign(vspeed), objBlock)) {
 		y += sign(vspeed);
 		
 		if (check_killer()) {
@@ -141,7 +136,25 @@ if (check_block(0, vspeed)) {
 	gravity = 0;
 }
 
-if (check_block(hspeed, vspeed)) {
+if (check_object(hspeed, vspeed, objBlock)) {
 	hspeed = 0;
+}
+
+if (vspeed * global.grav > 0) {
+	if (platform_top(on_platform)) {
+		y = (vspeed > 0) ? floor(y) : ceil(y);
+	
+		while (!check_object(0, global.grav, objPlatform)) {
+			y += global.grav;
+		
+			if (check_killer()) {
+				break;
+			}
+		}
+	
+		reset_jumps();
+		vspeed = 0;
+		gravity = 0;
+	}
 }
 #endregion

@@ -1,3 +1,11 @@
+function check_object(plus_h, plus_v, object) {
+	return place_meeting(x + plus_h, y + plus_v, object)
+}
+
+function platform_top(platform) {
+	return (platform != noone && ((global.grav == 1) ? bbox_bottom <= platform.bbox_top : bbox_top >= platform.bbox_bottom));
+}
+
 function reset_jumps() {
 	if (instance_exists(objPlayer)) {
 		with (objPlayer) {
@@ -6,16 +14,8 @@ function reset_jumps() {
 	}
 }
 
-function check_block(plus_h, plus_v) {
-	return place_meeting(x + plus_h, y + plus_v, objBlock)
-}
-
-function check_platform(plus_h, plus_v) {
-	return place_meeting(x + plus_h, y + plus_v, objPlatform);
-}
-
 function check_killer() {
-	if (!place_meeting(x, y, objBlock) && place_meeting(x, y, objPlayerKiller)) {
+	if (check_object(0, 0, objPlayerKiller) && !check_object(0, 0, objBlock)) {
 		kill_player();
 		return true;
 	}
