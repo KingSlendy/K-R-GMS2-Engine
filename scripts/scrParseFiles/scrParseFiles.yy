@@ -6,7 +6,7 @@
     "path": "folders/Scripts/System/Management.yy",
   },
   "resourceVersion": "1.0",
-  "name": "scrParseString",
+  "name": "scrParseFiles",
   "tags": [],
   "resourceType": "GMScript",
 }

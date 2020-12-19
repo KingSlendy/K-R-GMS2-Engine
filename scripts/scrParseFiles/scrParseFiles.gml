@@ -1,16 +1,26 @@
-function save_string(file, data, encode) {
+function save_file(file, data, encode) {
 	var saved = (encode) ?
 		compress_string(string_to_binary(data)) :
 		data;
 		
 	var buffer = buffer_create(string_byte_length(saved) + 1, buffer_fixed, 1);
 	buffer_write(buffer, buffer_string, saved);
+	
+	if (encode) {
+		buffer = buffer_compress(buffer, 0, buffer_tell(buffer));
+	}
+	
 	buffer_save(buffer, file);
 	buffer_delete(buffer);
 }
 
-function load_string(file, decode) {
+function load_file(file, decode) {
 	var buffer = buffer_load(file);
+	
+	if (decode) {
+		buffer = buffer_decompress(buffer);
+	}
+	
 	var data = buffer_read(buffer, buffer_string);
 	buffer_delete(buffer);
 	
