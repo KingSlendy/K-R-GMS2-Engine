@@ -1,7 +1,7 @@
 if (instance_exists(objPlayer)) {
 	var cam = camera_properties(0);
-	now_x = floor(objPlayer.x - cam.view_w / 2);
-	now_y = floor(objPlayer.y - cam.view_h / 2);
+	now_x = objPlayer.x - cam.view_w / 2;
+	now_y = objPlayer.y - cam.view_h / 2;
 
 	if (!leave_room) {
 		now_x = clamp(now_x, 0, room_width - cam.view_w);
