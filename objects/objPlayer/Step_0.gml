@@ -76,8 +76,8 @@ if (!frozen) {
 	if (on_vineR || on_vineL) {
 		xscale = (on_vineR) ? 1 : -1;
 	    vspeed = 2 * global.grav;
+		image_speed = 0.5;
 	    sprite_index = PLAYER_ACTIONS.SLIDE;
-	    image_speed = 1 / 2;
     
 	    if ((on_vineR && is_pressed(global.controls.right)) || (on_vineL && is_pressed(global.controls.left))) {
 	        if (is_held(global.controls.jump)) {
