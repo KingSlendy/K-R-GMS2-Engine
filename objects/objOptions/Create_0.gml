@@ -68,6 +68,7 @@ options = [
 		"Shoot",
 		"Restart",
 		"Pause",
+		
 		new Option("Reset Defaults", function() {
 			scrControlsConfig();
 		}, function() {

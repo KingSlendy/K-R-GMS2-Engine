@@ -14,7 +14,7 @@ switch (menu) {
 	
 	case MENU_OPTIONS.CONTROLS: 
 	    for (var i = 0; i < length - 1; i++) {
-	        var bind = control_bind(variable_struct_get(global.controls, string_lower(options[menu][i])));
+	        var bind = control_bind(global.controls[$ string_lower(options[menu][i])]);
         
 	        if (changing_controls && select[menu] == i) {
 	            bind = "---";

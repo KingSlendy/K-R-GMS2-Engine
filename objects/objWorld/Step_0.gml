@@ -2,7 +2,7 @@
 audio_master_gain(global.display.vol);
 gpu_set_texfilter(global.display.smooth);
 
-if (global.game_started && (global.time_when_dead || instance_exists(objPlayer))) {
+if (global.game_started && !global.game_paused && (global.time_when_dead || instance_exists(objPlayer))) {
     time_micro += delta_time;
     global.time += time_micro div 1000000;
     time_micro %= 1000000;
@@ -56,6 +56,7 @@ if (!global.game_paused) {
 
 	//Reset game
 	if (is_pressed(global.controls_misc.reset)) {
+		stop_music();
 		game_restart();
 	}
 }
@@ -82,7 +83,7 @@ if (global.debug_enable && global.game_started) {
 	
 	if (instance_exists(objPlayer)) {
 		if (global.debug_inf_jump) {
-			objPlayer.jump_left = -1;
+			reset_jumps();
 		}
 	
 		if (is_held(global.controls_debug.teleport)) {
