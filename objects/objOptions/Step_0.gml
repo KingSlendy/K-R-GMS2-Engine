@@ -27,12 +27,11 @@ if (is_pressed(global.controls_menu.down)) {
 }
 
 var length = array_length(options[menu]);
+select[menu] += length;
+select[menu] %= length;
 
 switch (menu) {
 	case MENU_OPTIONS.OPTIONS:
-		select[menu] += length;
-	    select[menu] %= length;
-
 	    if (is_pressed(global.controls_menu.accept) || select[menu] == 0) {
 			options[menu][select[menu]].on_select();
 		}
@@ -44,9 +43,6 @@ switch (menu) {
 		break;
 		
 	case MENU_OPTIONS.CONTROLS:
-		select[menu] += length;
-	    select[menu] %= length;
-    
 	    if (is_pressed(global.controls_menu.accept)) {
 	        if (select[menu] == length - 1) {
 	            options[menu][select[menu]].on_select();
@@ -64,9 +60,6 @@ switch (menu) {
 		break;
 		
 	case MENU_OPTIONS.ONLINE:
-		select[menu] += length;
-	    select[menu] %= length;
-		
 		if (is_pressed(global.controls_menu.accept)) {
 			options[menu][select[menu]].on_select();
 		}

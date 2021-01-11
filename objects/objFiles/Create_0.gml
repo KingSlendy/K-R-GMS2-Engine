@@ -19,8 +19,13 @@ for (var i = 0; i < global.total_saves; i++) {
 	cleanup_game();
 }
 
-menu = 0;
-select = array_create(3, 0);
+enum MENU_FILES {
+	DATA,
+	DIFFICULTY
+}
+
+menu = MENU_FILES.DATA;
+select = array_create(2, 0);
 spacing = 16 * 10;
 
 #region Item Images
