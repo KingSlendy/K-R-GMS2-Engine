@@ -9,7 +9,7 @@ if (changing_controls && is_pressed(vk_anykey)) {
         key = 16;
     }
     
-	variable_struct_set(global.controls, string_lower(options.controls[select[menu]]), key);
+	variable_struct_set(global.controls, string_lower(options[MENU_OPTIONS.CONTROLS][select[menu]]), key);
     save_config();
     audio_play_sound(sndJump, 0, false);
     changing_controls = false;
