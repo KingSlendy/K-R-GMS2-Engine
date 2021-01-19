@@ -1,15 +1,48 @@
-function camera_properties(num) {
-	var cam = view_camera[num];
-	
-	return {
-		view_cam: cam,
-		view_x: camera_get_view_x(cam),
-		view_y: camera_get_view_y(cam),
-		view_w: camera_get_view_width(cam),
-		view_h: camera_get_view_height(cam)
-	};
+#region Arrays
+function array_count(array, check) {
+	var count = 0;
+	var length = array_length(array);
+
+	for (var i = 0; i < length; i++) {
+	    if (array[i] == check) {
+	        count++;
+	    }
+	}
+
+	return count;
 }
 
+function array_contains(array, check) {
+	var length = array_length(array);
+	
+	for (var i = 0; i < length; i++) {
+	    if (array[i] == check) {
+	        return true;
+	    }
+	}
+
+	return false;
+}
+
+function array_shuffle(array) {
+	var length = array_length(array);
+
+	for (var i = 0; i < length; i++) {
+	    var temp = array[i];
+	    var rnd = irandom(length - 1);
+	    array[i] = array[rnd];
+	    array[rnd] = temp;
+	}
+
+	return array;
+}
+
+function array_pick(array) {
+	return array[irandom(array_length(array) - 1)];
+}
+#endregion
+
+#region Strings
 function string_interp(str) {
 	for (var i = 0; i < argument_count - 1; i++) {
 	    str = string_replace(str, "{" + string(i) + "}", string(argument[i + 1]));
@@ -72,6 +105,21 @@ function string_split(str, substr) {
 
 	return splitted;
 }
+#endregion
+
+#region Other
+function camera_properties(num) {
+	var cam = view_camera[num];
+	
+	return {
+		view_cam: cam,
+		view_x: camera_get_view_x(cam),
+		view_y: camera_get_view_y(cam),
+		view_w: camera_get_view_width(cam),
+		view_h: camera_get_view_height(cam)
+	};
+}
+
 
 function draw_text_outline(x, y, text, border_color) {
 	var color = draw_get_color();
@@ -87,6 +135,10 @@ function draw_text_outline(x, y, text, border_color) {
 	draw_text(x, y, text);
 }
 
+function map(value, from1, to1, from2, to2) {
+	return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+}
+
 function get_frames(seconds) {
 	return game_get_speed(gamespeed_fps) * seconds;
 }
@@ -94,3 +146,4 @@ function get_frames(seconds) {
 function print(str) {
 	show_debug_message(str);
 }
+#endregion
