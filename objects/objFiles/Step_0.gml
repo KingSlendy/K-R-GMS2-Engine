@@ -2,6 +2,8 @@ if (!is_pressed(vk_anykey)) {
 	exit;
 }
 
+var length = array_length(global.difficulties);
+
 switch (menu) {
 	case MENU_FILES.DATA:
 	    if (is_pressed(global.controls_menu.up)) {
@@ -39,14 +41,12 @@ switch (menu) {
 	        audio_play_sound(sndDoubleJump, 0, false);
 	    }
 		
-		var difficulties = array_length(global.difficulties);
-        
 	    if (!file_exists(string_interp("Data{0}", select[0] + 1))) {
-	        difficulties--;
+	        length--;
 	    }
         
-	    select[menu] += difficulties;
-	    select[menu] %= difficulties;
+	    select[menu] += length;
+	    select[menu] %= length;
     
 	    if (is_pressed(global.controls_menu.accept)) {
 	        global.save_num = select[0];
