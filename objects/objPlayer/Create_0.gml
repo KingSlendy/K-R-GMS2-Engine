@@ -1,5 +1,4 @@
 #region Init
-depth = -10;
 set_mask();
 image_speed = 0.2;
 xscale = global.last_xscale;

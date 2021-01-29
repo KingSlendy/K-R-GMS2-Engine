@@ -1,4 +1,3 @@
-depth = -1;
 var dir = (instance_exists(objPlayer)) ? objPlayer.xscale : 1;
 hspeed = 16 * dir;
 
