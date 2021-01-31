@@ -29,7 +29,7 @@ function get_music() {
 	        music = bgmGuyRock;
 	        break;
         
-	    default: music = -1; break;
+	    default: music = (!instance_exists(objPlayMusic)) ? -1 : -2; break;
 	}
 
 	if (music != -2) {
