@@ -10,3 +10,6 @@ if (instance_exists(objPlayer)) {
 
 	camera_set_view_pos(cam.view_cam, now_x, now_y);
 }
+
+view_enabled[0] = true;
+view_set_visible(0, true);

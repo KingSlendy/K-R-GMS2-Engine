@@ -1,8 +1,15 @@
 #region Movement
-var dir = (is_held(global.controls.right) - is_held(global.controls.left));
+var dir_left = is_held(global.controls.left);
+var dir_right = is_held(global.controls.right);
+var dir = 0;
 
-if (frozen) {
-	dir = 0;
+//If the player is frozen no movement is applied
+if (!frozen) {
+    if (dir_right) {
+        dir = 1;
+	} else if (dir_left) {
+        dir = -1;
+	}
 }
 
 on_block = check_object(0, global.grav, objBlock);
