@@ -94,19 +94,6 @@ function buffer_write_uv(buffer) {
 	length--;
 	value = ((value - offsets[length]) << used_bits[length]) | prefix_bits[length];
 	buffer_seek(buffer, buffer_seek_start, 0);
-	/*var mask = 0xFF << (8 * length);
-	
-	repeat (length + 1) {
-		var set = value & mask;
-		
-		while (set > 0 && set & 0xFF == 0) {
-			set = set >> 0xFF;
-		}
-		
-		buffer_write(buffer, buffer_u8, set);
-		value = value >> 8;
-		mask = mask >> 8;
-	}*/
 	
 	repeat (length + 1) {
 		buffer_write(buffer, buffer_u8, value & 0xFF);
