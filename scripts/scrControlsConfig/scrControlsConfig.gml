@@ -1,4 +1,5 @@
-global.controls = { //Default main controls
+//Default main controls
+global.controls = {
 	left: vk_left,
 	right: vk_right,
 	up: vk_up,
@@ -9,7 +10,8 @@ global.controls = { //Default main controls
 	pause: ord("P")
 };
 
-global.controls_menu = { //Default menu controls
+//Default menu controls
+global.controls_menu = {
 	left: vk_left,
 	right: vk_right,
 	up: vk_up,
@@ -19,7 +21,8 @@ global.controls_menu = { //Default menu controls
 	options: vk_enter
 };
 
-global.controls_misc = { //Default misc. controls
+//Default misc. controls
+global.controls_misc = {
 	fullscreen: vk_f4,
 	reset: vk_f2,
 	quit: vk_escape

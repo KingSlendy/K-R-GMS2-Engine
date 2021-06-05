@@ -1,8 +1,9 @@
-global.online = { //Default online configuration
+//Default online configuration
+global.online = {
 	name: "Anonymous",
 	password: "",
 	race: true,
-	server: "isocodes.org",
-	tcp: 3003,
-	udp: 3005
+	server: "dappermink.com",
+	tcp: 8002,
+	udp: 8003
 };
