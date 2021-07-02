@@ -1,3 +1,3 @@
 repeat (20) {
-    instance_create_layer(x, y, "Instances", objBlood);
+    instance_create_layer(x, y, "Player", objBlood);
 }

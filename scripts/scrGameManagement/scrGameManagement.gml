@@ -8,6 +8,7 @@ function save_game(position) {
 	
 	var data = {
 		player: global.save_player,
+		
 		info: {
 			difficulty: global.difficulty,
 			deaths: global.deaths,
@@ -61,7 +62,7 @@ function load_game(position) {
 		global.game_started = true;
 		global.auto_save = false;
 		global.grav = global.save_player.sgrav;
-		instance_create_layer(global.save_player.sx, global.save_player.sy, "Instances", objPlayer);
+		instance_create_layer(global.save_player.sx, global.save_player.sy, "Player", objPlayer);
 		room_goto(asset_get_index(global.save_player.sroom));
 	}
 	
@@ -93,6 +94,7 @@ function cleanup_game() {
 	global.deaths = 0;
 	global.time = 0;
 	global.clear = false;
+	
 	global.items = {
 		secrets: array_create(8, false),
 		bosses: array_create(8, false)

@@ -13,7 +13,7 @@ if (!frozen) {
 }
 
 on_block = check_object(0, global.grav, objBlock);
-var on_platform = instance_place(x, y + ((vspeed != 0) ? vspeed : global.grav), objPlatform);
+on_platform = instance_place(x, y + ((vspeed != 0) ? vspeed : global.grav), objPlatform);
 var on_vineR = (place_meeting(x - 1, y, objVineR) && !on_block);
 var on_vineL = (place_meeting(x + 1, y, objVineL) && !on_block);
 gravity = (!on_block && !platform_top(on_platform)) ? 0.4 * global.grav : 0;
@@ -110,6 +110,7 @@ if (!frozen) {
 #endregion
 
 #region Block Collisions
+//Wall detected, needs to snap and stop to the block
 if (check_object(hspeed, 0, objBlock)) {
 	x = (hspeed > 0) ? floor(x) : ceil(x);
 	
@@ -124,6 +125,7 @@ if (check_object(hspeed, 0, objBlock)) {
 	hspeed = 0;
 }
 
+//Floor detected, needs to snap and stop to the block
 if (check_object(0, vspeed, objBlock)) {
 	y = (vspeed > 0) ? floor(y) : ceil(y);
 	
@@ -143,8 +145,24 @@ if (check_object(0, vspeed, objBlock)) {
 	gravity = 0;
 }
 
+//Favors floors instead of walls
 if (check_object(hspeed, vspeed, objBlock)) {
-	hspeed = 0;
+	y = (vspeed > 0) ? floor(y) : ceil(y);
+	
+	while (!check_object(hspeed, sign(vspeed), objBlock)) {
+		y += sign(vspeed);
+		
+		if (check_killer()) {
+			break;
+		}
+	}
+	
+	if (vspeed * global.grav > 0) {
+		reset_jumps();
+	}
+	
+	vspeed = 0;
+	gravity = 0;
 }
 
 if (vspeed * global.grav > 0) {
