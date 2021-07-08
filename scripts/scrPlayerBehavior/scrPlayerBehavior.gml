@@ -1,9 +1,36 @@
-function check_object(plus_h, plus_v, object) {
-	return place_meeting(x + plus_h, y + plus_v, object)
+function player_jump() {
+	if (jump_total > 0 && (on_block || on_platform)) {
+		vspeed = -(jump_height[0] * global.grav);
+		sprite_index = PLAYER_ACTIONS.JUMP;
+		reset_jumps();
+		audio_play_sound(sndJump, 0, false);
+	} else if (jump_left > 0 || place_meeting(x, y + global.grav, objWater) || jump_total == -1) {
+		vspeed = -(jump_height[1] * global.grav);
+		sprite_index = PLAYER_ACTIONS.JUMP;
+			
+		if (!place_meeting(x, y + global.grav, objWaterRefresh)) {
+			if (jump_left > 0) {
+				jump_left--;
+			}
+		} else {
+			reset_jumps();
+		}
+			
+		audio_play_sound(sndDoubleJump, 0, false);
+	}
 }
 
-function platform_top(platform) {
-	return (platform != noone && ((global.grav == 1) ? bbox_bottom <= platform.bbox_top : bbox_top >= platform.bbox_bottom));
+function player_fall() {
+	if (vspeed * global.grav < 0) {
+		vspeed *= 0.45;
+	}
+}
+
+function player_shoot() {
+	if (instance_number(objBullet) < 4) {
+		instance_create_layer(x, y, "Player", objBullet);
+		audio_play_sound(sndShoot, 0, false);
+	}
 }
 
 function reset_jumps() {
@@ -12,15 +39,6 @@ function reset_jumps() {
 			jump_left = jump_total - 1;
 		}
 	}
-}
-
-function check_killer() {
-	if (check_object(0, 0, objPlayerKiller) && !check_object(0, 0, objBlock)) {
-		kill_player();
-		return true;
-	}
-	
-	return false;
 }
 
 function kill_player() {
@@ -61,7 +79,6 @@ function flip_grav() {
 			set_mask();
 	        vspeed = 0;
 	        y += 4 * global.grav;
-	        gravity *= -1;
 	    }
     
 	    reset_jumps();

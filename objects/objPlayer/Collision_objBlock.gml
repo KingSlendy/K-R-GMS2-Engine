@@ -1,17 +1,18 @@
-if (check_block(hspeed, 0)) {
-	x = (hspeed > 0) ? floor(x) : ceil(x);
-	
-	while (!check_block(sign(hspeed), 0)) {
+x = xprevious;
+y = yprevious;
+
+//Detect horizontal collision
+if (place_meeting(x + hspeed, y, objBlock)) {
+	while (!place_meeting(x + sign(hspeed), y, objBlock)) {
 		x += sign(hspeed);
 	}
 	
-	hspeed = 0;
+    hspeed = 0;
 }
 
-if (check_block(0, vspeed)) {
-	y = (vspeed > 0) ? floor(y) : y;
-	
-	while (!check_block(0, sign(vspeed))) {
+//Detect vertical collision
+if (place_meeting(x, y + vspeed, objBlock)) {
+	while (!place_meeting(x, y + sign(vspeed), objBlock)) {
 		y += sign(vspeed);
 	}
 	
@@ -19,17 +20,13 @@ if (check_block(0, vspeed)) {
 		reset_jumps();
 	}
 	
-	vspeed = 0;
-	gravity = 0;
+    vspeed = 0;
 }
 
-if (check_block(hspeed, vspeed)) {
+//Detect diagonal collision
+if (place_meeting(x + hspeed, y + vspeed, objBlock)) {
 	hspeed = 0;
 }
 
-/*if (place_meeting(x + hspeed, y + vspeed, objPlayerKiller)) {
-	with (instance_place(x + hspeed, y + vspeed, objPlayerKiller)) {
-		image_blend = c_red;
-		alarm[0] = game_get_speed(gamespeed_fps) / 2;
-	}
-}
+x += hspeed;
+y += vspeed;

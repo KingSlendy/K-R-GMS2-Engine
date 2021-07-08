@@ -173,7 +173,7 @@
     {"id":{"name":"tlsDefault","path":"tilesets/tlsDefault/tlsDefault.yy",},"order":1,},
     {"id":{"name":"sprItemBoss8","path":"sprites/sprItemBoss8/sprItemBoss8.yy",},"order":7,},
     {"id":{"name":"sprPlayerStart","path":"sprites/sprPlayerStart/sprPlayerStart.yy",},"order":7,},
-    {"id":{"name":"rTemplate","path":"rooms/rTemplate/rTemplate.yy",},"order":2,},
+    {"id":{"name":"rTemplate","path":"rooms/rTemplate/rTemplate.yy",},"order":3,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},

@@ -1,8 +1,8 @@
 function save_game(position) {
 	if (position) {
 		global.save_player.sroom = room_get_name(room);
-		global.save_player.sx = objPlayer.x;
-		global.save_player.sy = objPlayer.y;
+		global.save_player.sx = floor(objPlayer.x);
+		global.save_player.sy = floor(objPlayer.y);
 		global.save_player.sgrav = global.grav;
 	}
 	

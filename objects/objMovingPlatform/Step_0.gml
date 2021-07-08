@@ -1,24 +1,37 @@
-if (speed != 0) {
-	if (bounce) {
-        if (check_object(hspeed, 0, objBlock)) {
-            hspeed *= -1;
+if (speed != 0 || yspeed != 0) {
+    if (bounce) {
+        if (place_meeting(x + hspeed, y, objBlock)) {
+            hspeed = -hspeed;
         }
         
-        if (check_object(0, vspeed, objBlock))  {
-            vspeed *= -1;
+        if (place_meeting(x, y + vspeed + yspeed, objBlock))  {
+            if (vspeed != 0) {
+                yspeed = -vspeed;
+                vspeed = 0;
+            } else  {
+                vspeed = -yspeed;
+                yspeed = 0;
+            }
         }
     }
-	
+    
     with (instance_place(x, y - 2 * global.grav, objPlayer)) {
-		if (platform_top(other) && !check_object(0, global.grav, objBlock)) {
-			if (!check_object(other.hspeed, 0, objBlock)) {
-				x += other.hspeed;
-			}
-			
-			if (!check_object(0, other.vspeed, objBlock)) {
-				y += other.vspeed;
-				gravity = 0;
-			}
-		}
+        y += other.vspeed + other.yspeed;
+        
+        if (!place_meeting(x + other.hspeed, y, objBlock)) {
+            x += other.hspeed;
+        }
+    }
+    
+    y += yspeed;
+    
+    if (vspeed < 0) {
+        yspeed = vspeed;
+        vspeed = 0;
+    }
+    
+    if (yspeed > 0) {
+        vspeed = yspeed;
+        yspeed = 0;
     }
 }

@@ -1,4 +1,6 @@
 #region Movement
+gravity = 0.4 * global.grav;
+
 var dir_left = is_held(global.controls.left);
 var dir_right = is_held(global.controls.right);
 var dir = 0;
@@ -12,11 +14,9 @@ if (!frozen) {
 	}
 }
 
-on_block = check_object(0, global.grav, objBlock);
-on_platform = instance_place(x, y + ((vspeed != 0) ? vspeed : global.grav), objPlatform);
+on_block = place_meeting(x, y + global.grav, objBlock);
 var on_vineR = (place_meeting(x - 1, y, objVineR) && !on_block);
 var on_vineL = (place_meeting(x + 1, y, objVineL) && !on_block);
-gravity = (!on_block && !platform_top(on_platform)) ? 0.4 * global.grav : 0;
 
 if (dir != 0) {
 	if (!on_vineR && !on_vineL) {
@@ -34,10 +34,16 @@ if (dir != 0) {
 	sprite_index = PLAYER_ACTIONS.IDLE;
 }
 
-if (vspeed * global.grav < 0) {
-	sprite_index = PLAYER_ACTIONS.JUMP;
-} else if (vspeed * global.grav > 0) {
-	sprite_index = PLAYER_ACTIONS.FALL;
+if (!on_platform) {
+    if (vspeed * global.grav < -0.05) {
+        sprite_index = PLAYER_ACTIONS.JUMP;
+    } else if (vspeed * global.grav > 0.05) {
+        sprite_index = PLAYER_ACTIONS.FALL;
+    }
+} else {
+    if (!place_meeting(x, y + 4 * global.grav, objPlatform)) {
+        on_platform = false;
+    }
 }
 
 if (abs(vspeed) > max_vspeed) {
@@ -46,38 +52,15 @@ if (abs(vspeed) > max_vspeed) {
 
 if (!frozen) {
 	if (is_pressed(global.controls.jump)) {
-		if (jump_total > 0 && (on_block || on_platform != noone)) {
-			vspeed = -(jump_height[0] * global.grav);
-			sprite_index = PLAYER_ACTIONS.JUMP;
-			reset_jumps();
-			audio_play_sound(sndJump, 0, false);
-		} else if (jump_left > 0 || place_meeting(x, y, objWater) || jump_total == -1) {
-			vspeed = -(jump_height[1] * global.grav);
-			sprite_index = PLAYER_ACTIONS.JUMP;
-			
-			if (!place_meeting(x, y, objWaterRefresh)) {
-				if (jump_left > 0) {
-					jump_left--;
-				}
-			} else {
-				reset_jumps();
-			}
-			
-			audio_play_sound(sndDoubleJump, 0, false);
-		}
+		player_jump();
 	}
 	
 	if (is_released(global.controls.jump)) {
-		if (vspeed * global.grav < 0) {
-			vspeed *= 0.45;
-		}
+		player_fall();
 	}
 	
 	if (is_pressed(global.controls.shoot)) {
-		if (instance_number(objBullet) < 4) {
-		    instance_create_layer(x, y, "Instances", objBullet);
-			audio_play_sound(sndShoot, 0, false);
-		}
+		player_shoot();
 	}
 	
 	if (on_vineR || on_vineL) {
@@ -105,81 +88,6 @@ if (!frozen) {
 		if (dir != 0) {
 			hspeed = dir;
 		}
-	}
-}
-#endregion
-
-#region Block Collisions
-//Wall detected, needs to snap and stop to the block
-if (check_object(hspeed, 0, objBlock)) {
-	x = (hspeed > 0) ? floor(x) : ceil(x);
-	
-	while (!check_object(sign(hspeed), 0, objBlock)) {
-		x += sign(hspeed);
-		
-		if (check_killer()) {
-			break;
-		}
-	}
-	
-	hspeed = 0;
-}
-
-//Floor detected, needs to snap and stop to the block
-if (check_object(0, vspeed, objBlock)) {
-	y = (vspeed > 0) ? floor(y) : ceil(y);
-	
-	while (!check_object(0, sign(vspeed), objBlock)) {
-		y += sign(vspeed);
-		
-		if (check_killer()) {
-			break;
-		}
-	}
-	
-	if (vspeed * global.grav > 0) {
-		reset_jumps();
-	}
-	
-	vspeed = 0;
-	gravity = 0;
-}
-
-//Favors floors instead of walls
-if (check_object(hspeed, vspeed, objBlock)) {
-	y = (vspeed > 0) ? floor(y) : ceil(y);
-	
-	while (!check_object(hspeed, sign(vspeed), objBlock)) {
-		y += sign(vspeed);
-		
-		if (check_killer()) {
-			break;
-		}
-	}
-	
-	if (vspeed * global.grav > 0) {
-		reset_jumps();
-	}
-	
-	vspeed = 0;
-	gravity = 0;
-}
-
-if (vspeed * global.grav > 0) {
-	if (platform_top(on_platform)) {
-		y = (vspeed > 0) ? floor(y) : ceil(y);
-	
-		while (!check_object(0, global.grav, objPlatform)) {
-			y += global.grav;
-		
-			if (check_killer()) {
-				break;
-			}
-		}
-	
-		reset_jumps();
-		vspeed = 0;
-		gravity = 0;
 	}
 }
 #endregion
