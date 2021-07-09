@@ -26,4 +26,8 @@ if (global.auto_save) {
 	save_game(true);
 	global.auto_save = false;
 }
+
+if (global.difficulty == 0 && !instance_exists(objBow)) {
+	instance_create_layer(x, y, "Player", objBow);
+}
 #endregion

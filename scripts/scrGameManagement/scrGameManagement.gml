@@ -102,7 +102,7 @@ function cleanup_game() {
 }
 
 function start_game(diff) {
-	var save = string_interp("Data{0}", global.save_num);
+	var save = string_interp("Data{0}", global.save_num + 1);
 	var length = array_length(global.difficulties);
 
 	if (diff == length - 1) {
