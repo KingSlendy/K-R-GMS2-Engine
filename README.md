@@ -1,9 +1,8 @@
 # I-Wanna-Be-The-King-GMS2-Engine
 
 
-I made this engine 100% from scratch, I tried to make it as similar to YoYo's physics as possible but
-the physics were made from the ground up by me, platforms included (they were a pain)
-So it's possible they have bugs I wasn't able to find
+This a game engine I tried to adapt to work without solids but trying to be as accurate as possible to Yuuutu physics
+Everything was made entirely from scratch, but heavily based on YoYo's engine
 
 It also has support for IWPO integrated within the engine itself
 
