@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e6e7baa2-a80d-4cdd-8c1c-f4efa3c57cbd","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Blocks",
     "path": "folders/Sprites/Images/Blocks.yy",

@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"201fb6b9-ea45-4c62-8b4a-4fb85e864710","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Platforms",
     "path": "folders/Sprites/Images/Platforms.yy",

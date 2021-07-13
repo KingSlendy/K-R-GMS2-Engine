@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7921d81c-56d8-4d8f-9d43-94d5134e5df0","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Secrets",
     "path": "folders/Sprites/Images/Items/Secrets.yy",
