@@ -1,5 +1,5 @@
 function player_jump() {
-	if (jump_total > 0 && (on_block || on_platform)) {
+	if (jump_total > 0 && (on_block || place_meeting(x, y + global.grav, objPlatform) || on_platform)) {
 		vspeed = -(jump_height[0] * global.grav);
 		sprite_index = PLAYER_ACTIONS.JUMP;
 		reset_jumps();

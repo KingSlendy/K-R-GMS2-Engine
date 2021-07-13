@@ -4,6 +4,10 @@ image_speed = 0.2;
 xscale = global.last_xscale;
 max_hspeed = 3;
 max_vspeed = 9;
+grav = 0.4;
+hprevious = 0;
+vprevious = 0;
+gprevious = 0;
 
 jump_height = [8.5, 7];
 jump_total = 2;

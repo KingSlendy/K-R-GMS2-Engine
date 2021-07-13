@@ -1,5 +1,9 @@
 #region Movement
-gravity = 0.4 * global.grav;
+gravity = grav * global.grav;
+
+if (on_platform) {
+	gravity = 0;
+}
 
 var dir_left = is_held(global.controls.left);
 var dir_right = is_held(global.controls.right);
@@ -90,4 +94,60 @@ if (!frozen) {
 		}
 	}
 }
+#endregion
+
+#region Collision
+//Storing the previous x,y
+xprevious = x;
+yprevious = y;
+
+//Moving the player before GM moves it automatically
+vspeed += gravity;
+x += hspeed;
+y += vspeed;
+
+//Collision with a block
+if (place_meeting(x, y, objBlock)) {
+	x = xprevious;
+	y = yprevious;
+
+	//Detect horizontal collision
+	if (place_meeting(x + hspeed, y, objBlock)) {
+		while (!place_meeting(x + sign(hspeed), y, objBlock)) {
+			x += sign(hspeed);
+		}
+	
+	    hspeed = 0;
+	}
+
+	//Detect vertical collision
+	if (place_meeting(x, y + vspeed, objBlock)) {
+		while (!place_meeting(x, y + sign(vspeed), objBlock)) {
+			y += sign(vspeed);
+		}
+	
+		if (vspeed * global.grav > 0) {
+			reset_jumps();
+		}
+	
+	    vspeed = 0;
+		gravity = 0;
+	}
+
+	//Detect diagonal collision
+	if (place_meeting(x + hspeed, y + vspeed, objBlock)) {
+		hspeed = 0;
+	}
+
+	x += hspeed;
+	y += vspeed;
+}
+
+//Stores the current speed and stops overriding GM from the automatic movement
+hprevious = hspeed;
+vprevious = vspeed;
+gprevious = gravity;
+hspeed = 0;
+vspeed = 0;
+gravity = 0;
 #endregion

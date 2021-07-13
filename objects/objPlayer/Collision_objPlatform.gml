@@ -1,4 +1,4 @@
-/*if (global.grav == 1) {
+if (global.grav == 1) {
     if (y - vspeed / 2 <= other.y) {
         if (other.vspeed >= 0) {
             y = other.y - 9;

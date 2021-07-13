@@ -1,2 +1,2 @@
-bounce = true;
 event_inherited();
+bounce = true;

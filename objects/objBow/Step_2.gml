@@ -4,4 +4,6 @@ if (instance_exists(objPlayer)) {
 	y = objPlayer.y;
 	image_xscale = objPlayer.xscale;
 	image_yscale = global.grav;
+} else {
+	instance_destroy();
 }

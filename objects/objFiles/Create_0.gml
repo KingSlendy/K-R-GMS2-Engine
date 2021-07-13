@@ -15,9 +15,9 @@ for (var i = 0; i < global.total_saves; i++) {
 		clear: global.clear,
 		items: global.items
 	};
-	
-	cleanup_game();
 }
+
+cleanup_game();
 
 enum MENU_FILES {
 	DATA,

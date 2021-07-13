@@ -26,18 +26,16 @@ for (var i = 0; i < global.total_saves; i++) {
     draw_text(x, y + 78 + spacing * i, string_interp("Deaths: {0}", data.deaths));
     draw_text(x, y + 100 + spacing * i, string_interp("Time: {0}", formatted_time(data.time)));
     
-	var length = array_length(global.items.secrets);
-	
-    for (var j = 0; j < length; j++) {
+	//Secrets and Bosses
+    for (var j = 0; j < array_length(global.items.secrets); j++) {
         draw_sprite_ext(images_secrets[j], 0, x + 160 + 32 * j, y + 16 + spacing * i, 1, 1, 0, (data.items.secrets[j]) ? c_white : c_black, 1);
     }
-	
-	length = array_length(global.items.secrets);
     
-    for (var j = 0; j < length; j++) {
+    for (var j = 0; j < array_length(global.items.bosses); j++) {
         draw_sprite_ext(images_bosses[j], 0, x + 160 + 32 * j, y + 48 + spacing * i, 1, 1, 0, (data.items.bosses[j]) ? c_white : c_black, 1);
     }
-        
+      
+	//Clear
     if (data.clear) {
 		draw_set_font(fntMenu4);
         draw_set_halign(fa_center);

@@ -1,7 +1,7 @@
-//Detects a killer object
-if (place_meeting(x, y, objPlayerKiller)) {
-	kill_player();
-}
+//Returns previous speed
+hspeed = hprevious;
+vspeed = vprevious;
+gravity = gprevious;
 
 //Touches screen border
 if (global.outside_kills && outside_room()) {
