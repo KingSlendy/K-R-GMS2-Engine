@@ -1,10 +1,6 @@
 #region Movement
 gravity = grav * global.grav;
 
-if (on_platform) {
-	gravity = 0;
-}
-
 var dir_left = is_held(global.controls.left);
 var dir_right = is_held(global.controls.right);
 var dir = 0;
@@ -106,7 +102,7 @@ vspeed += gravity;
 x += hspeed;
 y += vspeed;
 
-//Collision with a block
+//Collision with block
 if (place_meeting(x, y, objBlock)) {
 	x = xprevious;
 	y = yprevious;
@@ -140,6 +136,26 @@ if (place_meeting(x, y, objBlock)) {
 	}
 
 	x += hspeed;
+	y += vspeed;
+}
+
+//Collision with platform
+var platform = instance_place(x, y, objPlatform);
+
+if (platform != noone && vspeed > 0 && bbox_bottom - vspeed < platform.bbox_top) {
+	y = yprevious;
+	
+	//Detect vertical collision
+	if (place_meeting(x, y + vspeed, objPlatform)) {
+		while (!place_meeting(x, y + 1, objPlatform)) {
+			y++;
+		}
+
+	    vspeed = 0;
+		gravity = 0;
+		reset_jumps();
+	}
+	
 	y += vspeed;
 }
 
