@@ -142,21 +142,29 @@ if (place_meeting(x, y, objBlock)) {
 //Collision with platform
 var platform = instance_place(x, y, objPlatform);
 
-if (platform != noone && vspeed > 0 && bbox_bottom - vspeed < platform.bbox_top) {
-	y = yprevious;
-	
-	//Detect vertical collision
-	if (place_meeting(x, y + vspeed, objPlatform)) {
-		while (!place_meeting(x, y + 1, objPlatform)) {
-			y++;
-		}
+if (platform != noone) {
+	var bbox_check = (bbox_bottom - max(1, abs(vspeed)) <= platform.bbox_top);
 
-	    vspeed = 0;
-		gravity = 0;
-		reset_jumps();
+	if (global.grav == -1) {
+		bbox_check = (bbox_top + max(1, abs(vspeed)) >= platform.bbox_bottom);
 	}
+
+	if (vspeed * global.grav > 0 && bbox_check) {
+		y = yprevious;
 	
-	y += vspeed;
+		//Detect vertical collision
+		if (place_meeting(x, y + vspeed, objPlatform)) {
+			while (!place_meeting(x, y + global.grav, objPlatform)) {
+				y += global.grav;
+			}
+
+		    vspeed = 0;
+			gravity = 0;
+			reset_jumps();
+		}
+	
+		y += vspeed;
+	}
 }
 
 //Stores the current speed and stops overriding GM from the automatic movement
