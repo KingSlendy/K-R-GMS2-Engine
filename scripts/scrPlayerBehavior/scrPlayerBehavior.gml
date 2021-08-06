@@ -1,11 +1,11 @@
 function player_jump() {
 	if (jump_total > 0 && (on_block || place_meeting(x, y + global.grav, objPlatform) || on_platform)) {
-		vspeed = -(jump_height[0] * global.grav);
+		vspd = -(jump_height[0] * global.grav);
 		sprite_index = PLAYER_ACTIONS.JUMP;
 		reset_jumps();
 		audio_play_sound(sndJump, 0, false);
 	} else if (jump_left > 0 || place_meeting(x, y + global.grav, objWater) || jump_total == -1) {
-		vspeed = -(jump_height[1] * global.grav);
+		vspd = -(jump_height[1] * global.grav);
 		sprite_index = PLAYER_ACTIONS.JUMP;
 			
 		if (!place_meeting(x, y + global.grav, objWaterRefresh)) {
@@ -21,8 +21,8 @@ function player_jump() {
 }
 
 function player_fall() {
-	if (vspeed * global.grav < 0) {
-		vspeed *= 0.45;
+	if (vspd * global.grav < 0) {
+		vspd *= 0.45;
 	}
 }
 
@@ -77,7 +77,7 @@ function flip_grav() {
 
 	    with (objPlayer) {
 			set_mask();
-	        vspeed = 0;
+	        vspd = 0;
 	        y += 4 * global.grav;
 	    }
     

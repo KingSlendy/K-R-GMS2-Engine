@@ -1,3 +1,3 @@
-if (objPlayer.vspeed * global.grav > 2) {
-    objPlayer.vspeed = 2 * global.grav;
+if (other.vspd * global.grav > 2) {
+    other.vspd = 2 * global.grav;
 }

@@ -1,5 +1,5 @@
 #region Movement
-gravity = grav * global.grav;
+grav = grav_amount * global.grav;
 
 var dir_left = is_held(global.controls.left);
 var dir_right = is_held(global.controls.right);
@@ -24,20 +24,20 @@ if (dir != 0) {
 	}
 	
 	if ((dir == 1 && !on_vineR) || (dir == -1 && !on_vineL)) {
-		hspeed = max_hspeed * dir;
+		hspd = max_hspd * dir;
 		image_speed = 0.5;
 		sprite_index = PLAYER_ACTIONS.RUN;
 	}
 } else {
-	hspeed = 0;
+	hspd = 0;
 	image_speed = 0.2;
 	sprite_index = PLAYER_ACTIONS.IDLE;
 }
 
 if (!on_platform) {
-    if (vspeed * global.grav < -0.05) {
+    if (vspd * global.grav < -0.05) {
         sprite_index = PLAYER_ACTIONS.JUMP;
-    } else if (vspeed * global.grav > 0.05) {
+    } else if (vspd * global.grav > 0.05) {
         sprite_index = PLAYER_ACTIONS.FALL;
     }
 } else {
@@ -46,8 +46,8 @@ if (!on_platform) {
     }
 }
 
-if (abs(vspeed) > max_vspeed) {
-	vspeed = max_vspeed * sign(vspeed);
+if (abs(vspd) > max_vspd) {
+	vspd = max_vspd * sign(vspd);
 }
 
 if (!frozen) {
@@ -65,18 +65,18 @@ if (!frozen) {
 	
 	if (on_vineR || on_vineL) {
 		xscale = (on_vineR) ? 1 : -1;
-	    vspeed = 2 * global.grav;
+	    vspd = 2 * global.grav;
 		image_speed = 0.5;
 	    sprite_index = PLAYER_ACTIONS.SLIDE;
     
 	    if ((on_vineR && is_pressed(global.controls.right)) || (on_vineL && is_pressed(global.controls.left))) {
 	        if (is_held(global.controls.jump)) {
-	            hspeed = (on_vineR) ? 15 : -15;
-	            vspeed = -9 * global.grav;
+	            hspd = (on_vineR) ? 15 : -15;
+	            vspd = -9 * global.grav;
 	            sprite_index = PLAYER_ACTIONS.JUMP;
 				audio_play_sound(sndVine, 0, false);
 	        } else {
-	            hspeed = (on_vineR) ? 3 : -3;
+	            hspd = (on_vineR) ? 3 : -3;
 	            sprite_index = PLAYER_ACTIONS.FALL;
 	        }
 	    }
@@ -86,7 +86,7 @@ if (!frozen) {
 		dir = (is_pressed(global.controls_debug.alignR) - is_pressed(global.controls_debug.alignL));
 		
 		if (dir != 0) {
-			hspeed = dir;
+			hspd = dir;
 		}
 	}
 }
@@ -98,9 +98,9 @@ xprevious = x;
 yprevious = y;
 
 //Moving the player before GM moves it automatically
-vspeed += gravity;
-x += hspeed;
-y += vspeed;
+vspd += grav;
+x += hspd;
+y += vspd;
 
 //Collision with block
 if (place_meeting(x, y, objBlock)) {
@@ -108,70 +108,62 @@ if (place_meeting(x, y, objBlock)) {
 	y = yprevious;
 
 	//Detect horizontal collision
-	if (place_meeting(x + hspeed, y, objBlock)) {
-		while (!place_meeting(x + sign(hspeed), y, objBlock)) {
-			x += sign(hspeed);
+	if (place_meeting(x + hspd, y, objBlock)) {
+		while (!place_meeting(x + sign(hspd), y, objBlock)) {
+			x += sign(hspd);
 		}
 	
-	    hspeed = 0;
+	    hspd = 0;
 	}
 
 	//Detect vertical collision
-	if (place_meeting(x, y + vspeed, objBlock)) {
-		while (!place_meeting(x, y + sign(vspeed), objBlock)) {
-			y += sign(vspeed);
+	if (place_meeting(x, y + vspd, objBlock)) {
+		while (!place_meeting(x, y + sign(vspd), objBlock)) {
+			y += sign(vspd);
 		}
 	
-		if (vspeed * global.grav > 0) {
+		if (vspd * global.grav > 0) {
 			reset_jumps();
 		}
 	
-	    vspeed = 0;
-		gravity = 0;
+	    vspd = 0;
+		grav = 0;
 	}
 
 	//Detect diagonal collision
-	if (place_meeting(x + hspeed, y + vspeed, objBlock)) {
-		hspeed = 0;
+	if (place_meeting(x + hspd, y + vspd, objBlock)) {
+		hspd = 0;
 	}
 
-	x += hspeed;
-	y += vspeed;
+	x += hspd;
+	y += vspd;
 }
 
 //Collision with platform
 var platform = instance_place(x, y, objPlatform);
 
 if (platform != noone) {
-	var bbox_check = (bbox_bottom - max(1, abs(vspeed)) <= platform.bbox_top);
+	var bbox_check = (bbox_bottom - max(1, abs(vspd)) <= platform.bbox_top);
 
 	if (global.grav == -1) {
-		bbox_check = (bbox_top + max(1, abs(vspeed)) >= platform.bbox_bottom);
+		bbox_check = (bbox_top + max(1, abs(vspd)) >= platform.bbox_bottom);
 	}
 
-	if (vspeed * global.grav > 0 && bbox_check) {
+	if (vspd * global.grav > 0 && bbox_check) {
 		y = yprevious;
 	
 		//Detect vertical collision
-		if (place_meeting(x, y + vspeed, objPlatform)) {
+		if (place_meeting(x, y + vspd, objPlatform)) {
 			while (!place_meeting(x, y + global.grav, objPlatform)) {
 				y += global.grav;
 			}
 
-		    vspeed = 0;
-			gravity = 0;
+		    vspd = 0;
+			grav = 0;
 			reset_jumps();
 		}
 	
-		y += vspeed;
+		y += vspd;
 	}
 }
-
-//Stores the current speed and stops overriding GM from the automatic movement
-hprevious = hspeed;
-vprevious = vspeed;
-gprevious = gravity;
-hspeed = 0;
-vspeed = 0;
-gravity = 0;
 #endregion
