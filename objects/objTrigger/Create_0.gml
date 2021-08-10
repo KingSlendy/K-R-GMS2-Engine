@@ -1,1 +1,1 @@
-triggered = false;
+triggered = -1;
