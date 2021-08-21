@@ -1,0 +1,2 @@
+x += hspd;
+y += vspd;

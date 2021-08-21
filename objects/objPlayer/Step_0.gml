@@ -93,17 +93,19 @@ if (!frozen) {
 #endregion
 
 #region Collision
-//Storing the previous x,y
+//Storing the previous x and y
 xprevious = x;
 yprevious = y;
 
-//Moving the player before GM moves it automatically
+//Moving the player manually
 vspd += grav;
 x += hspd;
 y += vspd;
 
 //Collision with block
-if (place_meeting(x, y, objBlock)) {
+var block = instance_place(x, y, objBlock);
+
+if (block != noone) {
 	x = xprevious;
 	y = yprevious;
 
@@ -137,6 +139,18 @@ if (place_meeting(x, y, objBlock)) {
 
 	x += hspd;
 	y += vspd;
+	
+	//Makes player move based on the block speed
+	if (!place_meeting(x + block.hspd, y, objBlock)) {
+		x += block.hspd;
+	}
+	
+	y += block.vspd;
+	
+	//If after the movement it's still inside a block, you die
+	if (place_meeting(x, y, objBlock)) {
+		kill_player();
+	}
 }
 
 //Collision with platform
@@ -164,6 +178,13 @@ if (platform != noone) {
 		}
 	
 		y += vspd;
+		
+		//Makes player move based on the platform speed
+		if (!place_meeting(x + platform.hspd, y, objBlock)) {
+			x += platform.hspd;
+		}
+	
+		y += platform.vspd;
 	}
 }
 #endregion

@@ -1,1 +1,1 @@
-hspeed = 1;
+hspd = 1;
