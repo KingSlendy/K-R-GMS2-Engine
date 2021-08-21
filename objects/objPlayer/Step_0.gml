@@ -34,16 +34,10 @@ if (dir != 0) {
 	sprite_index = PLAYER_ACTIONS.IDLE;
 }
 
-if (!on_platform) {
-    if (vspd * global.grav < -0.05) {
-        sprite_index = PLAYER_ACTIONS.JUMP;
-    } else if (vspd * global.grav > 0.05) {
-        sprite_index = PLAYER_ACTIONS.FALL;
-    }
-} else {
-    if (!place_meeting(x, y + 4 * global.grav, objPlatform)) {
-        on_platform = false;
-    }
+if (vspd * global.grav < -0.05) {
+    sprite_index = PLAYER_ACTIONS.JUMP;
+} else if (vspd * global.grav > 0.05) {
+    sprite_index = PLAYER_ACTIONS.FALL;
 }
 
 if (abs(vspd) > max_vspd) {
