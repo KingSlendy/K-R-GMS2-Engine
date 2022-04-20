@@ -6,6 +6,7 @@ for (var i = 0; i < global.total_saves; i++) {
     draw_set_alpha(1);
 	draw_set_font(fntMenu);
     draw_set_color(c_black);
+	draw_set_halign(fa_left);
     draw_text(x, y + spacing * i, string_interp("Data{0}", i + 1));
     
 	//Difficulty

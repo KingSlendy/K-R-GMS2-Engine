@@ -29,11 +29,13 @@ if (is_pressed(global.controls_menu.down)) {
 var length = array_length(options[menu]);
 select[menu] += length;
 select[menu] %= length;
+var option = options[menu];
+var selected = select[menu];
 
 switch (menu) {
 	case MENU_OPTIONS.OPTIONS:
-	    if (is_pressed(global.controls_menu.accept) || select[menu] == 0) {
-			options[menu][select[menu]].on_select();
+	    if (is_pressed(global.controls_menu.accept) || selected == 0) {
+			option[selected].on_select();
 		}
     
 	    if (is_pressed(global.controls_menu.back)) {
@@ -44,8 +46,8 @@ switch (menu) {
 		
 	case MENU_OPTIONS.CONTROLS:
 	    if (is_pressed(global.controls_menu.accept)) {
-	        if (select[menu] == length - 1) {
-	            options[menu][select[menu]].on_select();
+	        if (selected == length - 1) {
+	            option[selected].on_select();
 	        } else {
 	            changing_controls = true;
 	        }
@@ -61,7 +63,7 @@ switch (menu) {
 		
 	case MENU_OPTIONS.ONLINE:
 		if (is_pressed(global.controls_menu.accept)) {
-			options[menu][select[menu]].on_select();
+			option[selected].on_select();
 		}
 		
 		if (is_pressed(global.controls_menu.back)) {

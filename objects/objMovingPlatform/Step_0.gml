@@ -1,5 +1,3 @@
-event_inherited();
-
 if (bounce) {
     if (place_meeting(x + hspd, y, objBlock)) {
         hspd *= -1;
@@ -9,3 +7,6 @@ if (bounce) {
 		vspd *= -1;
     }
 }
+
+x += hspd;
+y += vspd;

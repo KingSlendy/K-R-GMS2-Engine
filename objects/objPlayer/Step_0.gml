@@ -148,18 +148,18 @@ if (block != noone) {
 }
 
 //Collision with platform
-var platform = instance_place(x, y, objPlatform);
+var platform = instance_place(x, y + vspd, objPlatform);
 
-if (platform != noone) {
-	var bbox_check = (bbox_bottom - max(1, abs(vspd)) <= platform.bbox_top);
-
-	if (global.grav == -1) {
-		bbox_check = (bbox_top + max(1, abs(vspd)) >= platform.bbox_bottom);
+if (platform != noone && vspd * global.grav > 0) {
+	if (global.grav == 1) {
+		var bbox_check = (bbox_bottom - max(1, abs(vspd)) <= platform.bbox_top);
+	} else {
+		var bbox_check = (bbox_top + max(1, abs(vspd)) >= platform.bbox_bottom);
 	}
 
-	if (vspd * global.grav > 0 && bbox_check) {
+	if (bbox_check) {
 		y = yprevious;
-	
+		
 		//Detect vertical collision
 		if (place_meeting(x, y + vspd, objPlatform)) {
 			while (!place_meeting(x, y + global.grav, objPlatform)) {

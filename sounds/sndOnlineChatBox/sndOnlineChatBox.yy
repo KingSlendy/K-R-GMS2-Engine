@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sndOnlineChatBox.wav",
-  "duration": 0.488265,
+  "duration": 0.483265,
   "parent": {
     "name": "Online",
     "path": "folders/Sounds/SFX/Online.yy",

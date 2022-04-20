@@ -1,2 +1,2 @@
-event_inherited();
-bounce = true;
+hspd = 0;
+vspd = 0;

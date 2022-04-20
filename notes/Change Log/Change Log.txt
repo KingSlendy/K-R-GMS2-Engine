@@ -1,0 +1,35 @@
+[1.1.0]
+Additions:
+-Basic moving blocks (works with integers although maybe I'll make them work fully because they can be quite buggy as of now)
+
+Changes:
+-Updated to the latest IWPO version number
+-Moved the "bounce" variable of objMovingPlatform into variable definitions
+-Moved the "leave_room" variable of objCamera into variable definitions
+-Changed and condensed some of the objOptions Step and Draw event
+-Fixed adding a new controls option crashing the game
+
+Fixes:
+-objMovingPlatform not bouncing correctly
+-objMovingPlatform not allowing you to stand above correctly
+-Intersecting with objMovingPlatform, objBlock and jumping at the same time teleporting you downwards
+-Changed sndOnlineSaved to match the saving sound correctly
+-Fixed objCamera not snapping to the room correctly
+-Fixed sprCherry not having precise per frame collision mask
+-Fixed "DataX" on the file selection being misaligned
+
+[1.0.0]
+-Public release
+
+
+[0.9.9]
+Additions:
+-Implemented online functionality using IWPO servers
+-Different platform behavior
+-Added misc SFX
+-Added more utility functions
+-Changed and enhanced minor stuff
+
+
+[0.9.0]:
+-Done all the basic stuff for a functional engine
