@@ -139,46 +139,47 @@ if (block != noone) {
 		x += block.hspd;
 	}
 	
-	y += block.vspd;
-	
-	//If after the movement it's still inside a block, you die
-	if (place_meeting(x, y, objBlock)) {
-		kill_player();
+	if (!place_meeting(x, y + block.vspd, objBlock)) {
+		y += block.vspd;
 	}
 }
 
 //Collision with platform
-var platform = instance_place(x, y + vspd, objPlatform);
+if (vspd * global.grav >= 0) {
+	var platform = instance_place(x, y, objPlatform);
+	
+	if (platform != noone) {
+		if (global.grav == 1) {
+			var bbox_check = (bbox_bottom - max(1, abs(vspd)) <= platform.bbox_top + 1);
+		} else {
+			var bbox_check = (bbox_top + max(1, abs(vspd)) >= platform.bbox_bottom - 1);
+		}
 
-if (platform != noone && vspd * global.grav > 0) {
-	if (global.grav == 1) {
-		var bbox_check = (bbox_bottom - max(1, abs(vspd)) <= platform.bbox_top);
-	} else {
-		var bbox_check = (bbox_top + max(1, abs(vspd)) >= platform.bbox_bottom);
-	}
+		if (bbox_check) {
+			y = yprevious;
+			
+			//Detect vertical collision
+			if (place_meeting(x, y + vspd, objPlatform)) {
+				while (!place_meeting(x, y + sign(vspd), objPlatform)) {
+					y += sign(vspd);
+				}
 
-	if (bbox_check) {
-		y = yprevious;
-		
-		//Detect vertical collision
-		if (place_meeting(x, y + vspd, objPlatform)) {
-			while (!place_meeting(x, y + global.grav, objPlatform)) {
-				y += global.grav;
+				vspd = 0;
+				grav = 0;
+				reset_jumps();
 			}
-
-		    vspd = 0;
-			grav = 0;
-			reset_jumps();
-		}
 	
-		y += vspd;
+			y += vspd;
 		
-		//Makes player move based on the platform speed
-		if (!place_meeting(x + platform.hspd, y, objBlock)) {
-			x += platform.hspd;
-		}
+			//Makes player move based on the platform speed
+			if (!place_meeting(x + platform.hspd, y, objBlock)) {
+				x += platform.hspd;
+			}
 	
-		y += platform.vspd;
+			if (!place_meeting(x, y + platform.vspd, objBlock)) {
+				y += platform.vspd;
+			}
+		}
 	}
 }
 #endregion

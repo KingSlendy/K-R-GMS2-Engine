@@ -134,6 +134,11 @@ function restart_game() {
 	load_game(true);
 	global.deaths = deaths;
 	global.time = time;
+	
+	with (objTriggerController) {
+		ds_list_clear(trigger_active_keys);
+		ds_list_clear(trigger_active_ids);
+	}
 }
 
 function save_config() {

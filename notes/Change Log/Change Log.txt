@@ -1,6 +1,20 @@
+[1.2.0]
+Additions:
+-Added a completely new and improved trigger system where you can control any variable from any object
+
+Changes:
+-Made the save/load buffers not be converted to binary, instead it encodes to base64 now
+
+Fixes:
+-objPlayer could miss a platform if you were going fast enough downwards
+-objMovingPlatform teleporting you downwards if you hit a block when you were moving
+
+Notes:
+-The blocks and platforms are still bugged with decimals, I need to work on that
+
 [1.1.0]
 Additions:
--Basic moving blocks (works with integers although maybe I'll make them work fully because they can be quite buggy as of now)
+-Basic moving blocks
 
 Changes:
 -Updated to the latest IWPO version number

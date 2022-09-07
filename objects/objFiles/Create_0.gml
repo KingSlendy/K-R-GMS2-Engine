@@ -6,7 +6,9 @@ for (var i = 0; i < global.total_saves; i++) {
     if (exists) {
         global.save_num = i;
         load_game(false);
-    }
+    } else {
+		cleanup_game();
+	}
 	
 	datas[i] = {
 		difficulty: (exists) ? global.difficulties[global.difficulty] : "No Data",

@@ -1,13 +1,15 @@
 function save_file(file, data, encode) {
 	var saved = (encode) ?
-		string_to_binary(data) :
+		base64_encode(data) :
 		data;
 		
-	var buffer = buffer_create(string_byte_length(saved) + 1, buffer_fixed, 1);
-	buffer_write(buffer, buffer_string, saved);
+	var buffer = buffer_create(string_byte_length(saved), buffer_fixed, 1);
+	buffer_write(buffer, buffer_text, saved);
 	
 	if (encode) {
+		var temp = buffer;
 		buffer = buffer_compress(buffer, 0, buffer_tell(buffer));
+		buffer_delete(temp);
 	}
 	
 	buffer_save(buffer, file);
@@ -18,51 +20,17 @@ function load_file(file, decode) {
 	var buffer = buffer_load(file);
 	
 	if (decode) {
+		var temp = buffer;
 		buffer = buffer_decompress(buffer);
+		buffer_delete(temp);
 	}
 	
-	var data = buffer_read(buffer, buffer_string);
+	var data = buffer_read(buffer, buffer_text);
 	buffer_delete(buffer);
 	
 	var loaded = (decode) ?
-		binary_to_string(data) :
+		base64_decode(data) :
 		data;
 		
 	return loaded;
-}
-
-function string_to_binary(str) {
-	var binary = "";
-    var length = string_length(str);
-	
-    repeat (length) {
-        var byte = ord(string_char_at(str, length));
-		
-        repeat (8) {
-			binary = string(byte & 1) + binary;
-            byte = byte >> 1;
-        }
-		
-        length -= 1;
-    }
-	
-    return binary;
-}
-
-function binary_to_string(bin) {
-	var str = "";
-	var length = string_length(bin);
-	
-	for (var i = 1; i <= length; i += 8) {
-		var byte = string_copy(bin, i, 8);
-		var num = 0;
-		
-		for (var j = 8; j >= 1; j--) {
-			num += power(2, 8 - j) * real(string_char_at(byte, j));
-		}
-		
-		str += chr(num);
-	}
-	
-	return str;
 }

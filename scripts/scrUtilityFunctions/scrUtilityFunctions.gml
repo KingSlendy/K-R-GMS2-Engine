@@ -139,6 +139,18 @@ function map(value, from1, to1, from2, to2) {
 	return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 }
 
+function approach(val1, val2, amount) {
+	if (val1 == val2) {
+		return val1;
+	}
+	
+	if (val1 < val2) {
+		return min(val1 + amount, val2);
+	} else {
+		return max(val1 - amount, val2);
+	}
+}
+
 function get_frames(seconds) {
 	return game_get_speed(gamespeed_fps) * seconds;
 }
