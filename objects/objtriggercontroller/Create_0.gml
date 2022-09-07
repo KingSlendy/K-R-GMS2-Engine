@@ -17,23 +17,6 @@ tt[$ trigger_overtime] = function(id, attribute, key) {
 	variable_instance_set(id, key, value);
 }
 
-tt[$ trigger_reverse] = function(id, attribute, key) {
-	var value = approach(variable_instance_get(id, key), attribute.target, attribute.spd);
-	
-	if (value == attribute.target) {
-		if (!attribute.reversed) {
-			var temp = attribute.start;
-			attribute.start = attribute.target;
-			attribute.target = temp;
-			attribute.reversed = true;
-		} else {
-			attribute.completed = true;
-		}
-	}
-	
-	variable_instance_set(id, key, value);
-}
-
 tt[$ trigger_loop] = function(id, attribute, key) {
 	var value = approach(variable_instance_get(id, key), attribute.target, attribute.spd);
 	

@@ -1,8 +1,7 @@
 #macro trigger_instant 0
 #macro trigger_overtime 1
-#macro trigger_reverse 2
-#macro trigger_loop 3
-#macro trigger_loop_reverse 4
+#macro trigger_loop 2
+#macro trigger_loop_reverse 3
 
 function TriggerKey(key, attributes, type = trigger_instant, times = -1) constructor {
 	self.key = key;
@@ -23,7 +22,6 @@ function TriggerKey(key, attributes, type = trigger_instant, times = -1) constru
 function TriggerAttribute(target, spd = abs(target)) constructor {
 	self.target = target;
 	self.spd = spd;
-	self.reversed = false;
 	self.completed = false;
 	
 	static decrease = function() {
