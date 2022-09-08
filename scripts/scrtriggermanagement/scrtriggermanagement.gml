@@ -1,9 +1,8 @@
-#macro trigger_instant 0
-#macro trigger_overtime 1
-#macro trigger_loop 2
-#macro trigger_loop_reverse 3
+#macro trigger_normal 0
+#macro trigger_loop 1
+#macro trigger_loop_reverse 2
 
-function TriggerKey(key, attributes, type = trigger_instant, times = -1) constructor {
+function TriggerKey(key, attributes, type = trigger_normal, times = -1) constructor {
 	self.key = key;
 	self.attributes = attributes;
 	self.type = type;
@@ -13,15 +12,23 @@ function TriggerKey(key, attributes, type = trigger_instant, times = -1) constru
 	var length = array_length(names);
 	
 	for (var i = 0; i < length; i++) {
-		var attribute = self.attributes[$ names[i]];
-		attribute.start = variable_instance_get(other.id, names[i]);
+		var name = names[i];
+		var attribute = self.attributes[$ name];
+		
+		if (instanceof(attribute) != "TriggerAttribute") {
+			self.attributes[$ name] = new TriggerAttribute(attribute);
+			attribute = self.attributes[$ name];
+		}
+		
+		attribute.start = variable_instance_get(other.id, name);
 		attribute.times = self.times;
 	}
 }
 
-function TriggerAttribute(target, spd = abs(target)) constructor {
+function TriggerAttribute(target, spd = abs(target), func = function() { return true; }) constructor {
 	self.target = target;
 	self.spd = spd;
+	self.func = func;
 	self.completed = false;
 	
 	static decrease = function() {
@@ -35,10 +42,8 @@ function TriggerAttribute(target, spd = abs(target)) constructor {
 	}
 }
 
-function make_triggereable(trigger_keys) {
-	with (id) {
-		self.trigger_keys = trigger_keys;
-	}
+function make_triggerable(trigger_keys) {
+	self.trigger_keys = trigger_keys;
 }
 
 function activate_trigger(key) {

@@ -19,7 +19,7 @@ for (var i = 0; i < trigger_active_ids_size; i++) {
 				var attribute_key = attribute_keys[k];
 				var attribute = trigger_key.attributes[$ attribute_key];
 				
-				if (attribute.completed) {
+				if (attribute.completed || !attribute.func()) {
 					continue;
 				}
 				
