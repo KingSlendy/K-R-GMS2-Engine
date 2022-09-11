@@ -23,7 +23,7 @@ for (var i = 0; i < trigger_active_ids_size; i++) {
 					continue;
 				}
 				
-				other.trigger_types[$ trigger_key.type](id, attribute, attribute_key);
+				other.trigger_types[$ attribute.type](id, attribute, attribute_key);
 			}
 		}
 	}

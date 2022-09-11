@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sprItemBoss7",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c5dcec52-d144-4d7c-8d3c-2a81c59f88b4","path":"sprites/sprItemBoss7/sprItemBoss7.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c5dcec52-d144-4d7c-8d3c-2a81c59f88b4","path":"sprites/sprItemBoss7/sprItemBoss7.yy",},"LayerId":{"name":"fe3dfac2-9a5f-47a9-b7b0-63374a8e9cf6","path":"sprites/sprItemBoss7/sprItemBoss7.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sprItemBoss7","path":"sprites/sprItemBoss7/sprItemBoss7.yy",},"resourceVersion":"1.0","name":"c5dcec52-d144-4d7c-8d3c-2a81c59f88b4","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c5dcec52-d144-4d7c-8d3c-2a81c59f88b4",},
   ],
   "sequence": {
-    "spriteId": {"name":"sprItemBoss7","path":"sprites/sprItemBoss7/sprItemBoss7.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sprItemBoss7",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,9 +43,9 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"b1aa14f6-b3f2-437e-a753-12fbdcc9f9ac","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c5dcec52-d144-4d7c-8d3c-2a81c59f88b4","path":"sprites/sprItemBoss7/sprItemBoss7.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sprItemBoss7","path":"sprites/sprItemBoss7/sprItemBoss7.yy",},
-    "resourceVersion": "1.4",
-    "name": "sprItemBoss7",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"fe3dfac2-9a5f-47a9-b7b0-63374a8e9cf6","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fe3dfac2-9a5f-47a9-b7b0-63374a8e9cf6","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Bosses",
     "path": "folders/Sprites/Objects/Items/Bosses.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sprItemBoss7",
-  "tags": [],
-  "resourceType": "GMSprite",
 }
