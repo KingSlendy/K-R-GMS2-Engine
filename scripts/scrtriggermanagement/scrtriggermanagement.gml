@@ -22,11 +22,11 @@ function TriggerKey(key, attributes) constructor {
 	}
 }
 
-function TriggerAttribute(target, spd = abs(target), times = 1, type = attribute_normal, func = function() { return true; }) constructor {
+function TriggerAttribute(target, spd = abs(target), type = attribute_normal, times = -1, func = function() { return true; }) constructor {
 	self.target = target;
 	self.spd = spd;
-	self.times = times;
 	self.type = type;
+	self.times = times;
 	self.func = func;
 	self.completed = false;
 	

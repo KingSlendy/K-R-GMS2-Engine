@@ -12,6 +12,7 @@
     {"id":{"name":"sprItemBoss3","path":"sprites/sprItemBoss3/sprItemBoss3.yy",},"order":2,},
     {"id":{"name":"sprBow","path":"sprites/sprBow/sprBow.yy",},"order":9,},
     {"id":{"name":"sndShoot","path":"sounds/sndShoot/sndShoot.yy",},"order":2,},
+    {"id":{"name":"objTriggerField","path":"objects/objTriggerField/objTriggerField.yy",},"order":3,},
     {"id":{"name":"sprWorld","path":"sprites/sprWorld/sprWorld.yy",},"order":0,},
     {"id":{"name":"objOutsideRoomChanger","path":"objects/objOutsideRoomChanger/objOutsideRoomChanger.yy",},"order":2,},
     {"id":{"name":"objItemSecret3","path":"objects/objItemSecret3/objItemSecret3.yy",},"order":2,},
