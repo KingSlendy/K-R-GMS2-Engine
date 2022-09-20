@@ -6,14 +6,34 @@ function Option(label, on_select, get_value) constructor {
 
 options = [
 	[ //Options
-		new Option("Volume: ", function() {
+		new Option("Master Volume: ", function() {
 			var dir = (is_held(global.controls_menu.right) - is_held(global.controls_menu.left));
 			
 			if (dir != 0) {
 				change_volume();
 			}
 		}, function() {
-			return string_interp("{0}%", ceil(global.display.vol * 100));
+			return string_interp("{0}%", ceil(global.display.master_volume * 100));
+		}),
+		
+		new Option("BGM Volume: ", function() {
+			var dir = (is_held(global.controls_menu.right) - is_held(global.controls_menu.left));
+			
+			if (dir != 0) {
+				change_volume("bgm");
+			}
+		}, function() {
+			return string_interp("{0}%", ceil(global.display.bgm_volume * 100));
+		}),
+		
+		new Option("SFX Volume: ", function() {
+			var dir = (is_held(global.controls_menu.right) - is_held(global.controls_menu.left));
+			
+			if (dir != 0) {
+				change_volume("sfx");
+			}
+		}, function() {
+			return string_interp("{0}%", ceil(global.display.sfx_volume * 100));
 		}),
 		
 		new Option("Fullscreen: ", function() {

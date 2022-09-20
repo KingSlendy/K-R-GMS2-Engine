@@ -1,8 +1,8 @@
 if (instance_number(objWorld) > 1) {
 	instance_destroy();
+	exit;
 }
 
-audio_master_gain(0);
 pause_delay = global.total_pause_delay;
 pause_screen = noone;
 

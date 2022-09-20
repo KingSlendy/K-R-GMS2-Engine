@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndOnlineSaved",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -8,8 +11,8 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "audiogroup_SFX",
+    "path": "audiogroups/audiogroup_SFX",
   },
   "soundFile": "sndOnlineSaved.wav",
   "duration": 1.258231,
@@ -17,8 +20,4 @@
     "name": "Online",
     "path": "folders/Sounds/SFX/Online.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndOnlineSaved",
-  "tags": [],
-  "resourceType": "GMSound",
 }

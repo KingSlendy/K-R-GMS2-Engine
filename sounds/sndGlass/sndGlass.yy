@@ -1,4 +1,8 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndGlass",
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -7,17 +11,13 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "audiogroup_SFX",
+    "path": "audiogroups/audiogroup_SFX",
   },
   "soundFile": "sndGlass.wav",
-  "duration": 0.668084,
+  "duration": 0.663084,
   "parent": {
     "name": "Misc",
     "path": "folders/Sounds/SFX/Misc.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndGlass",
-  "tags": [],
-  "resourceType": "GMSound",
 }

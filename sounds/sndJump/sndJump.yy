@@ -1,4 +1,8 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "sndJump",
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -7,17 +11,13 @@
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {
-    "name": "audiogroup_default",
-    "path": "audiogroups/audiogroup_default",
+    "name": "audiogroup_SFX",
+    "path": "audiogroups/audiogroup_SFX",
   },
   "soundFile": "sndJump.wav",
-  "duration": 0.15593,
+  "duration": 0.15093,
   "parent": {
     "name": "Player",
     "path": "folders/Sounds/SFX/Player.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sndJump",
-  "tags": [],
-  "resourceType": "GMSound",
 }

@@ -177,8 +177,8 @@ function set_display() {
 	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
 }
 
-function change_volume() {
+function change_volume(type = "master") {
 	var dir = (is_held(global.controls.right) - is_held(global.controls.left));
-	global.display.vol += 0.01 * dir;
-	global.display.vol = clamp(global.display.vol, 0, 1);
+	global.display[$ type + "_volume"] += 0.01 * dir;
+	global.display[$ type + "_volume"] = clamp(global.display[$ type + "_volume"], 0, 1);
 }

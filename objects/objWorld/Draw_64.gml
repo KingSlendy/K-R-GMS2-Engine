@@ -16,7 +16,7 @@ if (global.game_paused) {
 	draw_set_halign(fa_left);
 	
 	draw_set_font(fntPause2);
-    draw_text(20, 516, string_interp("Volume: {0}%", ceil(global.display.vol * 100)));
+    draw_text(20, 516, string_interp("Master Volume: {0}%", ceil(global.display.master_volume * 100)));
     draw_text(20, 541, string_interp("Deaths: {0}", global.deaths));
     draw_text(20, 566, string_interp("Time: {0}", formatted_time(global.time)));
 }
