@@ -32,6 +32,7 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 } else if (global.forms.linekid) {
 	#region Linekid functionality (I'm only putting it in a region cause it's way too fucking long lol)
     image_angle = global.player.angle;
+	
 	if (dir_up || dir_down) {
 		if (((global.player.angle > 0 && global.player.angle <= 90) || (global.player.angle > 180 && global.player.angle <= 270) 
 		&& instance_place_check(x - 2, y, objBlock, tangible) == noone || instance_place_check(x + 2, y, objBlock, tangible) == noone)
@@ -41,39 +42,37 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 	}
         
     if (on_block == noone && instance_place_check(x, y, objBlock, tangible) == noone) {
-        if (instance_place_check(x, y, objBlock, tangible) == noone) {
-            test_dist = 0;
-                
-			while (instance_place_check(x, (y + test_dist) + 0.05, objBlock, tangible) == noone && test_dist < 2) {
-				test_dist += 0.05;
+        var test_dist = 0;
+					
+		while (instance_place_check(x, y + test_dist + 0.05, objBlock, tangible) == noone && test_dist < 2) {
+			test_dist += 0.05;
 
-            if (test_dist < 2) { 
+			if (test_dist < 2) { 
 				y += test_dist; 
 			}
-        }
-    }
+		}
         
-    first_move = 0;
-    last_move_last = 0;
-    x_back = x; 
-    y_back = y;
-
-    blah = 0;
-	if (true) {
-        last_move = 0;
+		var first_move = 0;
+		var last_move_last = 0;
+		var x_back = x; 
+		var y_back = y;
+		var blah = false;
+		var last_move = 0;
 		
 		var list = ds_list_create();
-        var line_place = instance_place_list(x, y, objBlock, list, false); 
+		var line_place = instance_place_list(x, y, objBlock, list, false); 
 		
-        for (var i = 0; i < line_place; i++) {
-            if ((ds_list_find_value(line_place, i)).image_alpha == 1) {
-                test_dist_xpos = 0;
-                test_dist_ypos = 0;
-                test_dist_xneg = 0;
-                test_dist_yneg = 0;
-                        
-                if (blah) {
-                    if (first_move == 1) { 
+		for (var i = 0; i < line_place; i++) {
+			var curr_line_place = line_place[| i];
+			
+			if (curr_line_place.image_alpha == 1) {
+				var test_dist_xpos = 0;
+				var test_dist_ypos = 0;
+				var test_dist_xneg = 0;
+				var test_dist_yneg = 0;
+						
+				if (blah) {
+					if (first_move == 1) { 
 						test_dist_xpos = 99; 
 					} else if (first_move == 2) { 
 						test_dist_xneg = 99; 
@@ -82,9 +81,9 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 					} else if (first_move == 4) { 
 						test_dist_yneg = 99; 
 					}
-                }
-                        
-                if (last_move == 1) { 
+				}
+					
+				if (last_move == 1) { 
 					test_dist_xneg = 99; 
 				} else if (last_move == 2) { 
 					test_dist_xpos = 99; 
@@ -93,133 +92,149 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 				} else if (last_move == 4) { 
 					test_dist_ypos = 99; 
 				}
-                        
-				while (instance_place(x + test_dist_xpos, y, ds_list_find_value(line_place, i)) == noone && test_dist_xpos < 3) {
+						
+				while (instance_place(x + test_dist_xpos, y, curr_line_place) == noone && test_dist_xpos < 3) {
 					test_dist_xpos += 0.2;
-				} 
-				while (instance_place(x - test_dist_xneg, y, ds_list_find_value(line_place, i)) == noone && test_dist_xneg < 3) {
+				}
+				
+				while (instance_place(x - test_dist_xneg, y, curr_line_place) == noone && test_dist_xneg < 3) {
 					test_dist_xneg += 0.2;
-				} 
-				while (instance_place(x, y + test_dist_ypos, ds_list_find_value(line_place, i)) == noone && test_dist_ypos < 3) {
+				}
+				
+				while (instance_place(x, y + test_dist_ypos, curr_line_place) == noone && test_dist_ypos < 3) {
 					test_dist_ypos += 0.2;
-				} 					
-				while (instance_place(x, y + test_dist_yneg, ds_list_find_value(line_place, i)) == noone && test_dist_yneg < 3) {
+				}
+				
+				while (instance_place(x, y + test_dist_yneg, curr_line_place) == noone && test_dist_yneg < 3) {
 					test_dist_yneg += 0.2;
-				} 
+				}
 
-                move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
-                        
-                if (move < 3) 
-                    if (move == test_dist_xpos) {
-                        x += test_dist_xpos; 
+				var move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
+					
+				if (move < 3) {
+					if (move == test_dist_xpos) {
+						x += test_dist_xpos; 
 						xprevious = x;
-                                
-                        if (first_move == 0) { 
+								
+						if (first_move == 0) { 
 							first_move = 1; 
 						}
-                        last_move_last = last_move; 
+						
+						last_move_last = last_move; 
 						last_move = 1;
-                    } else if (move == test_dist_xneg) {
-                        x -= test_dist_xneg; 
+					} else if (move == test_dist_xneg) {
+						x -= test_dist_xneg; 
 						xprevious = x;
-                                
-                        if (first_move == 0) { 
+								
+						if (first_move == 0) { 
 							first_move = 2; 
 						}
-                        last_move_last = last_move; 
+						
+						last_move_last = last_move; 
 						last_move = 2;
-                    } else if (move == test_dist_ypos) {
-                        y += test_dist_ypos; 
+					} else if (move == test_dist_ypos) {
+						y += test_dist_ypos; 
 						yprevious = y;
-                                
-                        if (first_move == 0) { 
+								
+						if (first_move == 0) { 
 							first_move = 3; 
 						}
-                        last_move_last = last_move; 
+						
+						last_move_last = last_move; 
 						last_move = 3;
-                    } else if (move == test_dist_yneg) {
-                        y -= test_dist_yneg; 
+					} else if (move == test_dist_yneg) {
+						y -= test_dist_yneg; 
 						yprevious = y;
-                                
-                        if (first_move == 0) { 
+								
+						if (first_move == 0) { 
 							first_move = 4; 
 						}
-                        last_move_last = last_move; 
+						
+						last_move_last = last_move; 
 						last_move = 4;
-                    }
-                } else {
-                    x = x_back; 
-					y = y_back;
-                    yprevious = y_back; 
-					xprevious = x_back;
-                    last_move = last_move_last;
-                }
-            }
-			
-            if (instance_place_check(x, y, objBlock, tangible) == noone) {
-				for (var i = 0; i < line_place; i++) {
-		            test_dist_xpos = 0;
-		            test_dist_ypos = 0;
-		            test_dist_xneg = 0;
-		            test_dist_yneg = 0;
-                    
-					while (instance_place(x + test_dist_xpos, y, ds_list_find_value(line_place, i)) == noone && test_dist_xpos < 3) {
-						test_dist_xpos += 0.2;
-					} 
-					while (instance_place(x - test_dist_xneg, y, ds_list_find_value(line_place, i)) == noone && test_dist_xneg < 3) {
-						test_dist_xneg += 0.2;
-					} 
-					while (instance_place(x, y + test_dist_ypos, ds_list_find_value(line_place, i)) == noone && test_dist_ypos < 3) {
-						test_dist_ypos += 0.2;
-					} 					
-					while (instance_place(x, y + test_dist_yneg, ds_list_find_value(line_place, i)) == noone && test_dist_yneg < 3) {
-						test_dist_yneg += 0.2;
-					} 
-                        
-		            move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
-                    
-		            if (move == test_dist_xpos) {
-		                x += test_dist_xpos;
-						xprevious = x;
-                        
-		                if (first_move == 0) {
-							first_move = 1; 
-						}
-		                last_move_last = last_move; 
-						last_move = 1;
-		            } else if (move == test_dist_xneg) {
-		                x -= test_dist_xneg; 
-						xprevious = x;
-                        
-		                if (first_move == 0) { 
-							first_move = 2; 
-						}
-		                last_move_last = last_move; 
-						last_move = 2;
-		            } else if (move == test_dist_ypos) {
-		                y += test_dist_ypos; 
-						yprevious = y;
-                        
-		                if (first_move == 0) { 
-							first_move = 3; 
-						}
-		                last_move_last = last_move; 
-						last_move = 3;
-		            } else if (move == test_dist_yneg) {
-		                y -= test_dist_yneg; 
-						yprevious = y;
-                        
-		                if (first_move == 0) { 
-							first_move = 4; 
-						}
-		                last_move_last = last_move; 
-						last_move = 4;
-		            }
-		        }
+					}
+				}
+			} else {
+				x = x_back; 
+				y = y_back;
+				yprevious = y_back; 
+				xprevious = x_back;
+				last_move = last_move_last;
 			}
-			ds_list_destroy(list);
-        }
-        blah = 1;
+		}
+		
+		if (instance_place_check(x, y, objBlock, tangible) == noone) {
+			for (var i = 0; i < line_place; i++) {
+				var curr_line_place = line_place[| i];
+				test_dist_xpos = 0;
+				test_dist_ypos = 0;
+				test_dist_xneg = 0;
+				test_dist_yneg = 0;
+				
+				while (instance_place(x + test_dist_xpos, y, curr_line_place) == noone && test_dist_xpos < 3) {
+					test_dist_xpos += 0.2;
+				}
+				
+				while (instance_place(x - test_dist_xneg, y, curr_line_place) == noone && test_dist_xneg < 3) {
+					test_dist_xneg += 0.2;
+				}
+				
+				while (instance_place(x, y + test_dist_ypos, curr_line_place) == noone && test_dist_ypos < 3) {
+					test_dist_ypos += 0.2;
+				}
+				
+				while (instance_place(x, y + test_dist_yneg, curr_line_place) == noone && test_dist_yneg < 3) {
+					test_dist_yneg += 0.2;
+				}
+					
+				var move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
+				
+				if (move == test_dist_xpos) {
+					x += test_dist_xpos;
+					xprevious = x;
+					
+					if (first_move == 0) {
+						first_move = 1; 
+					}
+					
+					last_move_last = last_move; 
+					last_move = 1;
+				} else if (move == test_dist_xneg) {
+					x -= test_dist_xneg; 
+					xprevious = x;
+					
+					if (first_move == 0) { 
+						first_move = 2; 
+					}
+					
+					last_move_last = last_move; 
+					last_move = 2;
+				} else if (move == test_dist_ypos) {
+					y += test_dist_ypos; 
+					yprevious = y;
+					
+					if (first_move == 0) { 
+						first_move = 3; 
+					}
+					
+					last_move_last = last_move; 
+					last_move = 3;
+				} else if (move == test_dist_yneg) {
+					y -= test_dist_yneg; 
+					yprevious = y;
+					
+					if (first_move == 0) { 
+						first_move = 4; 
+					}
+					
+					last_move_last = last_move; 
+					last_move = 4;
+				}
+			}
+		}
+		
+		ds_list_destroy(list);
+        blah = true;
     }
 	#endregion
 } else {
@@ -302,6 +317,7 @@ if (!global.forms.lunarkid) {
 	                y -= (dir_up) ? max_hspd : -max_hspd;
 	                player_sprite(PLAYER_ACTIONS.CLIMB_VERTICAL);
 	            } 
+				
 	            if (dir_right || dir_left) {
 	                x += (dir_right) ? max_hspd : -max_hspd;
 	                player_sprite(PLAYER_ACTIONS.CLIMB_HORIZONTAL);
@@ -448,6 +464,5 @@ if (block != noone) {
 			}
 		}
 	}
-	#endregion
-	
+#endregion
 #endregion

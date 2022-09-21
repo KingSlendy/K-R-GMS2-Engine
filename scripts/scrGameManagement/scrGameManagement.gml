@@ -105,7 +105,7 @@ function cleanup_game() {
 
 	global.forms = {
 		dotkid: false,
-		vkid: false,
+		vkid: 0,
 		telekid: false,
 		lunarkid: false,
 		linekid: false

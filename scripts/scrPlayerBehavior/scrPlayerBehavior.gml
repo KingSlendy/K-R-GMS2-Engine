@@ -31,12 +31,13 @@ function player_jump() {
 				if (global.forms.vkid == 1) {
 					flip_grav();
 				}
+				
 				vspd = (jump_height[0] * global.grav);
 				var sound = (global.grav == -1) ? sndVFlipDown : sndVFlipUp;
 				audio_play_sound(sound, 0, false);
 			}
 		} else {
-			gravity_direction += 180/global.forms.vkid;
+			gravity_direction += 180 / global.forms.vkid;
 		}
 		#endregion
 	}
@@ -62,7 +63,7 @@ function player_shoot() {
 	} 
 	
 	if (instance_number(objBullet) < bullet_max) {
-		bullet = instance_create_layer(x, y, "Player", bullet_object);
+		instance_create_layer(x, y, "Player", bullet_object);
 		audio_play_sound(shoot_sound, 0, false);
 	}
 }
@@ -80,10 +81,8 @@ function player_sprite(sprite) {
 }
 
 function reset_jumps() {
-	if (instance_exists(objPlayer)) {
-		with (objPlayer) {
-			jump_left = jump_total - 1;
-		}
+	with (objPlayer) {
+		jump_left = jump_total - 1;
 	}
 }
 
@@ -119,9 +118,9 @@ function kill_player() {
 function outside_room() {
 	if (!instance_exists(objPlayer)) {
 	    return false;
-	} else {
-	    return (objPlayer.x < 0 || objPlayer.x > room_width || objPlayer.y < 0 || objPlayer.y > room_height);
 	}
+	
+	return (objPlayer.x < 0 || objPlayer.x > room_width || objPlayer.y < 0 || objPlayer.y > room_height);
 }
 
 function set_mask() {

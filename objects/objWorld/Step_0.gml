@@ -96,19 +96,24 @@ if (global.debug_enable && global.game_started) {
 		if (keyboard_check_pressed(ord("1"))) {
 			global.forms.dotkid ^= true;
 		}
+		
 		if (keyboard_check_pressed(ord("2"))) {
 			global.forms.vkid++;
 			global.forms.vkid %= 3;
 		}
+		
 		if (keyboard_check_pressed(ord("3"))) {
 			global.forms.telekid ^= true;
 		}
+		
 		if (keyboard_check_pressed(ord("4"))) {
 			global.forms.lunarkid ^= true;
+			
 			with (objPlayer) {
 				grav_amount = 0;
 			}
 		}
+		
 		if (keyboard_check_pressed(ord("5"))) {
 			global.forms.linekid ^= true;
 		}

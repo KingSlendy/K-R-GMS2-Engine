@@ -8,6 +8,7 @@ function scrInstancePlaceList(xx, yy, obj){
 		
 	    with (this) {
 	        var i = instance_place_check(xx, yy, that, tangible);
+			
 	        if (i != -4) { 
 				ds_list_add(dsid, i); 
 			}
