@@ -1,4 +1,6 @@
-global.items[$ type][num] = true;
+if (num > -1) {
+	global.items[$ type][num] = true;
+}
 
 if (global.auto_save_items) {
 	save_game(false);

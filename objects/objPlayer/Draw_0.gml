@@ -1,11 +1,7 @@
-if (global.debug_enable && global.debug_coloring) {
-    if (global.debug_god_mode) {
-        image_blend = c_fuchsia;
-    } else if (global.debug_inf_jump) {
-        image_blend = c_blue;
-    } else {
-        image_blend = c_white;
-    }
+if ((global.debug_enable && global.debug_coloring) && global.debug_inf_jump) {
+    image_blend = c_blue;
+} else {
+    image_blend = c_white;
 }
 
 var draw_y = y;

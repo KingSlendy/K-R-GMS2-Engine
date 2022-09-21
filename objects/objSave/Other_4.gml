@@ -1,3 +1,3 @@
-if (global.difficulty > 1) {
+if (global.difficulty > difficulty) {
 	instance_destroy();
 }

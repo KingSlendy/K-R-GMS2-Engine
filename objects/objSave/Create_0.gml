@@ -1,4 +1,3 @@
-image_speed = 0;
 grav = 1;
 
 function active_save() {

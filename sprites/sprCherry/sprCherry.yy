@@ -36,7 +36,7 @@
     "name": "sprCherry",
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 3.334,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
@@ -69,7 +69,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Killers",
-    "path": "folders/Sprites/Objects/Killers.yy",
+    "name": "Fruits",
+    "path": "folders/Sprites/Objects/Killers/Fruits.yy",
   },
 }

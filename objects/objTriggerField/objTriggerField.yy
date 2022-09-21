@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Triggers",
-    "path": "folders/Objects/Triggers.yy",
+    "name": "Masks",
+    "path": "folders/Objects/Triggers/Masks.yy",
   },
 }

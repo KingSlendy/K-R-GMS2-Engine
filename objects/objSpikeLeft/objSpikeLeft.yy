@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objSpikeLeft",
   "spriteId": {
     "name": "sprSpikeLeft",
     "path": "sprites/sprSpikeLeft/sprSpikeLeft.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -27,11 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Killers",
-    "path": "folders/Objects/Killers.yy",
+    "name": "Standard",
+    "path": "folders/Objects/Killers/Spikes/Standard.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objSpikeLeft",
-  "tags": [],
-  "resourceType": "GMObject",
 }

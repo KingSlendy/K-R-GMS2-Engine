@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objVineL",
   "spriteId": {
     "name": "sprVineL",
     "path": "sprites/sprVineL/sprVineL.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -24,11 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objects/Blocks.yy",
+    "name": "Vines",
+    "path": "folders/Objects/Misc/Vines.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objVineL",
-  "tags": [],
-  "resourceType": "GMObject",
 }

@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objItemBoss2",
   "spriteId": {
     "name": "sprItemBoss2",
     "path": "sprites/sprItemBoss2/sprItemBoss2.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -24,16 +28,14 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"num","path":"objects/objItemTemplate/objItemTemplate.yy",},"objectId":{"name":"objItemTemplate","path":"objects/objItemTemplate/objItemTemplate.yy",},"value":"1",},
+  ],
   "parent": {
     "name": "Bosses",
     "path": "folders/Objects/Items/Bosses.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objItemBoss2",
-  "tags": [],
-  "resourceType": "GMObject",
 }

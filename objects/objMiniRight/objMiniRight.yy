@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objMiniRight",
   "spriteId": {
     "name": "sprMiniRight",
     "path": "sprites/sprMiniRight/sprMiniRight.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
@@ -27,11 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Killers",
-    "path": "folders/Objects/Killers.yy",
+    "name": "Mini",
+    "path": "folders/Objects/Killers/Spikes/Mini.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objMiniRight",
-  "tags": [],
-  "resourceType": "GMObject",
 }

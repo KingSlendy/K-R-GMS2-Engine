@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objSpikeRight",
   "spriteId": {
     "name": "sprSpikeRight",
     "path": "sprites/sprSpikeRight/sprSpikeRight.yy",
@@ -28,11 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Killers",
-    "path": "folders/Objects/Killers.yy",
+    "name": "Standard",
+    "path": "folders/Objects/Killers/Spikes/Standard.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objSpikeRight",
-  "tags": [],
-  "resourceType": "GMObject",
 }

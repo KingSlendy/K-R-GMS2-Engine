@@ -15,5 +15,7 @@ if (outside_room()) {
         other.y -= room_height;
     }
 	
-	room_goto(room_to);
+	if (!screenwrap) {
+		room_goto(room_to);
+	}
 }

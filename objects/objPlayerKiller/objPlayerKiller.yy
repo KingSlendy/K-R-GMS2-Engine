@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objPlayerKiller",
   "spriteId": {
     "name": "sprPlayerKiller",
     "path": "sprites/sprPlayerKiller/sprPlayerKiller.yy",
   },
   "solid": false,
   "visible": false,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -27,8 +31,4 @@
     "name": "Killers",
     "path": "folders/Objects/Killers.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objPlayerKiller",
-  "tags": [],
-  "resourceType": "GMObject",
 }
