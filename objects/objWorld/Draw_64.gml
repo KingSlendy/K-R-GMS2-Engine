@@ -23,35 +23,65 @@ if (global.game_paused) {
 #endregion
 
 #region Debug Overlay
-if (global.debug_enable && global.debug_overlay) {
-    var spacing = 16;
+if (global.overlay) {
+    var spacing = 20;
     draw_set_font(fntMenu3);
 	draw_set_color(c_white);
 
     if (global.game_started) {
+		#region Initialize Overlay Variables
         var xx = "N/A";
+		var hspd = "N/A";
+		
         var yy = "N/A";
-        var align = "N/A";
-        
+        var vspd = "N/A";
+		
+		var align = "N/A";
+        var align_relative = "N/A";
+		
+		var angle = "N/A";
+		
+		var grav_dir = "N/A";
+		#endregion
+		
+		#region Set Overlay Variables
         if (instance_exists(objPlayer)) {
             xx = objPlayer.x;
+			hspd = objPlayer.hspd;
+			
             yy = objPlayer.y;
-            align = xx % 3;
+            vspd = objPlayer.vspd;
+			
+			align = objPlayer.max_hspd % 3;
+			align_relative = xx % 3;
+			
+			angle = objPlayer.image_angle;
+			
+			grav_dir = objPlayer.gravity_direction;
         }
+		#endregion
 		
+		#region Draw Overlay Info
 		var info = [
-			string_interp("Player (X, Y, Align, Grav): ({0}, {1}, {2}, {3})", xx, yy, align, global.grav),
-			string_interp("Room: {0}", room_get_name(room)),
-			string_interp("FPS: {0}", fps),
-			string_interp("FPS real: {0}", fps_real),
+			string_interp("FPS: {0} (real: {1})", fps, fps_real),
+			string_interp("X: {0} (hspd: {1})", xx, hspd),
+			string_interp("Y: {0} (vspd: {1})", yy, vspd),
+			string_interp("Align: {0} (relative: {1})", align, align_relative),
+			string_interp("Angle: {0}", angle),
+			string_interp("Gravity: {0} (direction: {1})", global.grav, grav_dir),
+			string_interp("Room: {0} (number: {1})", room_get_name(room), room),
 			string_interp("Object counter: {0}", instance_count)
 		];
 		
 		var length = array_length(info);
+		if (!global.debug_enable) {
+			length = 5;
+		}
 		
 		for (var i = 0; i < length; i++) {
-			draw_text_outline(0, spacing * i, info[i], c_black);
+			draw_text_outline(20, 20 + spacing * i, info[i], c_black);
 		}
+		#endregion
     } else {
 		draw_set_color(c_red);
         draw_text_outline(0, 0, "Debug Mode", c_black);

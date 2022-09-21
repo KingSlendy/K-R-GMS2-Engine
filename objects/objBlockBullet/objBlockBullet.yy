@@ -1,10 +1,14 @@
 {
+  "resourceType": "GMObject",
+  "resourceVersion": "1.0",
+  "name": "objBlockBullet",
   "spriteId": {
     "name": "sprBlockBullet",
     "path": "sprites/sprBlockBullet/sprBlockBullet.yy",
   },
   "solid": false,
   "visible": false,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,
@@ -27,8 +31,4 @@
     "name": "Blocks",
     "path": "folders/Objects/Blocks.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objBlockBullet",
-  "tags": [],
-  "resourceType": "GMObject",
 }

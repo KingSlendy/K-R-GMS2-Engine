@@ -33,7 +33,7 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Refreshers",
-    "path": "folders/Objects/Misc/Refreshers.yy",
+    "name": "Jump",
+    "path": "folders/Objects/Misc/Refreshers/Jump.yy",
   },
 }

@@ -1,4 +1,24 @@
-var dir = (instance_exists(objPlayer)) ? objPlayer.xscale : 1;
-hspeed = 16 * dir;
+var dir;
+if (instance_exists(objPlayer)) {
+	dir = (global.forms.lunarkid) ? objPlayer.image_angle + 90 : objPlayer.xscale;
+} else {
+	dir = 1;
+}
 
-alarm[0] = 40;
+var spd = (global.forms.telekid) ? 4 : 16;
+var time = (global.slowshot) ? 800 : 40;
+
+if (global.slowshot) {
+	spd = 1;
+}
+
+if (global.forms.lunarkid) {
+	direction = dir;
+	speed = spd;
+} else {
+	hspeed = spd * dir;
+}
+
+if (!global.forms.telekid) {
+	alarm[0] = time;
+}

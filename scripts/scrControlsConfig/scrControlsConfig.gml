@@ -23,6 +23,7 @@ global.controls_menu = {
 
 //Default misc. controls
 global.controls_misc = {
+	overlay: vk_backspace,
 	fullscreen: vk_f4,
 	reset: vk_f2,
 	quit: vk_escape

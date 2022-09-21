@@ -1,0 +1,1 @@
+draw_sprite_fog(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, 1, image_blend);

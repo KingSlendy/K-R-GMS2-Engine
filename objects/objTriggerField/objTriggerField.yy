@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "objTriggerField",
   "spriteId": {
-    "name": "sprTriggerStop",
-    "path": "sprites/sprTriggerStop/sprTriggerStop.yy",
+    "name": "sprTriggerField",
+    "path": "sprites/sprTriggerField/sprTriggerField.yy",
   },
   "solid": false,
   "visible": false,

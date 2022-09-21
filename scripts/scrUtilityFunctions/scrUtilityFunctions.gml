@@ -107,20 +107,7 @@ function string_split(str, substr) {
 }
 #endregion
 
-#region Other
-function camera_properties(num) {
-	var cam = view_camera[num];
-	
-	return {
-		view_cam: cam,
-		view_x: camera_get_view_x(cam),
-		view_y: camera_get_view_y(cam),
-		view_w: camera_get_view_width(cam),
-		view_h: camera_get_view_height(cam)
-	};
-}
-
-
+#region Drawing
 function draw_text_outline(x, y, text, border_color) {
 	var color = draw_get_color();
 	draw_set_color(border_color);
@@ -133,6 +120,49 @@ function draw_text_outline(x, y, text, border_color) {
 
 	draw_set_colour(color);
 	draw_text(x, y, text);
+}
+
+function draw_sprite_fog(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha, fog_color) {
+	gpu_set_fog(1,fog_color,0,0);
+	draw_sprite_ext(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha);
+	gpu_set_fog(0,0,0,0);
+}
+#endregion
+
+#region Other
+function camera_properties(num) {
+	var cam = view_camera[num];
+	
+	return {
+		view_cam: cam,
+		view_x: camera_get_view_x(cam),
+		view_y: camera_get_view_y(cam),
+		view_w: camera_get_view_width(cam),
+		view_h: camera_get_view_height(cam),
+		view_xw: camera_get_view_x(cam) + camera_get_view_width(cam),
+		view_yh: camera_get_view_y(cam) + camera_get_view_height(cam),
+		view_angle: camera_get_view_angle(cam),
+	};
+}
+
+function instance_place_check(x, y, obj, func = function(obj) { return true; } ) {
+	var list = ds_list_create();
+	var count = instance_place_list(x, y, obj, list, false);
+	var found = noone;
+
+	for (var i = 0; i < count; i++) {
+	    var current = list[| i];
+
+	    if (current == noone || !func(current)) {
+	        continue;
+	    }
+
+	    found = current;
+	    break;
+	}
+
+	ds_list_destroy(list);
+	return found;
 }
 
 function map(value, from1, to1, from2, to2) {
@@ -149,6 +179,18 @@ function approach(val1, val2, amount) {
 	} else {
 		return max(val1 - amount, val2);
 	}
+}
+
+function struct_all(struct) {
+    var names = variable_struct_get_names(struct);
+
+    for (var i = 0; i < array_length(names); i++) {
+        if (!struct[$ names[i]]) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 function get_frames(seconds) {

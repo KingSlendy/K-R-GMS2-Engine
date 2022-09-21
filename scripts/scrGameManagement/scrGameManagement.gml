@@ -3,7 +3,9 @@ function save_game(position) {
 		global.save_player.sroom = room_get_name(room);
 		global.save_player.sx = floor(objPlayer.x);
 		global.save_player.sy = floor(objPlayer.y);
+		global.save_player.sangle = global.player.angle;
 		global.save_player.sgrav = global.grav;
+		global.save_player.sforms = global.forms;
 	}
 	
 	var data = {
@@ -94,6 +96,22 @@ function cleanup_game() {
 	global.deaths = 0;
 	global.time = 0;
 	global.clear = false;
+	
+	global.player = {
+		xx: 0,
+		yy: 0,
+		angle: global.save_player.sangle
+	};
+
+	global.forms = {
+		dotkid: false,
+		vkid: false,
+		telekid: false,
+		lunarkid: false,
+		linekid: false
+	};
+	
+	global.slowshot = false;
 	
 	global.items = {
 		secrets: array_create(8, false),

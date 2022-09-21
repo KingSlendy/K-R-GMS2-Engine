@@ -28,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Vines",
-    "path": "folders/Objects/Misc/Vines.yy",
+    "name": "Standard",
+    "path": "folders/Objects/Misc/Vines/Standard.yy",
   },
 }

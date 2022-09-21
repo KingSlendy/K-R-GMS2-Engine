@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "sprJumpRefresh",
   "bboxMode": 0,
-  "collisionKind": 1,
+  "collisionKind": 4,
   "type": 0,
   "origin": 4,
   "preMultiplyAlpha": false,
@@ -67,7 +67,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Refreshers",
-    "path": "folders/Sprites/Objects/Misc/Refreshers.yy",
+    "name": "Jump",
+    "path": "folders/Sprites/Objects/Misc/Refreshers/Jump.yy",
   },
 }

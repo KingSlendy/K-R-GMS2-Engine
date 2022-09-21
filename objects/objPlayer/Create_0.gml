@@ -11,7 +11,7 @@ grav = 0;
 #region Max Speed
 max_hspd = 3;
 max_vspd = 9;
-grav_amount = 0.4;
+grav_amount = (global.forms.lunarkid) ? 0 : 0.4;
 #endregion
 
 #region Speed Modifiers
@@ -25,20 +25,35 @@ jump_total = 2;
 
 #region Collision and Actions
 on_block = false;
+on_ladder = false;
+
+lunar_start = false;
+
 frozen = false;
 
 enum PLAYER_ACTIONS {
+	//Standard actions
 	IDLE = sprPlayerIdle,
 	RUN = sprPlayerRun,
 	JUMP = sprPlayerJump,
 	FALL = sprPlayerFall,
-	SLIDE = sprPlayerSlide
+	SLIDE = sprPlayerSlide,
+	
+	//Climbing actions
+	CLIMB = sprPlayerClimb,
+	CLIMB_HORIZONTAL = sprPlayerClimbHorizontal,
+	CLIMB_VERTICAL = sprPlayerClimbVertical,
+	
+	//Transform actions
+	DOTKID = sprPlayerDotkid,
+	LUNARKID = sprPlayerLunarkid,
+	LINEKID = sprPlayerLinekid
 }
 
 reset_jumps();
-#endregion
 
-if (global.difficulty == 0 && !instance_exists(objBow)) {
-	instance_create_layer(x, y, "Player", objBow);
-}
+hit = 0;
+hit_x = x;
+hit_y = y;
+#endregion
 #endregion

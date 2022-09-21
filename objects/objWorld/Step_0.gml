@@ -48,6 +48,10 @@ if (global.game_started) {
 #endregion
 
 #region Misc. Inputs
+if (is_pressed(global.controls_misc.overlay)) {
+	global.overlay ^= true;
+}
+
 if (!global.game_paused) {
 	//Toggles fullscreen
 	if (is_pressed(global.controls_misc.fullscreen)) {
@@ -71,16 +75,17 @@ if (is_pressed(global.controls_misc.quit)) {
 
 #region Debug Inputs
 if (global.debug_enable && global.game_started) {
-	if (is_pressed(global.controls_debug.overlay)) {
-		global.debug_overlay ^= true;
-	}
-	
-	if (is_pressed(global.controls_debug.god_mode)) {
+	if (keyboard_check(vk_control) && is_pressed(global.controls_debug.god_mode)) {
 		global.debug_god_mode ^= true;
 	}
 	
-	if (is_pressed(global.controls_debug.inf_jump)) {
+	if (keyboard_check(vk_control) && is_pressed(global.controls_debug.inf_jump)) {
 		global.debug_inf_jump ^= true;
+	}
+	
+	if (keyboard_check(vk_control) && is_pressed(global.controls_debug.hitbox)) {
+		global.debug_hitbox++;
+		global.debug_hitbox %= 3;
 	}
 	
 	if (instance_exists(objPlayer)) {
@@ -88,26 +93,47 @@ if (global.debug_enable && global.game_started) {
 			reset_jumps();
 		}
 	
+		if (keyboard_check_pressed(ord("1"))) {
+			global.forms.dotkid ^= true;
+		}
+		if (keyboard_check_pressed(ord("2"))) {
+			global.forms.vkid++;
+			global.forms.vkid %= 3;
+		}
+		if (keyboard_check_pressed(ord("3"))) {
+			global.forms.telekid ^= true;
+		}
+		if (keyboard_check_pressed(ord("4"))) {
+			global.forms.lunarkid ^= true;
+			with (objPlayer) {
+				grav_amount = 0;
+			}
+		}
+		if (keyboard_check_pressed(ord("5"))) {
+			global.forms.linekid ^= true;
+		}
+	
 		if (is_held(global.controls_debug.teleport)) {
 			with (objPlayer) {
 				x = mouse_x;
 				y = mouse_y;
-				vspeed = 0;
+				vspd = 0;
 			}
 		}
 	
-		if (is_pressed(global.controls_debug.save)) {
+		if (keyboard_check(vk_control) && is_pressed(global.controls_debug.save)) {
 			save_game(true);
+			audio_play_sound(sndShoot, 0, false);
 		}
 		
-		if (is_pressed(global.controls_debug.roomU)) {
+		if (is_pressed(global.controls_debug.roomD)) {
 			if (room_get_name(room_previous(room)) != "rOptions") {
 				instance_destroy(objPlayer);
 				room_goto_previous();
 			}
 		}
 		
-		if (is_pressed(global.controls_debug.roomD)) {
+		if (is_pressed(global.controls_debug.roomU)) {
 			if (room != room_last) {
 				instance_destroy(objPlayer);
 				room_goto_next();

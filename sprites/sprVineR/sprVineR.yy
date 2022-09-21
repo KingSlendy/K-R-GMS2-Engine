@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "sprVineR",
   "bboxMode": 0,
-  "collisionKind": 1,
+  "collisionKind": 4,
   "type": 0,
   "origin": 0,
   "preMultiplyAlpha": false,
@@ -67,7 +67,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Vines",
-    "path": "folders/Sprites/Objects/Misc/Vines.yy",
+    "name": "Standard",
+    "path": "folders/Sprites/Objects/Misc/Vines/Standard.yy",
   },
 }
