@@ -1,7 +1,4 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "objSpikeDown",
   "spriteId": {
     "name": "sprSpikeDown",
     "path": "sprites/sprSpikeDown/sprSpikeDown.yy",
@@ -31,7 +28,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Standard",
-    "path": "folders/Objects/Killers/Spikes/Standard.yy",
+    "name": "Killers",
+    "path": "folders/Objects/Killers.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "objSpikeDown",
+  "tags": [],
+  "resourceType": "GMObject",
 }

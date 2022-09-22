@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
-  "name": "I Wanna Be The King GMS2 Engine",
+  "name": "K&R GMS2 Engine",
   "resources": [
     {"id":{"name":"sprJumpDefresh","path":"sprites/sprJumpDefresh/sprJumpDefresh.yy",},"order":0,},
     {"id":{"name":"objSaveFlipped","path":"objects/objSaveFlipped/objSaveFlipped.yy",},"order":0,},
@@ -85,7 +85,7 @@
     {"id":{"name":"sprSpikeRight","path":"sprites/sprSpikeRight/sprSpikeRight.yy",},"order":0,},
     {"id":{"name":"rOptions","path":"rooms/rOptions/rOptions.yy",},"order":3,},
     {"id":{"name":"sprPlayerLinekid","path":"sprites/sprPlayerLinekid/sprPlayerLinekid.yy",},"order":0,},
-    {"id":{"name":"rSampleRoom","path":"rooms/rSampleRoom/rSampleRoom.yy",},"order":1,},
+    {"id":{"name":"rSampleRoom","path":"rooms/rSampleRoom/rSampleRoom.yy",},"order":2,},
     {"id":{"name":"sprDisappearPlatform","path":"sprites/sprDisappearPlatform/sprDisappearPlatform.yy",},"order":4,},
     {"id":{"name":"sprMovingPlatform","path":"sprites/sprMovingPlatform/sprMovingPlatform.yy",},"order":1,},
     {"id":{"name":"scrGameManagement","path":"scripts/scrGameManagement/scrGameManagement.yy",},"order":0,},
@@ -389,7 +389,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Warps","folderPath":"folders/Objects/Warps.yy","order":8,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Rooms","folderPath":"folders/Rooms.yy","order":6,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"System","folderPath":"folders/Rooms/System.yy","order":0,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Test Rooms","folderPath":"folders/Rooms/Test Rooms.yy","order":4,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Test Rooms","folderPath":"folders/Rooms/Test Rooms.yy","order":1,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Scripts","folderPath":"folders/Scripts.yy","order":4,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Misc","folderPath":"folders/Scripts/Misc.yy","order":3,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Player","folderPath":"folders/Scripts/Player.yy","order":1,},

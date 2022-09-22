@@ -1,7 +1,4 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "objSpikeUp",
   "spriteId": {
     "name": "sprSpikeUp",
     "path": "sprites/sprSpikeUp/sprSpikeUp.yy",
@@ -31,7 +28,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Standard",
-    "path": "folders/Objects/Killers/Spikes/Standard.yy",
+    "name": "Killers",
+    "path": "folders/Objects/Killers.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "objSpikeUp",
+  "tags": [],
+  "resourceType": "GMObject",
 }

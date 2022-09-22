@@ -1,8 +1,12 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fntTitle",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
   "pointRounding": 0,
+  "applyKerning": 0,
   "fontName": "Times New Roman",
   "styleName": "Bold",
   "size": 50.0,
@@ -20,6 +24,7 @@
     "path": "texturegroups/Default",
   },
   "ascenderOffset": 0,
+  "ascender": 0,
   "glyphs": {
     "32": {"x":2,"y":2,"w":17,"h":77,"character":32,"shift":17,"offset":0,},
     "33": {"x":224,"y":160,"w":12,"h":77,"character":33,"shift":22,"offset":5,},
@@ -269,8 +274,4 @@
     "name": "System",
     "path": "folders/Fonts/System.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fntTitle",
-  "tags": [],
-  "resourceType": "GMFont",
 }

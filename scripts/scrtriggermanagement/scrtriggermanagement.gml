@@ -1,10 +1,12 @@
-#macro attribute_normal 0
-#macro attribute_loop 1
-#macro attribute_loop_reverse 2
+#macro trigger_normal 0
+#macro trigger_loop 1
+#macro trigger_loop_reverse 2
 
-function TriggerKey(key, attributes) constructor {
+function TriggerKey(key, attributes, type = trigger_normal, times = -1) constructor {
 	self.key = key;
 	self.attributes = attributes;
+	self.type = type;
+	self.times = times;
 	
 	var names = variable_struct_get_names(self.attributes);
 	var length = array_length(names);
@@ -19,14 +21,13 @@ function TriggerKey(key, attributes) constructor {
 		}
 		
 		attribute.start = variable_instance_get(other.id, name);
+		attribute.times = self.times;
 	}
 }
 
-function TriggerAttribute(target, spd = abs(target), type = attribute_normal, times = -1, func = function() { return true; }) constructor {
+function TriggerAttribute(target, spd = abs(target), func = function() { return true; }) constructor {
 	self.target = target;
 	self.spd = spd;
-	self.type = type;
-	self.times = times;
 	self.func = func;
 	self.completed = false;
 	

@@ -1,8 +1,12 @@
 {
+  "resourceType": "GMFont",
+  "resourceVersion": "1.0",
+  "name": "fntMenu",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
   "pointRounding": 0,
+  "applyKerning": 0,
   "fontName": "Times New Roman",
   "styleName": "Regular",
   "size": 34.0,
@@ -20,6 +24,7 @@
     "path": "texturegroups/Default",
   },
   "ascenderOffset": 0,
+  "ascender": 0,
   "glyphs": {
     "32": {"x":2,"y":2,"w":11,"h":52,"character":32,"shift":11,"offset":0,},
     "33": {"x":18,"y":164,"w":5,"h":52,"character":33,"shift":15,"offset":5,},
@@ -262,8 +267,4 @@
     "name": "System",
     "path": "folders/Fonts/System.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "fntMenu",
-  "tags": [],
-  "resourceType": "GMFont",
 }

@@ -1,7 +1,4 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "objBlock",
   "spriteId": {
     "name": "sprBlockMask",
     "path": "sprites/sprBlockMask/sprBlockMask.yy",
@@ -24,11 +21,18 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Blocks",
     "path": "folders/Objects/Blocks.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "objBlock",
+  "tags": [],
+  "resourceType": "GMObject",
 }

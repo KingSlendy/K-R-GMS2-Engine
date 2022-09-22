@@ -1,17 +1,3 @@
-[1.2.2]
-Additions:
--Added the ability to individually change Master, BGM and SFX volumes
-
-Fixes:
--Fixed objJumpRefresh not having the alarm that resets the visibility
-
-[1.2.1]
-Additions:
--Added objTriggerField to automatically apply a make_triggerable to all the objects underneath
-
-Changes:
--Made several changes to the trigger system, now all the trigger attributes hold all the arguments to make them distinct from each other
-
 [1.2.0]
 Additions:
 -Added a completely new and improved trigger system where you can control any variable from any object

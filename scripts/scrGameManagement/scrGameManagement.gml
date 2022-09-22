@@ -3,9 +3,7 @@ function save_game(position) {
 		global.save_player.sroom = room_get_name(room);
 		global.save_player.sx = floor(objPlayer.x);
 		global.save_player.sy = floor(objPlayer.y);
-		global.save_player.sangle = global.player.angle;
 		global.save_player.sgrav = global.grav;
-		global.save_player.sforms = global.forms;
 	}
 	
 	var data = {
@@ -97,22 +95,6 @@ function cleanup_game() {
 	global.time = 0;
 	global.clear = false;
 	
-	global.player = {
-		xx: 0,
-		yy: 0,
-		angle: global.save_player.sangle
-	};
-
-	global.forms = {
-		dotkid: false,
-		vkid: 0,
-		telekid: false,
-		lunarkid: false,
-		linekid: false
-	};
-	
-	global.slowshot = false;
-	
 	global.items = {
 		secrets: array_create(8, false),
 		bosses: array_create(8, false)
@@ -195,8 +177,8 @@ function set_display() {
 	display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
 }
 
-function change_volume(type = "master") {
+function change_volume() {
 	var dir = (is_held(global.controls.right) - is_held(global.controls.left));
-	global.display[$ type + "_volume"] += 0.01 * dir;
-	global.display[$ type + "_volume"] = clamp(global.display[$ type + "_volume"], 0, 1);
+	global.display.vol += 0.01 * dir;
+	global.display.vol = clamp(global.display.vol, 0, 1);
 }

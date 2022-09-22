@@ -1,7 +1,4 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "objBlockKiller",
   "spriteId": {
     "name": "sprBlockKiller",
     "path": "sprites/sprBlockKiller/sprBlockKiller.yy",
@@ -31,7 +28,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Other",
-    "path": "folders/Objects/Killers/Other.yy",
+    "name": "Killers",
+    "path": "folders/Objects/Killers.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "objBlockKiller",
+  "tags": [],
+  "resourceType": "GMObject",
 }
