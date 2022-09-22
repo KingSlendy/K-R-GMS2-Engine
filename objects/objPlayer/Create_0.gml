@@ -28,6 +28,11 @@ on_block = false;
 on_ladder = false;
 
 lunar_start = false;
+test_dist = 0;
+test_dist_xpos = 0;
+test_dist_ypos = 0;
+test_dist_xneg = 0;
+test_dist_yneg = 0;
 
 frozen = false;
 

@@ -12,7 +12,8 @@ var tangible = function(obj) { return (obj.image_alpha == 1); }
 
 #region Transformations
 if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
-	if (is_pressed(global.controls.jump) && global.forms.vkid) {
+	#region Lunarkid functionality
+	if (is_pressed(global.controls.jump) && global.forms.vkid > 0) {
 		player_jump();
 	}
 
@@ -28,217 +29,218 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 	image_angle = (image_angle + 360 + (dir_left - dir_right)) % 360;
         
     global.player.angle = image_angle;
-    sprite_index = PLAYER_ACTIONS.LUNARKID;
-} else if (global.forms.linekid) {
-	#region Linekid functionality (I'm only putting it in a region cause it's way too fucking long lol)
-    image_angle = global.player.angle;
+    player_sprite(PLAYER_ACTIONS.LUNARKID);
+	#endregion
+} else { 
+	if (global.forms.linekid) {
+		#region Linekid functionality
+	    image_angle = global.player.angle;
 	
-	if (dir_up || dir_down) {
-		if (((global.player.angle > 0 && global.player.angle <= 90) || (global.player.angle > 180 && global.player.angle <= 270) 
-		&& instance_place_check(x - 2, y, objBlock, tangible) == noone || instance_place_check(x + 2, y, objBlock, tangible) == noone)
-		|| instance_place_check(x, y - 2, objBlock, tangible) == noone || instance_place_check(x, y + 2, objBlock, tangible) == noone) {
-			global.player.angle = (global.player.angle + (dir_up - dir_down) * 3) % 360;
-		}
-	}
-        
-    if (on_block == noone && instance_place_check(x, y, objBlock, tangible) == noone) {
-        var test_dist = 0;
-					
-		while (instance_place_check(x, y + test_dist + 0.05, objBlock, tangible) == noone && test_dist < 2) {
-			test_dist += 0.05;
-
-			if (test_dist < 2) { 
-				y += test_dist; 
+		if (dir_up || dir_down) {
+			if (((global.player.angle > 0 && global.player.angle <= 90) || (global.player.angle > 180 && global.player.angle <= 270) 
+			&& instance_place_check(x - 2, y, objBlock, tangible) == noone || instance_place_check(x + 2, y, objBlock, tangible) == noone)
+			|| instance_place_check(x, y - 2, objBlock, tangible) == noone || instance_place_check(x, y + 2, objBlock, tangible) == noone) {
+				global.player.angle = (global.player.angle + (dir_up - dir_down) * 3) % 360;
 			}
 		}
         
-		var first_move = 0;
-		var last_move_last = 0;
-		var x_back = x; 
-		var y_back = y;
-		var blah = false;
-		var last_move = 0;
-		
-		var list = ds_list_create();
-		var line_place = instance_place_list(x, y, objBlock, list, false); 
-		
-		for (var i = 0; i < line_place; i++) {
-			var curr_line_place = line_place[| i];
-			
-			if (curr_line_place.image_alpha == 1) {
-				var test_dist_xpos = 0;
-				var test_dist_ypos = 0;
-				var test_dist_xneg = 0;
-				var test_dist_yneg = 0;
-						
-				if (blah) {
-					if (first_move == 1) { 
-						test_dist_xpos = 99; 
-					} else if (first_move == 2) { 
-						test_dist_xneg = 99; 
-					} else if (first_move == 3) { 
-						test_dist_ypos = 99; 
-					} else if (first_move == 4) { 
-						test_dist_yneg = 99; 
-					}
-				}
-					
-				if (last_move == 1) { 
-					test_dist_xneg = 99; 
-				} else if (last_move == 2) { 
-					test_dist_xpos = 99; 
-				} else if (last_move == 3) { 
-					test_dist_yneg = 99; 
-				} else if (last_move == 4) { 
-					test_dist_ypos = 99; 
-				}
-						
-				while (instance_place(x + test_dist_xpos, y, curr_line_place) == noone && test_dist_xpos < 3) {
-					test_dist_xpos += 0.2;
-				}
-				
-				while (instance_place(x - test_dist_xneg, y, curr_line_place) == noone && test_dist_xneg < 3) {
-					test_dist_xneg += 0.2;
-				}
-				
-				while (instance_place(x, y + test_dist_ypos, curr_line_place) == noone && test_dist_ypos < 3) {
-					test_dist_ypos += 0.2;
-				}
-				
-				while (instance_place(x, y + test_dist_yneg, curr_line_place) == noone && test_dist_yneg < 3) {
-					test_dist_yneg += 0.2;
-				}
+	    if (on_block != noone && instance_place_check(x, y, objBlock, tangible) == noone) {	
+			while (instance_place_check(x, y + test_dist + 0.05, objBlock, tangible) == noone && test_dist < 2) {
+				test_dist += 0.05;
 
-				var move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
+				if (test_dist < 2) { 
+					y += test_dist; 
+				}
+			}
+        
+			var first_move = 0;
+			var last_move_last = 0;
+			var x_back = x; 
+			var y_back = y;
+			var blah = false;
+			var last_move = 0;
+		
+			var list = ds_list_create();
+			var line_place = instance_place_list(x, y, objBlock, list, false); 
+		
+			for (var i = 0; i < line_place; i++) {
+				var curr_line_place = line_place[| i];
+			
+				if (curr_line_place.image_alpha == 1) {
+					test_dist_xpos = 0;
+					test_dist_ypos = 0;
+					test_dist_xneg = 0;
+					test_dist_yneg = 0;
+						
+					if (blah) {
+						if (first_move == 1) { 
+							test_dist_xpos = 99; 
+						} else if (first_move == 2) { 
+							test_dist_xneg = 99; 
+						} else if (first_move == 3) { 
+							test_dist_ypos = 99; 
+						} else if (first_move == 4) { 
+							test_dist_yneg = 99; 
+						}
+					}
 					
-				if (move < 3) {
-					if (move == test_dist_xpos) {
-						x += test_dist_xpos; 
-						xprevious = x;
+					if (last_move == 1) { 
+						test_dist_xneg = 99; 
+					} else if (last_move == 2) { 
+						test_dist_xpos = 99; 
+					} else if (last_move == 3) { 
+						test_dist_yneg = 99; 
+					} else if (last_move == 4) { 
+						test_dist_ypos = 99; 
+					}
+						
+					while (instance_place(x + test_dist_xpos, y, curr_line_place) != noone && test_dist_xpos < 3) {
+						test_dist_xpos += 0.2;
+					}
+				
+					while (instance_place(x - test_dist_xneg, y, curr_line_place) != noone && test_dist_xneg < 3) {
+						test_dist_xneg += 0.2;
+					}
+				
+					while (instance_place(x, y + test_dist_ypos, curr_line_place) != noone && test_dist_ypos < 3) {
+						test_dist_ypos += 0.2;
+					}
+				
+					while (instance_place(x, y - test_dist_yneg, curr_line_place) != noone && test_dist_yneg < 3) {
+						test_dist_yneg += 0.2;
+					}
+
+					var move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
+					
+					if (move < 3) {
+						if (move == test_dist_xpos) {
+							x += test_dist_xpos; 
+							xprevious = x;
 								
-						if (first_move == 0) { 
+							if (first_move == 0) { 
+								first_move = 1; 
+							}
+						
+							last_move_last = last_move; 
+							last_move = 1;
+						} else if (move == test_dist_xneg) {
+							x -= test_dist_xneg; 
+							xprevious = x;
+								
+							if (first_move == 0) { 
+								first_move = 2; 
+							}
+						
+							last_move_last = last_move; 
+							last_move = 2;
+						} else if (move == test_dist_ypos) {
+							y += test_dist_ypos; 
+							yprevious = y;
+								
+							if (first_move == 0) { 
+								first_move = 3; 
+							}
+						
+							last_move_last = last_move; 
+							last_move = 3;
+						} else if (move == test_dist_yneg) {
+							y -= test_dist_yneg; 
+							yprevious = y;
+								
+							if (first_move == 0) { 
+								first_move = 4; 
+							}
+						
+							last_move_last = last_move; 
+							last_move = 4;
+						}
+					}
+				} else {
+					x = x_back; 
+					y = y_back;
+					yprevious = y_back; 
+					xprevious = x_back;
+					last_move = last_move_last;
+				}
+			}
+		
+			if (instance_place_check(x, y, objBlock, tangible) != noone) {
+				for (var i = 0; i < line_place; i++) {
+					var curr_line_place = line_place[| i];
+					test_dist_xpos = 0;
+					test_dist_ypos = 0;
+					test_dist_xneg = 0;
+					test_dist_yneg = 0;
+				
+					while (instance_place(x + test_dist_xpos, y, curr_line_place) != noone && test_dist_xpos < 3) {
+						test_dist_xpos += 0.2;
+					}
+				
+					while (instance_place(x - test_dist_xneg, y, curr_line_place) != noone && test_dist_xneg < 3) {
+						test_dist_xneg += 0.2;
+					}
+				
+					while (instance_place(x, y + test_dist_ypos, curr_line_place) != noone && test_dist_ypos < 3) {
+						test_dist_ypos += 0.2;
+					}
+				
+					while (instance_place(x, y - test_dist_yneg, curr_line_place) != noone && test_dist_yneg < 3) {
+						test_dist_yneg += 0.2;
+					}
+					
+					var move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
+				
+					if (move == test_dist_xpos) {
+						x += test_dist_xpos;
+						xprevious = x;
+					
+						if (first_move == 0) {
 							first_move = 1; 
 						}
-						
+					
 						last_move_last = last_move; 
 						last_move = 1;
 					} else if (move == test_dist_xneg) {
 						x -= test_dist_xneg; 
 						xprevious = x;
-								
+					
 						if (first_move == 0) { 
 							first_move = 2; 
 						}
-						
+					
 						last_move_last = last_move; 
 						last_move = 2;
 					} else if (move == test_dist_ypos) {
 						y += test_dist_ypos; 
 						yprevious = y;
-								
+					
 						if (first_move == 0) { 
 							first_move = 3; 
 						}
-						
+					
 						last_move_last = last_move; 
 						last_move = 3;
 					} else if (move == test_dist_yneg) {
 						y -= test_dist_yneg; 
 						yprevious = y;
-								
+					
 						if (first_move == 0) { 
 							first_move = 4; 
 						}
-						
+					
 						last_move_last = last_move; 
 						last_move = 4;
 					}
 				}
-			} else {
-				x = x_back; 
-				y = y_back;
-				yprevious = y_back; 
-				xprevious = x_back;
-				last_move = last_move_last;
 			}
-		}
 		
-		if (instance_place_check(x, y, objBlock, tangible) == noone) {
-			for (var i = 0; i < line_place; i++) {
-				var curr_line_place = line_place[| i];
-				test_dist_xpos = 0;
-				test_dist_ypos = 0;
-				test_dist_xneg = 0;
-				test_dist_yneg = 0;
-				
-				while (instance_place(x + test_dist_xpos, y, curr_line_place) == noone && test_dist_xpos < 3) {
-					test_dist_xpos += 0.2;
-				}
-				
-				while (instance_place(x - test_dist_xneg, y, curr_line_place) == noone && test_dist_xneg < 3) {
-					test_dist_xneg += 0.2;
-				}
-				
-				while (instance_place(x, y + test_dist_ypos, curr_line_place) == noone && test_dist_ypos < 3) {
-					test_dist_ypos += 0.2;
-				}
-				
-				while (instance_place(x, y + test_dist_yneg, curr_line_place) == noone && test_dist_yneg < 3) {
-					test_dist_yneg += 0.2;
-				}
-					
-				var move = min(test_dist_xpos, test_dist_xneg, test_dist_ypos, test_dist_yneg);
-				
-				if (move == test_dist_xpos) {
-					x += test_dist_xpos;
-					xprevious = x;
-					
-					if (first_move == 0) {
-						first_move = 1; 
-					}
-					
-					last_move_last = last_move; 
-					last_move = 1;
-				} else if (move == test_dist_xneg) {
-					x -= test_dist_xneg; 
-					xprevious = x;
-					
-					if (first_move == 0) { 
-						first_move = 2; 
-					}
-					
-					last_move_last = last_move; 
-					last_move = 2;
-				} else if (move == test_dist_ypos) {
-					y += test_dist_ypos; 
-					yprevious = y;
-					
-					if (first_move == 0) { 
-						first_move = 3; 
-					}
-					
-					last_move_last = last_move; 
-					last_move = 3;
-				} else if (move == test_dist_yneg) {
-					y -= test_dist_yneg; 
-					yprevious = y;
-					
-					if (first_move == 0) { 
-						first_move = 4; 
-					}
-					
-					last_move_last = last_move; 
-					last_move = 4;
-				}
-			}
-		}
-		
-		ds_list_destroy(list);
-        blah = true;
-    }
-	#endregion
-} else {
-	image_angle = 0;	
+			ds_list_destroy(list);
+	        blah = true;
+	    }
+		#endregion
+	} else {
+		image_angle = 0;	
+	}
 }
 #endregion
 
@@ -251,9 +253,14 @@ if (!global.forms.lunarkid) {
 		}
 	}
 	
+	var vine_off = 1;
+	if (global.forms.linekid) {
+		vine_off = 2;
+	}
+	
 	on_block = instance_place_check(x, y + global.grav, objBlock, tangible);
-	var on_vineR = (place_meeting(x - 1, y, objVineR) && on_block == noone);
-	var on_vineL = (place_meeting(x + 1, y, objVineL) && on_block == noone);
+	var on_vineR = (place_meeting(x - vine_off, y, objVineR) && on_block == noone);
+	var on_vineL = (place_meeting(x + vine_off, y, objVineL) && on_block == noone);
 	#endregion
 	
 	#region Horizontal Movement
