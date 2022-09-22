@@ -32,6 +32,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Slowmo",
-    "path": "folders/Objects/Misc/Refreshers/Jump/Slowmo.yy",
+    "path": "folders/Objects/Misc/Refreshers/Jump/Jumple Refrenture/Slowmo.yy",
   },
 }

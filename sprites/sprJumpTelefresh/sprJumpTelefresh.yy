@@ -67,7 +67,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Jump",
-    "path": "folders/Sprites/Objects/Misc/Refreshers/Jump.yy",
+    "name": "Jumple Refrenture",
+    "path": "folders/Sprites/Objects/Misc/Refreshers/Jump/Jumple Refrenture.yy",
   },
 }

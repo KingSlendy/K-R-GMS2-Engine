@@ -3,6 +3,7 @@ function player_jump() {
 		#region Jumping
 		var tangible = function(obj) { return (obj.image_alpha == 1); }
 		var platform = instance_place_check(x, y + global.grav, objPlatform, tangible);
+		var jump_velocity = 1;
 		
 		if (jump_total > 0 && (on_block != noone || (platform != noone && platform.visible)|| on_platform || instance_place_check(x, y + global.grav, objWater1, tangible) != noone || on_ladder)) {
 			vspd = -(jump_height[0] * global.grav);
@@ -11,8 +12,8 @@ function player_jump() {
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
 		} else if (jump_left > 0 || instance_place_check(x, y + global.grav, objWater2, tangible) != noone || jump_total == -1) {
-			#region Jump Types		
-			if (jump_mod.slowmo == 1) { //slowmo 
+			#region Refresher Modifiers	
+			if (jump_mod.slowmo == 1) { //slowmo djump
 				if (!instance_exists(objSlowmoJumpEffect)) {
 					instance_create_layer(0, 0, layer, objSlowmoJumpEffect);
 				}
@@ -28,7 +29,6 @@ function player_jump() {
 			}
 			
 			if (jump_mod.fast == 1) { //fast djump
-				hspd_mod = 2;
 				jump_mod.fast = 2;
 			}
 			
@@ -50,7 +50,19 @@ function player_jump() {
 			}
 			#endregion
 			
-			vspd = -(jump_height[1] * global.grav);
+			#region Water Modifiers
+			if (instance_place_check(x, y, objFlipWater, tangible) != noone) {
+				flip_grav();
+			}
+			if (instance_place_check(x, y, objPlatformWater, tangible) != noone) {
+				grav_amount = 0.4;
+			}
+			if (instance_place_check(x, y, objBubbleWater, tangible) != noone) {
+				jump_velocity = 1.25;
+			}
+			#endregion
+				
+			vspd = -((jump_height[1] * global.grav) * jump_velocity);
 			jump_mod.high = 2;
 			jump_mod.low = 2;
 			player_sprite(PLAYER_ACTIONS.JUMP);

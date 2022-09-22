@@ -16,21 +16,33 @@ grav_amount = (global.forms.lunarkid) ? 0 : 0.4;
 #endregion
 
 #region Speed Modifiers
-hspd_mod = 1;
-
 spd_mod = {
+	//Common 
 	fast: 0,
 	slow: 0,
+	
+	//RBN Speed
 	auto: 0,
 	buffer: 0
 }
 
 grav_mod = {
+	//Common 
 	low: 0,
 	high: 0,
+	
+	//RBN Grav
 	zero: 0,
 	anti: 0
 };
+	
+water_mod = {
+	platform: 0,
+	weird: 0
+};
+
+max_poison = 130;
+poison_time = max_poison;
 #endregion
 
 #region Jump Variables
@@ -57,13 +69,15 @@ vine_mod = {
 	lowgrav: 0,
 	fire: 0,
 	
-	//New Light
+	//RBN Light
 	zerograv: 0
 };
 #endregion
 
 #region Collision and Actions
 on_block = false;
+on_ice = false;
+on_slide = false;
 on_platform = false;
 on_ladder = false;
 

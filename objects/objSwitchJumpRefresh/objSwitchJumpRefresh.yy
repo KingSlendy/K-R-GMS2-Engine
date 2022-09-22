@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Jump",
-    "path": "folders/Objects/Misc/Refreshers/Jump.yy",
+    "name": "Jumple Refrenture",
+    "path": "folders/Objects/Misc/Refreshers/Jump/Jumple Refrenture.yy",
   },
 }

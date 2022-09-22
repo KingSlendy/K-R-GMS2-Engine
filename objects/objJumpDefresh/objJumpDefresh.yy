@@ -33,7 +33,7 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"refresh_frames","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"objectId":{"name":"objJumpRefresh","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"value":"20",},
   ],
   "parent": {
-    "name": "Jump",
-    "path": "folders/Objects/Misc/Refreshers/Jump.yy",
+    "name": "Jumple Refrenture",
+    "path": "folders/Objects/Misc/Refreshers/Jump/Jumple Refrenture.yy",
   },
 }

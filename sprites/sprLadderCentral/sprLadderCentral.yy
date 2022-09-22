@@ -67,7 +67,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Ladders",
-    "path": "folders/Sprites/Objects/Misc/Ladders.yy",
+    "name": "Standard",
+    "path": "folders/Sprites/Objects/Misc/Ladders/Standard.yy",
   },
 }
