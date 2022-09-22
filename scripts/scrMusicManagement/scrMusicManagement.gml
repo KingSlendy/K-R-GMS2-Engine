@@ -25,7 +25,6 @@ function get_music() {
 	    case rTitle:
 	    case rFiles:
 	    case rOptions:
-	    case rTest:
 	        music = bgmGuyRock;
 	        break;
         

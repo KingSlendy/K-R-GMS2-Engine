@@ -1,16 +1,58 @@
 function player_jump() {
-	var tangible = function(obj) { return (obj.image_alpha == 1); }
-	
 	if (global.forms.vkid == 0) {
 		#region Jumping
-		if (jump_total > 0 && (on_block != noone || instance_place_check(x, y + global.grav, objPlatform, tangible) != noone || instance_place_check(x, y + global.grav, objWater1, tangible) != noone || on_ladder)) {
+		var tangible = function(obj) { return (obj.image_alpha == 1); }
+		var platform = instance_place_check(x, y + global.grav, objPlatform, tangible);
+		
+		if (jump_total > 0 && (on_block != noone || (platform != noone && platform.visible)|| on_platform || instance_place_check(x, y + global.grav, objWater1, tangible) != noone || on_ladder)) {
 			vspd = -(jump_height[0] * global.grav);
 			on_ladder = false;
 			player_sprite(PLAYER_ACTIONS.JUMP);
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
 		} else if (jump_left > 0 || instance_place_check(x, y + global.grav, objWater2, tangible) != noone || jump_total == -1) {
+			#region Jump Types		
+			if (jump_mod.slowmo == 1) { //slowmo 
+				if (!instance_exists(objSlowmoJumpEffect)) {
+					instance_create_layer(0, 0, layer, objSlowmoJumpEffect);
+				}
+				jump_mod.slowmo = 2;
+			} else {
+				instance_destroy(objSlowmoJumpEffect);
+			}
+			
+			if (jump_mod.swap == 1) { //switch djump
+				audio_play_sound(sndJumpSwap, 0, false);
+				
+				jump_mod.swap = 0;
+			}
+			
+			if (jump_mod.fast == 1) { //fast djump
+				hspd_mod = 2;
+				jump_mod.fast = 2;
+			}
+			
+			if (jump_mod.tele == 1) { //teleport djump
+				var tele_x = 96 * xscale;
+				if (instance_place_check(x + tele_x, y, objBlock, tangible) == noone) {
+					x += tele_x;
+					audio_play_sound(sndJumpTele, 0, false);
+				}
+				
+				xprevious = x;
+				yprevious = y;
+				jump_mod.tele = 0;
+			}
+			
+			if (jump_mod.flip == 1) { //flip djump
+				flip_grav();
+				jump_mod.flip = 2;
+			}
+			#endregion
+			
 			vspd = -(jump_height[1] * global.grav);
+			jump_mod.high = 2;
+			jump_mod.low = 2;
 			player_sprite(PLAYER_ACTIONS.JUMP);
 			
 			if (instance_place_check(x, y + global.grav, objWater3, tangible) == noone) {

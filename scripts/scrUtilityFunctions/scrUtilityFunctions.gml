@@ -129,22 +129,7 @@ function draw_sprite_fog(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha
 }
 #endregion
 
-#region Other
-function camera_properties(num) {
-	var cam = view_camera[num];
-	
-	return {
-		view_cam: cam,
-		view_x: camera_get_view_x(cam),
-		view_y: camera_get_view_y(cam),
-		view_w: camera_get_view_width(cam),
-		view_h: camera_get_view_height(cam),
-		view_xw: camera_get_view_x(cam) + camera_get_view_width(cam),
-		view_yh: camera_get_view_y(cam) + camera_get_view_height(cam),
-		view_angle: camera_get_view_angle(cam),
-	};
-}
-
+#region Collision
 function instance_place_check(x, y, obj, func = function(obj) { return true; } ) {
 	var list = ds_list_create();
 	var count = instance_place_list(x, y, obj, list, false);
@@ -163,6 +148,44 @@ function instance_place_check(x, y, obj, func = function(obj) { return true; } )
 
 	ds_list_destroy(list);
 	return found;
+}
+
+function move_bounce() {
+	var tangible = function(obj) { return (obj.image_alpha == 1); }
+	
+	//simple block bounce that will preserve height
+	if (instance_place_check(x + hspeed, y, objBlock, tangible) != noone) { //Detect horizontal collision
+		x -= hspeed;
+	    hspeed *= -1;
+	} 
+	if (instance_place_check(x, y + vspeed, objBlock, tangible) != noone) { //Detect vertical collision
+		y -= vspeed;
+		vspeed *= -1;
+	}
+	if (instance_place_check(x + hspeed, y + vspeed, objBlock, tangible) != noone) { //Detect diagonal collision
+		x -= hspeed;
+		hspeed *= -1;
+			
+		y -= vspeed;
+		vspeed *= -1;
+	}
+}
+#endregion
+
+#region Other
+function camera_properties(num) {
+	var cam = view_camera[num];
+	
+	return {
+		view_cam: cam,
+		view_x: camera_get_view_x(cam),
+		view_y: camera_get_view_y(cam),
+		view_w: camera_get_view_width(cam),
+		view_h: camera_get_view_height(cam),
+		view_xw: camera_get_view_x(cam) + camera_get_view_width(cam),
+		view_yh: camera_get_view_y(cam) + camera_get_view_height(cam),
+		view_angle: camera_get_view_angle(cam),
+	};
 }
 
 function map(value, from1, to1, from2, to2) {
@@ -191,6 +214,14 @@ function struct_all(struct) {
     }
 
     return true;
+}
+
+function struct_set_all(struct, value) {
+    var names = variable_struct_get_names(struct);
+    
+    for (var i = 0; i < array_length(names); i++) {
+        struct[$ names[i]] = value;
+    }
 }
 
 function get_frames(seconds) {

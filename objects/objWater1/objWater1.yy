@@ -11,7 +11,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objWater2",
+    "path": "objects/objWater2/objWater2.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

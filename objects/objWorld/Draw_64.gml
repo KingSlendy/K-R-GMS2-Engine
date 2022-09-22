@@ -41,6 +41,7 @@ if (global.overlay) {
 		
 		var angle = "N/A";
 		
+		var grav = "N/A";
 		var grav_dir = "N/A";
 		#endregion
 		
@@ -57,6 +58,7 @@ if (global.overlay) {
 			
 			angle = objPlayer.image_angle;
 			
+			grav = objPlayer.grav_amount;
 			grav_dir = objPlayer.gravity_direction;
         }
 		#endregion
@@ -68,7 +70,7 @@ if (global.overlay) {
 			string_interp("Y: {0} (vspd: {1})", yy, vspd),
 			string_interp("Align: {0} (relative: {1})", align, align_relative),
 			string_interp("Angle: {0}", angle),
-			string_interp("Gravity: {0} (direction: {1})", global.grav, grav_dir),
+			string_interp("Gravity: {0} (direction: {1})", grav, grav_dir),
 			string_interp("Room: {0} (number: {1})", room_get_name(room), room),
 			string_interp("Object counter: {0}", instance_count)
 		];
@@ -84,7 +86,7 @@ if (global.overlay) {
 		#endregion
     } else {
 		draw_set_color(c_red);
-        draw_text_outline(0, 0, "Debug Mode", c_black);
+        draw_text_outline(20, 20, "Debug Mode", c_black);
     }
 }
 #endregion

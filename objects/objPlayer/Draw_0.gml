@@ -2,17 +2,11 @@
 if ((global.debug_enable && global.debug_coloring) && global.debug_inf_jump) {
     image_blend = c_blue;
 } else {
-	if (global.forms.dotkid) {
-		image_blend = c_red;
-	} else {
-		image_blend = c_white;
-	}
+	image_blend = (global.forms.dotkid) ? c_red : c_white;
 }
 
-if (global.forms.vkid = 1) { 
-	image_blend = make_color_rgb(1,164,217); 
-} else if (global.forms.vkid = 2) { 
-	image_blend = make_color_rgb(164,1,171); 
+if (global.forms.vkid > 0) {
+	image_blend = (global.forms.vkid == 1) ? make_color_rgb(1,164,217) : make_color_rgb(164,1,171);
 }
 #endregion
 
@@ -44,6 +38,11 @@ if (global.debug_hitbox != 2) {
 if (!global.forms.lunarkid) {
 	if ((global.difficulty == 0 && global.use_bow) || global.debug_god_mode) {
 		draw_sprite_ext(sprBow, -1, x, y, xscale, global.grav, image_angle, c_white, 1);
+	}
+	
+	if (jump_mod.tele > 0) {
+		var tele_x = 96 * xscale;
+		draw_sprite_ext(mask_index, image_index, x + tele_x, y, image_xscale, image_yscale, image_angle, c_fuchsia, 0.5);
 	}
 } else {
 	if (!lunar_start || global.debug_god_mode) {

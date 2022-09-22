@@ -1,0 +1,1 @@
+other.vspd = -(other.jump_height[0] * global.grav);
