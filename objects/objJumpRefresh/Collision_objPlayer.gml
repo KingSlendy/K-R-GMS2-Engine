@@ -2,7 +2,7 @@ if (!visible) {
 	exit;
 }
 
-other.jump_left = (object_index == objJumpDefresh) ? 0 : clamp(other.jump_left++, 0, other.jump_total);
+other.jump_left = (object_index == objJumpDefresh) ? 0 : approach(other.jump_left, other.jump_total - 1, 1);
 visible = false;
 alarm[0] = refresh_frames;
 

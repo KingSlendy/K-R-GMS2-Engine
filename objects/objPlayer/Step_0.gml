@@ -1,5 +1,9 @@
 #region Variable and Input Checks
-grav = grav_amount * global.grav;
+if (place_meeting(x, y, objFieldAntiGrav) || grav_mod.anti) { 
+	grav = -grav_amount * global.grav;
+} else {
+	grav = grav_amount * global.grav;
+}
 
 var dir_left = is_held(global.controls.left);
 var dir_right = is_held(global.controls.right);
@@ -272,8 +276,16 @@ if (!global.forms.lunarkid) {
 	}
 	
 	on_block = instance_place_check(x, y + global.grav, objBlock, tangible);
-	on_ice = instance_place_check(x, y, objIceWater, tangible);
-	on_slide = instance_place_check(x, y, objConveyorWater, tangible);
+	
+	on_ice = {
+		block: instance_place_check(x, y + global.grav, objSlipBlock, tangible), 
+		water: instance_place_check(x, y, objIceWater, tangible)
+	};
+	
+	on_slide = {
+		block: instance_place_check(x, y + global.grav, objSlideBlock, tangible), 
+		water: instance_place_check(x, y, objConveyorWater, tangible)
+	};
 	
 	#region Vine Checks
 	var vine_off = 1;
@@ -303,8 +315,6 @@ if (!global.forms.lunarkid) {
     } else if ((place_meeting(x, y, objFieldZeroGrav) || grav_mod.zero || vine_mod.zerograv) || vine_mod.stick) {
         grav_amount = 0;
 		vine_mod.stick = false;
-    } else if (place_meeting(x, y, objFieldAntiGrav) || grav_mod.anti) { 
-        grav_amount = -0.4;
     } else if (vine_mod.lowgrav) {
         grav_amount = 0.3;
     } else if (instance_place_check(x, y, objPlatformWater, tangible) == noone) {
@@ -354,17 +364,17 @@ if (!global.forms.lunarkid) {
 				} else {
 					#region Ice Movement
 					hspd += on_ice.slip * dir;
-					if (on_ice.object_index == objBlockSlip) {
+					if (on_ice.block != noone) {
 						if (abs(hspd) > max_hspd) {
 							hspd = max_hspd * dir;
 						}
 					}
-					if (on_ice.object_index == objIceWater) {
+					if (on_ice.water != noone) {
 						if (abs(hspd) > max_hspd * 1.5) {
 							hspd = (max_hspd * 1.5) * dir;
 						}
 					}
-					if (on_ice.object_index == objWeirdWater && hspd == 0) {
+					if (on_ice.water.object_index == objWeirdWater && hspd == 0) {
 						hspd = max_hspd * dir;
 					}
 					#endregion
@@ -404,6 +414,24 @@ if (!global.forms.lunarkid) {
 	if (vspd * global.grav > max_vspd) {
 		vspd = max_vspd * sign(vspd);
 	}
+	#endregion
+
+	#region General Movement
+        if (on_slide != noone) { //on a slide block, start moving with it
+			if (on_slide.hspd != 0) {
+				hspd += on_slide.hspd; 
+			}
+			if (on_slide && on_slide.vspd != 0) {
+				vspd += on_slide.vspd;
+				if (instance_place_check(x, y - vspd * global.grav, objBlock, tangible) == noone) {
+					if (vspd * global.grav <= 0) {
+						player_sprite(PLAYER_ACTIONS.JUMP);
+					} else if (vspd * global.grav > 0) {
+						player_sprite(PLAYER_ACTIONS.FALL);
+					}
+				}
+			}
+		}
 	#endregion
 
 	#region Player Actions
@@ -502,9 +530,9 @@ x += hspd;
 y += vspd;
 
 #region Collision with block
-var block = instance_place_check(x, y, objBlock, tangible);
+var block_place = instance_place_check(x, y, objBlock, tangible);
 
-if (block != noone) {
+if (block_place != noone) {
 	x = xprevious;
 	y = yprevious;
 	

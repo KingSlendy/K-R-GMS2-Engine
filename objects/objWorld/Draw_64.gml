@@ -28,63 +28,72 @@ if (global.overlay) {
     draw_set_font(fntMenu3);
 	draw_set_color(c_white);
 
-    if (global.game_started) {
-		#region Initialize Overlay Variables
-        var xx = "N/A";
-		var hspd = "N/A";
+	#region Initialize Overlay Variables
+    var xx = "N/A";
+	var hspd = "N/A";
 		
-        var yy = "N/A";
-        var vspd = "N/A";
+    var yy = "N/A";
+    var vspd = "N/A";
 		
-		var align = "N/A";
-        var align_relative = "N/A";
+	var align = "N/A";
+    var align_relative = "N/A";
 		
-		var angle = "N/A";
+	var angle = "N/A";
 		
-		var grav = "N/A";
-		var grav_dir = "N/A";
-		#endregion
+	var grav = "N/A";
+	var grav_dir = "N/A";
 		
-		#region Set Overlay Variables
-        if (instance_exists(objPlayer)) {
-            xx = objPlayer.x;
-			hspd = objPlayer.hspd;
+	var jump_left = "N/A";
+	var jump_total = "N/A";
+	#endregion
+		
+	#region Set Overlay Variables
+    if (instance_exists(objPlayer)) {
+        xx = objPlayer.x;
+		hspd = objPlayer.hspd;
 			
-            yy = objPlayer.y;
-            vspd = objPlayer.vspd;
+        yy = objPlayer.y;
+        vspd = objPlayer.vspd;
 			
-			align = objPlayer.max_hspd % 3;
-			align_relative = xx % 3;
+		align = objPlayer.max_hspd % 3;
+		align_relative = xx % 3;
 			
-			angle = objPlayer.image_angle;
+		angle = objPlayer.image_angle;
 			
-			grav = objPlayer.grav_amount;
-			grav_dir = objPlayer.gravity_direction;
-        }
-		#endregion
+		grav = objPlayer.grav_amount;
+		grav_dir = objPlayer.gravity_direction;
+			
+		jump_left = objPlayer.jump_left;
+		jump_total = objPlayer.jump_total;
+    }
+	#endregion
 		
-		#region Draw Overlay Info
-		var info = [
-			string_interp("FPS: {0} (real: {1})", fps, fps_real),
-			string_interp("X: {0} (hspd: {1})", xx, hspd),
-			string_interp("Y: {0} (vspd: {1})", yy, vspd),
-			string_interp("Align: {0} (relative: {1})", align, align_relative),
-			string_interp("Angle: {0}", angle),
-			string_interp("Gravity: {0} (direction: {1})", grav, grav_dir),
-			string_interp("Room: {0} (number: {1})", room_get_name(room), room),
-			string_interp("Object counter: {0}", instance_count)
-		];
+	#region Draw Overlay Info
+	var info = [
+		string_interp("FPS: {0} (real: {1})", fps, fps_real),
+		string_interp("X: {0} (hspd: {1})", xx, hspd),
+		string_interp("Y: {0} (vspd: {1})", yy, vspd),
+		string_interp("Align: {0} (relative: {1})", align, align_relative),
+		string_interp("Angle: {0}", angle),
+		string_interp("Gravity: {0} (direction: {1})", grav, grav_dir),
+		string_interp("Jumps: {0} (total: {1})", jump_left, jump_total),
+		string_interp("Room: {0} (number: {1})", room_get_name(room), room),
+		string_interp("Object counter: {0}", instance_count)
+	];
 		
-		var length = array_length(info);
-		if (!global.debug_enable) {
-			length = 5;
-		}
+	var length = array_length(info);
+	if (!global.debug_enable) {
+		length = 5;
+	} if (!global.game_started) {
+		length = 1;
+	}
 		
-		for (var i = 0; i < length; i++) {
-			draw_text_outline(20, 20 + spacing * i, info[i], c_black);
-		}
-		#endregion
-    } else {
+	for (var i = 0; i < length; i++) {
+		draw_text_outline(20, 20 + spacing * i, info[i], c_black);
+	}
+	#endregion
+	
+    if (room = rTitle) {
 		draw_set_color(c_red);
         draw_text_outline(20, 20, "Debug Mode", c_black);
     }

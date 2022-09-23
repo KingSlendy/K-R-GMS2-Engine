@@ -37,6 +37,8 @@ grav_mod = {
 };
 	
 water_mod = {
+	//Ocean Wetventure
+	bubble: 0,
 	platform: 0,
 	weird: 0
 };

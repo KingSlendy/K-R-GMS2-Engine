@@ -29,11 +29,12 @@
   "physicsShapePoints": [],
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
   ],
-  "properties": [],
-  "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"v","path":"objects/objOceanWater/objOceanWater.yy",},"objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"value":"2",},
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"vspd","varType":0,"value":"5","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},
   ],
+  "overriddenProperties": [],
   "parent": {
     "name": "Ocean Wetventure",
     "path": "folders/Objects/Misc/Water/Ocean Wetventure.yy",

@@ -33,7 +33,7 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"v","path":"objects/objOceanWater/objOceanWater.yy",},"objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"value":"0.3",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"h","path":"objects/objOceanWater/objOceanWater.yy",},"objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"value":"-0.5",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"time","path":"objects/objIceWater/objIceWater.yy",},"objectId":{"name":"objIceWater","path":"objects/objIceWater/objIceWater.yy",},"value":"0",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"slip","path":"objects/objOceanWater/objOceanWater.yy",},"objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"value":"0",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"slip","path":"objects/objIceWater/objIceWater.yy",},"objectId":{"name":"objIceWater","path":"objects/objIceWater/objIceWater.yy",},"value":"0",},
   ],
   "parent": {
     "name": "Ocean Wetventure",

@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "objSlipBlock",
   "spriteId": {
-    "name": "sprBlockSlip",
-    "path": "sprites/sprBlockSlip/sprBlockSlip.yy",
+    "name": "sprSlipBlock",
+    "path": "sprites/sprSlipBlock/sprSlipBlock.yy",
   },
   "solid": false,
   "visible": true,
