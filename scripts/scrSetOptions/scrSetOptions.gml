@@ -1,4 +1,4 @@
-global.game_name = "K&R GMS2 Engine"; //The name displayed on the window
+global.game_name = "KS&RBN GMS2 Engine"; //The name displayed on the window
 global.difficulties = ["Medium", "Hard", "Very Hard", "Impossible", "Load Game"]; //Every difficulty name your game will have, "Load" should always be the last one
 global.total_saves = 3; //The number of total save files to use
 global.start_room = rSampleRoom; //The room to start in

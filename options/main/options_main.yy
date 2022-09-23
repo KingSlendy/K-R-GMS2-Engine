@@ -1,7 +1,4 @@
 {
-  "resourceType": "GMMainOptions",
-  "resourceVersion": "1.4",
-  "name": "Main",
   "option_gameguid": "be02257d-2cdd-4870-acdf-f942b0104efd",
   "option_gameid": "0",
   "option_game_speed": 50,
@@ -13,8 +10,13 @@
   "option_author": "",
   "option_collision_compatibility": true,
   "option_copy_on_write_enabled": true,
+  "option_lastchanged": "09 December 2020 10:25:55",
   "option_spine_licence": false,
   "option_template_image": "${base_options_dir}/main/template_image.png",
   "option_template_icon": "${base_options_dir}/main/template_icon.png",
   "option_template_description": null,
+  "resourceVersion": "1.4",
+  "name": "Main",
+  "tags": [],
+  "resourceType": "GMMainOptions",
 }

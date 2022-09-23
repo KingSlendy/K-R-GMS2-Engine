@@ -35,7 +35,7 @@
     "name": "sprTriggerSpikeUp",
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 0.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
@@ -67,7 +67,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Triggers",
-    "path": "folders/Sprites/Objects/Triggers.yy",
+    "name": "Spikes",
+    "path": "folders/Sprites/Objects/Triggers/Spikes.yy",
   },
 }
