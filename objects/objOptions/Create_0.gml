@@ -50,13 +50,6 @@ options = [
 			return (global.display.vsync) ? "Yes" : "No";
 		}),
 		
-		new Option("Smooth Mode: ", function() {
-			global.display.smooth ^= true;
-			set_display();
-		}, function() {
-			return (global.display.smooth) ? "Yes" : "No";
-		}),
-		
 		new Option("Reset Defaults", function() {
 			scrOptionsConfig();
 			set_display();

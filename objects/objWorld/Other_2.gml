@@ -1,3 +1,4 @@
+application_surface_draw_enable(false);
 audio_group_load(audiogroup_BGM);
 audio_group_load(audiogroup_SFX);
 load_config();
