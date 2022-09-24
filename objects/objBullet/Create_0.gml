@@ -1,8 +1,6 @@
-var dir;
+var dir = 1;
 if (instance_exists(objPlayer)) {
 	dir = (global.forms.lunarkid) ? objPlayer.image_angle + 90 : objPlayer.xscale;
-} else {
-	dir = 1;
 }
 
 var spd = (global.forms.telekid) ? 4 : 16;

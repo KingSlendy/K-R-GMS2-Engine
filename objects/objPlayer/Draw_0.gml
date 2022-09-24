@@ -55,7 +55,7 @@ if (!global.forms.lunarkid) {
 }
 #endregion
 
-#region Debug 
+#region Debug
 if (global.debug_hitbox > 0) {
 	draw_sprite_ext(mask_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_fuchsia, 0.5 * global.debug_hitbox);
 }

@@ -64,9 +64,6 @@ jump_mod = {
 
 vine_mod = {
 	//Jungle Adventure
-	rise: 0,
-	ice: 0,
-	flip: 0,
 	stick: 0,
 	lowgrav: 0,
 	fire: 0,
@@ -79,7 +76,10 @@ vine_mod = {
 #region Collision and Actions
 on_block = false;
 on_ice = false;
-on_slide = false;
+
+on_conveyor = false;
+on_elevator = false;
+
 on_platform = false;
 on_ladder = false;
 

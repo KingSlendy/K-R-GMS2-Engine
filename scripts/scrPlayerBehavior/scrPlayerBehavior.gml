@@ -5,7 +5,7 @@ function player_jump() {
 		var platform = instance_place_check(x, y + global.grav, objPlatform, tangible);
 		var jump_velocity = 1;
 		
-		if (jump_total > 0 && (on_block != noone || (platform != noone && platform.visible)|| on_platform || instance_place_check(x, y + global.grav, objWater1, tangible) != noone || on_ladder)) {
+		if (jump_total > 0 && (on_block != noone || (platform != noone && platform.visible) || on_platform || instance_place_check(x, y + global.grav, objWater1, tangible) != noone || on_ladder)) {
 			vspd = -(jump_height[0] * global.grav);
 			on_ladder = false;
 			player_sprite(PLAYER_ACTIONS.JUMP);
@@ -57,7 +57,9 @@ function player_jump() {
 			if (instance_place_check(x, y, objPlatformWater, tangible) != noone) {
 				grav_amount = 0.4;
 			}
-			if (instance_place_check(x, y, objBubbleWater, tangible) != noone) {
+			
+			var bubble = instance_place_check(x, y, objBubbleWater, tangible);
+			if (bubble != noone && global.grav == -sign(bubble.vspd)) {
 				jump_velocity = 1.25;
 			}
 			#endregion
@@ -104,18 +106,14 @@ function player_fall() {
 }
 
 function player_shoot() {
-	var bullet_max = 4;
-	var bullet_object = objBullet;
-	var shoot_sound = sndShoot;
+	var bullet_max = (global.slowshot) ? 10 : 4;
+	var bullet_object = (global.forms.telekid) ? objPlayerTeleport : objBullet;
+	var shoot_sound = (global.forms.telekid) ? sndTeleport : sndShoot;
 	
-	if (global.slowshot) {
-		bullet_max = 10;
-	} else if (global.forms.telekid) {
+	if (global.forms.telekid) {
 		bullet_max = 1;
-		bullet_object = objPlayerTeleport;
-		shoot_sound = sndTeleport;
-	} 
-	
+	}
+
 	if (instance_number(objBullet) < bullet_max) {
 		instance_create_layer(x, y, "Player", bullet_object);
 		audio_play_sound(shoot_sound, 0, false);
@@ -154,7 +152,7 @@ function kill_player() {
 			
 			if (global.death_music) {
 	            audio_pause_sound(global.current_music);
-	            audio_play_sound(bgmGameOver, 0, false);
+	            audio_play_sound(bgmGameOver, 0, false, 0.5);
 	        }
 	    } else if (objPlayer.hit == 0) {
 			with (objPlayer) {
@@ -181,11 +179,15 @@ function set_mask() {
 	if (global.forms.dotkid || global.forms.lunarkid || global.forms.linekid) {
 		mask_index = sprite_index;
 	} else {
-		mask_index = (global.grav == 1) ? sprPlayerMask : sprPlayerMaskFlipped;
+		if (abs(global.grav) == 1) {
+			mask_index = (global.grav == 1) ? sprPlayerMask : sprPlayerMaskFlipped;
+		} else if (abs(global.grav) == 2) {
+			mask_index = (global.grav == 2) ? sprPlayerMaskX : sprPlayerMaskXFlipped;
+		}
 	}
 }
 
-function flip_grav() {
+function flip_grav(jump = true) {
 	if (instance_exists(objPlayer)) {
 	    global.grav *= -1;
 
@@ -195,6 +197,8 @@ function flip_grav() {
 	        y += 4 * global.grav;
 	    }
     
-	    reset_jumps();
+		if (jump) {
+			reset_jumps();
+		}
 	}
 }

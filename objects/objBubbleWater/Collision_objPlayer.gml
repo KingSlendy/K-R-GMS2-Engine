@@ -1,5 +1,5 @@
-if (global.grav == -sign(vspd)) { 
-	other.vspd = 0.5 * -sign(vspd);
+if (global.grav == -sign(vspd)) {
+	other.vspd = 0.5 * global.grav;
 } else {
 	other.vspd = approach(other.vspd, vspd, 0.15);
 }

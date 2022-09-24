@@ -12,8 +12,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "objSlideBlock",
-    "path": "objects/objSlideBlock/objSlideBlock.yy",
+    "name": "objBlock",
+    "path": "objects/objBlock/objBlock.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -28,9 +28,11 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [],
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"hspd","varType":0,"value":"2","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},
+  ],
   "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"hspd","path":"objects/objSlideBlock/objSlideBlock.yy",},"objectId":{"name":"objSlideBlock","path":"objects/objSlideBlock/objSlideBlock.yy",},"value":"2",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"hspd","path":"objects/objSlideBlock/objSlideBlock.yy",},"objectId":null,"value":"2",},
   ],
   "parent": {
     "name": "Slide",

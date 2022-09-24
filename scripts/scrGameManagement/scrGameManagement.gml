@@ -111,6 +111,7 @@ function cleanup_game() {
 		linekid: false
 	};
 	
+	global.slippage = 0;
 	global.slowshot = false;
 	
 	global.items = {
