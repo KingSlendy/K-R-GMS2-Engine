@@ -3,7 +3,6 @@ function player_jump() {
 		#region Jumping
 		var tangible = function(obj) { return (obj.image_alpha == 1); }
 		var platform = instance_place_check(x, y + global.grav, objPlatform, tangible);
-		var jump_velocity = 1;
 		
 		if (jump_total > 0 && (on_block != noone || (platform != noone && platform.visible) || on_platform || instance_place_check(x, y + global.grav, objWater1, tangible) != noone || on_ladder)) {
 			vspd = -(jump_height[0] * global.grav);
@@ -12,6 +11,8 @@ function player_jump() {
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
 		} else if (jump_left > 0 || instance_place_check(x, y + global.grav, objWater2, tangible) != noone || jump_total == -1) {
+			var jump_velocity = 1;
+			
 			#region Refresher Modifiers	
 			if (jump_mod.slowmo == 1) { //slowmo djump
 				if (!instance_exists(objSlowmoJumpEffect)) {
