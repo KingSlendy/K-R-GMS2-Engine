@@ -69,7 +69,10 @@ vine_mod = {
 	fire: 0,
 	
 	//RBN Light
-	zerograv: 0
+	zerograv: 0,
+	
+	//Effects
+	count: 0
 };
 #endregion
 

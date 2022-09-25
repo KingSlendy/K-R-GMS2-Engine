@@ -118,6 +118,8 @@ function cleanup_game() {
 		secrets: array_create(8, false),
 		bosses: array_create(8, false)
 	};
+	
+	make_particles("vines");
 }
 
 function start_game(diff) {

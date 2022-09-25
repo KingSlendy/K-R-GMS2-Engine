@@ -508,6 +508,14 @@ if (!global.forms.lunarkid) {
 					vine_mod.lowgrav = true;
 				}
 			}
+			
+			vine_mod.count++;
+			if (vine_mod.fire && vine_mod.count mod 3 == 1) {
+				instance_create_depth(x, y, depth - 1, objFireVinePart);
+			}
+			if (vine_mod.lowgrav && vine_mod.count mod 10 == 1) {
+				part_particles_create(global.partsys_vines, x, y, global.part_lowgrav, 2); 
+			}
 			#endregion
 	
 			#region Debug
