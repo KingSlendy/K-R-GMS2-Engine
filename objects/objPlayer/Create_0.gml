@@ -119,6 +119,10 @@ enum PLAYER_ACTIONS {
 
 reset_jumps();
 
+xsafe = x;
+ysafe = y;
+dynamic_collision(true);
+
 hit = 0;
 hit_x = x;
 hit_y = y;

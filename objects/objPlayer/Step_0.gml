@@ -334,8 +334,6 @@ if (!global.forms.lunarkid) {
 			water_mod.platform = false;
 		}
 	}
-        
-	gravity_direction = (abs(global.grav) == 2) ? 0 : 270;
 	#endregion
 	
 	#region Jump Checks
@@ -562,7 +560,7 @@ if (block != noone) {
 	} else {
 		//Detect horizontal collision
 		if (instance_place_check(x + hspd, y, objBlock, tangible) != noone) {
-			while (instance_place_check(x + sign(hspd), y, objBlock, tangible) = noone) {
+			while (instance_place_check(x + sign(hspd), y, objBlock, tangible) == noone) {
 				x += sign(hspd);
 			}
 	
@@ -585,12 +583,18 @@ if (block != noone) {
 
 		//Detect diagonal collision
 		if (instance_place_check(x + hspd, y + vspd, objBlock, tangible) != noone) {
-			hspd = 0;
+			var p = instance_place_check(x, y + vspd, objPlatform, tangible);
+			if (!p || instance_place_check(x, y, p, tangible) != noone) {
+				hspd = 0;
+			} else {
+				vspd = 0;
+			}
 		}
 
 		x += hspd;
 		y += vspd;
 	
+		/*
 		//Makes player move based on the block speed
 		if (instance_place_check(x + block.hspeed, y, objBlock, tangible) == noone) {
 			x += block.hspeed;
@@ -598,9 +602,12 @@ if (block != noone) {
 	
 		if (instance_place_check(x, y + block.vspeed, objBlock, tangible) == noone) {
 			y += block.vspeed;
-		}
+		}*/
 	}
 }
+
+xsafe = x + hspd;
+ysafe = y + vspd;
 #endregion
 
 #region New collision with platform
