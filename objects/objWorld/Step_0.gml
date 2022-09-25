@@ -15,7 +15,7 @@ set_caption();
 #region Main Inputs
 if (global.game_started) {
 	if (!global.game_paused) {
-		if (is_pressed(global.controls.restart)) {
+		if (is_pressed(global.controls.restart) && !global.controls_lock.restart) {
 			restart_game();
 		}
 	} else {
@@ -24,7 +24,7 @@ if (global.game_started) {
 
 	if (pause_delay < global.total_pause_delay) {
 		pause_delay++;
-	} else if (is_pressed(global.controls.pause)) {
+	} else if (is_pressed(global.controls.pause) && !global.controls_lock.pause) {
 		global.game_paused = !global.game_paused;
 	
 		if (global.game_paused) {
@@ -52,6 +52,13 @@ if (is_pressed(global.controls_misc.overlay)) {
 }
 
 if (!global.game_paused) {
+	//Toggles music
+	if (keyboard_check(vk_control) && is_pressed(global.controls_misc.mute_music)) {
+		global.display.mute_music ^= true;
+		toggle_music();
+		save_config();
+	}
+	
 	//Toggles fullscreen
 	if (is_pressed(global.controls_misc.fullscreen)) {
 		global.display.fullscreen ^= true;
@@ -63,6 +70,15 @@ if (!global.game_paused) {
 	if (is_pressed(global.controls_misc.reset)) {
 		stop_music();
 		game_restart();
+	}
+	
+	//Screenshot
+	if (is_pressed(global.controls_misc.screenshot)) {
+		var filename = get_string("Screenshot name: ", "");
+		/*if (filename == "") {
+			filename = string_interp("Screenshots/screenshot{0}");
+		}*/
+		screen_save(string_interp("Screenshots/{0}", filename + ".png"));
 	}
 }
 

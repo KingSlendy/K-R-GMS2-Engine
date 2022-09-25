@@ -2,11 +2,25 @@
 var grav_factor = (place_meeting(x, y, objFieldAntiGrav) || grav_mod.anti) ? -1 : 1;
 grav = (vine_mod.stick) ? 0 : (grav_amount * grav_factor) * global.grav;
 
-var dir_left = is_held(global.controls.left);
-var dir_right = is_held(global.controls.right);
+var left = noone; 
+var right = noone; 
+var dir = 0;
+if (!place_meeting(x, y, objFieldAutoSpeed)) {
+	if (!place_meeting(x, y, objFieldBufferSpeed)) {
+		left = (global.controls_reverse) ? is_held(global.controls.right) : is_held(global.controls.left);
+		right = (global.controls_reverse) ? is_held(global.controls.left) : is_held(global.controls.right);
+	} else {
+		left = (global.controls_reverse) ? is_pressed(global.controls.right) : is_pressed(global.controls.left);
+		right = (global.controls_reverse) ? is_pressed(global.controls.left) : is_pressed(global.controls.right);
+	}
+} else {
+	dir = xscale;
+}
+
+var dir_left = left;
+var dir_right = right;
 var dir_down = is_held(global.controls.down);
 var dir_up = is_held(global.controls.up);
-var dir = 0;
 
 var tangible = function(obj) { return (obj.image_alpha == 1); }
 
@@ -288,6 +302,7 @@ if (!global.forms.lunarkid) {
 	
 	#region Vine Checks
 	var vine_off = (global.forms.linekid) ? 2 : 1;
+	
 	var on_vine = (instance_place_check(x + vine_off, y, objVine, tangible));
 	if (on_vine == noone && vine_mod.stick) {
 		vine_mod.stick = false;
@@ -509,8 +524,12 @@ if (!global.forms.lunarkid) {
 	#endregion
 }
 
-if (is_pressed(global.controls.shoot)) {
+if (is_pressed(global.controls.shoot) && !global.controls_lock.shoot) {
 	player_shoot();
+}
+
+if (is_pressed(global.controls.suicide) && !global.controls_lock.suicide) {
+	kill_player();
 }
 
 #region Physics and Collision

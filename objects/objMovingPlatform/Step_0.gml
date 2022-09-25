@@ -1,6 +1,6 @@
 var tangible = function(obj) { return (obj.image_alpha == 1); }
 
-if (speed != 0 && image_alpha == 1) {  //make sure the platform is moving before doing collision checks
+if (speed != 0 && image_alpha == 1) { //make sure the platform is moving before doing collision checks
 	if (bounce) {
 		move_bounce();
 	}

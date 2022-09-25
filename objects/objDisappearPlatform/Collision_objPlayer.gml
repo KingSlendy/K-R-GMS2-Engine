@@ -1,3 +1,0 @@
-if (visible) {
-	visible = false;
-}

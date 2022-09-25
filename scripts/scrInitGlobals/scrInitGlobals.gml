@@ -16,6 +16,14 @@ global.save_player = { //Keeping track of the last player properties for saving
 global.difficulty = 0; //The difficulty selected
 cleanup_game(); //Initialize the save variables
 
+global.controls_reverse = false; //Sets if left and right should be swapped
+global.controls_lock = { //Keeping track of which controls are unusable
+	shoot: false,
+	restart: false,
+	pause: false,
+	suicide: true
+}
+
 global.current_music = -1; //The current music playing
 global.last_xscale = 1; //Last xscale the player had
 global.overlay = false; //Sets if the information overlay is currently visible

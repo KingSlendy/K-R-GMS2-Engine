@@ -30,7 +30,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Classic",
-    "path": "folders/Objects/Misc/Water/Classic.yy",
+    "name": "Oldschool",
+    "path": "folders/Objects/Misc/Water/Oldschool.yy",
   },
 }

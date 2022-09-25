@@ -12,9 +12,5 @@ function snap_view() {
 	    var set_x = floor(follow_x / cam.view_w) * cam.view_w;
 	    var set_y = floor(follow_y / cam.view_h) * cam.view_h;
 		camera_set_view_pos(cam.view_cam, set_x, set_y);
-		
-		var area_x = objPlayer.x - cam.view_w / 4;
-		var area_y = objPlayer.y - cam.view_h / 4;
-		camera_set_view_size(cam.view_cam, area_x, area_y);
 	}
 }

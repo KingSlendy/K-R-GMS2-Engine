@@ -4,25 +4,17 @@ var tangible = function(obj) { return (obj.image_alpha == 1); }
 if (!global.forms.lunarkid) {
 	var platform = instance_place_check(x, y, objPlatform, tangible);
 
-	if (platform != noone && platform.visible && platform.snap > 0) {
-		if (global.grav == 1) {  //normal
-		    if (y - vspd / 2 <= platform.y) {
-		        y = platform.y - 9;
-		        vspd = platform.vspeed;
-				if (!object_is_ancestor(platform, objDisappearPlatform)) {
-					on_platform = true;
-				}
-		        reset_jumps();
-		    }
-		} else {   //flipped
-		    if (y - vspd / 2 >= platform.y + platform.sprite_height - 1) {
-		        y = platform.y + platform.sprite_height + 8;
-		        vspd = platform.vspeed;
-				if (!object_is_ancestor(platform, objDisappearPlatform)) {
-					on_platform = true;
-				}
-		        reset_jumps();
-		    }
+	if (platform != noone && platform.visible) {
+		if (platform.snap > 0 && ((global.grav == 1 && y - vspd / 2 <= platform.bbox_top) || (global.grav == -1 && y - vspd / 2 >= platform.bbox_bottom))) {
+			y = (global.grav == 1) ? platform.bbox_top - 9 : platform.bbox_bottom + 9;
+			vspd = platform.vspeed;
+			if (platform.object_index != objDisappearPlatform) {
+				on_platform = true;
+			}
+			reset_jumps();
+		}
+		if (platform.object_index == objDisappearPlatform) {
+			platform.visible = false;
 		}
 	}
 }

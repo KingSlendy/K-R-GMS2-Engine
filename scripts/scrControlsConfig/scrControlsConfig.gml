@@ -7,7 +7,8 @@ global.controls = {
 	jump: vk_shift,
 	shoot: ord("Z"),
 	restart: ord("R"),
-	pause: ord("P")
+	pause: ord("P"),
+	suicide: ord("Q")
 };
 
 //Default menu controls
@@ -24,6 +25,8 @@ global.controls_menu = {
 //Default misc. controls
 global.controls_misc = {
 	overlay: vk_backspace,
+	screenshot: vk_f9,
+	mute_music: ord("M"),
 	fullscreen: vk_f4,
 	reset: vk_f2,
 	quit: vk_escape

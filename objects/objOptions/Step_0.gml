@@ -34,7 +34,7 @@ var selected = select[menu];
 
 switch (menu) {
 	case MENU_OPTIONS.OPTIONS:
-	    if (is_pressed(global.controls_menu.accept) || selected <= 2) {
+	    if (is_pressed(global.controls_menu.accept) || selected > 0 && selected <= 3) {
 			option[selected].on_select();
 		}
     

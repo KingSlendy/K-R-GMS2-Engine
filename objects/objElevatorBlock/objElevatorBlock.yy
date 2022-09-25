@@ -32,7 +32,7 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"vspd","varType":0,"value":"-2","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],},
   ],
   "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"vspd","path":"objects/objSlideBlock/objSlideBlock.yy",},"objectId":null,"value":"-2",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":null,"objectId":null,"value":"-2",},
   ],
   "parent": {
     "name": "Slide",

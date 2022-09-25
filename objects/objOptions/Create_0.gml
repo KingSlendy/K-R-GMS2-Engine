@@ -6,6 +6,14 @@ function Option(label, on_select, get_value) constructor {
 
 options = [
 	[ //Options
+		new Option("Music: ", function() {
+			global.display.mute_music ^= true;
+			toggle_music();
+		}, function() {
+			return (global.display.mute_music) ? "No" : "Yes";
+		}),
+
+	
 		new Option("Master Volume: ", function() {
 			var dir = (is_held(global.controls_menu.right) - is_held(global.controls_menu.left));
 			
@@ -52,6 +60,7 @@ options = [
 		
 		new Option("Reset Defaults", function() {
 			scrOptionsConfig();
+			toggle_music();
 			set_display();
 		}, function() {
 			return "";
