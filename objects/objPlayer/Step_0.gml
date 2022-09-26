@@ -530,12 +530,14 @@ if (!global.forms.lunarkid) {
 	#endregion
 }
 
-if (is_pressed(global.controls.shoot) && !global.controls_lock.shoot) {
-	player_shoot();
-}
-
-if (is_pressed(global.controls.suicide) && !global.controls_lock.suicide) {
-	kill_player();
+if (!frozen) {
+	if (is_pressed(global.controls.shoot) && !global.controls_lock.shoot) {
+		player_shoot();
+	}
+	
+	if (is_pressed(global.controls.suicide) && !global.controls_lock.suicide) {
+		kill_player();
+	}
 }
 
 #region Physics and Collision
@@ -583,8 +585,8 @@ if (block != noone) {
 
 		//Detect diagonal collision
 		if (instance_place_check(x + hspd, y + vspd, objBlock, tangible) != noone) {
-			var p = instance_place_check(x, y + vspd, objPlatform, tangible);
-			if (!p || instance_place_check(x, y, p, tangible) != noone) {
+			var platform = instance_place_check(x, y + vspd, objPlatform, tangible);
+			if (!platform || instance_place_check(x, y, platform, tangible) != noone) {
 				hspd = 0;
 			} else {
 				vspd = 0;
@@ -594,9 +596,9 @@ if (block != noone) {
 		x += hspd;
 		y += vspd;
 	
-		/*
+		
 		//Makes player move based on the block speed
-		if (instance_place_check(x + block.hspeed, y, objBlock, tangible) == noone) {
+		/*if (instance_place_check(x + block.hspeed, y, objBlock, tangible) == noone) {
 			x += block.hspeed;
 		}
 	
@@ -606,47 +608,7 @@ if (block != noone) {
 	}
 }
 
-xsafe = x + hspd;
-ysafe = y + vspd;
-#endregion
-
-#region New collision with platform
-	/*if (vspd * global.grav >= 0) {
-		var platform = instance_place(x, y, objPlatform);
-	
-		if (platform != noone) {
-			if (global.grav == 1) {
-				var bbox_check = (bbox_bottom - max(1, abs(vspd)) <= platform.bbox_top + 1);
-			} else {
-				var bbox_check = (bbox_top + max(1, abs(vspd)) >= platform.bbox_bottom - 1);
-			}
-
-			if (bbox_check) {
-				y = yprevious;
-			
-				//Detect vertical collision
-				if (place_meeting(x, y + vspd, objPlatform)) {
-					while (!place_meeting(x, y + sign(vspd), objPlatform)) {
-						y += sign(vspd);
-					}
-
-					vspd = 0;
-					grav = 0;
-					reset_jumps();
-				}
-	
-				y += vspd;
-		
-				//Makes player move based on the platform speed
-				if (!place_meeting(x + platform.hspd, y, objBlock)) {
-					x += platform.hspd;
-				}
-	
-				if (!place_meeting(x, y + platform.vspd, objBlock)) {
-					y += platform.vspd;
-				}
-			}
-		}
-	}*/
+xsafe = xprevious + hspd;
+ysafe = yprevious + vspd;
 #endregion
 #endregion

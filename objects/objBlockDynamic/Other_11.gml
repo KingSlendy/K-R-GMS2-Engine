@@ -1,12 +1,11 @@
 /// @description Push instance
-if (!image_alpha) { exit; }
+//with(objBlockDynamic) { solid = false; }
 
 if (inst != noone) {
     if (place_meeting(x, y, inst)) {
+        var move_x = 0, move_y = 0;
 		var tangible = function(obj) { return (obj.image_alpha == 1); }
-        var move_x = 0; 
-		var move_y = 0;
-                                      
+		
         //Push horizontally
         if (inst.bbox_bottom - (inst.y - inst.yold) >= old_top && inst.bbox_top - (inst.y - inst.yold) <= old_bottom) {
             if (inst.bbox_left - (inst.x - inst.xold) >= old_right) {
@@ -17,7 +16,8 @@ if (inst != noone) {
                 move_x -= ((inst.x + move_x) % 2 == 0.5);
             }   
             if (move_x != 0) {
-                with(inst) {
+                with (inst) {
+					//if (place_free(x + move_x, y)) {
                     if (instance_place_check(x + move_x, y, objBlock, tangible) == noone) {
                         x += move_x;
                     }
@@ -35,7 +35,8 @@ if (inst != noone) {
                 move_y -= ((inst.y + move_y) % 2 == 0.5);
             }
             if (move_y != 0) {
-                with(inst) {
+                with (inst) {
+					//if (place_free(x, y + move_y)) {
                     if (instance_place_check(x, y + move_y, objBlock, tangible) == noone) {
                         y += move_y;
                     }
@@ -44,3 +45,5 @@ if (inst != noone) {
         }
     }
 }
+
+//with(objBlockDynamic) { solid = true; }   

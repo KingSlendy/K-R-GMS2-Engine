@@ -121,6 +121,7 @@ reset_jumps();
 
 xsafe = x;
 ysafe = y;
+
 dynamic_collision(true);
 
 hit = 0;

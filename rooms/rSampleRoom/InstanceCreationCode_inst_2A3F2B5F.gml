@@ -1,3 +1,4 @@
+//vspeed = -2;
 visible = true;
 make_triggerable([
 	new TriggerKey("test1auto", {
