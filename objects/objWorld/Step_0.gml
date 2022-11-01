@@ -69,7 +69,15 @@ if (!global.game_paused) {
 	//Reset game
 	if (is_pressed(global.controls_misc.reset)) {
 		stop_music();
-		game_restart();
+		audio_stop_all();
+		
+		with (all) {
+			if (object_index != objWorld && object_index != objTriggerController) {
+				instance_destroy();
+			}
+		}
+		
+		room_goto(rTitle);
 	}
 	
 	//Screenshot
