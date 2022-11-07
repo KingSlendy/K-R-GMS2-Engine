@@ -262,7 +262,7 @@ function struct_set_all(struct, value) {
     }
 }
 
-function get_frames(seconds) {
+function seconds_to_frames(seconds) {
 	return game_get_speed(gamespeed_fps) * seconds;
 }
 

@@ -2,6 +2,7 @@ trigger_active_keys = ds_list_create();
 trigger_active_ids = ds_list_create();
 trigger_types = {};
 var tt = trigger_types;
+
 tt[$ attribute_normal] = function(id, attribute, key) {
 	var value = approach(variable_instance_get(id, key), attribute.target, attribute.spd);
 	

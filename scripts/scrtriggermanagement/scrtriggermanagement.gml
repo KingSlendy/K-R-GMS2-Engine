@@ -77,6 +77,10 @@ function activate_trigger(key) {
 	}
 }
 
+function deactivate_trigger(key) {
+    ds_list_delete(objTriggerController.trigger_active_keys, ds_list_find_index(objTriggerController.trigger_active_keys, key));
+}
+
 function is_active_trigger(key) {
 	return (ds_list_find_index(objTriggerController.trigger_active_keys, key) != -1);
 }
