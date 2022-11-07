@@ -84,3 +84,8 @@ function deactivate_trigger(key) {
 function is_active_trigger(key) {
 	return (ds_list_find_index(objTriggerController.trigger_active_keys, key) != -1);
 }
+
+function switch_trigger(key, state) {
+    var set = (state) ? activate_trigger : deactivate_trigger;
+    set(key);
+}
