@@ -162,6 +162,14 @@ function restart_game() {
 	}
 }
 
+function end_game() {
+	if (global.game_started) {
+		restart_game();
+		save_game(false);
+		global.game_started = false;
+	}
+}
+
 function save_config() {
 	var data = {
 		display: global.display,

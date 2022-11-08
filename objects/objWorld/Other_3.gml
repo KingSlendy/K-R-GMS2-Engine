@@ -1,9 +1,4 @@
-if (global.game_started) {
-    restart_game();
-    save_game(false);
-	global.game_started = false;
-}
-
+end_game();
 save_config();
 
 #region Online

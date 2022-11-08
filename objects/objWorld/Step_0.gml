@@ -68,6 +68,7 @@ if (!global.game_paused) {
 
 	//Reset game
 	if (is_pressed(global.controls_misc.reset)) {
+		end_game();
 		stop_music();
 		audio_stop_all();
 		

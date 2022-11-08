@@ -39,7 +39,7 @@
     "name": "sprPlayerRun",
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 25.0,
+    "playbackSpeed": 12.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
