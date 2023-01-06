@@ -73,6 +73,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Star",
-    "path": "folders/Sprites/Objects/Misc/Refreshers/Star.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Refreshers/Star.yy",
   },
 }

@@ -35,6 +35,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Jump",
-    "path": "folders/Objects/Misc/Refreshers/Jump.yy",
+    "path": "folders/Objects/Gimmicks/Refreshers/Jump.yy",
   },
 }

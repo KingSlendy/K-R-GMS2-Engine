@@ -83,6 +83,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Speed",
-    "path": "folders/Sprites/Objects/Misc/Fields/Speed.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Fields/Speed.yy",
   },
 }

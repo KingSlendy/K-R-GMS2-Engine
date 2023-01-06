@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objSlipBlock",
+  "name": "objIceBlock",
   "spriteId": {
     "name": "sprSlipBlock",
     "path": "sprites/sprSlipBlock/sprSlipBlock.yy",

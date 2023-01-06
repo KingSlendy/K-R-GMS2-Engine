@@ -83,6 +83,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Gravity",
-    "path": "folders/Sprites/Objects/Misc/Fields/Gravity.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Fields/Gravity.yy",
   },
 }

@@ -1,4 +1,4 @@
-if (field == undefined) {
+if (field == null) {
     exit;
 }
 

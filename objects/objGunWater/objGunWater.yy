@@ -35,6 +35,6 @@
   ],
   "parent": {
     "name": "Ocean Wetventure",
-    "path": "folders/Objects/Misc/Water/Ocean Wetventure.yy",
+    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
   },
 }

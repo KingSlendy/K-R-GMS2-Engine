@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Down",
-    "path": "folders/Sprites/Objects/Misc/Booster/Down.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Booster/Down.yy",
   },
 }

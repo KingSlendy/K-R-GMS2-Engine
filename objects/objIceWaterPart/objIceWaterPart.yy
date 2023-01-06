@@ -32,6 +32,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Ice",
-    "path": "folders/Objects/Misc/Water/Ocean Wetventure/Ice.yy",
+    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure/Ice.yy",
   },
 }

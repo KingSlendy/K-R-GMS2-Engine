@@ -4,7 +4,6 @@
 if (inst != noone) {
     if (place_meeting(x, y, inst)) {
         var move_x = 0, move_y = 0;
-		var tangible = function(obj) { return (obj.image_alpha == 1); }
 		
         //Push horizontally
         if (inst.bbox_bottom - (inst.y - inst.yold) >= old_top && inst.bbox_top - (inst.y - inst.yold) <= old_bottom) {
@@ -14,11 +13,11 @@ if (inst != noone) {
             } else if (inst.bbox_right - (inst.x - inst.xold) <= old_left) {
                 move_x = bbox_left - inst.bbox_right - 1;
                 move_x -= ((inst.x + move_x) % 2 == 0.5);
-            }   
+            }
+			
             if (move_x != 0) {
                 with (inst) {
-					//if (place_free(x + move_x, y)) {
-                    if (instance_place_check(x + move_x, y, objBlock, tangible) == noone) {
+                    if (instance_place_check(x + move_x, y, objBlock, tangible_collision) == null) {
                         x += move_x;
                     }
                 }
@@ -34,10 +33,10 @@ if (inst != noone) {
                 move_y = bbox_top - inst.bbox_bottom - 1;
                 move_y -= ((inst.y + move_y) % 2 == 0.5);
             }
+			
             if (move_y != 0) {
                 with (inst) {
-					//if (place_free(x, y + move_y)) {
-                    if (instance_place_check(x, y + move_y, objBlock, tangible) == noone) {
+                    if (instance_place_check(x, y + move_y, objBlock, tangible_collision) == null) {
                         y += move_y;
                     }
                 }
@@ -45,5 +44,3 @@ if (inst != noone) {
         }
     }
 }
-
-//with(objBlockDynamic) { solid = true; }   

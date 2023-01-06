@@ -34,6 +34,6 @@
   ],
   "parent": {
     "name": "Jumple Refrenture",
-    "path": "folders/Objects/Misc/Refreshers/Jump/Jumple Refrenture.yy",
+    "path": "folders/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
   },
 }

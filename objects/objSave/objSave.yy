@@ -39,7 +39,7 @@
   ],
   "overriddenProperties": [],
   "parent": {
-    "name": "Saves",
-    "path": "folders/Objects/Saves.yy",
+    "name": "Normal",
+    "path": "folders/Objects/Saves/Normal.yy",
   },
 }

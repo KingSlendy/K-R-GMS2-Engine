@@ -78,14 +78,51 @@ function activate_trigger(key) {
 }
 
 function deactivate_trigger(key) {
+	with (all) {
+		if (!variable_instance_exists(id, "trigger_keys")) {
+			continue;
+		}
+		
+		var trigger_keys_length = array_length(trigger_keys);
+		var trigger_keys_any = false;
+		var trigger_key = null;
+		
+		for (var i = 0; i < trigger_keys_length; i++) {
+			trigger_key = trigger_keys[i];
+			
+			if (trigger_key.key == key) {
+				trigger_keys_any = true;
+				break;
+			}
+		}
+		
+		if (!trigger_keys_any) {
+			continue;
+		}
+		
+		var attribute_keys = variable_struct_get_names(trigger_key.attributes);
+		var attribute_keys_length = array_length(attribute_keys);
+		
+		for (var k = 0; k < attribute_keys_length; k++) {
+			var attribute_key = attribute_keys[k];
+			var attribute = trigger_key.attributes[$ attribute_key];
+			attribute.completed = false;
+		}
+	}
+	
     ds_list_delete(objTriggerController.trigger_active_keys, ds_list_find_index(objTriggerController.trigger_active_keys, key));
+}
+
+function toggle_trigger(key, state) {
+    var set = (state) ? activate_trigger : deactivate_trigger;
+    set(key);
+}
+
+function reactivate_trigger(key) {
+	deactivate_trigger(key);
+	activate_trigger(key);
 }
 
 function is_active_trigger(key) {
 	return (ds_list_find_index(objTriggerController.trigger_active_keys, key) != -1);
-}
-
-function switch_trigger(key, state) {
-    var set = (state) ? activate_trigger : deactivate_trigger;
-    set(key);
 }

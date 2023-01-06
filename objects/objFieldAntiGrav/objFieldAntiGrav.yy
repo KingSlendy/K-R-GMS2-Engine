@@ -29,6 +29,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Gravity",
-    "path": "folders/Objects/Misc/Fields/Gravity.yy",
+    "path": "folders/Objects/Gimmicks/Fields/Gravity.yy",
   },
 }

@@ -71,6 +71,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Jumple Refrenture",
-    "path": "folders/Sprites/Objects/Misc/Refreshers/Jump/Jumple Refrenture.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
   },
 }

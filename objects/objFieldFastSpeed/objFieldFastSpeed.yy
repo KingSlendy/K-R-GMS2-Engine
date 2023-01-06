@@ -29,6 +29,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Speed",
-    "path": "folders/Objects/Misc/Fields/Speed.yy",
+    "path": "folders/Objects/Gimmicks/Fields/Speed.yy",
   },
 }

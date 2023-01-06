@@ -32,6 +32,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Jungle Adventure",
-    "path": "folders/Objects/Misc/Vines/Jungle Adventure.yy",
+    "path": "folders/Objects/Gimmicks/Vines/Jungle Adventure.yy",
   },
 }

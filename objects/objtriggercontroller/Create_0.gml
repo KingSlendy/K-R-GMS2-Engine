@@ -7,7 +7,7 @@ tt[$ attribute_normal] = function(id, attribute, key) {
 	var value = approach(variable_instance_get(id, key), attribute.target, attribute.spd);
 	
 	if (value == attribute.target) {
-		attribute.completed = true;
+		attribute.decrease();
 	}
 	
 	variable_instance_set(id, key, value);

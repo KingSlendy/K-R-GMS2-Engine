@@ -29,6 +29,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Standard",
-    "path": "folders/Objects/Misc/Ladders/Standard.yy",
+    "path": "folders/Objects/Gimmicks/Ladders/Standard.yy",
   },
 }

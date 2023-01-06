@@ -31,6 +31,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Down",
-    "path": "folders/Objects/Misc/Boosters/Down.yy",
+    "path": "folders/Objects/Gimmicks/Boosters/Down.yy",
   },
 }

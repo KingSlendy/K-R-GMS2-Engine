@@ -36,7 +36,7 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"difficulty","path":"objects/objSave/objSave.yy",},"objectId":{"name":"objSave","path":"objects/objSave/objSave.yy",},"value":"0",},
   ],
   "parent": {
-    "name": "Saves",
-    "path": "folders/Objects/Saves.yy",
+    "name": "Normal",
+    "path": "folders/Objects/Saves/Normal.yy",
   },
 }

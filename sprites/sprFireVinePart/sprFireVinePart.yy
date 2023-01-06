@@ -73,6 +73,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Fire",
-    "path": "folders/Sprites/Objects/Misc/Vines/Jungle Adventure/Fire.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Vines/Jungle Adventure/Fire.yy",
   },
 }

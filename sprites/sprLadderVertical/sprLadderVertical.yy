@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Standard",
-    "path": "folders/Sprites/Objects/Misc/Ladders/Standard.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Ladders/Standard.yy",
   },
 }

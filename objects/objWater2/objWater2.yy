@@ -31,6 +31,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Common",
-    "path": "folders/Objects/Misc/Water/Common.yy",
+    "path": "folders/Objects/Gimmicks/Water/Common.yy",
   },
 }

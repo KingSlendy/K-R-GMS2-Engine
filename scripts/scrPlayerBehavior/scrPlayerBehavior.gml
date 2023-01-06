@@ -1,16 +1,15 @@
 function player_jump() {
 	if (global.forms.vkid == 0) {
 		#region Jumping
-		var tangible = function(obj) { return (obj.image_alpha == 1); }
-		var platform = instance_place_check(x, y + global.grav, objPlatform, tangible);
+		var platform = instance_place_check(x, y + global.grav, objPlatform, tangible_collision);
 		
-		if (jump_total > 0 && (on_block != noone || (platform != noone && platform.visible) || on_platform || instance_place_check(x, y + global.grav, objWater1, tangible) != noone || on_ladder)) {
+		if (jump_total > 0 && (on_block != null || (platform != null && platform.visible) || on_platform || instance_place_check(x, y + global.grav, objWater1, tangible_collision) != null || on_ladder)) {
 			vspd = -(jump_height[0] * global.grav);
 			on_ladder = false;
 			player_sprite(PLAYER_ACTIONS.JUMP);
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
-		} else if (jump_left > 0 || instance_place_check(x, y + global.grav, objWater2, tangible) != noone || jump_total == -1) {
+		} else if (jump_left > 0 || instance_place_check(x, y + global.grav, objWater2, tangible_collision) != null || jump_total == -1) {
 			var jump_velocity = 1;
 			
 			#region Refresher Modifiers	
@@ -18,15 +17,15 @@ function player_jump() {
 				if (!instance_exists(objSlowmoJumpEffect)) {
 					instance_create_layer(0, 0, layer, objSlowmoJumpEffect);
 				}
+				
 				jump_mod.slowmo = 2;
 			} else {
 				instance_destroy(objSlowmoJumpEffect);
 			}
 			
 			if (jump_mod.swap == 1) { //switch djump
-				audio_play_sound(sndJumpSwap, 0, false);
-				
 				jump_mod.swap = 0;
+				audio_play_sound(sndJumpSwap, 0, false);
 			}
 			
 			if (jump_mod.fast == 1) { //fast djump
@@ -35,7 +34,8 @@ function player_jump() {
 			
 			if (jump_mod.tele == 1) { //teleport djump
 				var tele_x = 96 * xscale;
-				if (instance_place_check(x + tele_x, y, objBlock, tangible) == noone) {
+				
+				if (instance_place_check(x + tele_x, y, objBlock, tangible_collision) == null) {
 					x += tele_x;
 					audio_play_sound(sndJumpTele, 0, false);
 				}
@@ -52,15 +52,17 @@ function player_jump() {
 			#endregion
 			
 			#region Water Modifiers
-			if (instance_place_check(x, y, objFlipWater, tangible) != noone) {
+			if (instance_place_check(x, y, objFlipWater, tangible_collision) != null) {
 				flip_grav();
 			}
-			if (instance_place_check(x, y, objPlatformWater, tangible) != noone) {
+			
+			if (instance_place_check(x, y, objPlatformWater, tangible_collision) != null) {
 				grav_amount = 0.4;
 			}
 			
-			var bubble = instance_place_check(x, y, objBubbleWater, tangible);
-			if (bubble != noone && global.grav == -sign(bubble.vspd)) {
+			var bubble = instance_place_check(x, y, objBubbleWater, tangible_collision);
+			
+			if (bubble != null && global.grav == -sign(bubble.vspd)) {
 				jump_velocity = 1.25;
 			}
 			#endregion
@@ -70,7 +72,7 @@ function player_jump() {
 			jump_mod.low = 2;
 			player_sprite(PLAYER_ACTIONS.JUMP);
 			
-			if (instance_place_check(x, y + global.grav, objWater3, tangible) == noone) {
+			if (instance_place_check(x, y + global.grav, objWater3, tangible_collision) == null) {
 				if (jump_left > 0) {
 					jump_left--;
 				}
@@ -84,7 +86,7 @@ function player_jump() {
 	} else {
 		#region Flipping
 		if (!global.forms.lunarkid) {
-			if (on_block != noone) {
+			if (on_block != null) {
 				if (global.forms.vkid == 1) {
 					flip_grav();
 				}

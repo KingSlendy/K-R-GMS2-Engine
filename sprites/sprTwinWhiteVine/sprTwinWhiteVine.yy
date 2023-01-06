@@ -75,6 +75,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Twin",
-    "path": "folders/Sprites/Objects/Misc/Vines/Jungle Adventure/Twin.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Vines/Jungle Adventure/Twin.yy",
   },
 }

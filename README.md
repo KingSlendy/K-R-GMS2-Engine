@@ -6,6 +6,8 @@ It's an engine I (KingSlendy) made from scratch, basing it on YoYo's GMS1 engine
 
 It completely ditches solids and has a new and more compact save system, with a ton of different gimmicks and objects from other fangames (RedBatNick).
 
+It has native [I Wanna Play Online](https://iwpo.dappermink.com) support, you can play with your friends very easily!
+
 It also has a really extensive an complex trigger system, but fear not because it's really easy to use! It allows for manipulation of any variable in any object, giving you instant amount of potential!
 
 We plan on expanding this further and adding more things as time goes on!

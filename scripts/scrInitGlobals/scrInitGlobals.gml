@@ -5,7 +5,7 @@ global.caption_last = ""; //Keeps track of the last caption
 global.auto_save = false; //Sets if the game will save after spawning the player
 global.save_num = 0; //The current save file
 global.save_player = { //Keeping track of the last player properties for saving
-	sroom: noone,
+	sroom: null,
 	sx: -1,
 	sy: -1,
 	sangle: 0,

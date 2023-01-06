@@ -31,6 +31,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Vapor",
-    "path": "folders/Objects/Misc/Vapor.yy",
+    "path": "folders/Objects/Gimmicks/Vapor.yy",
   },
 }

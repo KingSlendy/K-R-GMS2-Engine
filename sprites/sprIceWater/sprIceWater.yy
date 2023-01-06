@@ -69,6 +69,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Ice",
-    "path": "folders/Sprites/Objects/Misc/Water/Ocean Wetventure/Ice.yy",
+    "path": "folders/Sprites/Objects/Gimmicks/Water/Ocean Wetventure/Ice.yy",
   },
 }

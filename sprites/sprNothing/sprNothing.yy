@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Misc",
-    "path": "folders/Sprites/Objects/Misc.yy",
+    "name": "Gimmicks",
+    "path": "folders/Sprites/Objects/Gimmicks.yy",
   },
 }
