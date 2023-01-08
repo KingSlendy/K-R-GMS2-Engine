@@ -13,39 +13,33 @@ function stop_music() {
 }
 
 function get_music() {
-	var music;
+	var music = -1;
 	var loop = true;
-
-	switch (room) {
-	    case rTitle:
-	    case rFiles:
-	    case rOptions:
-	        music = bgmGuyRock;
-	        break;
-        
-	    default: music = (!instance_exists(objPlayMusic)) ? -1 : -2; break;
+	
+	if (!instance_exists(objPlayMusic)) {
+		switch (room) {
+			case rTitle:
+			case rFiles:
+			case rOptions:
+			    music = bgmGuyRock;
+			    break;
+		}
+	} else {
+		with (objPlayMusic) {
+			music = self.music;
+			loop = self.loop;
+		}
 	}
 
 	if (music != -2) {
-	    play_music(music, loop);
+		play_music(music, loop);
 	}
 }
 
 function toggle_music() {
 	if (!global.display.mute_music) {
-		if (instance_exists(objPlayer) || !global.game_started) {
-			if (!instance_exists(objPlayMusic)) { //make sure the play music object isn't in the current room
-			    get_music();  //find and play the proper music for the current room
-			} else {   //objPlayMusic is in the room, use it to play music instead
-			    with (objPlayMusic) {
-					if (music != -2) {
-						play_music(music, true);
-					}
-			    }
-			}
-		}
-	} else { //mute music
-		stop_music();
-		audio_stop_sound(bgmGameOver);
+		get_music();  //Find and play the proper music for the current room
+	} else { //Mute music
+		audio_group_stop_all(audiogroup_BGM);
 	}
 }
