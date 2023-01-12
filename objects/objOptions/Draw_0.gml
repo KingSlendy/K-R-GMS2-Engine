@@ -22,7 +22,7 @@ switch (menu) {
 	            bind = "---";
 	        }
         
-	        draw_text(x, y + spacing * index, string_interp("{0} Button: {1}", curr_option, bind));
+	        draw_text(x, y + spacing * index, string("{0} Button: {1}", curr_option, bind));
 			index++;
 		}
 		//Skips the "break" to ensure it draws all the subsequent options

@@ -1,3 +1,9 @@
+[1.3.2]
+Changed:
+-Removed a lot of array and string utility functions since v2022.11 introduced a lot of these.
+-Replaced every "string_interp" with "string".
+-Cleaned up draw_sprite_fog a little bit.
+
 [1.3.1]
 Changes:
 -Cleaned up some music functions on scrMusicManagement

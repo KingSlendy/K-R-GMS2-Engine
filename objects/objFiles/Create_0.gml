@@ -1,7 +1,7 @@
 datas = [];
 
 for (var i = 0; i < global.total_saves; i++) {
-	var exists = file_exists(string_interp("Data{0}", i + 1));
+	var exists = file_exists(string("Data{0}", i + 1));
 	
     if (exists) {
         global.save_num = i;
@@ -34,12 +34,12 @@ spacing = 16 * 10;
 images_secrets = [];
 
 for (var i = 0; i < array_length(global.items.secrets); i++) {
-	images_secrets[i] = asset_get_index(string_interp("sprItemSecret{0}", i + 1));
+	images_secrets[i] = asset_get_index(string("sprItemSecret{0}", i + 1));
 }
 
 images_bosses = [];
 
 for (var i = 0; i < array_length(global.items.bosses); i++) {
-	images_bosses[i] = asset_get_index(string_interp("sprItemBoss{0}", i + 1));
+	images_bosses[i] = asset_get_index(string("sprItemBoss{0}", i + 1));
 }
 #endregion

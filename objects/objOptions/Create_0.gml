@@ -21,7 +21,7 @@ options = [
 				change_volume();
 			}
 		}, function() {
-			return string_interp("{0}%", ceil(global.display.master_volume * 100));
+			return string("{0}%", ceil(global.display.master_volume * 100));
 		}),
 		
 		new Option("BGM Volume: ", function() {
@@ -31,7 +31,7 @@ options = [
 				change_volume("bgm");
 			}
 		}, function() {
-			return string_interp("{0}%", ceil(global.display.bgm_volume * 100));
+			return string("{0}%", ceil(global.display.bgm_volume * 100));
 		}),
 		
 		new Option("SFX Volume: ", function() {
@@ -41,7 +41,7 @@ options = [
 				change_volume("sfx");
 			}
 		}, function() {
-			return string_interp("{0}%", ceil(global.display.sfx_volume * 100));
+			return string("{0}%", ceil(global.display.sfx_volume * 100));
 		}),
 		
 		new Option("Fullscreen: ", function() {

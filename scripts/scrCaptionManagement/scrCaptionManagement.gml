@@ -2,7 +2,7 @@ function set_caption() {
 	var caption = global.game_name;
 
 	if (global.game_started) {
-	    caption += string_interp(" - {0} | Deaths: {1} | Time: {2}",
+	    caption += string(" - {0} | Deaths: {1} | Time: {2}",
 		global.difficulties[global.difficulty],
 	    global.deaths,
 	    formatted_time(global.time));
@@ -21,5 +21,5 @@ function formatted_time(time) {
 	var mm2 = ((time div 60) div 10) % 6;
 	var hh = (time div 60) div 60;
 
-	return string_interp("{0}:{1}{2}:{3}{4}", hh, mm2, mm1, ss2, ss1);
+	return string("{0}:{1}{2}:{3}{4}", hh, mm2, mm1, ss2, ss1);
 }

@@ -16,9 +16,9 @@ if (global.game_paused) {
 	draw_set_halign(fa_left);
 	
 	draw_set_font(fntPause2);
-    draw_text(20, 516, string_interp("Master Volume: {0}%", ceil(global.display.master_volume * 100)));
-    draw_text(20, 541, string_interp("Deaths: {0}", global.deaths));
-    draw_text(20, 566, string_interp("Time: {0}", formatted_time(global.time)));
+    draw_text(20, 516, string("Master Volume: {0}%", ceil(global.display.master_volume * 100)));
+    draw_text(20, 541, string("Deaths: {0}", global.deaths));
+    draw_text(20, 566, string("Time: {0}", formatted_time(global.time)));
 }
 #endregion
 
@@ -70,15 +70,15 @@ if (global.overlay) {
 		
 	#region Draw Overlay Info
 	var info = [
-		string_interp("FPS: {0} (real: {1})", fps, fps_real),
-		string_interp("X: {0} (hspd: {1})", xx, hspd),
-		string_interp("Y: {0} (vspd: {1})", yy, vspd),
-		string_interp("Align: {0} (relative: {1})", align, align_relative),
-		string_interp("Angle: {0}", angle),
-		string_interp("Gravity: {0} (direction: {1})", grav, grav_dir),
-		string_interp("Jumps: {0} (total: {1})", jump_left, jump_total),
-		string_interp("Room: {0} (number: {1})", room_get_name(room), room),
-		string_interp("Object counter: {0}", instance_count)
+		string("FPS: {0} (real: {1})", fps, fps_real),
+		string("X: {0} (hspd: {1})", xx, hspd),
+		string("Y: {0} (vspd: {1})", yy, vspd),
+		string("Align: {0} (relative: {1})", align, align_relative),
+		string("Angle: {0}", angle),
+		string("Gravity: {0} (direction: {1})", grav, grav_dir),
+		string("Jumps: {0} (total: {1})", jump_left, jump_total),
+		string("Room: {0} (number: {1})", room_get_name(room), room),
+		string("Object counter: {0}", instance_count)
 	];
 		
 	var length = array_length(info);
