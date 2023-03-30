@@ -1,6 +1,7 @@
 #macro attribute_normal 0
 #macro attribute_loop 1
 #macro attribute_loop_reverse 2
+#macro attribute_event _
 
 function TriggerKey(key, attributes) constructor {
 	self.key = key;
@@ -13,8 +14,8 @@ function TriggerKey(key, attributes) constructor {
 		var name = names[i];
 		var attribute = self.attributes[$ name];
 		
-		if (instanceof(attribute) != "TriggerAttribute") {
-			self.attributes[$ name] = new TriggerAttribute(attribute);
+		if (!is_instanceof(attribute, TriggerVariable) && !is_instanceof(attribute, TriggerEvent)) {
+			self.attributes[$ name] = new TriggerVariable(attribute);
 			attribute = self.attributes[$ name];
 		}
 		
@@ -22,12 +23,28 @@ function TriggerKey(key, attributes) constructor {
 	}
 }
 
-function TriggerAttribute(target, spd = abs(target), type = attribute_normal, times = -1, func = function() { return true; }) constructor {
+function TriggerVariable(target, spd = abs(target), type = attribute_normal, times = -1, callback = function() { return true; }) constructor {
 	self.target = target;
 	self.spd = spd;
 	self.type = type;
 	self.times = times;
-	self.func = func;
+	self.callback = callback;
+	self.completed = false;
+	
+	static decrease = function() {
+		if (self.times <= 0) {
+			return;
+		}
+		
+		if (--self.times <= 0) {
+			self.completed = true;
+		}
+	}
+}
+
+function TriggerEvent(callback, times = -1) constructor {
+	self.callback = callback;
+	self.times = times;
 	self.completed = false;
 	
 	static decrease = function() {

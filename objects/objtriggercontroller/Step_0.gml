@@ -19,7 +19,17 @@ for (var i = 0; i < trigger_active_ids_size; i++) {
 				var attribute_key = attribute_keys[k];
 				var attribute = trigger_key.attributes[$ attribute_key];
 				
-				if (attribute.completed || !attribute.func()) {
+				if (attribute.completed) {
+					continue;
+				}
+				
+				if (is_instanceof(attribute, TriggerEvent)) {
+					attribute.callback();
+					attribute.decrease();
+					continue;
+				}
+				
+				if (!attribute.callback()) {
 					continue;
 				}
 				

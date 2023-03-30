@@ -1,5 +1,16 @@
+[1.3.3]
+Additions:
+-Added a TriggerEvent constructor for easier event triggering inside TriggerKeys.
+-Added attribute_event macro to avoid using a random variable for a TriggerEvent.
+-Added an "apply_layer" to objTriggerField variable definitions to only apply the code to that specific layer.
+-Added a "sound" and "sound_loop" to objTriggerTouch variable definitions for easier sound addition.
+
+Changes:
+-Renamed TriggerAttribute to TriggerVariable.
+-Changed rTestTriggers to reflect all these changes
+
 [1.3.2]
-Changed:
+Changes:
 -Removed a lot of array and string utility functions since v2022.11 introduced a lot of these.
 -Replaced every "string_interp" with "string".
 -Cleaned up draw_sprite_fog a little bit.
