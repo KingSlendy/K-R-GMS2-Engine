@@ -22,7 +22,30 @@
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8ffb8abd-6dec-4ed1-95b9-0704a5572029","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
-  "nineSlice": null,
+  "nineSlice": {
+    "resourceType": "GMNineSliceData",
+    "resourceVersion": "1.0",
+    "bottom": 4,
+    "enabled": true,
+    "guideColour": [
+      4294902015,
+      4294902015,
+      4294902015,
+      4294902015,
+    ],
+    "highlightColour": 1728023040,
+    "highlightStyle": 0,
+    "left": 3,
+    "right": 8,
+    "tileMode": [
+      0,
+      0,
+      1,
+      0,
+      1,
+    ],
+    "top": 4,
+  },
   "origin": 0,
   "parent": {
     "name": "Platforms",
