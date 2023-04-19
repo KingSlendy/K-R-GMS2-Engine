@@ -57,7 +57,7 @@ if (global.overlay) {
 			
 		align = objPlayer.max_hspd % 3;
 		align_relative = xx % 3;
-			
+		
 		angle = objPlayer.image_angle;
 			
 		grav = objPlayer.grav_amount;
@@ -78,12 +78,12 @@ if (global.overlay) {
 		string("Gravity: {0} (direction: {1})", grav, grav_dir),
 		string("Jumps: {0} (total: {1})", jump_left, jump_total),
 		string("Room: {0} (number: {1})", room_get_name(room), room),
-		string("Object counter: {0}", instance_count)
+		string("Object counter: {0}", instance_count),
 	];
 		
 	var length = array_length(info);
 	if (!global.debug_enable) {
-		length = 5;
+		length = 6;
 	} if (!global.game_started) {
 		length = 1;
 	}

@@ -504,6 +504,10 @@ if (!global.forms.lunarkid) {
 						vspd = -9 * global.grav;
 			            player_sprite(PLAYER_ACTIONS.JUMP);
 						audio_play_sound(sndVine, 0, false);
+						
+						if (on_vine.object_index == objTwinWhiteVine || on_vine.object_index == objTwinBlackVine) {
+							global.vine_toggle ^= true;
+						}
 			        } else {
 			            hspd = (on_vine.image_xscale == 1) ? 3 : -3;
 			            player_sprite(PLAYER_ACTIONS.FALL);
@@ -574,51 +578,70 @@ if (block != null) {
 	if (global.forms.lunarkid) {
 		kill_player();
 	} else {
-		//Detect horizontal collision
-		if (instance_place_check(x + hspd, y, objBlock, tangible_collision) != null) {
-			while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
-				x += sign(hspd);
-			}
-	
-			hspd = 0;
-		}
-
-		//Detect vertical collision
-		if (instance_place_check(x, y + vspd, objBlock, tangible_collision) != null) {
-			while (instance_place_check(x, y + sign(vspd), objBlock, tangible_collision) == null) {
-				y += sign(vspd);
-			}
-	
-			if (vspd * global.grav > 0) {
-				reset_jumps();
-			}
-	
-			vspd = 0;
-			grav = 0;
-		}
-
-		//Detect diagonal collision
-		if (instance_place_check(x + hspd, y + vspd, objBlock, tangible_collision) != null) {
-			var platform = instance_place_check(x, y + vspd, objPlatform, tangible_collision);
-			
-			if (!platform || instance_place_check(x, y, platform, tangible_collision) != null) {
+		if (global.collision_type == 0) {
+			//Detect horizontal collision
+			if (instance_place_check(x + hspd, y, objBlock, tangible_collision) != null) {
+				while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
+					x += sign(hspd);
+				}
+		
 				hspd = 0;
-			} else {
+			}
+	
+			//Detect vertical collision
+			if (instance_place_check(x, y + vspd, objBlock, tangible_collision) != null) {
+				while (instance_place_check(x, y + sign(vspd), objBlock, tangible_collision) == null) {
+					y += sign(vspd);
+				}
+		
+				if (vspd * global.grav > 0) {
+					reset_jumps();
+				}
+		
 				vspd = 0;
+				grav = 0;
+			}
+	
+			//Detect diagonal collision
+			if (instance_place_check(x + hspd, y + vspd, objBlock, tangible_collision) != null) {
+				var platform = instance_place_check(x, y + vspd, objPlatform, tangible_collision);
+				
+				if (!platform || instance_place_check(x, y, platform, tangible_collision) != null) {
+					hspd = 0;
+				} else {
+					vspd = 0;
+				}
+			}
+		
+			x += hspd;
+			y += vspd;
+		
+			//Makes player move based on the block speed
+			/*if (instance_place_check(x + block.hspeed, y, objBlock, tangible_collision) == null) {
+				x += block.hspeed;
+			}
+		
+			if (instance_place_check(x, y + block.vspeed, objBlock, tangible_collision) == null) {
+				y += block.vspeed;
+			}*/
+		} else if (global.collision_type == 1) {
+			//Detect horizontal collision
+			var block_x = move_and_collide(hspd, 0, objBlock, abs(hspd), sign(hspd));
+			if (array_length(block_x) > 0) {
+			    hspd = 0;
+			}
+			
+			//Detect vertical collision
+			var block_y = move_and_collide(0, vspd, objBlock, abs(vspd),, sign(vspd));
+			if (array_length(block_y) >= 0) {
+			    if (vspd * global.grav > 0) {
+			        reset_jumps();
+			    }
+			    
+			    vspd = 0;
+			    grav = 0;
 			}
 		}
-
-		x += hspd;
-		y += vspd;
-	
-		//Makes player move based on the block speed
-		/*if (instance_place_check(x + block.hspeed, y, objBlock, tangible_collision) == null) {
-			x += block.hspeed;
-		}
-	
-		if (instance_place_check(x, y + block.vspeed, objBlock, tangible_collision) == null) {
-			y += block.vspeed;
-		}*/
 	}
 }
 

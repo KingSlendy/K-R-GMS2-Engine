@@ -43,7 +43,7 @@ if (!global.forms.lunarkid) {
 	}
 }
 #endregion
-
+ 
 #region Collision with killers
 var killer = instance_place_check(x, y, objPlayerKiller, tangible_collision);
 
