@@ -279,7 +279,7 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 	    }
 		#endregion
 	} else {
-		image_angle = 0;	
+		image_angle = 0;
 	}
 }
 #endregion
@@ -579,7 +579,7 @@ if (block != null) {
 		kill_player();
 	} else {
 		if (global.collision_type == 0) {
-			//Detect horizontal collision
+			#region Detect horizontal collision
 			if (instance_place_check(x + hspd, y, objBlock, tangible_collision) != null) {
 				while (instance_place_check(x + sign(hspd), y, objBlock, tangible_collision) == null) {
 					x += sign(hspd);
@@ -587,8 +587,9 @@ if (block != null) {
 		
 				hspd = 0;
 			}
+			#endregion
 	
-			//Detect vertical collision
+			#region Detect vertical collision
 			if (instance_place_check(x, y + vspd, objBlock, tangible_collision) != null) {
 				while (instance_place_check(x, y + sign(vspd), objBlock, tangible_collision) == null) {
 					y += sign(vspd);
@@ -601,8 +602,9 @@ if (block != null) {
 				vspd = 0;
 				grav = 0;
 			}
+			#endregion
 	
-			//Detect diagonal collision
+			#region Detect diagonal collision
 			if (instance_place_check(x + hspd, y + vspd, objBlock, tangible_collision) != null) {
 				var platform = instance_place_check(x, y + vspd, objPlatform, tangible_collision);
 				
@@ -612,7 +614,8 @@ if (block != null) {
 					vspd = 0;
 				}
 			}
-		
+			#endregion
+			
 			x += hspd;
 			y += vspd;
 		
@@ -625,13 +628,14 @@ if (block != null) {
 				y += block.vspeed;
 			}*/
 		} else if (global.collision_type == 1) {
-			//Detect horizontal collision
+			#region Detect horizontal collision
 			var block_x = move_and_collide(hspd, 0, objBlock, abs(hspd), sign(hspd));
 			if (array_length(block_x) > 0) {
 			    hspd = 0;
 			}
+			#endregion
 			
-			//Detect vertical collision
+			#region Detect vertical collision
 			var block_y = move_and_collide(0, vspd, objBlock, abs(vspd),, sign(vspd));
 			if (array_length(block_y) >= 0) {
 			    if (vspd * global.grav > 0) {
@@ -641,6 +645,7 @@ if (block != null) {
 			    vspd = 0;
 			    grav = 0;
 			}
+			#endregion
 		}
 	}
 }

@@ -10,11 +10,11 @@ function dynamic_collision(setup = false, func = null, arg = null) {
 	    //Split these into two with blocks so a user event 1 runs only after every single block's user event 0
 	    with (objBlockDynamic) {
 	        inst = other;
-	        event_user(0);
+	        carry_instance();
 	    }
 		
 	    with (objBlockDynamic) {
-	        event_user(1);
+	        push_instance();
 	    }
 
 	    if (instance_place_check(x, y, objBlock, tangible_collision) != null && func != null) {

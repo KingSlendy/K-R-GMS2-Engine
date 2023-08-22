@@ -1,6 +1,5 @@
 #region End Step collision with block
 ///Resolve collisions between step and now, collide with dynamic blocks
-//if (!place_free(x, y)) {
 if (instance_place_check(x, y, objBlock, tangible_collision) != null) {
     var dir_x = sign(x - xsafe);
     var dir_y = sign(y - ysafe);
@@ -18,7 +17,7 @@ if (instance_place_check(x, y, objBlock, tangible_collision) != null) {
     }
 }
 
-dynamic_collision();
+dynamic_collision(false);
 #endregion
 
 #region Old collision with platform
@@ -27,7 +26,7 @@ if (!global.forms.lunarkid) {
 
 	if (platform != null && platform.visible) {
 		if (platform.snap > 0 && ((global.grav == 1 && y - vspd / 2 <= platform.bbox_top) || (global.grav == -1 && y - vspd / 2 >= platform.bbox_bottom))) {
-			y = (global.grav == 1) ? platform.bbox_top - 9 : platform.bbox_bottom + 9;
+			y = (global.grav == 1) ? platform.bbox_top - 9 : platform.bbox_bottom + 8;
 			vspd = platform.vspeed;
 			
 			if (platform.object_index != objDisappearPlatform) {
