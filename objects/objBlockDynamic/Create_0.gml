@@ -60,6 +60,8 @@ function carry_instance() {
 }
 
 function push_instance() {
+	if (image_alpha != 1) { exit; }
+	
 	if (inst != noone) {
 	    if (place_meeting(x, y, inst)) {
 	        var move_x = 0, move_y = 0;
