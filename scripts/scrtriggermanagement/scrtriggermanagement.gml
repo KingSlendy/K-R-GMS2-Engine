@@ -58,8 +58,14 @@ function TriggerEvent(callback, times = -1) constructor {
 	}
 }
 
-function make_triggerable(trigger_keys) {
-	self.trigger_keys = trigger_keys;
+function add_trigger_key(key, attributes) {
+	var add_trigger = new TriggerKey(key, attributes);
+	
+	try {
+		array_push(self.trigger_keys, add_trigger);
+	} catch (_) {
+		self.trigger_keys = [add_trigger];
+	}
 }
 
 function activate_trigger(key) {
