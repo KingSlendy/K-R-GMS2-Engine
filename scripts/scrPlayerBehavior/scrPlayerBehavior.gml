@@ -91,7 +91,7 @@ function player_jump() {
 					flip_grav();
 				}
 				
-				vspd = (jump_height[0] * global.grav);
+				p_vspd(jump_height[0] * sign(global.grav));
 				var sound = (global.grav == -1) ? sndVFlipDown : sndVFlipUp;
 				audio_play_sound(sound, 0, false);
 			}

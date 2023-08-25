@@ -336,7 +336,7 @@
     {"id":{"name":"sprItemBoss6","path":"sprites/sprItemBoss6/sprItemBoss6.yy",},},
     {"id":{"name":"sprTwinBlackVine","path":"sprites/sprTwinBlackVine/sprTwinBlackVine.yy",},},
     {"id":{"name":"sprSpikeLeft","path":"sprites/sprSpikeLeft/sprSpikeLeft.yy",},},
-    {"id":{"name":"scrGravityControl","path":"scripts/scrGravityControl/scrGravityControl.yy",},},
+    {"id":{"name":"scrPlayerOrientation","path":"scripts/scrPlayerOrientation/scrPlayerOrientation.yy",},},
     {"id":{"name":"objItemSecret5","path":"objects/objItemSecret5/objItemSecret5.yy",},},
     {"id":{"name":"sprItemSecret7","path":"sprites/sprItemSecret7/sprItemSecret7.yy",},},
     {"id":{"name":"objItemBoss5","path":"objects/objItemBoss5/objItemBoss5.yy",},},

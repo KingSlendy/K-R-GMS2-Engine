@@ -354,10 +354,10 @@ if (!global.forms.lunarkid) {
 	#region Horizontal Movement
 	function gun_accelerate() {
 		if (is_pressed(global.controls.shoot)) {
-			hspd = -(max_hspd * 2) * xscale;
+			p_hspd(-(max_hspd * 2) * xscale);
 		}
 		
-		hspd = approach(hspd, 0, 0.1);
+		p_hspd(approach(Hspd, 0, 0.1));
 	}
 	
 	if (dir != 0) {
@@ -368,13 +368,12 @@ if (!global.forms.lunarkid) {
 		if ((dir == 1 && on_vine == null) || (dir == -1 && on_vine == null)) {
 			if (p_instance_place(0, 0, objGunWater) == null) {
 				if (on_ice == null) {
-					p_hspd(max_hspd * dir);
-					//hspd = (global.slippage == 0) ? max_hspd * dir : approach(hspd, max_hspd * dir, global.slippage);
+					p_hspd((global.slippage == 0) ? max_hspd * dir : approach(Hspd, max_hspd * dir, global.slippage));
 				} else {
 					#region Ice Movement
 					if (on_ice.object_index != objWeirdWater) {
 						var max_slipspd = (on_ice.object_index == objIceWater) ? 1.5 : 1;
-						hspd = approach(hspd, (max_hspd * max_slipspd) * dir, on_ice.slip);
+						p_hspd(approach(Hspd, (max_hspd * max_slipspd) * dir, on_ice.slip));
 					} else if (hspd == 0) {
 						p_hspd(max_hspd * dir);
 					}
@@ -388,8 +387,7 @@ if (!global.forms.lunarkid) {
 		}
 	} else {
 		if (p_instance_place(0, 0, objGunWater) == null) {
-			p_hspd(0);
-			//hspd = (on_ice == null) ? 0 : approach(hspd, 0, on_ice.slip);
+			p_hspd((on_ice == null) ? 0 : approach(Vspd, 0, on_ice.slip));
 		} else {
 			gun_accelerate();
 		}
@@ -404,9 +402,9 @@ if (!global.forms.lunarkid) {
 
 	#region Vertical Movement
 	if (!on_platform) {
-		if (p_vspd(Vspd * sign(global.grav)) < -0.05) {
+		if (Vspd * sign(global.grav) < -0.05) {
 		    player_sprite(PLAYER_ACTIONS.JUMP);
-		} else if (p_vspd(Vspd * sign(global.grav)) > 0.05) {
+		} else if (Vspd * sign(global.grav) > 0.05) {
 		    player_sprite(PLAYER_ACTIONS.FALL);
 		}
 	} else {
@@ -536,7 +534,7 @@ if (!global.forms.lunarkid) {
 				part_particles_create(global.partsys_vines, x, y, global.part_lowgrav, 2); 
 			}
 			#endregion
-	
+	 
 			#region Debug
 			if (global.debug_enable && on_block) {
 				dir = (is_pressed(global.controls_debug.alignR) - is_pressed(global.controls_debug.alignL));

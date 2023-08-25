@@ -252,7 +252,7 @@
     {"name":"sprItemBoss6","order":5,"path":"sprites/sprItemBoss6/sprItemBoss6.yy",},
     {"name":"sprTwinBlackVine","order":1,"path":"sprites/sprTwinBlackVine/sprTwinBlackVine.yy",},
     {"name":"sprSpikeLeft","order":1,"path":"sprites/sprSpikeLeft/sprSpikeLeft.yy",},
-    {"name":"scrGravityControl","order":1,"path":"scripts/scrGravityControl/scrGravityControl.yy",},
+    {"name":"scrPlayerOrientation","order":1,"path":"scripts/scrPlayerOrientation/scrPlayerOrientation.yy",},
     {"name":"objItemSecret5","order":4,"path":"objects/objItemSecret5/objItemSecret5.yy",},
     {"name":"sprItemSecret7","order":6,"path":"sprites/sprItemSecret7/sprItemSecret7.yy",},
     {"name":"objItemBoss5","order":4,"path":"objects/objItemBoss5/objItemBoss5.yy",},
