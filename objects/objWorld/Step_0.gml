@@ -147,7 +147,7 @@ if (global.debug_enable && global.game_started) {
 			with (objPlayer) {
 				x = mouse_x;
 				y = mouse_y;
-				vspd = 0;
+				p_vspd(0);
 			}
 		}
 	

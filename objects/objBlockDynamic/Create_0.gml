@@ -11,7 +11,7 @@ function carry_instance() {
 	if (image_alpha != 1) { exit; }
 	
 	if (inst != noone) {
-	    if (collision_rectangle(old_left, old_top - global.grav, old_right, old_bottom - global.grav, inst, true, true)) {
+	    if (collision_rectangle(old_left, old_top - sign(global.grav), old_right, old_bottom - sign(global.grav), inst, true, true)) {
 	        var carry_x = mean(bbox_left, bbox_right) - mean(old_left, old_right);
 	        var carry_y = bbox_top - inst.bbox_bottom - 1;
 			
@@ -26,11 +26,11 @@ function carry_instance() {
 					#endregion
 					
 					#region Non-Solid collision
-	                if (instance_place_check(x + carry_x, y, objBlock, tangible_collision) == null) {
-	                    x += carry_x;
+	                if (p_instance_place(carry_x, 0, objBlock) == null) {
+	                	p_x(X + carry_x);
 	                } else {
-						while (instance_place_check(x + sign(carry_x), y, objBlock, tangible_collision) == null) {
-							x += sign(carry_x);
+						while (p_instance_place(sign(carry_x), 0, objBlock) == null) {
+							p_x(X + sign(carry_x));
 						}
 	                }
 	                #endregion
@@ -45,11 +45,11 @@ function carry_instance() {
 					#endregion
 					
 					#region Non-Solid collision
-	                if (instance_place_check(x, y + carry_y, objBlock, tangible_collision) == null) {
-	                    y += carry_y;
+	                if (p_instance_place(0, carry_y, objBlock) == null) {
+	                    p_y(Y + carry_y);
 					} else {
-						while (instance_place_check(x, y + sign(carry_y), objBlock, tangible_collision) == null) {
-							y += sign(carry_y);
+						while (p_instance_place(0, sign(carry_y), objBlock) == null) {
+							p_y(Y + sign(carry_y));
 						}
 	                }
 	                #endregion

@@ -22,12 +22,12 @@ dynamic_collision(false);
 
 #region Old collision with platform
 if (!global.forms.lunarkid) {
-	var platform = instance_place_check(x, y, objPlatform, tangible_collision);
+	var platform = p_instance_place(0, 0, objPlatform);
 
 	if (platform != null && platform.visible) {
-		if (platform.snap > 0 && ((global.grav == 1 && y - vspd / 2 <= platform.bbox_top) || (global.grav == -1 && y - vspd / 2 >= platform.bbox_bottom))) {
-			y = (global.grav == 1) ? platform.bbox_top - 9 : platform.bbox_bottom + 8;
-			vspd = platform.vspeed;
+		if (platform.snap > 0 && ((sign(global.grav) == 1 && Y - Vspd / 2 <= platform.bbox_top) || (sign(global.grav) == -1 && Y - Vspd / 2 >= platform.bbox_bottom))) {
+			p_y((sign(global.grav == 1)) ? platform.bbox_top - 9 : platform.bbox_bottom + 8);
+			p_vspd(platform.vspeed);
 			
 			if (platform.object_index != objDisappearPlatform) {
 				on_platform = true;
@@ -44,7 +44,7 @@ if (!global.forms.lunarkid) {
 #endregion
  
 #region Collision with killers
-var killer = instance_place_check(x, y, objPlayerKiller, tangible_collision);
+var killer = p_instance_place(0, 0, objPlayerKiller);
 
 if (killer != null && killer.visible) {
 	kill_player();
