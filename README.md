@@ -8,8 +8,8 @@ It completely ditches solids and has a new and more compact save system, with a 
 
 It has native [I Wanna Play Online](https://iwpo.dappermink.com) support, you can play with your friends very easily!
 
-It also has a really extensive an complex trigger system, but fear not because it's really easy to use! It allows for manipulation of any variable in any object, giving you instant amount of potential!
+It also has a really extensive and complex trigger system, but fear not because it's really easy to use! It allows for manipulation of any variable in any object, giving you an insane amount of potential!
 
 We plan on expanding this further and adding more things as time goes on!
 
-If you find any bugs or undesired behavior then message either: KingSlendy#6578 or RedBatNick#6751
+If you find any bugs or undesired behavior then message either: @kingslendy or @redbatnick
