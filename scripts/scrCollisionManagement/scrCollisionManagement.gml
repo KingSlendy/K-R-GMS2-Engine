@@ -17,7 +17,7 @@ function dynamic_collision(setup = false, func = null, arg = null) {
 	        push_instance();
 	    }
 
-	    if (instance_place_check(x, y, objBlock, tangible_collision) != null && func != null) {
+	    if (p_instance_place(0, 0, objBlock) != null && func != null) {
 			func(arg);
 	    }
     

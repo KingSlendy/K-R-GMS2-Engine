@@ -1,7 +1,7 @@
 hspd = 0;
 
 if (instance_exists(objPlayer)) {
-	if (instance_place_check(x + push_spd * sign(objPlayer.hspd), y, objBlock, tangible_collision) == null) {
+	if (instance_place_check(x + push_spd * sign(Hspd), y, objBlock, tangible_collision) == null) {
 		if (place_meeting(x - 1, y, objPlayer) && is_held(global.controls.right)) {
 			hspd = push_spd;
 		} else if (place_meeting(x + 1, y, objPlayer) && is_held(global.controls.left)) {

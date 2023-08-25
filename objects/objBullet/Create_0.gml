@@ -14,7 +14,11 @@ if (global.forms.lunarkid) {
 	direction = dir;
 	speed = spd;
 } else {
-	hspeed = spd * dir;
+	if (abs(global.grav) == 1) {
+		hspeed = spd * dir;
+	} else {
+		vspeed = spd * -dir;
+	}
 }
 
 if (!global.forms.telekid) {

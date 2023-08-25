@@ -85,8 +85,8 @@ function push_instance() {
 	                	#endregion
 	                	
 	                	#region Non-Solid collision
-	                    if (instance_place_check(x + move_x, y, objBlock, tangible_collision) == null) {
-	                        x += move_x;
+	                    if (p_instance_place(move_x, 0, objBlock) == null) {
+	                        p_x(X + move_x);
 	                    }
 	                    #endregion
 	                }
@@ -113,8 +113,8 @@ function push_instance() {
 	                	#endregion
 	                	
 	                	#region Non-Solid collision
-	                    if (instance_place_check(x, y + move_y, objBlock, tangible_collision) == null) {
-	                        y += move_y;
+	                    if (p_instance_place(0, move_y, objBlock) == null) {
+	                        p_y(Y + move_y);
 	                    }
 	                    #endregion
 	                }

@@ -1,6 +1,7 @@
 var window_width = window_get_width();
 var window_height = window_get_height();
 
+gpu_set_texrepeat(false);
 gpu_set_blendenable(false);
 
 if(window_width mod 800 != 0 || window_height mod 608 != 0) {

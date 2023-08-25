@@ -52,17 +52,17 @@ function player_jump() {
 			#endregion
 			
 			#region Water Modifiers
-			if (instance_place_check(x, y, objFlipWater, tangible_collision) != null) {
+			if (p_instance_place(0, 0, objFlipWater) != null) {
 				flip_grav();
 			}
 			
-			if (instance_place_check(x, y, objPlatformWater, tangible_collision) != null) {
+			if (p_instance_place(0, 0, objPlatformWater) != null) {
 				grav_amount = 0.4;
 			}
 			
-			var bubble = instance_place_check(x, y, objBubbleWater, tangible_collision);
+			var bubble = p_instance_place(0, 0, objBubbleWater);
 			
-			if (bubble != null && global.grav == -sign(bubble.vspd)) {
+			if (bubble != null && sign(global.grav) == -sign(bubble.vspd)) {
 				jump_velocity = 1.25;
 			}
 			#endregion
@@ -72,7 +72,7 @@ function player_jump() {
 			jump_mod.low = 2;
 			player_sprite(PLAYER_ACTIONS.JUMP);
 			
-			if (instance_place_check(x, y + global.grav, objWater3, tangible_collision) == null) {
+			if (p_instance_place(0, sign(global.grav), objWater3) == null) {
 				if (jump_left > 0) {
 					jump_left--;
 				}
@@ -92,7 +92,7 @@ function player_jump() {
 				}
 				
 				p_vspd(jump_height[0] * sign(global.grav));
-				var sound = (global.grav == -1) ? sndVFlipDown : sndVFlipUp;
+				var sound = (sign(global.grav) == -1) ? sndVFlipDown : sndVFlipUp;
 				audio_play_sound(sound, 0, false);
 			}
 		} else {
@@ -201,7 +201,7 @@ function flip_grav(grav = undefined, jump = true) {
 	    with (objPlayer) {
 			set_mask();
 	        p_vspd(0);
-	        y += 4 * sign(global.grav);
+	        p_y(Y + 4 * sign(global.grav));
 	    }
     
 		if (jump) {

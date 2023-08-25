@@ -100,7 +100,7 @@ function p_vspd(val = null) {
 function p_instance_place(xx, yy, obj) {
     if (abs(global.grav) == 1) {
         return instance_place_check(x + xx, y + yy, obj, tangible_collision);
-    } else {
+    } else if (abs(global.grav) == 2) {
         return instance_place_check(x + yy, y + xx, obj, tangible_collision);
     }
 }

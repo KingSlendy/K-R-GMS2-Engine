@@ -1,3 +1,3 @@
-if (other.vspd * global.grav != -3) {
-    other.vspd = -3 * global.grav;
+if (Vspd * sign(global.grav) != -3) {
+    p_vspd(-3 * sign(global.grav));
 }

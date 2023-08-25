@@ -33,7 +33,7 @@ if (on_block != null || on_platform) {
 	}
 }
 
-if (instance_place_check(x, y, objWeirdWater, tangible_collision) != null && hspd != 0) {
+if (p_instance_place(0, 0, objWeirdWater) != null && hspd != 0) {
 	frozen = true;
 	water_mod.weird = true;
 } else {
@@ -330,7 +330,7 @@ if (!global.forms.lunarkid) {
         grav_amount = 0;
     } else if (vine_mod.lowgrav) {
         grav_amount = 0.3;
-    } else if (instance_place_check(x, y, objPlatformWater, tangible_collision) == null) {
+    } else if (p_instance_place(0, 0, objPlatformWater) == null) {
 		grav_amount = 0.4;
 		
 		if (water_mod.platform) {
@@ -374,7 +374,7 @@ if (!global.forms.lunarkid) {
 					if (on_ice.object_index != objWeirdWater) {
 						var max_slipspd = (on_ice.object_index == objIceWater) ? 1.5 : 1;
 						p_hspd(approach(Hspd, (max_hspd * max_slipspd) * dir, on_ice.slip));
-					} else if (hspd == 0) {
+					} else if (Hspd == 0) {
 						p_hspd(max_hspd * dir);
 					}
 					#endregion
@@ -387,7 +387,7 @@ if (!global.forms.lunarkid) {
 		}
 	} else {
 		if (p_instance_place(0, 0, objGunWater) == null) {
-			p_hspd((on_ice == null) ? 0 : approach(Vspd, 0, on_ice.slip));
+			p_hspd((on_ice == null) ? 0 : approach(Hspd, 0, on_ice.slip));
 		} else {
 			gun_accelerate();
 		}
@@ -417,9 +417,9 @@ if (!global.forms.lunarkid) {
 		p_vspd(Vspd + on_elevator.vspd);
 		
 		if (p_instance_place(0, -Vspd * sign(global.grav), objBlock) == null) {
-			if (p_vspd(Vspd * sign(global.grav)) <= 0) {
+			if (Vspd * sign(global.grav) <= 0) {
 				player_sprite(PLAYER_ACTIONS.JUMP);
-			} else if (p_vspd(Vspd * sign(global.grav)) > 0) {
+			} else if (Vspd * sign(global.grav) > 0) {
 				player_sprite(PLAYER_ACTIONS.FALL);
 			}
 		}
@@ -445,14 +445,14 @@ if (!global.forms.lunarkid) {
 		if (p_instance_place(0, 0, objWeirdWater) == null) {
 		    #region Ladders
 		    if (dir_up || dir_down) {
-		        if (!on_ladder && instance_place_check(x, y, objLadder, tangible_collision) != null) {
+		        if (!on_ladder && p_instance_place(0, 0, objLadder) != null) {
 		            on_ladder = true;
 		            reset_jumps();
 		        }
 		    }
     
 		    if (on_ladder) {
-		        if (instance_place_check(x, y, objLadder, tangible_collision) == null) {
+		        if (p_instance_place(0, 0, objLadder) == null) {
 		            on_ladder = false;
 		        } else {
 		            grav = 0;
@@ -468,7 +468,7 @@ if (!global.forms.lunarkid) {
 		            } 
 				
 		            if (dir_right || dir_left) {
-						if (instance_place_check(x + ((dir_right - dir_left) * max_hspd), y, objBlock, tangible_collision) == null) {
+						if (instance_place_check((x + (dir_right - dir_left) * max_hspd), y, objBlock, tangible_collision) == null) {
 							x += (dir_right) ? max_hspd : -max_hspd;
 						}
 						
@@ -485,9 +485,9 @@ if (!global.forms.lunarkid) {
 			    if (on_vine.object_index != objIceVine) {
 					if (on_vine.object_index != objStickyVine) {
 						var vine_speed = (on_vine.object_index == objRiseVine) ? -1 : 1;
-						vspd = (2 * vine_speed) * global.grav;
+						p_vspd((2 * vine_speed) * sign(global.grav));
 					} else {
-						vspd = 0;
+						p_vspd(0);
 						vine_mod.stick = true;
 					}
 				} 
@@ -496,13 +496,13 @@ if (!global.forms.lunarkid) {
     
 			    if ((on_vine.image_xscale == 1 && is_pressed(global.controls.right)) || (on_vine.image_xscale == -1 && is_pressed(global.controls.left))) {
 			        if (is_held(global.controls.jump)) {
-			            hspd = (on_vine.image_xscale == 1) ? 15 : -15;
+			            p_hspd((on_vine.image_xscale == 1) ? 15 : -15);
 						
 						if (on_vine.object_index == objFlipVine) {
 							flip_grav(, false);
 						}
 						
-						vspd = -9 * global.grav;
+						p_vspd(-9 * sign(global.grav));
 			            player_sprite(PLAYER_ACTIONS.JUMP);
 						audio_play_sound(sndVine, 0, false);
 						
@@ -510,7 +510,7 @@ if (!global.forms.lunarkid) {
 							global.vine_toggle ^= true;
 						}
 			        } else {
-			            hspd = (on_vine.image_xscale == 1) ? 3 : -3;
+			            p_hspd((on_vine.image_xscale == 1) ? 3 : -3);
 			            player_sprite(PLAYER_ACTIONS.FALL);
 			        }
 			    }
@@ -540,7 +540,7 @@ if (!global.forms.lunarkid) {
 				dir = (is_pressed(global.controls_debug.alignR) - is_pressed(global.controls_debug.alignL));
 		
 				if (dir != 0) {
-					hspd = dir;
+					p_hspd(dir);
 				}
 			}
 			#endregion
@@ -630,20 +630,20 @@ if (block != null) {
 			}*/
 		} else if (global.collision_type == 1) {
 			#region Detect horizontal collision
-			var block_x = move_and_collide(hspd, 0, objBlock, abs(hspd), sign(hspd));
+			var block_x = move_and_collide(Hspd, 0, objBlock, abs(Hspd), sign(Hspd));
 			if (array_length(block_x) > 0) {
-			    hspd = 0;
+			    p_hspd(0);
 			}
 			#endregion
 			
 			#region Detect vertical collision
-			var block_y = move_and_collide(0, vspd, objBlock, abs(vspd),, sign(vspd));
+			var block_y = move_and_collide(0, Vspd, objBlock, abs(Vspd),, sign(Vspd));
 			if (array_length(block_y) >= 0) {
-			    if (vspd * global.grav > 0) {
+			    if (Vspd * global.grav > 0) {
 			        reset_jumps();
 			    }
 			    
-			    vspd = 0;
+			    p_vspd(0);
 			    grav = 0;
 			}
 			#endregion
@@ -652,4 +652,5 @@ if (block != null) {
 }
 xsafe = xprevious + hspd;
 ysafe = yprevious + vspd;
+#endregion
 #endregion
