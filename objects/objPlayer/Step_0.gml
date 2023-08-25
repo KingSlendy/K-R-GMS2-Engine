@@ -649,8 +649,6 @@ if (block != null) {
 		}
 	}
 }
-
 xsafe = xprevious + hspd;
 ysafe = yprevious + vspd;
-#endregion
 #endregion

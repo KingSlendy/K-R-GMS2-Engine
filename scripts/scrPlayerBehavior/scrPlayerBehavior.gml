@@ -190,9 +190,9 @@ function set_mask() {
 	}
 }
 
-function flip_grav(jump = true) {
+function flip_grav(grav, jump = true) {
 	if (instance_exists(objPlayer)) {
-	    global.grav *= -1;
+	    global.grav = grav;
 
 	    with (objPlayer) {
 			set_mask();
