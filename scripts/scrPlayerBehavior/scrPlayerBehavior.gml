@@ -10,25 +10,10 @@ function player_jump() {
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
 		} else if (jump_left > 0 || p_instance_place(0, global.grav, objWater2) != null || jump_total == -1) {
-			var jump_velocity = 1;
+			jump_velocity = 1;
 			
 			package_refrenture("pre jump");
-			
-			#region Water Modifiers
-			if (p_instance_place(0, 0, objFlipWater) != null) {
-				flip_grav();
-			}
-			
-			if (p_instance_place(0, 0, objPlatformWater) != null) {
-				grav_amount = 0.4;
-			}
-			
-			var bubble = p_instance_place(0, 0, objBubbleWater);
-			
-			if (bubble != null && sign(global.grav) == -sign(bubble.vspd)) {
-				jump_velocity = 1.25;
-			}
-			#endregion
+			package_wetventure("pre jump");
 				
 			p_vspd((-(jump_height[1] * sign(global.grav)) * jump_velocity));
 			package_refrenture("post jump");

@@ -28,24 +28,7 @@ if (on_block != null || on_platform) {
 	struct_set_all(vine_mod, 0);
 }
 
-if (p_instance_place(0, 0, objWeirdWater) != null && hspd != 0) {
-	frozen = true;
-	water_mod.weird = true;
-} else {
-	if (water_mod.weird) {
-		frozen = false;
-	}
-}
-
-if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, objPoisonWater, 0, 0) != noone) {
-    poison_time = approach(poison_time, 0, 1);
-	
-    if (poison_time == 0) {
-        kill_player();
-	}
-} else if (poison_time != max_poison) {
-    poison_time = max_poison;
-}
+package_wetventure("pre step");
 #endregion
 
 #region Transformations        
@@ -293,8 +276,13 @@ if (!global.forms.lunarkid) {
 	on_block = p_instance_place(0, sign(global.grav), objBlock);
 	on_ice = ((p_instance_place(0, sign(global.grav), objIceBlock) ?? p_instance_place(0, 0, objIceWater)) ?? p_instance_place(0, 0, objWeirdWater));
 	
-	on_conveyor = (p_instance_place(0, sign(global.grav), objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
-	on_elevator = p_instance_place(xscale, 0, objElevatorBlock);
+	if (abs(global.grav) == 1) {
+		on_conveyor = (p_instance_place(0, sign(global.grav), objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
+		on_elevator = p_instance_place(xscale, 0, objElevatorBlock);
+	} else if (abs(global.grav) == 2) {
+		on_conveyor = p_instance_place(0, sign(global.grav), objElevatorBlock);
+		on_elevator = (p_instance_place(xscale, 0, objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
+	}
 	#endregion
 	
 	#region Vine Checks
@@ -338,14 +326,6 @@ if (!global.forms.lunarkid) {
 	#endregion
 	
 	#region Horizontal Movement
-	function gun_accelerate() {
-		if (is_pressed(global.controls.shoot)) {
-			p_hspd(-(max_hspd * 2) * xscale);
-		}
-		
-		p_hspd(approach(Hspd, 0, 0.1));
-	}
-	
 	if (dir != 0) {
 		if (on_vine == null) {
 			xscale = (abs(global.grav) == 1) ? dir : -dir;
@@ -368,21 +348,21 @@ if (!global.forms.lunarkid) {
 				
 				player_sprite(PLAYER_ACTIONS.RUN);
 			} else {
-				gun_accelerate();
+				wetventure_gun_accelerate();
 			}
 		}
 	} else {
 		if (p_instance_place(0, 0, objGunWater) == null) {
 			p_hspd((on_ice == null) ? 0 : approach(Hspd, 0, on_ice.slip));
 		} else {
-			gun_accelerate();
+			wetventure_gun_accelerate();
 		}
 		
 		player_sprite(PLAYER_ACTIONS.IDLE);
 	}
 	
 	if (on_conveyor != null) {
-		p_hspd(Hspd + on_conveyor.hspd);
+		p_hspd(Hspd + on_conveyor.spd);
 	}
 	#endregion
 
@@ -400,7 +380,7 @@ if (!global.forms.lunarkid) {
 	}
 	
 	if (on_elevator != null) {
-		p_vspd(Vspd + on_elevator.vspd);
+		p_vspd(Vspd + on_elevator.spd);
 		
 		if (p_instance_place(0, -Vspd * sign(global.grav), objBlock) == null) {
 			if (Vspd * sign(global.grav) <= 0) {

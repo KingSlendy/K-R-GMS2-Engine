@@ -35,21 +35,12 @@ grav_mod = {
 	zero: 0,
 	anti: 0
 };
-	
-water_mod = {
-	//Ocean Wetventure
-	bubble: 0,
-	platform: 0,
-	weird: 0
-};
-
-max_poison = 130;
-poison_time = max_poison;
 #endregion
 
 #region Jump Variables
 jump_height = [8.5, 7];
 jump_total = 2;
+jump_velocity = 1;
 
 vine_mod = {
 	//Jungle Adventure

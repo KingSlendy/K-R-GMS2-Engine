@@ -53,6 +53,7 @@
     {"name":"Test Rooms","order":1,"path":"folders/Rooms/Test Rooms.yy",},
     {"name":"Scripts","order":4,"path":"folders/Scripts.yy",},
     {"name":"Misc","order":3,"path":"folders/Scripts/Misc.yy",},
+    {"name":"Package","order":4,"path":"folders/Scripts/Package.yy",},
     {"name":"Player","order":1,"path":"folders/Scripts/Player.yy",},
     {"name":"Management","order":2,"path":"folders/Scripts/System/Management.yy",},
     {"name":"Shaders","order":5,"path":"folders/Shaders.yy",},
@@ -114,7 +115,6 @@
     {"name":"Warps","order":8,"path":"folders/Sprites/Objects/Warps.yy",},
     {"name":"Tilesets","order":1,"path":"folders/Sprites/Tilesets.yy",},
     {"name":"Tilesets","order":3,"path":"folders/Tilesets.yy",},
-    {"name":"Package","order":4,"path":"folders/Scripts/Package.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprJumpDefresh","order":1,"path":"sprites/sprJumpDefresh/sprJumpDefresh.yy",},
@@ -207,6 +207,7 @@
     {"name":"objStickyVine","order":3,"path":"objects/objStickyVine/objStickyVine.yy",},
     {"name":"sprTriggerSpikeLeft","order":2,"path":"sprites/sprTriggerSpikeLeft/sprTriggerSpikeLeft.yy",},
     {"name":"fntMenu4","order":4,"path":"fonts/fntMenu4/fntMenu4.yy",},
+    {"name":"scrOceanWetventure","order":2,"path":"scripts/scrOceanWetventure/scrOceanWetventure.yy",},
     {"name":"fntMenu3","order":3,"path":"fonts/fntMenu3/fntMenu3.yy",},
     {"name":"sprWater2","order":1,"path":"sprites/sprWater2/sprWater2.yy",},
     {"name":"objSlowmoJumpEffect","order":1,"path":"objects/objSlowmoJumpEffect/objSlowmoJumpEffect.yy",},

@@ -16,7 +16,7 @@ function package_refrenture(load_type = undefined) {
 		};
 		break;
 		
-		case "player step": //Sets the kid's jump height based on the active jump modifier
+		case "player step": //Sets the kid's local speed based on the active jump modifier
 		if (on_block != null || on_platform) {
 			struct_set_all(jump_mod, 0);
 			
@@ -40,8 +40,9 @@ function package_refrenture(load_type = undefined) {
 		
 		case "player draw": //Draws the telekid hitbox when the teleport modifier is active
 		if (jump_mod.tele > 0) {
-			var tele_x = 96 * xscale;
-			draw_sprite_ext(mask_index, image_index, X + tele_x, Y, image_xscale, image_yscale, image_angle, c_fuchsia, 0.5);
+			var tele_x = (abs(global.grav) == 1) ? 96 * xscale : 0;
+			var tele_y = (abs(global.grav) == 2) ? 96 * -xscale : 0;
+			draw_sprite_ext(mask_index, image_index, x + tele_x, y + tele_y, image_xscale, image_yscale, image_angle, c_fuchsia, 0.5);
 		}
 		break;
 		
@@ -66,7 +67,8 @@ function package_refrenture(load_type = undefined) {
 		}
 		
 		if (jump_mod.tele == 1) { //teleport djump
-			var tele_x = 96 * xscale;
+			var tele_dir = (abs(global.grav) == 1) ? xscale : -xscale;
+			var tele_x = 96 * tele_dir;
 			
 			if (p_instance_place(tele_x, 0, objBlock) == null) {
 				p_x(X + tele_x);

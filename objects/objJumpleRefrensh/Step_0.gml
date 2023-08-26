@@ -1,1 +1,1 @@
-image_angle = 90 - (90 * global.grav);
+image_angle = 90 * abs(global.grav) - (90 * sign(global.grav));
