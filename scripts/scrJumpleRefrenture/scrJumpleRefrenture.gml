@@ -1,0 +1,92 @@
+///Asset package of "I wanna go the Jumple Refrenture"
+
+function package_refrenture(load_type = undefined) {
+	if (load_type == undefined) { exit; }
+	
+	switch(load_type) {
+		case "vars": //load the Jumple Refrenture variables
+		jump_mod = { 
+			high: 0,
+			low: 0,
+			flip: 0,
+			tele: 0,
+			fast: 0,
+			swap: 0,
+			slowmo: 0
+		};
+		break;
+		
+		case "player step": //Sets the kid's jump height based on the active jump modifier
+		if (on_block != null || on_platform) {
+			struct_set_all(jump_mod, 0);
+			
+			if (instance_exists(objSlowmoJumpEffect)) {
+				instance_destroy(objSlowmoJumpEffect);
+			}
+		}
+		
+		if (jump_mod.fast == 2) {
+			max_hspd = 6;
+		}
+		
+		if (jump_mod.high == 1) {
+			jump_height[1] = 12;
+		} else if (jump_mod.low == 1) {
+			jump_height[1] = 5;
+		} else {
+			jump_height[1] = 7;
+		}
+		break;
+		
+		case "player draw": //Draws the telekid hitbox when the teleport modifier is active
+		if (jump_mod.tele > 0) {
+			var tele_x = 96 * xscale;
+			draw_sprite_ext(mask_index, image_index, X + tele_x, Y, image_xscale, image_yscale, image_angle, c_fuchsia, 0.5);
+		}
+		break;
+		
+		case "pre jump": //Sets the jump modifier flags for the next djump
+		if (jump_mod.slowmo == 1) { //slowmo djump
+			if (!instance_exists(objSlowmoJumpEffect)) {
+				instance_create_layer(0, 0, layer, objSlowmoJumpEffect);
+			}
+			
+			jump_mod.slowmo = 2;
+		} else {
+			instance_destroy(objSlowmoJumpEffect);
+		}
+		
+		if (jump_mod.swap == 1) { //switch djump
+			jump_mod.swap = 0;
+			audio_play_sound(sndJumpSwap, 0, false);
+		}
+		
+		if (jump_mod.fast == 1) { //fast djump
+			jump_mod.fast = 2;
+		}
+		
+		if (jump_mod.tele == 1) { //teleport djump
+			var tele_x = 96 * xscale;
+			
+			if (p_instance_place(tele_x, 0, objBlock) == null) {
+				p_x(X + tele_x);
+				audio_play_sound(sndJumpTele, 0, false);
+			}
+			
+			xprevious = x;
+			yprevious = y;
+			jump_mod.tele = 0;
+		}
+		
+		if (jump_mod.flip == 1) { //flip djump
+			flip_grav();
+			jump_mod.flip = 2;
+		}
+		break;
+		
+		case "post jump": //Resets the jump modifier flags after djumping
+		jump_mod.high = 2;
+		jump_mod.low = 2;
+		break;
+	}
+}

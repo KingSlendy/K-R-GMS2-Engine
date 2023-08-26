@@ -51,17 +51,6 @@ poison_time = max_poison;
 jump_height = [8.5, 7];
 jump_total = 2;
 
-jump_mod = {
-	//Jumple Refrenture
-	high: 0,
-	low: 0,
-	flip: 0,
-	tele: 0,
-	fast: 0,
-	swap: 0,
-	slowmo: 0
-};
-
 vine_mod = {
 	//Jungle Adventure
 	stick: 0,
@@ -75,6 +64,8 @@ vine_mod = {
 	count: 0
 };
 #endregion
+
+package_load();
 
 #region Collision and Actions
 on_block = false;

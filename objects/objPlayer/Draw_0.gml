@@ -42,10 +42,7 @@ if (!global.forms.lunarkid) {
 		draw_sprite_ext(sprBow, -1, x, y, xscale, sign(global.grav), player_angle, c_white, 1);
 	}
 	
-	if (jump_mod.tele > 0) {
-		var tele_x = 96 * xscale;
-		draw_sprite_ext(mask_index, image_index, x + tele_x, y, image_xscale, image_yscale, image_angle, c_fuchsia, 0.5);
-	}
+	package_refrenture("player draw");
 	
     if (poison_time < max_poison) {
         draw_healthbar(x - 16, y - 24, x + 16, y - 20, (objPlayer.poison_time / objPlayer.max_poison) * 100, c_black, c_red, c_white, 0, 1, 1);

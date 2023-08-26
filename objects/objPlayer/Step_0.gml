@@ -26,11 +26,6 @@ var dir_up = is_held(global.controls.up);
 
 if (on_block != null || on_platform) {
 	struct_set_all(vine_mod, 0);
-	struct_set_all(jump_mod, 0);
-	
-	if (instance_exists(objSlowmoJumpEffect)) {
-		instance_destroy(objSlowmoJumpEffect);
-	}
 }
 
 if (p_instance_place(0, 0, objWeirdWater) != null && hspd != 0) {
@@ -312,7 +307,7 @@ if (!global.forms.lunarkid) {
 	#endregion
 	
 	#region Speed Checks
-	if (place_meeting(x, y, objFieldFastSpeed) || spd_mod.fast || vine_mod.fire || jump_mod.fast == 2) {
+	if (place_meeting(x, y, objFieldFastSpeed) || spd_mod.fast || vine_mod.fire) {
 		max_hspd = 6;
 	} else if (place_meeting(x, y, objFieldSlowSpeed) || spd_mod.slow) {
 		max_hspd = 1;
@@ -338,16 +333,7 @@ if (!global.forms.lunarkid) {
 		}
 	}
 	#endregion
-	
-	#region Jump Checks
-	if (jump_mod.high == 1) {
-		jump_height[1] = 12;
-	} else if (jump_mod.low == 1) {
-		jump_height[1] = 5;
-	} else {
-		jump_height[1] = 7;
-	}
-	#endregion
+	package_refrenture("player step");
 	
 	#endregion
 	

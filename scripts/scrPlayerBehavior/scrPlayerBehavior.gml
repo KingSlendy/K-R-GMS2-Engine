@@ -12,44 +12,7 @@ function player_jump() {
 		} else if (jump_left > 0 || p_instance_place(0, global.grav, objWater2) != null || jump_total == -1) {
 			var jump_velocity = 1;
 			
-			#region Refresher Modifiers	
-			if (jump_mod.slowmo == 1) { //slowmo djump
-				if (!instance_exists(objSlowmoJumpEffect)) {
-					instance_create_layer(0, 0, layer, objSlowmoJumpEffect);
-				}
-				
-				jump_mod.slowmo = 2;
-			} else {
-				instance_destroy(objSlowmoJumpEffect);
-			}
-			
-			if (jump_mod.swap == 1) { //switch djump
-				jump_mod.swap = 0;
-				audio_play_sound(sndJumpSwap, 0, false);
-			}
-			
-			if (jump_mod.fast == 1) { //fast djump
-				jump_mod.fast = 2;
-			}
-			
-			if (jump_mod.tele == 1) { //teleport djump
-				var tele_x = 96 * xscale;
-				
-				if (p_instance_place(tele_x, 0, objBlock) == null) {
-					p_x(X + tele_x);
-					audio_play_sound(sndJumpTele, 0, false);
-				}
-				
-				xprevious = x;
-				yprevious = y;
-				jump_mod.tele = 0;
-			}
-			
-			if (jump_mod.flip == 1) { //flip djump
-				flip_grav();
-				jump_mod.flip = 2;
-			}
-			#endregion
+			package_refrenture("pre jump");
 			
 			#region Water Modifiers
 			if (p_instance_place(0, 0, objFlipWater) != null) {
@@ -68,8 +31,7 @@ function player_jump() {
 			#endregion
 				
 			p_vspd((-(jump_height[1] * sign(global.grav)) * jump_velocity));
-			jump_mod.high = 2;
-			jump_mod.low = 2;
+			package_refrenture("post jump");
 			player_sprite(PLAYER_ACTIONS.JUMP);
 			
 			if (p_instance_place(0, sign(global.grav), objWater3) == null) {

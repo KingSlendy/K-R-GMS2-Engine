@@ -12,8 +12,8 @@
     "path": "folders/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
   },
   "parentObjectId": {
-    "name": "objJumpRefresh",
-    "path": "objects/objJumpRefresh/objJumpRefresh.yy",
+    "name": "objJumpleRefrensh",
+    "path": "objects/objJumpleRefrensh/objJumpleRefrensh.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
