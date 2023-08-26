@@ -150,9 +150,15 @@ function flip_grav(grav = undefined, jump = true) {
 	        p_vspd(0);
 	        p_y(Y + 4 * sign(global.grav));
 	    }
-    
+
 		if (jump) {
 			reset_jumps();
 		}
+	}
+}
+
+function turn_grav(jump = true) {
+	if (instance_exists(objPlayer)) {
+		global.grav = (abs(global.grav) == 1) ? -(2 * objPlayer.xscale) : objPlayer.xscale;
 	}
 }

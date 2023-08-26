@@ -281,7 +281,7 @@ if (!global.forms.lunarkid) {
 		on_elevator = p_instance_place(xscale, 0, objElevatorBlock);
 	} else if (abs(global.grav) == 2) {
 		on_conveyor = p_instance_place(0, sign(global.grav), objElevatorBlock);
-		on_elevator = (p_instance_place(xscale, 0, objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
+		on_elevator = (p_instance_place(-xscale, 0, objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
 	}
 	#endregion
 	

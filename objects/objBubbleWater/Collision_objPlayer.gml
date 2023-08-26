@@ -3,5 +3,5 @@ if (sign(global.grav) == -sign(Vspd)) {
         p_vspd(0.5 * sign(global.grav));
     }
 } else {
-    p_vspd(approach(Vspd, vspd, 0.15));
+    p_vspd(approach(Vspd, spd, 0.15));
 }

@@ -20,6 +20,10 @@ switch(object_index) {
     case objFlipJumpRefresh:
     other.jump_mod.flip = 1;
     break;
+	
+	case objTurnJumpRefresh:
+	other.jump_mod.turn = 1;
+	break;
             
     case objJumpTelefresh:
     other.jump_mod.tele = 1;
@@ -30,7 +34,9 @@ switch(object_index) {
     break;
             
     case objSwitchJumpRefresh:
-    other.jump_mod.swap = 1;
+    if (key != null) {
+    	other.jump_mod.swap = key;
+    }
     break;
             
     case objSlowmoJumpRefresh:

@@ -5,20 +5,22 @@ function package_refrenture(load_type = undefined) {
 	
 	switch(load_type) {
 		case "vars": //load the Jumple Refrenture variables
-		jump_mod = { 
+		jump_mod = {
 			high: 0,
 			low: 0,
 			flip: 0,
 			tele: 0,
 			fast: 0,
-			swap: 0,
-			slowmo: 0
+			swap: null,
+			slowmo: 0,
+			turn: 0,
 		};
 		break;
 		
 		case "player step": //Sets the kid's local speed based on the active jump modifier
 		if (on_block != null || on_platform) {
 			struct_set_all(jump_mod, 0);
+			jump_mod.swap = null;
 			
 			if (instance_exists(objSlowmoJumpEffect)) {
 				instance_destroy(objSlowmoJumpEffect);
@@ -57,8 +59,13 @@ function package_refrenture(load_type = undefined) {
 			instance_destroy(objSlowmoJumpEffect);
 		}
 		
-		if (jump_mod.swap == 1) { //switch djump
-			jump_mod.swap = 0;
+		if (jump_mod.swap != null) { //switch djump
+			if (!is_active_trigger(jump_mod.swap)) {
+				activate_trigger(jump_mod.swap);
+			} else {
+				deactivate_trigger(jump_mod.swap);
+			}
+			jump_mod.swap = null;
 			audio_play_sound(sndJumpSwap, 0, false);
 		}
 		
@@ -83,6 +90,11 @@ function package_refrenture(load_type = undefined) {
 		if (jump_mod.flip == 1) { //flip djump
 			flip_grav();
 			jump_mod.flip = 2;
+		}
+		
+		if (jump_mod.turn == 1) { //turn djump
+			turn_grav();
+			jump_mod.turn = 2;
 		}
 		break;
 		

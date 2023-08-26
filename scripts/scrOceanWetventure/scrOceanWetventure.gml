@@ -47,13 +47,17 @@ function package_wetventure(load_type = undefined) {
 			flip_grav();
 		}
 		
+		if (p_instance_place(0, 0, objTurnWater) != null) {
+			turn_grav();
+		}
+		
 		if (p_instance_place(0, 0, objPlatformWater) != null) {
 			grav_amount = 0.4;
 		}
 		
 		var bubble = p_instance_place(0, 0, objBubbleWater);
 		
-		if (bubble != null && sign(global.grav) == -sign(bubble.vspd)) {
+		if (bubble != null && sign(global.grav) == -sign(bubble.spd)) {
 			jump_velocity = 1.25;
 		}
 		break;
