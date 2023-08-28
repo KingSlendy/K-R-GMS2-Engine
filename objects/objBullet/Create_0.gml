@@ -16,7 +16,7 @@ if (global.forms.lunarkid) {
 } else {
 	if (abs(global.grav) == 1) {
 		hspeed = spd * dir;
-	} else {
+	} else if (abs(global.grav) == 2) {
 		vspeed = spd * -dir;
 	}
 }

@@ -1,17 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objTurnWater",
+  "name": "objTurnVine",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Water",
-    "path": "folders/Objects/Gimmicks/Water.yy",
+    "name": "Vines",
+    "path": "folders/Objects/Gimmicks/Vines.yy",
   },
   "parentObjectId": {
-    "name": "objOceanWater",
-    "path": "objects/objOceanWater/objOceanWater.yy",
+    "name": "objVine",
+    "path": "objects/objVine/objVine.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -29,8 +29,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprTurnWater",
-    "path": "sprites/sprTurnWater/sprTurnWater.yy",
+    "name": "sprTurnVine",
+    "path": "sprites/sprTurnVine/sprTurnVine.yy",
   },
   "spriteMaskId": null,
   "visible": true,

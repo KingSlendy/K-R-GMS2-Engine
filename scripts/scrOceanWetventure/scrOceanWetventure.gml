@@ -8,22 +8,14 @@ function package_wetventure(load_type = undefined) {
 		water_mod = {
 			bubble: 0,
 			platform: 0,
-			weird: 0
 		};
 		
 		max_poison = 130;
 		poison_time = max_poison;
 		break;
 		
-		case "pre step": //Handles collision with Weird Water and Poison Water
-		if (p_instance_place(0, 0, objWeirdWater) != null && hspd != 0) {
-			frozen = true;
-			water_mod.weird = true;
-		} else {
-			if (water_mod.weird) {
-				frozen = false;
-			}
-		}
+		case "player prestep": //Handles collision with Weird Water and Poison Water
+		frozen += (p_instance_place(0, 0, objWeirdWater) != null && Hspd != 0);
 		
 		if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, objPoisonWater, 0, 0) != noone) {
 		    poison_time = approach(poison_time, 0, 1);
@@ -42,7 +34,7 @@ function package_wetventure(load_type = undefined) {
 		}
 		break;
 		
-		case "pre jump": //Sets how jumping in gimmick waters will effect your jump
+		case "player prejump": //Sets how jumping in gimmick waters will effect your jump
 		if (p_instance_place(0, 0, objFlipWater) != null) {
 			flip_grav();
 		}

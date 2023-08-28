@@ -1,10 +1,19 @@
+///Script that controls the relative physics of the player
+
+//THIS SCRIPT ALLOWS SIDEWAYS GRAVITY TO FUNCTION
+
+//Use the macros directly for GETTING the player's movement variables
+//Use the functions directly for SETTING the player's movement variables
+
 #macro X p_x()
 #macro Y p_y()
 #macro Hspd p_hspd()
 #macro Vspd p_vspd()
 
-function p_x(val = null) {
-    if (!instance_exists(objPlayer)) { exit; }
+function p_x(val = null) { //Gets OR Sets the player's relative X position
+    if (!instance_exists(objPlayer)) { 
+    	return 0;
+    }
     
     player = objPlayer.id;
     _x = player.x;
@@ -26,8 +35,10 @@ function p_x(val = null) {
 	return _x;
 }
 
-function p_y(val = null) {
-    if (!instance_exists(objPlayer)) { exit; }
+function p_y(val = null) { // Gets OR Sets the player's relative Y position
+    if (!instance_exists(objPlayer)) { 
+    	return 0;
+    }
     
     player = objPlayer.id;
     _y = player.y;
@@ -49,10 +60,9 @@ function p_y(val = null) {
 	return _y;
 }
 
-function p_hspd(val = null) {
+function p_hspd(val = null) { //Gets OR Sets the player's relative hspd
     if (!instance_exists(objPlayer)) { 
         return 0;
-        exit; 
     }
     
     player = objPlayer.id;
@@ -73,10 +83,9 @@ function p_hspd(val = null) {
 	return _hspd;
 }
 
-function p_vspd(val = null) {
+function p_vspd(val = null) { //Gets OR Sets the player's relative vspd
     if (!instance_exists(objPlayer)) { 
         return 0;
-        exit; 
     }
     
     player = objPlayer.id;
@@ -97,7 +106,7 @@ function p_vspd(val = null) {
 	return _vspd;
 }
 
-function p_instance_place(xx, yy, obj) {
+function p_instance_place(xx, yy, obj) { //Sets how the player will collide with "obj" relative to the current gravity
     if (abs(global.grav) == 1) {
         return instance_place_check(x + xx, y + yy, obj, tangible_collision);
     } else if (abs(global.grav) == 2) {

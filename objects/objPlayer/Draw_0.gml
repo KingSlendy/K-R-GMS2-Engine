@@ -11,13 +11,17 @@ if (global.forms.vkid > 0) {
 #endregion
 
 #region Draw Variables
+var draw_x = x;
 var draw_y = y;
 var player_xscale = image_xscale;
 var player_yscale = image_yscale;
 var player_angle = 0;
 
 if (!global.forms.dotkid && !global.forms.lunarkid && !global.forms.linekid) {
-	if (sign(global.grav) == -1) {
+	if (global.grav == -2) {
+		draw_x++;
+	}
+	if (global.grav == -1) {
 		draw_y++;
 	}
 	player_xscale = image_xscale * xscale;
@@ -29,9 +33,9 @@ if (!global.forms.dotkid && !global.forms.lunarkid && !global.forms.linekid) {
 #region Skin
 if (global.debug_hitbox != 2) {
 	if (global.forms.vkid > 0 || global.forms.telekid) {
-		draw_sprite_fog(sprite_index, image_index, x, draw_y, player_xscale, player_yscale, player_angle, image_blend, image_alpha, image_blend);
+		draw_sprite_fog(sprite_index, image_index, draw_x, draw_y, player_xscale, player_yscale, player_angle, image_blend, image_alpha, image_blend);
 	} else {
-		draw_sprite_ext(sprite_index, image_index, x, draw_y, player_xscale, player_yscale, player_angle, image_blend, image_alpha);
+		draw_sprite_ext(sprite_index, image_index, draw_x, draw_y, player_xscale, player_yscale, player_angle, image_blend, image_alpha);
 	}
 }
 #endregion

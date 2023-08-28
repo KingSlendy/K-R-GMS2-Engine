@@ -24,9 +24,6 @@ global.controls_lock = { //Keeping track of which controls are unusable
 	suicide: true
 }
 
-global.collision_type = 0; //The type of block collision to use for the player (0 == original, 1 == mace)
-global.vine_toggle = false; //Toggles which type of twin vine is active
-
 global.current_music = -1; //The current music playing
 global.last_xscale = 1; //Last xscale the player had
 global.overlay = false; //Sets if the information overlay is currently visible

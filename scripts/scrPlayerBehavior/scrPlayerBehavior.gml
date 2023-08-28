@@ -12,11 +12,11 @@ function player_jump() {
 		} else if (jump_left > 0 || p_instance_place(0, global.grav, objWater2) != null || jump_total == -1) {
 			jump_velocity = 1;
 			
-			package_refrenture("pre jump");
-			package_wetventure("pre jump");
+			package_refrenture("player prejump");
+			package_wetventure("player prejump");
 				
 			p_vspd((-(jump_height[1] * sign(global.grav)) * jump_velocity));
-			package_refrenture("post jump");
+			package_refrenture("player postjump");
 			player_sprite(PLAYER_ACTIONS.JUMP);
 			
 			if (p_instance_place(0, sign(global.grav), objWater3) == null) {
@@ -36,6 +36,8 @@ function player_jump() {
 			if (on_block != null) {
 				if (global.forms.vkid == 1) {
 					flip_grav();
+				} else if (global.forms.vkid == 2) {
+					turn_grav();
 				}
 				
 				p_vspd(jump_height[0] * sign(global.grav));

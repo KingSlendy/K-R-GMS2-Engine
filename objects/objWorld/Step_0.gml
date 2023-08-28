@@ -108,11 +108,7 @@ if (global.debug_enable && global.game_started) {
 		global.debug_hitbox++;
 		global.debug_hitbox %= 3;
 	}
-	
-	if (keyboard_check(vk_control) && is_pressed(ord("B"))) {
-		global.collision_type ^= true;
-	}
-	
+
 	if (instance_exists(objPlayer)) {
 		if (global.debug_inf_jump) {
 			reset_jumps();

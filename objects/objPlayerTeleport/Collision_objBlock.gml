@@ -1,7 +1,7 @@
 with (objPlayer) {
     x = other.x - other.hspeed;
-    y = other.y; 
-	vspd = 0;
+    y = other.y - other.vspeed;
+	p_vspd(0);
 	
 	xscale = other.xscale;
 	reset_jumps();

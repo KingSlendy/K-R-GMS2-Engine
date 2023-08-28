@@ -2,6 +2,7 @@
 set_mask();
 xscale = global.last_xscale;
 image_angle = global.save_player.sangle;
+lunar_start = false;
 
 #region Local Speed
 hspd = 0;
@@ -15,61 +16,27 @@ max_vspd = 9;
 grav_amount = (global.forms.lunarkid) ? 0 : 0.4;
 #endregion
 
-#region Speed Modifiers
-spd_mod = {
-	//Common 
-	fast: 0,
-	slow: 0,
-	
-	//RBN Speed
-	auto: 0,
-	buffer: 0
-}
-
-grav_mod = {
-	//Common 
-	low: 0,
-	high: 0,
-	
-	//RBN Grav
-	zero: 0,
-	anti: 0
-};
-#endregion
-
 #region Jump Variables
 jump_height = [8.5, 7];
 jump_total = 2;
 jump_velocity = 1;
-
-vine_mod = {
-	//Jungle Adventure
-	stick: 0,
-	lowgrav: 0,
-	fire: 0,
-	
-	//RBN Light
-	zerograv: 0,
-	
-	//Effects
-	count: 0
-};
 #endregion
 
 package_load();
 
-#region Collision and Actions
+#region Collisions
 on_block = false;
 on_ice = false;
+on_auto = false;
 
 on_conveyor = false;
 on_elevator = false;
 
 on_platform = false;
 on_ladder = false;
+#endregion
 
-lunar_start = false;
-
+#region Actions
 test_dist = {
 	orig: 0,
 	xpos: 0,

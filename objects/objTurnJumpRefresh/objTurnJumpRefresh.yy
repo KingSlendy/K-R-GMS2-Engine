@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Jumple Refrenture",
-    "path": "folders/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
+    "name": "Jump",
+    "path": "folders/Objects/Gimmicks/Refreshers/Jump.yy",
   },
   "parentObjectId": {
     "name": "objJumpleRefrensh",

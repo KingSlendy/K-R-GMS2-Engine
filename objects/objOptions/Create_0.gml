@@ -58,6 +58,20 @@ options = [
 			return (global.display.vsync) ? "Yes" : "No";
 		}),
 		
+		new Option("Gravity Controls: ", function() {
+			global.display.grav_control += 1;
+			global.display.grav_control %= 5;
+		}, function() {
+			var control_type = [
+				"Default",
+				"Inverse Right",
+				"Inverse Left",
+				"Cyclical",
+				"Absolute"
+			];
+			return string("{0}", control_type[global.display.grav_control]);
+		}),
+		
 		new Option("Reset Defaults", function() {
 			scrOptionsConfig();
 			toggle_music();

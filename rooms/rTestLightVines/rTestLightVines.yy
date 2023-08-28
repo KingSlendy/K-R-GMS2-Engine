@@ -42,6 +42,8 @@
     {"name":"inst_5C5FC74B","path":"rooms/rTestLightVines/rTestLightVines.yy",},
     {"name":"inst_698F6E7C","path":"rooms/rTestLightVines/rTestLightVines.yy",},
     {"name":"inst_51A460C2","path":"rooms/rTestLightVines/rTestLightVines.yy",},
+    {"name":"inst_20EF2314","path":"rooms/rTestLightVines/rTestLightVines.yy",},
+    {"name":"inst_85F1EE6","path":"rooms/rTestLightVines/rTestLightVines.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -79,6 +81,8 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5C5FC74B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objVine","path":"objects/objVine/objVine.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":144.0,"y":480.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_698F6E7C","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objLowGravVine","path":"objects/objLowGravVine/objLowGravVine.yy",},"properties":[],"rotation":0.0,"scaleX":-1.0,"scaleY":2.0,"x":240.0,"y":480.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_51A460C2","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objLowGravVine","path":"objects/objLowGravVine/objLowGravVine.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":272.0,"y":480.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_20EF2314","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objTurnVine","path":"objects/objTurnVine/objTurnVine.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":2.0,"x":560.0,"y":480.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_85F1EE6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objTurnVine","path":"objects/objTurnVine/objTurnVine.yy",},"properties":[],"rotation":0.0,"scaleX":-1.0,"scaleY":2.0,"x":528.0,"y":480.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Triggers","depth":100,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Player","depth":200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[

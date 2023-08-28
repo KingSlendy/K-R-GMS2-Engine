@@ -55,7 +55,7 @@ if (global.overlay) {
         yy = objPlayer.y;
         vspd = objPlayer.vspd;
 			
-		align = objPlayer.max_hspd % 3;
+		align = Hspd % 3;
 		align_relative = (abs(global.grav) == 1) ? xx % 3 : yy % 3;
 		
 		angle = objPlayer.image_angle;

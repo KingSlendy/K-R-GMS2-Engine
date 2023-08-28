@@ -48,7 +48,7 @@ function package_refrenture(load_type = undefined) {
 		}
 		break;
 		
-		case "pre jump": //Sets the jump modifier flags for the next djump
+		case "player prejump": //Sets the jump modifier flags for the next djump
 		if (jump_mod.slowmo == 1) { //slowmo djump
 			if (!instance_exists(objSlowmoJumpEffect)) {
 				instance_create_layer(0, 0, layer, objSlowmoJumpEffect);
@@ -98,7 +98,7 @@ function package_refrenture(load_type = undefined) {
 		}
 		break;
 		
-		case "post jump": //Resets the jump modifier flags after djumping
+		case "player postjump": //Resets the jump modifier flags after djumping
 		jump_mod.high = 2;
 		jump_mod.low = 2;
 		break;

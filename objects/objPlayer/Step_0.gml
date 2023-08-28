@@ -1,34 +1,33 @@
 #region Variable and Input Checks
-var grav_factor = (place_meeting(x, y, objFieldAntiGrav) || grav_mod.anti) ? -1 : 1;
+var grav_factor = (place_meeting(x, y, objFieldAntiGrav)) ? -1 : 1;
 grav = (vine_mod.stick) ? 0 : (grav_amount * grav_factor) * sign(global.grav);
-gravity_direction = (abs(global.grav) == 1) ? 0 : 90;
+gravity_direction = (abs(global.grav) == 1) ? 270 : 0;
 
-var left = null; 
-var right = null; 
+var left = null;
+var right = null;
+var down = null;
+var up = null;
 var dir = 0;
 
-if (!place_meeting(x, y, objFieldAutoSpeed)) {
-	if (!place_meeting(x, y, objFieldBufferSpeed)) {
-		left = (global.controls_reverse) ? is_held(global.controls.right) : is_held(global.controls.left);
-		right = (global.controls_reverse) ? is_held(global.controls.left) : is_held(global.controls.right);
-	} else {
-		left = (global.controls_reverse) ? is_pressed(global.controls.right) : is_pressed(global.controls.left);
-		right = (global.controls_reverse) ? is_pressed(global.controls.left) : is_pressed(global.controls.right);
-	}
-} else {
-	dir = xscale;
-}
+var directions = control_gravity(
+	global.controls.left, 
+	global.controls.right,
+	global.controls.down,
+	global.controls.up
+);
+left = directions.left_direction;
+right = directions.right_direction;
+down = global.controls.down;
+up = global.controls.up;
+    
+var dir_left = is_buffered(left);
+var dir_right = is_buffered(right);
+var dir_down = is_held(down);
+var dir_up = is_held(up);
 
-var dir_left = left;
-var dir_right = right;
-var dir_down = is_held(global.controls.down);
-var dir_up = is_held(global.controls.up);
-
-if (on_block != null || on_platform) {
-	struct_set_all(vine_mod, 0);
-}
-
-package_wetventure("pre step");
+package_fieldsNANG("player prestep");
+package_vineventure("player prestep");
+package_wetventure("player prestep");
 #endregion
 
 #region Transformations        
@@ -52,7 +51,7 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 	image_angle = (image_angle + 360 + (dir_left - dir_right)) % 360;
     player_sprite(PLAYER_ACTIONS.LUNARKID);
 	#endregion
-} else { 
+} else {
 	if (global.forms.linekid) {
 		#region Linekid functionality
 		if (dir_up || dir_down) {
@@ -274,7 +273,8 @@ if (!global.forms.lunarkid) {
 	
 	#region Collision Checks
 	on_block = p_instance_place(0, sign(global.grav), objBlock);
-	on_ice = ((p_instance_place(0, sign(global.grav), objIceBlock) ?? p_instance_place(0, 0, objIceWater)) ?? p_instance_place(0, 0, objWeirdWater));
+	on_ice = (p_instance_place(0, sign(global.grav), objIceBlock) ?? p_instance_place(0, 0, objIceWater));
+	on_auto = (p_instance_place(0, 0, objWeirdWater) ?? p_instance_place(0, 0, objFieldAutoSpeed));
 	
 	if (abs(global.grav) == 1) {
 		on_conveyor = (p_instance_place(0, sign(global.grav), objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
@@ -283,6 +283,7 @@ if (!global.forms.lunarkid) {
 		on_conveyor = p_instance_place(0, sign(global.grav), objElevatorBlock);
 		on_elevator = (p_instance_place(-xscale, 0, objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
 	}
+	
 	#endregion
 	
 	#region Vine Checks
@@ -295,23 +296,15 @@ if (!global.forms.lunarkid) {
 	#endregion
 	
 	#region Speed Checks
-	if (place_meeting(x, y, objFieldFastSpeed) || spd_mod.fast || vine_mod.fire) {
+	if (vine_mod.fire) {
 		max_hspd = 6;
-	} else if (place_meeting(x, y, objFieldSlowSpeed) || spd_mod.slow) {
-		max_hspd = 1;
 	} else {
 		max_hspd = 3;
 	}
 	#endregion
-	
+
 	#region Gravity Checks
-    if (place_meeting(x, y, objFieldHighGrav) || grav_mod.high) {
-        grav_amount = 0.7;
-    } else if (place_meeting(x, y, objFieldLowGrav) || grav_mod.low) {
-		grav_amount = 0.2;
-    } else if (place_meeting(x, y, objFieldZeroGrav) || grav_mod.zero || vine_mod.zerograv) {
-        grav_amount = 0;
-    } else if (vine_mod.lowgrav) {
+    if (vine_mod.lowgrav) {
         grav_amount = 0.3;
     } else if (p_instance_place(0, 0, objPlatformWater) == null) {
 		grav_amount = 0.4;
@@ -321,29 +314,29 @@ if (!global.forms.lunarkid) {
 		}
 	}
 	#endregion
+
+	package_fieldsNANG("player step");
 	package_refrenture("player step");
-	
 	#endregion
 	
 	#region Horizontal Movement
+	var flip_dir = dir * sign(-global.grav);
+	
 	if (dir != 0) {
 		if (on_vine == null) {
-			xscale = (abs(global.grav) == 1) ? dir : -dir;
-		}
-	
-		if ((dir == 1 && on_vine == null) || (dir == -1 && on_vine == null)) {
+			xscale = (abs(global.grav) == 1) ? dir : dir * sign(global.grav);
+
 			if (p_instance_place(0, 0, objGunWater) == null) {
 				if (on_ice == null) {
-					p_hspd((global.slippage == 0) ? max_hspd * dir : approach(Hspd, max_hspd * dir, global.slippage));
-				} else {
-					#region Ice Movement
-					if (on_ice.object_index != objWeirdWater) {
-						var max_slipspd = (on_ice.object_index == objIceWater) ? 1.5 : 1;
-						p_hspd(approach(Hspd, (max_hspd * max_slipspd) * dir, on_ice.slip));
-					} else if (Hspd == 0) {
-						p_hspd(max_hspd * dir);
+					if (global.slippage == 0) {
+						p_hspd((abs(global.grav) == 1) ? max_hspd * dir : max_hspd * flip_dir);
+					} else {
+						p_hspd(approach(Hspd, max_hspd * dir, global.slippage))
 					}
-					#endregion
+				} else if (on_ice != null) {
+					var slipdir = (abs(global.grav) == 1) ? dir : flip_dir;
+					var max_slipspd = (on_ice.object_index == objIceWater) ? 1.5 : 1;
+					p_hspd(approach(Hspd, (max_hspd * max_slipspd) * slipdir, on_ice.slip));
 				}
 				
 				player_sprite(PLAYER_ACTIONS.RUN);
@@ -359,6 +352,11 @@ if (!global.forms.lunarkid) {
 		}
 		
 		player_sprite(PLAYER_ACTIONS.IDLE);
+	}
+	
+	if (on_auto != null) {
+		p_hspd((abs(global.grav) == 1) ? max_hspd * xscale : max_hspd * -xscale);
+		player_sprite(PLAYER_ACTIONS.RUN);
 	}
 	
 	if (on_conveyor != null) {
@@ -391,13 +389,13 @@ if (!global.forms.lunarkid) {
 		}
 	}
 
-	if (abs(Vspd) > max_vspd) {
+	if (Vspd * sign(global.grav) > max_vspd) {
 		p_vspd(max_vspd * sign(Vspd));
 	}
 	#endregion
 
 	#region Player Actions
-	if (!frozen || p_instance_place(0, 0, objWeirdWater) != null) {
+	if (!frozen || on_auto) {
 		#region Controls
 		if (is_pressed(global.controls.jump)) {
 			player_jump();
@@ -408,7 +406,7 @@ if (!global.forms.lunarkid) {
 		}
 		#endregion
 
-		if (p_instance_place(0, 0, objWeirdWater) == null) {
+		if (!on_auto) {
 		    #region Ladders
 		    if (dir_up || dir_down) {
 		        if (!on_ladder && p_instance_place(0, 0, objLadder) != null) {
@@ -446,7 +444,7 @@ if (!global.forms.lunarkid) {
 	
 			#region Vines
 			if (on_vine != null) {
-				xscale = (on_vine.image_xscale == 1) ? 1 : -1;
+				xscale = sign(on_vine.image_xscale);
 				
 			    if (on_vine.object_index != objIceVine) {
 					if (on_vine.object_index != objStickyVine) {
@@ -468,12 +466,16 @@ if (!global.forms.lunarkid) {
 							flip_grav(, false);
 						}
 						
+						if (on_vine.object_index == objTurnVine) {
+							turn_grav();
+						}
+						
 						p_vspd(-9 * sign(global.grav));
 			            player_sprite(PLAYER_ACTIONS.JUMP);
 						audio_play_sound(sndVine, 0, false);
 						
 						if (on_vine.object_index == objTwinWhiteVine || on_vine.object_index == objTwinBlackVine) {
-							global.vine_toggle ^= true;
+							vine_mod.twin ^= true;
 						}
 			        } else {
 			            p_hspd((on_vine.image_xscale == 1) ? 3 : -3);
@@ -506,7 +508,7 @@ if (!global.forms.lunarkid) {
 				dir = (is_pressed(global.controls_debug.alignR) - is_pressed(global.controls_debug.alignL));
 		
 				if (dir != 0) {
-					p_hspd(dir);
+					p_hspd((abs(global.grav) == 1) ? dir : dir * sign(-global.grav));
 				}
 			}
 			#endregion
@@ -515,7 +517,7 @@ if (!global.forms.lunarkid) {
 	#endregion
 }
 
-if (!frozen) {
+if (!frozen || on_auto) {
 	if (is_pressed(global.controls.shoot) && !global.controls_lock.shoot) {
 		player_shoot();
 	}
@@ -545,75 +547,45 @@ if (block != null) {
 	if (global.forms.lunarkid) {
 		kill_player();
 	} else {
-		if (global.collision_type == 0) {
-			#region Detect horizontal collision
-			if (p_instance_place(Hspd, 0, objBlock) != null) {
-				while (p_instance_place(sign(Hspd), 0, objBlock) == null) {
-					p_x(X + sign(Hspd));
-				}
-		
-				p_hspd(0);
+		#region Detect horizontal collision
+		if (p_instance_place(Hspd, 0, objBlock) != null) {
+			while (p_instance_place(sign(Hspd), 0, objBlock) == null) {
+				p_x(X + sign(Hspd));
 			}
-			#endregion
 	
-			#region Detect vertical collision
-			if (p_instance_place(0, Vspd, objBlock) != null) {
-				while (p_instance_place(0, sign(Vspd), objBlock) == null) {
-					p_y(Y + sign(Vspd));
-				}
-		
-				if (Vspd * global.grav > 0) {
-					reset_jumps();
-				}
-		
-				p_vspd(0);
-				grav = 0;
-			}
-			#endregion
-	
-			#region Detect diagonal collision
-			if (p_instance_place(Hspd, Vspd, objBlock) != null) {
-				var platform = p_instance_place(0, Vspd, objPlatform);
-				
-				if (!platform || p_instance_place(0, 0, platform) != null) {
-					p_hspd(0);
-				} else {
-					p_vspd(0);
-				}
-			}
-			#endregion
-			
-			p_x(X + Hspd);
-			p_y(Y + Vspd);
-		
-			//Makes player move based on the block speed
-			/*if (instance_place_check(x + block.hspeed, y, objBlock, tangible_collision) == null) {
-				x += block.hspeed;
-			}
-		
-			if (instance_place_check(x, y + block.vspeed, objBlock, tangible_collision) == null) {
-				y += block.vspeed;
-			}*/
-		} else if (global.collision_type == 1) {
-			#region Detect horizontal collision
-			var block_x = move_and_collide(Hspd, 0, objBlock, abs(Hspd), sign(Hspd));
-			if (array_length(block_x) > 0) {
-			    p_hspd(0);
-			}
-			#endregion
-			
-			#region Detect vertical collision
-			var block_y = move_and_collide(0, Vspd, objBlock, abs(Vspd),, sign(Vspd));
-			if (array_length(block_y) >= 0) {
-			    if (Vspd * global.grav > 0) {
-			        reset_jumps();
-			    }
-			    
-			    p_vspd(0);
-			    grav = 0;
-			}
-			#endregion
+			p_hspd(0);
 		}
+		#endregion
+
+		#region Detect vertical collision
+		if (p_instance_place(0, Vspd, objBlock) != null) {
+			while (p_instance_place(0, sign(Vspd), objBlock) == null) {
+				p_y(Y + sign(Vspd));
+			}
+	
+			if (Vspd * global.grav > 0) {
+				reset_jumps();
+			}
+	
+			p_vspd(0);
+			grav = 0;
+		}
+		#endregion
+
+		#region Detect diagonal collision
+		if (p_instance_place(Hspd, Vspd, objBlock) != null) {
+			var platform = p_instance_place(0, Vspd, objPlatform);
+			
+			if (!platform || p_instance_place(0, 0, platform) != null) {
+				p_hspd(0);
+			} else {
+				p_vspd(0);
+			}
+		}
+		#endregion
+		
+		p_x(X + Hspd);
+		p_y(Y + Vspd);
 	}
 }
 xsafe = xprevious + hspd;
