@@ -114,6 +114,7 @@
     {"name":"Warps","order":8,"path":"folders/Sprites/Objects/Warps.yy",},
     {"name":"Tilesets","order":1,"path":"folders/Sprites/Tilesets.yy",},
     {"name":"Tilesets","order":3,"path":"folders/Tilesets.yy",},
+    {"name":"Other","order":3,"path":"folders/Sprites/Objects/Gimmicks/Refreshers/Other.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprJumpDefresh","order":1,"path":"sprites/sprJumpDefresh/sprJumpDefresh.yy",},
@@ -136,6 +137,7 @@
     {"name":"objGameOver","order":1,"path":"objects/objGameOver/objGameOver.yy",},
     {"name":"objGravDown","order":1,"path":"objects/objGravDown/objGravDown.yy",},
     {"name":"scrInitDebug","order":5,"path":"scripts/scrInitDebug/scrInitDebug.yy",},
+    {"name":"sprSwapJumpRefresh","order":1,"path":"sprites/sprSwapJumpRefresh/sprSwapJumpRefresh.yy",},
     {"name":"objPlatformWater","order":4,"path":"objects/objPlatformWater/objPlatformWater.yy",},
     {"name":"rTestFields","order":9,"path":"rooms/rTestFields/rTestFields.yy",},
     {"name":"sndBossHit","order":1,"path":"sounds/sndBossHit/sndBossHit.yy",},

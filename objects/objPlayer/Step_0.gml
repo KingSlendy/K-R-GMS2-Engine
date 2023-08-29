@@ -321,6 +321,7 @@ if (!global.forms.lunarkid) {
 	
 	#region Horizontal Movement
 	var flip_dir = dir * sign(-global.grav);
+	var move_dir = (abs(global.grav) == 1) ? dir : dir * sign(-global.grav);
 	
 	if (dir != 0) {
 		if (on_vine == null) {
@@ -331,7 +332,7 @@ if (!global.forms.lunarkid) {
 					if (global.slippage == 0) {
 						p_hspd((abs(global.grav) == 1) ? max_hspd * dir : max_hspd * flip_dir);
 					} else {
-						p_hspd(approach(Hspd, max_hspd * dir, global.slippage))
+						p_hspd(approach(Hspd, (abs(global.grav) == 1) ? max_hspd * dir : max_hspd * flip_dir, global.slippage));
 					}
 				} else if (on_ice != null) {
 					var slipdir = (abs(global.grav) == 1) ? dir : flip_dir;
@@ -346,7 +347,11 @@ if (!global.forms.lunarkid) {
 		}
 	} else {
 		if (p_instance_place(0, 0, objGunWater) == null) {
-			p_hspd((on_ice == null) ? 0 : approach(Hspd, 0, on_ice.slip));
+			if (on_ice == null) {
+				p_hspd((global.slippage == 0) ? 0 : approach(Hspd, 0, global.slippage / 2));
+			} else if (on_ice != null) {
+				p_hspd(approach(Hspd, 0, on_ice.slip));
+			}
 		} else {
 			wetventure_gun_accelerate();
 		}
@@ -354,10 +359,10 @@ if (!global.forms.lunarkid) {
 		player_sprite(PLAYER_ACTIONS.IDLE);
 	}
 	
-	if (on_auto != null) {
-		p_hspd((abs(global.grav) == 1) ? max_hspd * xscale : max_hspd * -xscale);
-		player_sprite(PLAYER_ACTIONS.RUN);
-	}
+if (on_auto != null) {
+	p_hspd((abs(global.grav) == 1) ? max_hspd * xscale : max_hspd * -xscale);
+	player_sprite(PLAYER_ACTIONS.RUN);
+}
 	
 	if (on_conveyor != null) {
 		p_hspd(Hspd + on_conveyor.spd);
@@ -547,6 +552,8 @@ if (block != null) {
 	if (global.forms.lunarkid) {
 		kill_player();
 	} else {
+		speed = 0;
+		
 		#region Detect horizontal collision
 		if (p_instance_place(Hspd, 0, objBlock) != null) {
 			while (p_instance_place(sign(Hspd), 0, objBlock) == null) {

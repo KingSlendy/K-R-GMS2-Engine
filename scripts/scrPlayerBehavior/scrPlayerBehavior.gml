@@ -147,11 +147,13 @@ function flip_grav(grav = undefined, jump = true) {
 	    	global.grav = grav;
 		}
 
-	    with (objPlayer) {
-			set_mask();
-	        p_vspd(0);
-	        p_y(Y + 4 * sign(global.grav));
-	    }
+		if (!global.forms.lunarkid) {
+		    with (objPlayer) {
+				set_mask();
+		        p_vspd(0);
+		        p_y(Y + 4 * sign(global.grav));
+		    }
+		}
 
 		if (jump) {
 			reset_jumps();

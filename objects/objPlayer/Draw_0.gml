@@ -15,7 +15,7 @@ var draw_x = x;
 var draw_y = y;
 var player_xscale = image_xscale;
 var player_yscale = image_yscale;
-var player_angle = 0;
+var player_angle = image_angle;
 
 if (!global.forms.dotkid && !global.forms.lunarkid && !global.forms.linekid) {
 	if (global.grav == -2) {
@@ -58,8 +58,6 @@ if (!global.forms.lunarkid) {
 #region Debug
 if (global.debug_hitbox > 0) {
 	draw_sprite_ext(mask_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_fuchsia, 0.5 * global.debug_hitbox);
-	draw_sprite_ext(mask_index, image_index, xsafe, ysafe, image_xscale, image_yscale, image_angle, c_lime, 0.5 * global.debug_hitbox);
-	
 }
 
 if (hit > 0) {

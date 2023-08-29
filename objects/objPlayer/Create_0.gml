@@ -1,7 +1,9 @@
 #region Init
 set_mask();
 xscale = global.last_xscale;
-image_angle = global.save_player.sangle;
+if (global.forms.linekid) {
+	image_angle = global.save_player.sangle;
+}
 lunar_start = false;
 
 #region Local Speed
