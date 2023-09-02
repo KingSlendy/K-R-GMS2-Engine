@@ -131,11 +131,7 @@ function set_mask() {
 	if (global.forms.dotkid || global.forms.lunarkid || global.forms.linekid) {
 		mask_index = sprite_index;
 	} else {
-		if (abs(global.grav) == 1) {
-			mask_index = (global.grav == 1) ? sprPlayerMask : sprPlayerMaskFlipped;
-		} else if (abs(global.grav) == 2) {
-			mask_index = (global.grav == 2) ? sprPlayerMaskX : sprPlayerMaskXFlipped;
-		}
+		mask_index = sprPlayerMask;
 	}
 }
 

@@ -26,7 +26,7 @@ if (!global.forms.dotkid && !global.forms.lunarkid && !global.forms.linekid) {
 	}
 	player_xscale = image_xscale * xscale;
 	player_yscale = image_yscale * sign(global.grav);
-	player_angle = (abs(global.grav) == 1) ? 0 : 90;
+	player_angle = image_angle;
 }
 #endregion
 

@@ -257,7 +257,11 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 	    }
 		#endregion
 	} else {
-		image_angle = 0;
+		if (abs(global.grav) == 1) {
+			image_angle = (sign(global.grav) == 1) ? 0 : 180;
+		} else if (abs(global.grav) == 2) {
+			image_angle = (sign(global.grav) == 1) ? 270 : 90;
+		}
 	}
 }
 #endregion
