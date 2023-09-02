@@ -11,9 +11,21 @@ function carry_instance() {
 	if (image_alpha != 1) { exit; }
 	
 	if (inst != noone) {
-	    if (collision_rectangle(old_left, old_top - sign(global.grav), old_right, old_bottom - sign(global.grav), inst, true, true)) {
+var block = {
+	left: (abs(global.grav) == 1) ? old_left : old_left - sign(global.grav),
+	top: (abs(global.grav) == 1) ? old_top - sign(global.grav) : old_top,
+	right: (abs(global.grav) == 1) ? old_right : old_right - sign(global.grav),
+	bottom: (abs(global.grav) == 1) ? old_bottom - sign(global.grav) : old_bottom,
+}
+
+	    if (collision_rectangle(block.left, block.top, block.right, block.bottom, inst, true, true)) {
 	        var carry_x = mean(bbox_left, bbox_right) - mean(old_left, old_right);
-	        var carry_y = bbox_top - inst.bbox_bottom - 1;
+	        var carry_y = (sign(global.grav) == 1) ? bbox_top - inst.bbox_bottom - 1 : bbox_bottom - inst.bbox_top + 1;
+			
+			if (abs(global.grav) == 2) { 
+				carry_x = mean(bbox_top, bbox_bottom) - mean(old_top, old_bottom);
+				carry_y = (sign(global.grav) == 1) ? bbox_left - inst.bbox_right - 1 : bbox_right - inst.bbox_left + 1;
+			}
 			
 	        with (inst) {                                     
 	            if (carry_x != 0) {
@@ -35,7 +47,7 @@ function carry_instance() {
 	                }
 	                #endregion
 	            }
-	            if (carry_y > 0) {
+	            if (abs(carry_y) > 0) {
 	            	#region Solid collision
 					/*if (place_free(x, y + carry_y)) {
 						y += carry_y;
@@ -65,6 +77,13 @@ function push_instance() {
 	if (inst != noone) {
 	    if (place_meeting(x, y, inst)) {
 	        var move_x = 0, move_y = 0;
+			
+			var player = {
+				left: (abs(global.grav) == 1) ? inst.bbox_left : inst.bbox_top,
+				top: (abs(global.grav) == 1) ? inst.bbox_top : inst.bbox_left,
+				right: (abs(global.grav) == 1) ? inst.bbox_right : inst.bbox_bottom,
+				bottom: (abs(global.grav) == 1) ? inst.bbox_bottom : inst.bbox_right
+			}
 			
 	        #region Push horizontally
 	        if (inst.bbox_bottom - (inst.y - inst.yold) >= old_top && inst.bbox_top - (inst.y - inst.yold) <= old_bottom) {
@@ -120,6 +139,15 @@ function push_instance() {
 	                }
 	            }
 	        }
+			
+	        /*if (inst.bbox_right - (inst.x - inst.xold) >= old_left && inst.bbox_left - (inst.x - inst.xold) <= old_right) {
+	            if (inst.bbox_top - (inst.y - inst.yold) >= old_bottom) {
+	                move_y = bbox_bottom - inst.bbox_top + 1;
+	                move_y += ((inst.y + move_y) % 2 == 1.5);
+	            } else if (inst.bbox_bottom - (inst.y - inst.yold) <= old_top) {
+	                move_y = bbox_top - inst.bbox_bottom - 1;
+	                move_y -= ((inst.y + move_y) % 2 == 0.5);
+	            }*/
 	        #endregion
 	    }
 	}

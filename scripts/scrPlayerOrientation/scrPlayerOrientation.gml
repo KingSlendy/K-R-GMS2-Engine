@@ -106,10 +106,10 @@ function p_vspd(val = null) { //Gets OR Sets the player's relative vspd
 	return _vspd;
 }
 
-function p_instance_place(xx, yy, obj) { //Sets how the player will collide with "obj" relative to the current gravity
+function p_instance_place(xx, yy, obj, func = tangible_collision) { //Sets how the player will collide with "obj" relative to the current gravity
     if (abs(global.grav) == 1) {
-        return instance_place_check(x + xx, y + yy, obj, tangible_collision);
+        return instance_place_check(x + xx, y + yy, obj, func);
     } else if (abs(global.grav) == 2) {
-        return instance_place_check(x + yy, y + xx, obj, tangible_collision);
+        return instance_place_check(x + yy, y + xx, obj, func);
     }
 }

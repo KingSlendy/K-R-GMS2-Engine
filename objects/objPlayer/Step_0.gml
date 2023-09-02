@@ -359,10 +359,10 @@ if (!global.forms.lunarkid) {
 		player_sprite(PLAYER_ACTIONS.IDLE);
 	}
 	
-if (on_auto != null) {
-	p_hspd((abs(global.grav) == 1) ? max_hspd * xscale : max_hspd * -xscale);
-	player_sprite(PLAYER_ACTIONS.RUN);
-}
+	if (on_auto != null) {
+		p_hspd((abs(global.grav) == 1) ? max_hspd * xscale : max_hspd * -xscale);
+		player_sprite(PLAYER_ACTIONS.RUN);
+	}
 	
 	if (on_conveyor != null) {
 		p_hspd(Hspd + on_conveyor.spd);
