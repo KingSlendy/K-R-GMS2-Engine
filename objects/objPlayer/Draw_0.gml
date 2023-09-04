@@ -11,31 +11,19 @@ if (global.forms.vkid > 0) {
 #endregion
 
 #region Draw Variables
-var draw_x = x;
-var draw_y = y;
 var player_xscale = image_xscale;
-var player_yscale = image_yscale;
-var player_angle = image_angle;
 
 if (!global.forms.dotkid && !global.forms.lunarkid && !global.forms.linekid) {
-	if (global.grav == -2) {
-		draw_x++;
-	}
-	if (global.grav == -1) {
-		draw_y++;
-	}
-	player_xscale = image_xscale * xscale;
-	player_yscale = image_yscale * sign(global.grav);
-	player_angle = image_angle;
+	player_xscale = xscale * sign(global.grav);
 }
 #endregion
 
 #region Skin
 if (global.debug_hitbox != 2) {
 	if (global.forms.vkid > 0 || global.forms.telekid) {
-		draw_sprite_fog(sprite_index, image_index, draw_x, draw_y, player_xscale, player_yscale, player_angle, image_blend, image_alpha, image_blend);
+		draw_sprite_fog(sprite_index, image_index, x, y, player_xscale, image_yscale, image_angle, image_blend, image_alpha, image_blend);
 	} else {
-		draw_sprite_ext(sprite_index, image_index, draw_x, draw_y, player_xscale, player_yscale, player_angle, image_blend, image_alpha);
+		draw_sprite_ext(sprite_index, image_index, x, y, player_xscale, image_yscale, image_angle, image_blend, image_alpha);
 	}
 }
 #endregion
@@ -43,7 +31,7 @@ if (global.debug_hitbox != 2) {
 #region Equip
 if (!global.forms.lunarkid) {
 	if ((global.difficulty == 0 && global.use_bow) || global.debug_god_mode) {
-		draw_sprite_ext(sprBow, -1, x, y, xscale, sign(global.grav), player_angle, c_white, 1);
+		draw_sprite_ext(sprBow, -1, x, y, xscale, sign(global.grav), image_angle, c_white, 1);
 	}
 	
 	package_refrenture("player draw");

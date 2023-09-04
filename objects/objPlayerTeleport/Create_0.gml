@@ -9,8 +9,7 @@ if (instance_exists(target)) {
     image_index = target.image_index;
 	
 	xscale = target.xscale;
-	yscale = sign(global.grav);
-	angle = (abs(global.grav) == 1) ? 0 : 90;
 	
+	image_angle = target.image_angle;
     image_blend = target.image_blend;
 }

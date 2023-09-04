@@ -7,7 +7,7 @@
   "bbox_right": 22,
   "bbox_top": 11,
   "bboxMode": 0,
-  "collisionKind": 1,
+  "collisionKind": 5,
   "collisionTolerance": 0,
   "DynamicTexturePage": false,
   "edgeFiltering": false,
@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Masks",
-    "path": "folders/Sprites/Objects/Player/Masks.yy",
+    "name": "Standard",
+    "path": "folders/Sprites/Objects/Player/Skins/Standard.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
