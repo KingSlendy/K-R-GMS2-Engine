@@ -31,7 +31,7 @@ if (global.debug_hitbox != 2) {
 #region Equip
 if (!global.forms.lunarkid) {
 	if ((global.difficulty == 0 && global.use_bow) || global.debug_god_mode) {
-		draw_sprite_ext(sprBow, -1, x, y, xscale, sign(global.grav), image_angle, c_white, 1);
+		draw_sprite_ext(sprBow, -1, x, y, player_xscale, image_yscale, image_angle, c_white, 1);
 	}
 	
 	package_refrenture("player draw");

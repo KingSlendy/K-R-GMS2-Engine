@@ -3,7 +3,7 @@ function player_jump() {
 		#region Jumping
 		var platform = p_instance_place(0, sign(global.grav), objPlatform);
 		
-		if (jump_total > 0 && (on_block != null || (platform != null && platform.visible) || on_platform || p_instance_place(0, global.grav, objWater1) != null || on_ladder)) {
+		if (jump_total > 0 && (on_block != null || (platform != null && platform.visible) || on_platform || p_instance_place(0, sign(global.grav), objWater1) != null || on_ladder)) {
 			p_vspd(-(jump_height[0] * sign(global.grav)));
 			on_ladder = false;
 			player_sprite(PLAYER_ACTIONS.JUMP);

@@ -39,17 +39,8 @@ function carry_instance() {
 	        var carry_x = mean(block.left, block.right) - mean(block.left_previous, block.right_previous);
 	        var carry_y = (sign(global.grav) == 1) ? block.top - player.bottom - 1 : block.bottom - player.top + 1;
 			
-	        with (inst) {                                     
+	        with (inst) {
 	            if (carry_x != 0) {
-					#region Solid collision
-					/*if (place_free(x + carry_x, y)) {
-						x += carry_x;
-					} else {
-						move_contact_solid(180 * (carry_x < 0), abs(carry_x));
-					}*/
-					#endregion
-					
-					#region Non-Solid collision
 	                if (p_instance_place(carry_x, 0, objBlock) == null) {
 	                	p_x(X + carry_x);
 	                } else {
@@ -57,18 +48,8 @@ function carry_instance() {
 							p_x(X + sign(carry_x));
 						}
 	                }
-	                #endregion
 	            }
 	            if (abs(carry_y) > 0) {
-	            	#region Solid collision
-					/*if (place_free(x, y + carry_y)) {
-						y += carry_y;
-					} else {
-						move_contact_solid(270, carry_y);
-					}*/
-					#endregion
-					
-					#region Non-Solid collision
 	                if (p_instance_place(0, carry_y, objBlock) == null) {
 	                    p_y(Y + carry_y);
 					} else {
@@ -76,7 +57,6 @@ function carry_instance() {
 							p_y(Y + sign(carry_y));
 						}
 	                }
-	                #endregion
 	            }
 	        }
 	    }
@@ -121,17 +101,9 @@ function push_instance() {
 					
 		        if (move_x != 0) {
 		            with (inst) {
-		                #region Solid collision
-		                /*if (place_free(x + move_x, y)) {
-		                	x += move_x;
-		                }*/
-		                #endregion
-		                	
-		                #region Non-Solid collision
 		                if (p_instance_place(move_x, 0, objBlock) == null) {
 		                    p_x(X + move_x);
 		                }
-		                #endregion
 		            }
 		        }
 		    }	
@@ -149,17 +121,9 @@ function push_instance() {
 				
 	            if (move_y != 0) {
 	                with (inst) {
-	                	#region Solid collision
-	                	/*if (place_free(x, y + move_y)) {
-	                		y += move_y;
-	                	}*/
-	                	#endregion
-	                	
-	                	#region Non-Solid collision
 	                    if (p_instance_place(0, move_y, objBlock) == null) {
 	                        p_y(Y + move_y);
 	                    }
-	                    #endregion
 	                }
 	            }
 	        }

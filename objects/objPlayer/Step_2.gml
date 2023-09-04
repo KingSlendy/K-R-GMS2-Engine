@@ -24,10 +24,15 @@ dynamic_collision(false);
 if (!global.forms.lunarkid) {
 	var platform = p_instance_place(0, 0, objPlatform);
 
-	if (platform != null && platform.visible) {
-		if (platform.snap > 0 && ((sign(global.grav) == 1 && Y - Vspd / 2 <= platform.bbox_top) || (sign(global.grav) == -1 && Y - Vspd / 2 >= platform.bbox_bottom))) {
-			p_y((sign(global.grav == 1)) ? platform.bbox_top - 9 : platform.bbox_bottom + 8);
-			p_vspd(platform.vspeed);
+	if (platform != null && platform.visible && platform.snap > 0) {
+		var p = {
+			top: (abs(global.grav) == 1) ? platform.bbox_top : platform.bbox_left,
+			bottom: (abs(global.grav) == 1) ? platform.bbox_bottom : platform.bbox_right,
+		};
+
+		if ((sign(global.grav) == 1 && Y - Vspd / 2 <= p.top) || (sign(global.grav) == -1 && Y - Vspd / 2 >= p.bottom)) {
+			p_y((sign(global.grav) == 1) ? p.top - 9 : p.bottom + 10);
+			p_vspd(platform.vspd);
 			
 			if (platform.object_index != objDisappearPlatform) {
 				on_platform = true;

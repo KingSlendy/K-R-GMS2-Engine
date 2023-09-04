@@ -401,7 +401,7 @@ if (!global.forms.lunarkid) {
 
 	#region Player Actions
 	if (!frozen || on_auto) {
-		#region Controls
+		#region Jump Controls
 		if (is_pressed(global.controls.jump)) {
 			player_jump();
 		}
@@ -522,6 +522,7 @@ if (!global.forms.lunarkid) {
 	#endregion
 }
 
+#region Shoot Controls
 if (!frozen || on_auto) {
 	if (is_pressed(global.controls.shoot) && !global.controls_lock.shoot) {
 		player_shoot();
@@ -531,6 +532,7 @@ if (!frozen || on_auto) {
 		kill_player();
 	}
 }
+#endregion
 
 #region Physics and Collision
 //Storing the previous x and y

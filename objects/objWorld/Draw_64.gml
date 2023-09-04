@@ -55,8 +55,9 @@ if (global.overlay) {
         yy = objPlayer.y;
         vspd = objPlayer.vspd;
 			
-		align = xx % objPlayer.max_hspd;
-		align_relative = (abs(global.grav) == 1) ? xx % 3 : yy % 3;
+		var xpos = (abs(global.grav) == 1) ? xx : yy;
+		align = xpos % objPlayer.max_hspd;
+		align_relative = xpos % 3;
 		
 		angle = objPlayer.image_angle;
 			

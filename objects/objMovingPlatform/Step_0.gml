@@ -2,14 +2,28 @@ if (speed != 0 && image_alpha == 1) { //make sure the platform is moving before 
 	if (bounce) {
 		move_bounce();
 	}
-	
-	with (instance_place(x, y, objPlayer)) {
-		p_y(other.vspeed);
+
+	hspd = (abs(global.grav) == 1) ? hspeed : vspeed;
+	vspd = (abs(global.grav) == 1) ? vspeed : hspeed;
+
+	if (abs(global.grav) == 1) {
+		with (instance_place(x, y, objPlayer)) {
+			y += other.vspeed;
+		}
 	}
 	
-	with (instance_place(X, Y + other.vspeed - (2 * sign(global.grav)), objPlayer)) {
-	    if (p_instance_place(other.hspeed, 0, objBlock) == null) {
-	        p_x(other.hspeed);
+	with (p_instance_place(0, vspd - 2 * sign(global.grav), objPlayer)) {
+	    if (p_instance_place(other.hspd, 0, objBlock) == null) {
+	    	p_x(X + other.hspd);
 	    }
 	}
+	
+	/*with (instance_place(x, y, objPlayer)) {
+		y += other.vspeed;
+	}
+	with (instance_place(x, y + vspeed - 2 * sign(global.grav), objPlayer)) {
+	    if (instance_place_check(x + other.hspeed, y, objBlock, tangible_collision) == null) {
+	        x += other.hspeed;
+	    }
+	}*/
 }
