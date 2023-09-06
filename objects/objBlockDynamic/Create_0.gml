@@ -40,6 +40,7 @@ function carry_instance() {
 	        var carry_y = (sign(global.grav) == 1) ? block.top - player.bottom - 1 : block.bottom - player.top + 1;
 			
 	        with (inst) {
+	            #region Detect horizontal collision
 	            if (carry_x != 0) {
 	                if (p_instance_place(carry_x, 0, objBlock) == null) {
 	                	p_x(X + carry_x);
@@ -49,7 +50,10 @@ function carry_instance() {
 						}
 	                }
 	            }
-	            if (abs(carry_y) > 0) {
+	            #endregion
+	            
+	            #region Detect vertical collision
+	            if (carry_y > 0) {
 	                if (p_instance_place(0, carry_y, objBlock) == null) {
 	                    p_y(Y + carry_y);
 					} else {
@@ -58,6 +62,7 @@ function carry_instance() {
 						}
 	                }
 	            }
+	            #endregion
 	        }
 	    }
 	}	

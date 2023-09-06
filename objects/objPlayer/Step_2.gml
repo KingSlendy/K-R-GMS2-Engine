@@ -19,7 +19,7 @@ if (p_instance_place(0, 0, objBlock) != null) {
 
 dynamic_collision(false);
 #endregion
-
+ 
 #region Old collision with platform
 if (!global.forms.lunarkid) {
 	var platform = p_instance_place(0, 0, objPlatform);
@@ -32,7 +32,7 @@ if (!global.forms.lunarkid) {
 
 		if ((sign(global.grav) == 1 && Y - Vspd / 2 <= p.top) || (sign(global.grav) == -1 && Y - Vspd / 2 >= p.bottom)) {
 			p_y((sign(global.grav) == 1) ? p.top - 9 : p.bottom + 10);
-			//p_vspd(platform.vspd);
+			p_vspd(platform.vspd);
 			
 			if (platform.object_index != objDisappearPlatform) {
 				on_platform = true;

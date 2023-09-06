@@ -487,6 +487,7 @@
     {"id":{"name":"objItemBoss2","path":"objects/objItemBoss2/objItemBoss2.yy",},},
     {"id":{"name":"sprPlayerClimbHorizontal","path":"sprites/sprPlayerClimbHorizontal/sprPlayerClimbHorizontal.yy",},},
     {"id":{"name":"objElevatorBlock","path":"objects/objElevatorBlock/objElevatorBlock.yy",},},
+    {"id":{"name":"rTestPlatformSpeed","path":"rooms/rTestPlatformSpeed/rTestPlatformSpeed.yy",},},
     {"id":{"name":"sprTriggerField","path":"sprites/sprTriggerField/sprTriggerField.yy",},},
     {"id":{"name":"objJumpRefresh","path":"objects/objJumpRefresh/objJumpRefresh.yy",},},
     {"id":{"name":"sprBuoyantWater","path":"sprites/sprBuoyantWater/sprBuoyantWater.yy",},},
@@ -527,6 +528,7 @@
     {"roomId":{"name":"rTestFields","path":"rooms/rTestFields/rTestFields.yy",},},
     {"roomId":{"name":"rTestTriggers","path":"rooms/rTestTriggers/rTestTriggers.yy",},},
     {"roomId":{"name":"rTestPlatforms","path":"rooms/rTestPlatforms/rTestPlatforms.yy",},},
+    {"roomId":{"name":"rTestPlatformSpeed","path":"rooms/rTestPlatformSpeed/rTestPlatformSpeed.yy",},},
     {"roomId":{"name":"rTestLightVines","path":"rooms/rTestLightVines/rTestLightVines.yy",},},
   ],
   "TextureGroups": [

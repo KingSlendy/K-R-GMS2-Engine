@@ -54,7 +54,7 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 } else {
 	if (global.forms.linekid) {
 		#region Linekid functionality
-		if (dir_up || dir_down) {
+		/*if (dir_up || dir_down) {
 			if (((global.player.angle > 0 && global.player.angle <= 90) || (global.player.angle > 180 && global.player.angle <= 270) 
 			&& instance_place_check(x - 2, y, objBlock, tangible_collision) == null || instance_place_check(x + 2, y, objBlock, tangible_collision) == null)
 			|| instance_place_check(x, y - 2, objBlock, tangible_collision) == null || instance_place_check(x, y + 2, objBlock, tangible_collision) == null) {
@@ -254,7 +254,7 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 		
 			ds_list_destroy(list);
 	        blah = true;
-	    }
+	    }*/
 		#endregion
 	} else {
 		image_angle = 90 * abs(global.grav) - (90 * sign(global.grav));
