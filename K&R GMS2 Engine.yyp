@@ -147,7 +147,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.6.0.92",
+    "IDEVersion": "2023.8.0.98",
   },
   "resources": [
     {"id":{"name":"sprJumpDefresh","path":"sprites/sprJumpDefresh/sprJumpDefresh.yy",},},
@@ -516,8 +516,8 @@
     {"roomId":{"name":"rTitle","path":"rooms/rTitle/rTitle.yy",},},
     {"roomId":{"name":"rFiles","path":"rooms/rFiles/rFiles.yy",},},
     {"roomId":{"name":"rOptions","path":"rooms/rOptions/rOptions.yy",},},
-    {"roomId":{"name":"rSampleRoom","path":"rooms/rSampleRoom/rSampleRoom.yy",},},
     {"roomId":{"name":"rTemplate","path":"rooms/rTemplate/rTemplate.yy",},},
+    {"roomId":{"name":"rSampleRoom","path":"rooms/rSampleRoom/rSampleRoom.yy",},},
     {"roomId":{"name":"rTestBlocks","path":"rooms/rTestBlocks/rTestBlocks.yy",},},
     {"roomId":{"name":"rTestDynamicBlocks","path":"rooms/rTestDynamicBlocks/rTestDynamicBlocks.yy",},},
     {"roomId":{"name":"rTestFluids1","path":"rooms/rTestFluids1/rTestFluids1.yy",},},
@@ -531,6 +531,7 @@
     {"roomId":{"name":"rTestPlatformSpeed","path":"rooms/rTestPlatformSpeed/rTestPlatformSpeed.yy",},},
     {"roomId":{"name":"rTestLightVines","path":"rooms/rTestLightVines/rTestLightVines.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
   ],

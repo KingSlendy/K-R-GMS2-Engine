@@ -49,23 +49,23 @@ test_dist = {
 
 frozen = false;
 
-enum PLAYER_ACTIONS {
+PLAYER_ACTIONS = {
 	//Standard actions
-	IDLE = sprPlayerIdle,
-	RUN = sprPlayerRun,
-	JUMP = sprPlayerJump,
-	FALL = sprPlayerFall,
-	SLIDE = sprPlayerSlide,
+	IDLE: sprPlayerIdle,
+	RUN: sprPlayerRun,
+	JUMP: sprPlayerJump,
+	FALL: sprPlayerFall,
+	SLIDE: sprPlayerSlide,
 	
 	//Climbing actions
-	CLIMB = sprPlayerClimb,
-	CLIMB_HORIZONTAL = sprPlayerClimbHorizontal,
-	CLIMB_VERTICAL = sprPlayerClimbVertical,
+	CLIMB: sprPlayerClimb,
+	CLIMB_HORIZONTAL: sprPlayerClimbHorizontal,
+	CLIMB_VERTICAL: sprPlayerClimbVertical,
 	
 	//Transform actions
-	DOTKID = sprPlayerDotkid,
-	LUNARKID = sprPlayerLunarkid,
-	LINEKID = sprPlayerLinekid
+	DOTKID: sprPlayerDotkid,
+	LUNARKID: sprPlayerLunarkid,
+	LINEKID: sprPlayerLinekid
 }
 
 reset_jumps();
