@@ -98,25 +98,25 @@ test_dist = {
 
 frozen = false;
 
-enum PLAYER_ACTIONS {
-	//Standard actions
-	IDLE = sprPlayerIdle,
-	RUN = sprPlayerRun,
-	JUMP = sprPlayerJump,
-	FALL = sprPlayerFall,
-	SLIDE = sprPlayerSlide,
-	
-	//Climbing actions
-	CLIMB = sprPlayerClimb,
-	CLIMB_HORIZONTAL = sprPlayerClimbHorizontal,
-	CLIMB_VERTICAL = sprPlayerClimbVertical,
-	
-	//Transform actions
-	DOTKID = sprPlayerDotkid,
-	LUNARKID = sprPlayerLunarkid,
-	LINEKID = sprPlayerLinekid
-}
+skins = {
+	"Normal": {
+		"Idle": sprPlayerIdle,
+		"Run": sprPlayerRun,
+		"Jump": sprPlayerJump,
+		"Fall": sprPlayerFall,
+		"Slide": sprPlayerSlide,
+		
+		"Climb": sprPlayerClimb,
+		"Climb_Horizontal": sprPlayerClimbHorizontal,
+		"Climb_Vertical": sprPlayerClimbVertical,
+		
+		"Dotkid": sprPlayerDotkid,
+		"Lunarkid": sprPlayerLunarkid,
+		"Linekid": sprPlayerLinekid
+	}
+};
 
+skin = "Normal";
 reset_jumps();
 
 xsafe = x;

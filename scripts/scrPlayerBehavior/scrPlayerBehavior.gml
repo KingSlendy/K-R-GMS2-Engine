@@ -6,7 +6,7 @@ function player_jump() {
 		if (jump_total > 0 && (on_block != null || (platform != null && platform.visible) || on_platform || instance_place_check(x, y + global.grav, objWater1, tangible_collision) != null || on_ladder)) {
 			vspd = -(jump_height[0] * global.grav);
 			on_ladder = false;
-			player_sprite(PLAYER_ACTIONS.JUMP);
+			player_sprite("Jump");
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
 		} else if (jump_left > 0 || instance_place_check(x, y + global.grav, objWater2, tangible_collision) != null || jump_total == -1) {
@@ -70,7 +70,7 @@ function player_jump() {
 			vspd = -((jump_height[1] * global.grav) * jump_velocity);
 			jump_mod.high = 2;
 			jump_mod.low = 2;
-			player_sprite(PLAYER_ACTIONS.JUMP);
+			player_sprite("Jump");
 			
 			if (instance_place_check(x, y + global.grav, objWater3, tangible_collision) == null) {
 				if (jump_left > 0) {
@@ -123,15 +123,15 @@ function player_shoot() {
 	}
 }
 
-function player_sprite(sprite) {
+function player_sprite(action = null) {
 	if (global.forms.dotkid) {
-		sprite_index = PLAYER_ACTIONS.DOTKID;
+		sprite_index = get_skin_sprite("Dotkid");
 	} else if (global.forms.lunarkid) {
-		sprite_index = PLAYER_ACTIONS.LUNARKID;
+		sprite_index = get_skin_sprite("Lunarkid");
 	} else if (global.forms.linekid) {
-		sprite_index = PLAYER_ACTIONS.LINEKID;
+		sprite_index = get_skin_sprite("Linekid");
 	} else {
-		sprite_index = sprite;
+		sprite_index = get_skin_sprite(action);
 	}
 }
 
@@ -204,4 +204,18 @@ function flip_grav(jump = true) {
 			reset_jumps();
 		}
 	}
+}
+
+function get_skin_sprite(action) {
+	if (!variable_struct_exists(skins, skin)) {
+		return sprite_index;
+	}
+	
+	var sprites = skins[$ skin];
+	
+	if (!variable_struct_exists(sprites, action)) {
+		return sprite_index;
+	}
+	
+	return sprites[$ action];
 }

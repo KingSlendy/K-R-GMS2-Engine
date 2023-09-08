@@ -71,7 +71,7 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 	}
     
 	image_angle = (image_angle + 360 + (dir_left - dir_right)) % 360;
-    player_sprite(PLAYER_ACTIONS.LUNARKID);
+    player_sprite();
 	#endregion
 } else { 
 	if (global.forms.linekid) {
@@ -379,7 +379,7 @@ if (!global.forms.lunarkid) {
 					#endregion
 				}
 				
-				player_sprite(PLAYER_ACTIONS.RUN);
+				player_sprite("Run");
 			} else {
 				gun_accelerate();
 			}
@@ -391,7 +391,7 @@ if (!global.forms.lunarkid) {
 			gun_accelerate();
 		}
 		
-		player_sprite(PLAYER_ACTIONS.IDLE);
+		player_sprite("Idle");
 	}
 	
 	if (on_conveyor != null) {
@@ -402,9 +402,9 @@ if (!global.forms.lunarkid) {
 	#region Vertical Movement
 	if (!on_platform) {
 		if (vspd * global.grav < -0.05) {
-		    player_sprite(PLAYER_ACTIONS.JUMP);
+		    player_sprite("Jump");
 		} else if (vspd * global.grav > 0.05) {
-		    player_sprite(PLAYER_ACTIONS.FALL);
+		    player_sprite("Fall");
 		}
 	} else {
 		if (instance_place_check(x, y + 4 * global.grav, objPlatform, tangible_collision) == null) {
@@ -417,9 +417,9 @@ if (!global.forms.lunarkid) {
 		
 		if (instance_place_check(x, y - vspd * global.grav, objBlock, tangible_collision) == null) {
 			if (vspd * global.grav <= 0) {
-				player_sprite(PLAYER_ACTIONS.JUMP);
+				player_sprite("Jump");
 			} else if (vspd * global.grav > 0) {
-				player_sprite(PLAYER_ACTIONS.FALL);
+				player_sprite("Fall");
 			}
 		}
 	}
@@ -457,13 +457,13 @@ if (!global.forms.lunarkid) {
 		            grav = 0;
 		            hspd = 0;
 		            vspd = 0;
-		            player_sprite(PLAYER_ACTIONS.CLIMB);
+		            player_sprite("Climb");
             
 		            if (dir_up || dir_down) {
 						if (instance_place_check(x, y - ((dir_up - dir_down) * max_hspd), objBlock, tangible_collision) == null) {
 							y -= (dir_up) ? max_hspd : -max_hspd;
 						} 
-						player_sprite(PLAYER_ACTIONS.CLIMB_VERTICAL);
+						player_sprite("Climb_Vertical");
 		            } 
 				
 		            if (dir_right || dir_left) {
@@ -471,7 +471,7 @@ if (!global.forms.lunarkid) {
 							x += (dir_right) ? max_hspd : -max_hspd;
 						}
 						
-		                player_sprite(PLAYER_ACTIONS.CLIMB_HORIZONTAL);
+		                player_sprite("Climb_Horizontal");
 		            }
 		        }
 		    }
@@ -491,7 +491,7 @@ if (!global.forms.lunarkid) {
 					}
 				} 
 				
-			    player_sprite(PLAYER_ACTIONS.SLIDE);
+			    player_sprite("Slide");
     
 			    if ((on_vine.image_xscale == 1 && is_pressed(global.controls.right)) || (on_vine.image_xscale == -1 && is_pressed(global.controls.left))) {
 			        if (is_held(global.controls.jump)) {
@@ -502,7 +502,7 @@ if (!global.forms.lunarkid) {
 						}
 						
 						vspd = -9 * global.grav;
-			            player_sprite(PLAYER_ACTIONS.JUMP);
+			            player_sprite("Jump");
 						audio_play_sound(sndVine, 0, false);
 						
 						if (on_vine.object_index == objTwinWhiteVine || on_vine.object_index == objTwinBlackVine) {
@@ -510,7 +510,7 @@ if (!global.forms.lunarkid) {
 						}
 			        } else {
 			            hspd = (on_vine.image_xscale == 1) ? 3 : -3;
-			            player_sprite(PLAYER_ACTIONS.FALL);
+			            player_sprite("Fall");
 			        }
 			    }
 				
