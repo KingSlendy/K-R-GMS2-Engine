@@ -135,6 +135,20 @@ function player_sprite(action = null) {
 	}
 }
 
+function get_skin_sprite(action) {
+	if (!variable_struct_exists(skins, skin)) {
+		return sprite_index;
+	}
+	
+	var sprites = skins[$ skin];
+	
+	if (!variable_struct_exists(sprites, action)) {
+		return sprite_index;
+	}
+	
+	return sprites[$ action];
+}
+
 function reset_jumps() {
 	with (objPlayer) {
 		jump_left = jump_total - 1;
@@ -204,18 +218,4 @@ function flip_grav(jump = true) {
 			reset_jumps();
 		}
 	}
-}
-
-function get_skin_sprite(action) {
-	if (!variable_struct_exists(skins, skin)) {
-		return sprite_index;
-	}
-	
-	var sprites = skins[$ skin];
-	
-	if (!variable_struct_exists(sprites, action)) {
-		return sprite_index;
-	}
-	
-	return sprites[$ action];
 }
