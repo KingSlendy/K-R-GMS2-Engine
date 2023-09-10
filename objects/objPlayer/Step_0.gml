@@ -133,45 +133,13 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 							last_move = j;
 						}
 					}
-				}
-			}
-			if (instance_place_check(x, y, objBlock, tangible_collision) != null) {
-				for (var j = 1; j <= 4; j++) {
-					test_dist[j] = 0;
-				}
-				
-				#region Increase test positions
-				while (instance_place_check(x + test_dist[1], y, objBlock, tangible_collision) != null && test_dist[1] < 3) {
-					test_dist[1] += 0.2;
-				}
-				while (instance_place_check(x - test_dist[2], y, objBlock, tangible_collision) != null && test_dist[2] < 3) {
-					test_dist[2] += 0.2;
-				}
-				while (instance_place_check(x, y + test_dist[3], objBlock, tangible_collision) != null && test_dist[3] < 3) {
-					test_dist[3] += 0.2;
-				}
-				while (instance_place_check(x, y - test_dist[4], objBlock, tangible_collision) != null && test_dist[4] < 3) {
-					test_dist[4] += 0.2;
-				}
-				#endregion
-				
-				var move = min(test_dist[1], test_dist[2], test_dist[3], test_dist[4]);
-				for (var j = 1; j <= 4; j++) {
-					if (move == test_dist[j]) {
-						if (move == test_dist[1] || move == test_dist[2]) {
-							x += (move == test_dist[1]) ? test_dist[1] : -test_dist[2];
-							xprevious = x;
-						}
-						if (move == test_dist[3] || move == test_dist[4]) {
-							y += (move == test_dist[3]) ? test_dist[3] : -test_dist[4];
-							yprevious = y;
-						}
-						if (first_move == 0) {
-							first_move = j;
-						}
-						last_move_last = last_move;
-						last_move = j;
-					}
+					/*if (move >= 3) {
+						x = x_back;
+						y = y_back;
+						xprevious = x_back;
+						yprevious = y_back;
+						last_move = last_move_last;
+					}*/
 				}
 			}
 			ds_list_destroy(list);
