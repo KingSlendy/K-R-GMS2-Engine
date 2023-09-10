@@ -39,13 +39,17 @@ on_ladder = false;
 #endregion
 
 #region Actions
-test_dist = {
+for (var i = 0; i < 5; i++) {
+	test_dist[i] = 0;
+}
+
+/*test_dist = {
 	orig: 0,
 	xpos: 0,
 	ypos: 0,
 	xneg: 0,
 	yneg: 0
-}
+}*/
 
 frozen = false;
 

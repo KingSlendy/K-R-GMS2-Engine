@@ -53,7 +53,7 @@ function carry_instance() {
 	            #endregion
 	            
 	            #region Detect vertical collision
-	            if (carry_y > 0) {
+	            if (abs(carry_y) > 0) {
 	                if (p_instance_place(0, carry_y, objBlock) == null) {
 	                    p_y(Y + carry_y);
 					} else {

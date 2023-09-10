@@ -12,6 +12,31 @@ function tangible_collision(obj) {
 	}
 }*/
 
+function player_horizontal_collision() {
+	if (p_instance_place(Hspd, 0, objBlock) != null) {
+		while (p_instance_place(sign(Hspd), 0, objBlock) == null) {
+			p_x(X + sign(Hspd));
+		}
+
+		p_hspd(0);
+	}
+}
+
+function player_vertical_collision() {
+	if (p_instance_place(0, Vspd, objBlock) != null) {
+		while (p_instance_place(0, sign(Vspd), objBlock) == null) {
+			p_y(Y + sign(Vspd));
+		}
+
+		if (Vspd * global.grav > 0) {
+			reset_jumps();
+		}
+
+		p_vspd(0);
+		grav = 0;
+	}
+}
+
 function dynamic_collision(setup = false, func = null, arg = null) {
 	if (setup) {
 	    xold = X;
