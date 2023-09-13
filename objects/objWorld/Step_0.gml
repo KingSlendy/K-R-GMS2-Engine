@@ -131,12 +131,18 @@ if (global.debug_enable && global.game_started) {
 			global.forms.lunarkid ^= true;
 			
 			with (objPlayer) {
+				p_y(Y - 6);
+				speed = 0;
 				grav_amount = 0;
 			}
 		}
 		
 		if (keyboard_check_pressed(ord("5"))) {
 			global.forms.linekid ^= true;
+			
+			with (objPlayer) {
+				p_y(Y - 4);
+			}
 		}
 	
 		if (is_held(global.controls_debug.teleport)) {

@@ -11,7 +11,7 @@ if (global.slowshot) {
 }
 
 direction = dir;
-speed = spd * objPlayer.xscale * sign(global.grav);
+speed = (global.forms.lunarkid) ? spd : spd * (objPlayer.xscale * sign(global.grav));
 
 if (!global.forms.telekid) {
 	alarm[0] = time;

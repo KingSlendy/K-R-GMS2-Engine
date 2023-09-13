@@ -26,6 +26,7 @@ global.controls_lock = { //Keeping track of which controls are unusable
 
 global.current_music = -1; //The current music playing
 global.last_xscale = 1; //Last xscale the player had
+global.dotkid_hint = 1; //Sets if the player should have a Dotkid indicator for extra visibility
 global.overlay = false; //Sets if the information overlay is currently visible
 global.connected = false; //Checks if you're currently connected to the online
 

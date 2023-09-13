@@ -1,10 +1,9 @@
-#region Init
 set_mask();
 xscale = global.last_xscale;
 if (global.forms.linekid) {
 	image_angle = global.save_player.sangle;
 }
-lunar_start = false;
+
 
 #region Local Speed
 hspd = 0;
@@ -31,6 +30,10 @@ on_block = false;
 on_ice = false;
 on_auto = false;
 
+for (var i = 0; i < 5; i++) {
+	test_dist[i] = 0;
+}
+
 on_conveyor = false;
 on_elevator = false;
 
@@ -38,21 +41,7 @@ on_platform = false;
 on_ladder = false;
 #endregion
 
-#region Actions
-for (var i = 0; i < 5; i++) {
-	test_dist[i] = 0;
-}
-
-/*test_dist = {
-	orig: 0,
-	xpos: 0,
-	ypos: 0,
-	xneg: 0,
-	yneg: 0
-}*/
-
-frozen = false;
-
+#region Skins
 PLAYER_ACTIONS = {
 	//Standard actions
 	IDLE: sprPlayerIdle,
@@ -67,10 +56,15 @@ PLAYER_ACTIONS = {
 	CLIMB_VERTICAL: sprPlayerClimbVertical,
 	
 	//Transform actions
-	DOTKID: sprPlayerDotkid,
-	LUNARKID: sprPlayerLunarkid,
-	LINEKID: sprPlayerLinekid
+	DOTKID: sprDotkid,
+	LUNARKID: sprLunarkid,
+	LINEKID: sprLinekid
 }
+#endregion
+
+#region Actions
+lunar_start = false;
+frozen = false;
 
 reset_jumps();
 
@@ -82,5 +76,4 @@ dynamic_collision(true);
 hit = 0;
 hit_x = x;
 hit_y = y;
-#endregion
 #endregion

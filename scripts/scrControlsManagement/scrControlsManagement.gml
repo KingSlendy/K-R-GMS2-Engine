@@ -111,5 +111,7 @@ function control_gravity(left, right, down, up) {
     return {
         left_direction: dir[0],
         right_direction: dir[1],
+		down_direction: dir[2],
+		up_direction: dir[3],
     };
 }

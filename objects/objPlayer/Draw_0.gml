@@ -2,11 +2,15 @@
 if ((global.debug_enable && global.debug_coloring) && global.debug_inf_jump) {
     image_blend = c_blue;
 } else {
-	image_blend = (global.forms.dotkid) ? c_red : c_white;
+	image_blend = (global.forms.dotkid && !global.forms.telekid) ? c_red : c_white;
 }
 
 if (global.forms.vkid > 0) {
-	image_blend = (global.forms.vkid == 1) ? make_color_rgb(1,164,217) : make_color_rgb(164,1,171);
+	if (global.forms.vkid == 1) {
+		image_blend = make_color_rgb(1, 164, 217);
+	} else if (global.forms.vkid == 2) {
+		image_blend =  make_color_rgb(164, 1, 171);	
+	}
 }
 #endregion
 
@@ -40,6 +44,17 @@ if (!global.forms.lunarkid) {
 	if (!lunar_start || global.debug_god_mode) {
 		draw_sprite_ext(sprLanders, -1, x, y, 1, 1, image_angle, c_white, 1);
 	}
+}
+
+if (global.forms.dotkid && global.dotkid_hint) {
+	var dotkid_size = 32;
+	draw_set_color(c_red);
+	if (!global.forms.lunarkid) {
+		draw_ellipse(x - (dotkid_size + 1), y - (dotkid_size + 1), x + (dotkid_size - 1), y + (dotkid_size - 2), 1);
+	} else {
+		draw_rectangle_ext(x, y, dotkid_size * 2, dotkid_size * 2, image_angle, 1);
+	}
+	draw_set_color(c_white);
 }
 #endregion
 

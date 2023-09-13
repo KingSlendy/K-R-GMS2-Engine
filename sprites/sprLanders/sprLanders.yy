@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Equip",
-    "path": "folders/Sprites/Objects/Player/Equip.yy",
+    "name": "Lunarkid",
+    "path": "folders/Sprites/Objects/Player/Forms/Lunarkid.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

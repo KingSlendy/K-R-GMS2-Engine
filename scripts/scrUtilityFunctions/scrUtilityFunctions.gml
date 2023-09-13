@@ -32,9 +32,15 @@ function draw_text_outline(x, y, text, border_color) {
 	draw_text(x, y, text);
 }
 
-function draw_sprite_fog(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha, fog_color = c_black) {
+function draw_rectangle_ext(x, y, w, h, rot, outline) {
+    matrix_set(matrix_world, matrix_build(x, y, 0, 0, 0, rot, 1, 1, 1));
+    draw_rectangle(-w / 2, -h / 2, w / 2, h / 2, outline);
+    matrix_set(matrix_world, matrix_build_identity());
+}
+
+function draw_sprite_fog(sprite, subimg, x, y, xscale, yscale, rot, col, alpha, fog_color = c_black) {
 	gpu_set_fog(true, fog_color, 0, 0);
-	draw_sprite_ext(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha);
+	draw_sprite_ext(sprite, subimg, x, y, xscale, yscale, rot, col, alpha);
 	gpu_set_fog(false, c_black, 0, 0);
 }
 #endregion

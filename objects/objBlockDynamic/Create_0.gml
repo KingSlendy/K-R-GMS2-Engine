@@ -63,6 +63,10 @@ function carry_instance() {
 	                }
 	            }
 	            #endregion
+	            
+	            #region Detect diagonal collision
+				
+	            #endregion
 	        }
 	    }
 	}	
