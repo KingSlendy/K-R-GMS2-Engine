@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Fire",
-    "path": "folders/Objects/Gimmicks/Vines/Jungle Adventure/Fire.yy",
+    "path": "folders/Objects/Packages/Go The Jungle Adventure/Fire.yy",
   },
   "parentObjectId": null,
   "persistent": false,

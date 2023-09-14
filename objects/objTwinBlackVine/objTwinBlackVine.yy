@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Twin",
-    "path": "folders/Objects/Gimmicks/Vines/Jungle Adventure/Twin.yy",
+    "path": "folders/Objects/Packages/Go The Jungle Adventure/Twin.yy",
   },
   "parentObjectId": {
     "name": "objVine",

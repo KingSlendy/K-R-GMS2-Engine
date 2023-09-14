@@ -7,7 +7,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Down",
-    "path": "folders/Objects/Gimmicks/Boosters/Down.yy",
+    "path": "folders/Objects/Packages/Crimson Needle 3/CN3 Boosters/Down.yy",
   },
   "parentObjectId": {
     "name": "objBoosterDownRefresh",

@@ -49,8 +49,8 @@
   },
   "origin": 4,
   "parent": {
-    "name": "Other",
-    "path": "folders/Sprites/Objects/Gimmicks/Refreshers/Other.yy",
+    "name": "CN3 Refreshers",
+    "path": "folders/Sprites/Objects/Packages/Crimson Needle 3/CN3 Refreshers.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

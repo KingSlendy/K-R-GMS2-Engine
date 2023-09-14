@@ -48,8 +48,8 @@
   },
   "origin": 4,
   "parent": {
-    "name": "Vines",
-    "path": "folders/Sprites/Objects/Gimmicks/Vines.yy",
+    "name": "Dark Vines (Go The Jungle Adventure)",
+    "path": "folders/Sprites/Objects/Packages/Dark Vines (Go The Jungle Adventure).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

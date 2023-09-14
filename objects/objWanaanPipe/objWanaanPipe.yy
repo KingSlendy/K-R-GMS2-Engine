@@ -10,7 +10,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Wanaan",
-    "path": "folders/Objects/Gimmicks/Wanaan.yy",
+    "path": "folders/Objects/Packages/8bit/Wanaan.yy",
   },
   "parentObjectId": {
     "name": "objBlock",

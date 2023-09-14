@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Vapor",
-    "path": "folders/Objects/Gimmicks/Vapor.yy",
+    "name": "CN3 Vapor",
+    "path": "folders/Objects/Packages/Crimson Needle 3/CN3 Vapor.yy",
   },
   "parentObjectId": null,
   "persistent": false,

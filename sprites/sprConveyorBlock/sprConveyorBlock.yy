@@ -48,8 +48,8 @@
   },
   "origin": 4,
   "parent": {
-    "name": "Slide",
-    "path": "folders/Sprites/Objects/Blocks/Slide.yy",
+    "name": "Blocks",
+    "path": "folders/Sprites/Objects/Blocks.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

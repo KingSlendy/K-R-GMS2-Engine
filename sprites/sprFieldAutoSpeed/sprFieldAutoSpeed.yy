@@ -55,8 +55,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Speed",
-    "path": "folders/Sprites/Objects/Gimmicks/Fields/Speed.yy",
+    "name": "Extra Fields (RBN)",
+    "path": "folders/Sprites/Objects/Packages/Extra Fields (RBN).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

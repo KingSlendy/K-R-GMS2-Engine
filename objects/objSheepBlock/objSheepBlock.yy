@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Sheep Man",
-    "path": "folders/Objects/Gimmicks/Sheep Man.yy",
+    "path": "folders/Objects/Packages/8bit/Sheep Man.yy",
   },
   "parentObjectId": {
     "name": "objBlockDynamic",

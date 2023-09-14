@@ -59,6 +59,7 @@
     {"name":"inst_1A65C036","path":"rooms/rTestTriggers/rTestTriggers.yy",},
     {"name":"inst_27E82274","path":"rooms/rTestTriggers/rTestTriggers.yy",},
     {"name":"inst_37E0A7EC","path":"rooms/rTestTriggers/rTestTriggers.yy",},
+    {"name":"inst_72229779","path":"rooms/rTestTriggers/rTestTriggers.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -146,6 +147,7 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objTriggerTouch","path":"objects/objTriggerTouch/objTriggerTouch.yy",},"propertyId":{"name":"key","path":"objects/objTriggerTouch/objTriggerTouch.yy",},"value":"\"trg5\"",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objTriggerTouch","path":"objects/objTriggerTouch/objTriggerTouch.yy",},"propertyId":{"name":"sound","path":"objects/objTriggerTouch/objTriggerTouch.yy",},"value":"sndBlockChange",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":4.0,"x":288.0,"y":288.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_72229779","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objSpikeUp","path":"objects/objSpikeUp/objSpikeUp.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":128.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":{"name":"sprBkgDefault","path":"sprites/sprBkgDefault/sprBkgDefault.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

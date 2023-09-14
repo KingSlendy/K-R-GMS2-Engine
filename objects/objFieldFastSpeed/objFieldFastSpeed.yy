@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Speed",
-    "path": "folders/Objects/Gimmicks/Fields/Speed.yy",
+    "name": "NANG Fields",
+    "path": "folders/Objects/Packages/Not Another Needle Game/NANG Fields.yy",
   },
   "parentObjectId": null,
   "persistent": false,

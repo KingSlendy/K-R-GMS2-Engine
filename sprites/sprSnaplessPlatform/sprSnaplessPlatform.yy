@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Platforms",
-    "path": "folders/Sprites/Objects/Platforms.yy",
+    "name": "Dew Platforms",
+    "path": "folders/Sprites/Objects/Packages/Walk Out In The Morning Dew/Dew Platforms.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

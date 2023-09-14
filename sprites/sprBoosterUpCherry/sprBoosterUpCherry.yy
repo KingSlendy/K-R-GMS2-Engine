@@ -26,7 +26,7 @@
   "origin": 4,
   "parent": {
     "name": "Up",
-    "path": "folders/Sprites/Objects/Gimmicks/Booster/Up.yy",
+    "path": "folders/Sprites/Objects/Packages/Crimson Needle 3/CN3 Boosters/Up.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

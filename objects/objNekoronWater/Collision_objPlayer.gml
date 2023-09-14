@@ -1,3 +1,4 @@
+// WARNING: This water is stupid. Use Water2 instead unless you know what you're doing
 with (objPlayer) {
 	if (is_pressed(global.controls.jump) && jump_left == 0) {
 		p_vspd(-(jump_height[1] * sign(global.grav)));

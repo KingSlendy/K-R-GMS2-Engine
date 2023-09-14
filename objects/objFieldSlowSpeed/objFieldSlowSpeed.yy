@@ -2,12 +2,14 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "objFieldSlowSpeed",
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Speed",
-    "path": "folders/Objects/Gimmicks/Fields/Speed.yy",
+    "name": "NANG Fields",
+    "path": "folders/Objects/Packages/Not Another Needle Game/NANG Fields.yy",
   },
   "parentObjectId": null,
   "persistent": false,

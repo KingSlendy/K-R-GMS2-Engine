@@ -55,8 +55,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Gravity",
-    "path": "folders/Sprites/Objects/Gimmicks/Fields/Gravity.yy",
+    "name": "Extra Fields (RBN)",
+    "path": "folders/Sprites/Objects/Packages/Extra Fields (RBN).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

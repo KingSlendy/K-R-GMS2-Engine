@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Gravity",
-    "path": "folders/Objects/Gimmicks/Fields/Gravity.yy",
+    "name": "Extra Fields (RBN)",
+    "path": "folders/Objects/Packages/Extra Fields (RBN).yy",
   },
   "parentObjectId": null,
   "persistent": false,

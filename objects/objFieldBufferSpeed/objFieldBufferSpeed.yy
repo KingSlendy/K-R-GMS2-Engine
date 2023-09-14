@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Speed",
-    "path": "folders/Objects/Gimmicks/Fields/Speed.yy",
+    "name": "Extra Fields (RBN)",
+    "path": "folders/Objects/Packages/Extra Fields (RBN).yy",
   },
   "parentObjectId": null,
   "persistent": false,

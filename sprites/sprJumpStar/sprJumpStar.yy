@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Star",
-    "path": "folders/Sprites/Objects/Gimmicks/Refreshers/Star.yy",
+    "name": "NANG Star",
+    "path": "folders/Sprites/Objects/Packages/Not Another Needle Game/NANG Star.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

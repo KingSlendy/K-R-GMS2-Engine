@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Vines",
-    "path": "folders/Objects/Gimmicks/Vines.yy",
+    "name": "Dark Vines (Go The Jungle Adventure)",
+    "path": "folders/Objects/Packages/Dark Vines (Go The Jungle Adventure).yy",
   },
   "parentObjectId": {
     "name": "objVine",

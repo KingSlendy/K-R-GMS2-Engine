@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Platforms",
-    "path": "folders/Objects/Platforms.yy",
+    "name": "Dew Platforms",
+    "path": "folders/Objects/Packages/Walk Out In The Morning Dew/Dew Platforms.yy",
   },
   "parentObjectId": {
     "name": "objMovingPlatform",

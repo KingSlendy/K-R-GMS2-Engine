@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Star",
-    "path": "folders/Objects/Gimmicks/Refreshers/Star.yy",
+    "name": "NANG Star",
+    "path": "folders/Objects/Packages/Not Another Needle Game/NANG Star.yy",
   },
   "parentObjectId": null,
   "persistent": false,

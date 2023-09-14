@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Sheep Man",
-    "path": "folders/Sprites/Objects/Gimmicks/Sheep Man.yy",
+    "path": "folders/Sprites/Objects/Packages/8bit/Sheep Man.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

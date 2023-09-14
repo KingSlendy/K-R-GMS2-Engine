@@ -4,7 +4,6 @@ if (global.forms.linekid) {
 	image_angle = global.save_player.sangle;
 }
 
-
 #region Local Speed
 hspd = 0;
 vspd = 0;

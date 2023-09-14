@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Ice",
-    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure/Ice.yy",
+    "path": "folders/Objects/Packages/Go The Ocean Wetventure/Ice.yy",
   },
   "parentObjectId": {
     "name": "objOceanWater",

@@ -101,7 +101,7 @@
         1,
         1,
       ],},
-    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Megaman","closed_edge":false,"tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"Megaman","closed_edge":true,"tiles":[
         11,
         17,
         17,

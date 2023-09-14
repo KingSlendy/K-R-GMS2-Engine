@@ -49,8 +49,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Ocean Wetventure",
-    "path": "folders/Sprites/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+    "name": "Go The Ocean Wetventure",
+    "path": "folders/Sprites/Objects/Packages/Go The Ocean Wetventure.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

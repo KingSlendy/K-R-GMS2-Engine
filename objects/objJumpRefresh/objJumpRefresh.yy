@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Jump",
-    "path": "folders/Objects/Gimmicks/Refreshers/Jump.yy",
+    "name": "Refreshers",
+    "path": "folders/Objects/Gimmicks/Refreshers.yy",
   },
   "parentObjectId": null,
   "persistent": false,

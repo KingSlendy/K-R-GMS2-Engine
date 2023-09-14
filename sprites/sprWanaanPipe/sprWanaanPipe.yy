@@ -26,7 +26,7 @@
   "origin": 1,
   "parent": {
     "name": "Wanaan",
-    "path": "folders/Sprites/Objects/Gimmicks/Wanaan.yy",
+    "path": "folders/Sprites/Objects/Packages/8bit/Wanaan.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

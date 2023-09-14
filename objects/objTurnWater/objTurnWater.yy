@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Water",
-    "path": "folders/Objects/Gimmicks/Water.yy",
+    "name": "Dark Water (Go The Ocean Wetventure)",
+    "path": "folders/Objects/Packages/Dark Water (Go The Ocean Wetventure).yy",
   },
   "parentObjectId": {
     "name": "objOceanWater",

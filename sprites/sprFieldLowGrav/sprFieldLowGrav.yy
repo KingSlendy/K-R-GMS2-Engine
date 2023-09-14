@@ -55,8 +55,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Gravity",
-    "path": "folders/Sprites/Objects/Gimmicks/Fields/Gravity.yy",
+    "name": "NANG Fields",
+    "path": "folders/Sprites/Objects/Packages/Not Another Needle Game/NANG Fields.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

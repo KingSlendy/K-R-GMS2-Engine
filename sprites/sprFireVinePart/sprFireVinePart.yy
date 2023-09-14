@@ -28,7 +28,7 @@
   "origin": 4,
   "parent": {
     "name": "Fire",
-    "path": "folders/Sprites/Objects/Gimmicks/Vines/Jungle Adventure/Fire.yy",
+    "path": "folders/Sprites/Objects/Packages/Go The Jungle Adventure/Fire.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

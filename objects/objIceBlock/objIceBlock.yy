@@ -31,8 +31,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "sprSlipBlock",
-    "path": "sprites/sprSlipBlock/sprSlipBlock.yy",
+    "name": "sprIceBlock",
+    "path": "sprites/sprIceBlock/sprIceBlock.yy",
   },
   "spriteMaskId": null,
   "visible": true,

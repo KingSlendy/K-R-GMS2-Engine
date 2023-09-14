@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Water",
-    "path": "folders/Sprites/Objects/Gimmicks/Water.yy",
+    "name": "Dark Water (Go The Ocean Wetventure)",
+    "path": "folders/Sprites/Objects/Packages/Dark Water (Go The Ocean Wetventure).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

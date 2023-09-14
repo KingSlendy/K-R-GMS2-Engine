@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Ocean Wetventure",
-    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+    "name": "Oldschool",
+    "path": "folders/Objects/Gimmicks/Water/Oldschool.yy",
   },
   "parentObjectId": {
     "name": "objWater2",

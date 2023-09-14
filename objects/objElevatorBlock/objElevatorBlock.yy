@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Slide",
-    "path": "folders/Objects/Blocks/Slide.yy",
+    "name": "Blocks",
+    "path": "folders/Objects/Blocks.yy",
   },
   "parentObjectId": null,
   "persistent": false,

@@ -8,8 +8,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objJumpRefresh","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"propertyId":{"name":"refresh_frames","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"value":"20",},
   ],
   "parent": {
-    "name": "Jumple Refrenture",
-    "path": "folders/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
+    "name": "Go The Jumple Refrenture",
+    "path": "folders/Objects/Packages/Go The Jumple Refrenture.yy",
   },
   "parentObjectId": {
     "name": "objJumpleRefrensh",

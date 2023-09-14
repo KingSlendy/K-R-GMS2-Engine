@@ -52,7 +52,7 @@
   "origin": 4,
   "parent": {
     "name": "Twin",
-    "path": "folders/Sprites/Objects/Gimmicks/Vines/Jungle Adventure/Twin.yy",
+    "path": "folders/Sprites/Objects/Packages/Go The Jungle Adventure/Twin.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
