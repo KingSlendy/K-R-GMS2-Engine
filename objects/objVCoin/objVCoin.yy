@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Vkid",
-    "path": "folders/Objects/Player/Forms/Vkid.yy",
+    "name": "RTM Vkid",
+    "path": "folders/Objects/Packages/Run The Marathon/RTM Vkid.yy",
   },
   "parentObjectId": null,
   "persistent": false,

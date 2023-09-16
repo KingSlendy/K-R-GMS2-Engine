@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Telekid",
-    "path": "folders/Sprites/Objects/Player/Forms/Telekid.yy",
+    "name": "NANG Telekid",
+    "path": "folders/Sprites/Objects/Packages/Not Another Needle Game/NANG Telekid.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

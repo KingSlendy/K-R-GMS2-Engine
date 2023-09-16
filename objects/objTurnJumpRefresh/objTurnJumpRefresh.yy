@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Dark Refreshers (Go The Jumple Refrenture)",
-    "path": "folders/Objects/Packages/Dark Refreshers (Go The Jumple Refrenture).yy",
+    "name": "Dark Jumple Refreshers (RBN)",
+    "path": "folders/Objects/Packages/Dark Jumple Refreshers (RBN).yy",
   },
   "parentObjectId": {
     "name": "objJumpleRefrensh",

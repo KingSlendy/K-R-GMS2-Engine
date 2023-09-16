@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Mini",
-    "path": "folders/Sprites/Objects/Killers/Spikes/Mini.yy",
+    "path": "folders/Sprites/Objects/Killers/Spikes/Masks/Mini.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

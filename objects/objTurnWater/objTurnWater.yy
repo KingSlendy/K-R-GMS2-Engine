@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Dark Water (Go The Ocean Wetventure)",
-    "path": "folders/Objects/Packages/Dark Water (Go The Ocean Wetventure).yy",
+    "name": "Dark Ocean Water (RBN)",
+    "path": "folders/Objects/Packages/Dark Ocean Water (RBN).yy",
   },
   "parentObjectId": {
     "name": "objOceanWater",

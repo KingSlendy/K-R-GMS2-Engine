@@ -31,11 +31,10 @@ if (active) {
 }
 #endregion
 
-//Storing the previous x and y
+#region Physics and Collision
 xprevious = x;
 yprevious = y;
 
-//Moving the player manually
 x += hspd;
 y += vspd;
 
@@ -72,4 +71,5 @@ if (block != null) {
 	x += hspd;
 	y += vspd;
 }
+#endregion
 #endregion

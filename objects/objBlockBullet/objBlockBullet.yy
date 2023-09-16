@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objects/Blocks.yy",
+    "name": "Blockers",
+    "path": "folders/Objects/Blocks/Blockers.yy",
   },
   "parentObjectId": null,
   "persistent": false,

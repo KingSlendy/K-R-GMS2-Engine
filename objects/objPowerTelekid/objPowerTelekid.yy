@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Telekid",
-    "path": "folders/Objects/Player/Forms/Telekid.yy",
+    "name": "NANG Telekid",
+    "path": "folders/Objects/Packages/Not Another Needle Game/NANG Telekid.yy",
   },
   "parentObjectId": null,
   "persistent": false,

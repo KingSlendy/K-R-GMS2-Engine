@@ -60,7 +60,7 @@ function player_fall() {
 function player_shoot() {
 	var bullet_max = (global.slowshot) ? 10 : 4;
 	var bullet_object = (global.forms.telekid) ? objTelekid : objBullet;
-	var shoot_sound = (global.forms.telekid) ? sndTeleport : sndShoot;
+	var shoot_sound = (global.forms.telekid) ? sndTelekid : sndShoot;
 	
 	if (global.forms.telekid) {
 		bullet_max = 1;

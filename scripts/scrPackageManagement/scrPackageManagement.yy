@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Package",
-    "path": "folders/Scripts/Package.yy",
+    "name": "Packages",
+    "path": "folders/Scripts/Packages.yy",
   },
 }

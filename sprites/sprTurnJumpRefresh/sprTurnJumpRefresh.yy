@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Dark Refreshers (Go The Jumple Refrenture)",
-    "path": "folders/Sprites/Objects/Packages/Dark Refreshers (Go The Jumple Refrenture).yy",
+    "name": "Dark Jumple Refreshers (RBN)",
+    "path": "folders/Sprites/Objects/Packages/Dark Jumple Refreshers (RBN).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

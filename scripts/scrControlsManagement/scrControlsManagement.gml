@@ -11,7 +11,7 @@ function is_released(control) {
 }
 
 function is_buffered(control) {
-	return (place_meeting(x, y, objFieldBufferSpeed)) ? is_pressed(control) : is_held(control);
+	return (place_meeting(x, y, objBufferSpeedField)) ? is_pressed(control) : is_held(control);
 }
 
 function control_bind(control) {

@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Equip",
-    "path": "folders/Objects/Player/Equip.yy",
+    "name": "ETE Bubble",
+    "path": "folders/Objects/Packages/Enjoy The Excursion/ETE Bubble.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -28,7 +28,9 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"object","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"noone","varType":5,},
+  ],
   "solid": false,
   "spriteId": {
     "name": "sprBubble",

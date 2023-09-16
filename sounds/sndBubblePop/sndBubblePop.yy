@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.259116,
   "parent": {
-    "name": "Player",
-    "path": "folders/Sounds/SFX/Player.yy",
+    "name": "Enjoy The Excursion",
+    "path": "folders/Sounds/SFX/Packages/Enjoy The Excursion.yy",
   },
   "preload": false,
   "sampleRate": 44100,

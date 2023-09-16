@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 1.560091,
   "parent": {
-    "name": "Misc",
-    "path": "folders/Sounds/SFX/Misc.yy",
+    "name": "8bit",
+    "path": "folders/Sounds/SFX/Packages/8bit.yy",
   },
   "preload": false,
   "sampleRate": 44100,

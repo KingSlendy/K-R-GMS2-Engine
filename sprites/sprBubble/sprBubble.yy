@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Equip",
-    "path": "folders/Sprites/Objects/Player/Equip.yy",
+    "name": "ETE Bubble",
+    "path": "folders/Sprites/Objects/Packages/Enjoy The Excursion/ETE Bubble.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

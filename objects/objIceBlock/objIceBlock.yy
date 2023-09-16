@@ -10,8 +10,8 @@
     "path": "folders/Objects/Blocks.yy",
   },
   "parentObjectId": {
-    "name": "objBlock",
-    "path": "objects/objBlock/objBlock.yy",
+    "name": "objBlockDynamic",
+    "path": "objects/objBlockDynamic/objBlockDynamic.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

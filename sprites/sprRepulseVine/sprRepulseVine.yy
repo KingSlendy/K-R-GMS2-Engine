@@ -30,8 +30,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Dark Vines (Go The Jungle Adventure)",
-    "path": "folders/Sprites/Objects/Packages/Dark Vines (Go The Jungle Adventure).yy",
+    "name": "Dark Jungle Vines (RBN)",
+    "path": "folders/Sprites/Objects/Packages/Dark Jungle Vines (RBN).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

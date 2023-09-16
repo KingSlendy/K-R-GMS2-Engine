@@ -1,0 +1,1 @@
+activate_trigger("auto5");

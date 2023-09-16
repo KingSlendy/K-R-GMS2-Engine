@@ -8,8 +8,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objSave","path":"objects/objSave/objSave.yy",},"propertyId":{"name":"difficulty","path":"objects/objSave/objSave.yy",},"value":"2",},
   ],
   "parent": {
-    "name": "Normal",
-    "path": "folders/Objects/Saves/Normal.yy",
+    "name": "Saves",
+    "path": "folders/Objects/Saves.yy",
   },
   "parentObjectId": {
     "name": "objSave",

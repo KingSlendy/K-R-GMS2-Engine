@@ -45,6 +45,29 @@ function draw_sprite_fog(sprite, subimg, x, y, xscale, yscale, rot, col, alpha, 
 }
 #endregion
 
+#region Physics
+function pivot_pos_x(px, py, dir) {
+	return lengthdir_x(px, dir) + lengthdir_x(py, dir - 90);
+}
+
+function pivot_pos_y(px, py, dir) {
+	return lengthdir_y(px, dir) + lengthdir_y(py, dir - 90);
+}
+
+function spd_dir() {
+    return point_direction(0, 0, hspd, vspd);
+}
+
+function spd_set(spd = spd_get(), dir = spd_dir()) {
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
+}
+
+function spd_get() {
+    return point_distance(0, 0, hspd, vspd);
+}
+#endregion
+
 #region Other
 function camera_properties(num) {
 	var cam = view_camera[num];

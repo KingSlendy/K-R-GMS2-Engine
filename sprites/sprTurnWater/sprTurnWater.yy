@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Dark Water (Go The Ocean Wetventure)",
-    "path": "folders/Sprites/Objects/Packages/Dark Water (Go The Ocean Wetventure).yy",
+    "name": "Dark Ocean Water (RBN)",
+    "path": "folders/Sprites/Objects/Packages/Dark Ocean Water (RBN).yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

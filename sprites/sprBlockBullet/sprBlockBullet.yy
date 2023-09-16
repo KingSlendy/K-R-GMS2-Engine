@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Sprites/Objects/Blocks.yy",
+    "name": "Blockers",
+    "path": "folders/Sprites/Objects/Blocks/Blockers.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

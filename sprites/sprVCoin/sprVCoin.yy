@@ -28,8 +28,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Vkid",
-    "path": "folders/Sprites/Objects/Player/Forms/Vkid.yy",
+    "name": "RTM Vkid",
+    "path": "folders/Sprites/Objects/Packages/Run The Marathon/RTM Vkid.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

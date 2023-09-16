@@ -1,5 +1,5 @@
 #region Variable and Input Checks
-var grav_factor = (place_meeting(x, y, objFieldAntiGrav)) ? -1 : 1;
+var grav_factor = (place_meeting(x, y, objAntiGravField)) ? -1 : 1;
 grav = (vine_mod.stick) ? 0 : (grav_amount * grav_factor) * sign(global.grav);
 gravity_direction = (abs(global.grav) == 1) ? 270 : 0;
 
@@ -16,8 +16,8 @@ var dir_down = is_held(directions.down_direction);
 var dir_up = is_held(directions.up_direction);
 var dir = 0;
 
-package_fieldsNANG("player prestep");
-package_vineventure("player prestep");
+package_nang("player prestep");
+package_jungleadventure("player prestep");
 package_wetventure("player prestep");
 #endregion
 
@@ -160,14 +160,14 @@ if (!global.forms.lunarkid) {
 	
 	on_block = p_instance_place(0, sign(global.grav), objBlock);
 	on_ice = (p_instance_place(0, sign(global.grav), objIceBlock) ?? p_instance_place(0, 0, objIceWater));
-	on_auto = (p_instance_place(0, 0, objWeirdWater) ?? p_instance_place(0, 0, objFieldAutoSpeed));
+	on_auto = (p_instance_place(0, 0, objWeirdWater) ?? p_instance_place(0, 0, objAutoSpeedField));
 	
 	if (abs(global.grav) == 1) {
-		on_conveyor = (p_instance_place(0, sign(global.grav), objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
-		on_elevator = p_instance_place(xscale * x_off, 0, objElevatorBlock);
+		on_conveyor = (p_instance_place(0, sign(global.grav), objConveyor) ?? p_instance_place(0, 0, objConveyorWater));
+		on_elevator = p_instance_place(xscale * x_off, 0, objElevator);
 	} else if (abs(global.grav) == 2) {
-		on_conveyor = p_instance_place(0, sign(global.grav), objElevatorBlock);
-		on_elevator = (p_instance_place(-xscale * x_off, 0, objConveyorBlock) ?? p_instance_place(0, 0, objConveyorWater));
+		on_conveyor = p_instance_place(0, sign(global.grav), objElevator);
+		on_elevator = (p_instance_place(-xscale * x_off, 0, objConveyor) ?? p_instance_place(0, 0, objConveyorWater));
 	}
 	
 	#endregion
@@ -200,7 +200,7 @@ if (!global.forms.lunarkid) {
 	}
 	#endregion
 
-	package_fieldsNANG("player step");
+	package_nang("player step");
 	package_refrenture("player step");
 	#endregion
 	

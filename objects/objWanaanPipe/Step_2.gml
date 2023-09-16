@@ -3,6 +3,6 @@ if (image_alpha == 1) {
 	    trap = instance_create_depth(x, y, depth, objWanaan);
 	    trap.core = id;
 		trap.image_angle = image_angle;
-	    audio_play_sound(sndChompy, 0, false);
+	    audio_play_sound(sndWanaan, 0, false);
 	}
 }
