@@ -35,5 +35,8 @@
     "path": "sprites/sprVCoin/sprVCoin.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "form",
+  ],
   "visible": true,
 }

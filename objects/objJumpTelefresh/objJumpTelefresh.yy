@@ -33,5 +33,8 @@
     "path": "sprites/sprJumpTelefresh/sprJumpTelefresh.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+  ],
   "visible": true,
 }

@@ -36,5 +36,8 @@
     "path": "sprites/sprJumpleRefrensh/sprJumpleRefrensh.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+  ],
   "visible": true,
 }

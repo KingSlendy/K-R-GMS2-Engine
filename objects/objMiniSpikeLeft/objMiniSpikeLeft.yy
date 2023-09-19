@@ -33,5 +33,8 @@
     "path": "sprites/sprMiniLeft/sprMiniLeft.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

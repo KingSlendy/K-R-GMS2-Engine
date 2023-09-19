@@ -33,5 +33,9 @@
     "path": "sprites/sprFireVine/sprFireVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+    "speed",
+  ],
   "visible": true,
 }

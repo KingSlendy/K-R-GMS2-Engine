@@ -35,5 +35,8 @@
     "path": "sprites/sprPoisonWater/sprPoisonWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

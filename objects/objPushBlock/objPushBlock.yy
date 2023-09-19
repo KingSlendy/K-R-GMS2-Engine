@@ -39,5 +39,8 @@
     "path": "sprites/sprPushBlock/sprPushBlock.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

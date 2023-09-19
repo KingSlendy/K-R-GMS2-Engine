@@ -33,5 +33,9 @@
     "path": "sprites/sprShootDotkidField/sprShootDotkidField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "field",
+    "form",
+  ],
   "visible": true,
 }

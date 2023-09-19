@@ -33,5 +33,9 @@
     "path": "sprites/sprTurnWater/sprTurnWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+    "gravity",
+  ],
   "visible": true,
 }

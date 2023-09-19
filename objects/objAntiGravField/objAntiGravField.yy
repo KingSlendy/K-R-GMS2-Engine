@@ -30,5 +30,9 @@
     "path": "sprites/sprAntiGravField/sprAntiGravField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "field",
+    "gravity",
+  ],
   "visible": true,
 }

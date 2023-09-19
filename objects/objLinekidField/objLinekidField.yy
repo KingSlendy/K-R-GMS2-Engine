@@ -32,5 +32,9 @@
     "path": "sprites/sprLinekidField/sprLinekidField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "field",
+    "form",
+  ],
   "visible": true,
 }

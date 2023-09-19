@@ -32,5 +32,8 @@
     "path": "sprites/sprPastelWaterGreen/sprPastelWaterGreen.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

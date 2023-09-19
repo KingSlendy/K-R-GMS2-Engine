@@ -135,13 +135,9 @@ function set_mask() {
 	}
 }
 
-function flip_grav(grav = undefined, jump = true) {
+function flip_grav(grav = null, jump = true) {
 	if (instance_exists(objPlayer)) {
-		if (grav == undefined) {
-			global.grav *= -1;
-		} else {
-	    	global.grav = grav;
-		}
+		global.grav = (grav == null) ? global.grav * -1 : grav;
 
 		if (!global.forms.lunarkid) {
 		    with (objPlayer) {

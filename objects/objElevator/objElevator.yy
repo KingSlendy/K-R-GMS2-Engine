@@ -32,5 +32,8 @@
     "path": "sprites/sprElevator/sprElevator.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

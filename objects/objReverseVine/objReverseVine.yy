@@ -33,5 +33,8 @@
     "path": "sprites/sprReverseVine/sprReverseVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

@@ -36,5 +36,9 @@
     "path": "sprites/sprSlippageField/sprSlippageField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "field",
+    "form",
+  ],
   "visible": true,
 }

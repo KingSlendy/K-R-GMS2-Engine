@@ -34,5 +34,8 @@
     "path": "sprites/sprPowerTelekid/sprPowerTelekid.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "form",
+  ],
   "visible": true,
 }

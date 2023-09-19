@@ -33,5 +33,8 @@
     "path": "sprites/sprMiniUp/sprMiniUp.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

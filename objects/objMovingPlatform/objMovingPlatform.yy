@@ -39,5 +39,8 @@
     "path": "sprites/sprMovingPlatform/sprMovingPlatform.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "platform",
+  ],
   "visible": true,
 }

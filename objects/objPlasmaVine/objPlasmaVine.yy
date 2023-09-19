@@ -33,5 +33,9 @@
     "path": "sprites/sprPlasmaVine/sprPlasmaVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+    "speed",
+  ],
   "visible": true,
 }

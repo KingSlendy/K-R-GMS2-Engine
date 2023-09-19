@@ -33,5 +33,8 @@
     "path": "sprites/sprMiniDown/sprMiniDown.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

@@ -35,5 +35,8 @@
     "path": "sprites/sprTriggerField/sprTriggerField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "trigger",
+  ],
   "visible": false,
 }

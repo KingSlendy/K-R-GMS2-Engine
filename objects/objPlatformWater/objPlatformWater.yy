@@ -35,5 +35,8 @@
     "path": "sprites/sprPlatformWater/sprPlatformWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

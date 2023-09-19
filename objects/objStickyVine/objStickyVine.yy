@@ -33,5 +33,8 @@
     "path": "sprites/sprStickyVine/sprStickyVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

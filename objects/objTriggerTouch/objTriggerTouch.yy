@@ -40,5 +40,8 @@
     "path": "sprites/sprTrigger/sprTrigger.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "trigger",
+  ],
   "visible": false,
 }

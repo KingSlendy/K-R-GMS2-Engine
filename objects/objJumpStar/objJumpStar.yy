@@ -37,5 +37,8 @@
     "path": "sprites/sprJumpStar/sprJumpStar.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+  ],
   "visible": true,
 }

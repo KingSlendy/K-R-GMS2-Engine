@@ -33,5 +33,9 @@
     "path": "sprites/sprZeroGravVine/sprZeroGravVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+    "gravity",
+  ],
   "visible": true,
 }

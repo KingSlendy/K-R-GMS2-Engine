@@ -89,6 +89,9 @@
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
+  "tags": [
+    "tile",
+  ],
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",

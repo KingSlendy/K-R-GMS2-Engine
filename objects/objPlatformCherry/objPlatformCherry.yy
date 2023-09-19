@@ -41,5 +41,9 @@
     "path": "sprites/sprCherryWhite/sprCherryWhite.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "fruit",
+    "platform",
+  ],
   "visible": true,
 }

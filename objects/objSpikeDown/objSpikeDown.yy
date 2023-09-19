@@ -33,5 +33,8 @@
     "path": "sprites/sprSpikeDown/sprSpikeDown.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

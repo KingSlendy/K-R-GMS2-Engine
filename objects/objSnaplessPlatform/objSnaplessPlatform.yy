@@ -37,5 +37,8 @@
     "path": "sprites/sprSnaplessPlatform/sprSnaplessPlatform.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "platform",
+  ],
   "visible": true,
 }

@@ -3,7 +3,7 @@ function package_nang(load_type = undefined) {
 	
 	switch(load_type) {
 		case "player prestep":
-		frozen = (p_instance_place(0, 0, objAutoSpeedField) != null && Hspd != 0);
+		frozen += (p_instance_place(0, 0, objAutoSpeedField) != null && Hspd != 0);
 		break;
 		
 		case "player step": //Sets the kid's local speed based on what fields he's colliding with
@@ -20,8 +20,6 @@ function package_nang(load_type = undefined) {
 			grav_amount = 0.2;
 		} else if (place_meeting(x, y, objHighGravField)) {
 			grav_amount = 0.7;
-		} else if (place_meeting(x, y, objZeroGravField)) {
-			grav_amount = 0;
 		}
 		#endregion
 		break;

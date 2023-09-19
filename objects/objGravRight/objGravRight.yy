@@ -32,5 +32,8 @@
     "path": "sprites/sprGravRight/sprGravRight.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "gravity",
+  ],
   "visible": true,
 }

@@ -33,5 +33,8 @@
     "path": "sprites/sprDisappearPlatform/sprDisappearPlatform.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "platform",
+  ],
   "visible": true,
 }

@@ -32,5 +32,9 @@
     "path": "sprites/sprLunarkidField/sprLunarkidField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "field",
+    "form",
+  ],
   "visible": true,
 }

@@ -33,5 +33,8 @@
     "path": "sprites/sprWarp/sprWarp.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "warp",
+  ],
   "visible": true,
 }

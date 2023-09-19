@@ -32,5 +32,8 @@
     "path": "sprites/sprConveyor/sprConveyor.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

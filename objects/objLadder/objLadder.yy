@@ -30,5 +30,8 @@
     "path": "sprites/sprLadder/sprLadder.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "ladder",
+  ],
   "visible": true,
 }

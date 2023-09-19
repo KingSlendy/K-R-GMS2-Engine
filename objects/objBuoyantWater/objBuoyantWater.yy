@@ -38,5 +38,8 @@
     "path": "sprites/sprBuoyantWater/sprBuoyantWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

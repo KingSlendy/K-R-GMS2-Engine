@@ -33,5 +33,8 @@
     "path": "sprites/sprDessicatedVine/sprDessicatedVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

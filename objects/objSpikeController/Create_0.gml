@@ -80,8 +80,8 @@ draw_funcs[$ objSpikeDiamondHorizontal] = function () {
 }
 
 draw_funcs[$ objSpikeShuriken] = function () {
-	type = string_split(sprite_get_name(sprite_index), "_")[1];
-	block = block_sprite;
+	type = (sprite_index != sprSpike) ? string_split(sprite_get_name(sprite_index), "_")[1] : "";
+	block = center;
 	if (sprite_exists(asset_get_index("sprBlock_" + type))) {
 		block = asset_get_index("sprBlock_" + type);
 	}

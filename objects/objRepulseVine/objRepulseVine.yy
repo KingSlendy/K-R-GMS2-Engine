@@ -33,5 +33,8 @@
     "path": "sprites/sprRepulseVine/sprRepulseVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

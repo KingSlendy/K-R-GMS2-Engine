@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Wanaan",
-    "path": "folders/Objects/Packages/8bit/Wanaan.yy",
+    "name": "8bit Wanaan",
+    "path": "folders/Objects/Packages/8bit/8bit Wanaan.yy",
   },
   "parentObjectId": {
     "name": "objBlockDynamic",
@@ -36,5 +36,8 @@
     "path": "sprites/sprWanaanPipe/sprWanaanPipe.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

@@ -35,5 +35,8 @@
     "path": "sprites/sprIceBlock/sprIceBlock.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

@@ -33,5 +33,8 @@
     "path": "sprites/sprMercuryVine/sprMercuryVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

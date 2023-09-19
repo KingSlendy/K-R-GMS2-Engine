@@ -33,5 +33,8 @@
     "path": "sprites/sprPressureVine/sprPressureVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

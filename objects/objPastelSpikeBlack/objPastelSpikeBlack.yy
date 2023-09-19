@@ -37,5 +37,8 @@
     "path": "sprites/sprPastelSpikeBlack/sprPastelSpikeBlack.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

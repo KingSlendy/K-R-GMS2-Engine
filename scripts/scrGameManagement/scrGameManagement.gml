@@ -1,8 +1,10 @@
-function save_game(position) {
+function save_game(position, save_x = -1, save_y = -1) {
 	if (position) {
 		global.save_player.sroom = room_get_name(room);
 		global.save_player.sx = round(objPlayer.x);
 		global.save_player.sy = round(objPlayer.y);
+		global.save_player.snewx = (save_x != -1 && save_y != -1) ? save_x : global.save_player.sx;
+		global.save_player.snewy = (save_x != -1 && save_y != -1) ? save_y : global.save_player.sy;
 		global.save_player.sangle = global.player.angle;
 		global.save_player.sgrav = global.grav;
 		global.save_player.sforms = global.forms;
@@ -18,7 +20,18 @@ function save_game(position) {
 			clear: global.clear
 		},
 		
-		items: global.items
+		#region ADDED BY MAGIC TOWER PACKAGE
+		mtg: {
+			stats_mtg: global.stats_mtg,
+			items_mtg: global.items_mtg,
+			keys_mtg: global.keys_mtg,
+			locks_mtg: global.locks_mtg,
+			monsters_mtg: global.monsters_mtg,
+			totals_mtg: global.totals_mtg
+		},
+		#endregion
+		
+		items: global.items,
 	};
 	
 	var json = json_stringify(data);
@@ -60,11 +73,25 @@ function load_game(position) {
 	global.clear = data.info.clear;
 	global.items = data.items;
 	
-	if (position) {
+	#region ADDED BY MAGIC TOWER PACKAGE
+	global.stats_mtg = data.mtg.stats_mtg;
+	global.items_mtg = data.mtg.items_mtg;
+	global.keys_mtg = data.mtg.keys_mtg;
+	global.locks_mtg = data.mtg.locks_mtg;
+	global.monsters_mtg = data.mtg.monsters_mtg;
+	global.totals_mtg = data.mtg.totals_mtg;
+	#endregion
+	
+	if (position > 0) {
 		global.game_started = true;
 		global.auto_save = false;
 		global.grav = global.save_player.sgrav;
-		instance_create_layer(global.save_player.sx, global.save_player.sy, "Player", objPlayer);
+		global.forms = global.save_player.sforms;
+		if (position == 1) {
+			instance_create_layer(global.save_player.sx, global.save_player.sy, "Player", objPlayer);
+		} else if (position == 2) {
+			instance_create_layer(global.save_player.snewx, global.save_player.snewy, "Player", objPlayer);
+		}
 		room_goto(asset_get_index(global.save_player.sroom));
 	}
 	
@@ -119,6 +146,7 @@ function cleanup_game() {
 		bosses: array_create(8, false)
 	};
 	
+	package_MTG("cleanup");
 	make_particles("vines");
 }
 

@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Wanaan",
-    "path": "folders/Objects/Packages/8bit/Wanaan.yy",
+    "name": "8bit Wanaan",
+    "path": "folders/Objects/Packages/8bit/8bit Wanaan.yy",
   },
   "parentObjectId": {
     "name": "objPlayerKiller",

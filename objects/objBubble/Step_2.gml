@@ -15,10 +15,10 @@ if (active) {
 	}
 	
 	#region Collision with an object that pops the bubble
-	if (object != null) {
-		var popper = collision_circle(round(x), round(y), 32, object, true, 0);
+	if (object != noone) {
+		var poking = collision_circle(round(x), round(y), 32, object, true, 0);
 	
-		if ((popper != noone && popper.image_alpha == 1 && popper.visible) && !pop) {
+		if ((poking != noone && poking.image_alpha == 1 && poking.visible) && !pop) {
 			pop = true;
 		}
 	}

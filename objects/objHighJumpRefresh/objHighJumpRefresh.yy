@@ -33,5 +33,8 @@
     "path": "sprites/sprHighJumpRefresh/sprHighJumpRefresh.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+  ],
   "visible": true,
 }

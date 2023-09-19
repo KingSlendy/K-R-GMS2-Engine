@@ -33,5 +33,9 @@
     "path": "sprites/sprTurnVine/sprTurnVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+    "gravity",
+  ],
   "visible": true,
 }

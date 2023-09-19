@@ -33,5 +33,8 @@
     "path": "sprites/sprSpikeBlock/sprSpikeBlock.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

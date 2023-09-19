@@ -33,5 +33,9 @@
     "path": "sprites/sprShootJumpField/sprShootJumpField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "field",
+    "refresher",
+  ],
   "visible": true,
 }

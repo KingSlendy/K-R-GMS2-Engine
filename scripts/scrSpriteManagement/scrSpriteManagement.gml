@@ -88,7 +88,11 @@ function spike_sprite() {
 	    spike_image = irandom(35);
 		*//////////////////
 		
-		
+		case rTestMagicTower:
+		type = "_MTG";
+		spike_speed = 1;
+		spike_image = 0;
+		break;
 		
 		default: //Always keep this at the bottom
 		type = "";

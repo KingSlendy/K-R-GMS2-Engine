@@ -38,5 +38,8 @@
     "path": "sprites/sprBubbleWater/sprBubbleWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

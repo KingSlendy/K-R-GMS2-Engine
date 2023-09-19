@@ -33,5 +33,9 @@
     "path": "sprites/sprTurnJumpRefresh/sprTurnJumpRefresh.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+    "gravity",
+  ],
   "visible": true,
 }

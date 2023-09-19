@@ -33,5 +33,8 @@
     "path": "sprites/sprSpikeDiamondHorizontal/sprSpikeDiamondHorizontal.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

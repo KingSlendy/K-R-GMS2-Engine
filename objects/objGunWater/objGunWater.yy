@@ -36,5 +36,8 @@
     "path": "sprites/sprGunWater/sprGunWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

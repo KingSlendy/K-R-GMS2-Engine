@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Sheep Man",
-    "path": "folders/Objects/Packages/8bit/Sheep Man.yy",
+    "name": "8bit Sheep Man",
+    "path": "folders/Objects/Packages/8bit/8bit Sheep Man.yy",
   },
   "parentObjectId": {
     "name": "objBlockDynamic",
@@ -37,5 +37,8 @@
     "path": "sprites/sprSheepBlock/sprSheepBlock.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

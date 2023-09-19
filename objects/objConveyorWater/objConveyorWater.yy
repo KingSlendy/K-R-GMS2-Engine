@@ -37,5 +37,8 @@
     "path": "sprites/sprConveyorWater/sprConveyorWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

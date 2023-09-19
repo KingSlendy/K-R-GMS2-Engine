@@ -33,5 +33,8 @@
     "path": "sprites/sprSlowmoJumpRefresh/sprSlowmoJumpRefresh.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+  ],
   "visible": true,
 }

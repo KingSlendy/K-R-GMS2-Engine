@@ -33,5 +33,9 @@
     "path": "sprites/sprBufferVine/sprBufferVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+    "speed",
+  ],
   "visible": true,
 }

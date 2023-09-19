@@ -33,5 +33,8 @@
     "path": "sprites/sprSpikeUp/sprSpikeUp.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

@@ -33,5 +33,9 @@
     "path": "sprites/sprFlipWater/sprFlipWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+    "gravity",
+  ],
   "visible": true,
 }

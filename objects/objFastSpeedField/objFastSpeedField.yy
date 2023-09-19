@@ -30,5 +30,9 @@
     "path": "sprites/sprFastSpeedField/sprFastSpeedField.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "field",
+    "speed",
+  ],
   "visible": true,
 }

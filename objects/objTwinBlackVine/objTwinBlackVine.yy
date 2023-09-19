@@ -36,5 +36,8 @@
     "path": "sprites/sprTwinBlackVine/sprTwinBlackVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

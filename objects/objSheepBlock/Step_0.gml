@@ -1,5 +1,5 @@
 if (instance_exists(objPlayer)) {
-    if (!active && instance_place(x - objPlayer.hspd, y - objPlayer.vspd, objPlayer)) {
+    if (!active && collision_rectangle(bbox_left - 2, bbox_top - 2, bbox_right + 2, bbox_bottom + 2, objPlayer, 0, 0)) {
         audio_play_sound(sndSheepBlock, 0, false);
         
         with (objSheepBlock) {

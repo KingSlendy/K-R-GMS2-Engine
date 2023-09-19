@@ -38,5 +38,8 @@
     "path": "sprites/sprIceWater/sprIceWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

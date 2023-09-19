@@ -36,5 +36,8 @@
     "path": "sprites/sprWeirdWater/sprWeirdWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

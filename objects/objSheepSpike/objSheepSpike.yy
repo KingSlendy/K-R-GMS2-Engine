@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Sheep Man",
-    "path": "folders/Objects/Packages/8bit/Sheep Man.yy",
+    "name": "8bit Sheep Man",
+    "path": "folders/Objects/Packages/8bit/8bit Sheep Man.yy",
   },
   "parentObjectId": {
     "name": "objPlayerKiller",
@@ -37,5 +37,8 @@
     "path": "sprites/sprSheepSpike/sprSheepSpike.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }
