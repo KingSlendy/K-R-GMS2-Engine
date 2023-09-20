@@ -9,3 +9,5 @@ function battle_win() {
 	audio_play_sound(sndDeath, 0, false);
     instance_destroy();
 }
+
+name = "";

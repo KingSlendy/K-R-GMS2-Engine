@@ -1,16 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objMTGEnemySlimeLord",
+  "name": "objMTGEnemyBlackSlime",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"health","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"12",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"experience","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"8",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"attack","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"14",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"defense","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"8",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"experience","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"4",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"attack","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"6",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"defense","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"4",},
   ],
   "parent": {
     "name": "Slimes",
@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprMTGSlimeLord",
-    "path": "sprites/sprMTGSlimeLord/sprMTGSlimeLord.yy",
+    "name": "sprMTGBigSlime",
+    "path": "sprites/sprMTGBigSlime/sprMTGBigSlime.yy",
   },
   "spriteMaskId": null,
   "visible": true,

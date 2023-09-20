@@ -4,29 +4,29 @@ function package_MTG(load_type = undefined) {
 			case "save":
 			var data_mtg = {
 				mtg: {
-					stats_mtg: global.stats_mtg,
-					items_mtg: global.items_mtg,
-					keys_mtg: global.keys_mtg,
-					locks_mtg: global.locks_mtg,
-					monsters_mtg: global.monsters_mtg,
-					totals_mtg: global.totals_mtg
+					stats: global.stats_mtg,
+					items: global.items_mtg,
+					keys: global.keys_mtg,
+					locks: global.locks_mtg,
+					monsters: global.monsters_mtg,
+					totals: global.totals_mtg
 				}
 			}
 			
-			var json_mtg = json_stringify(data_mtg);
-			save_file(string("Data{0}", global.save_num + 1), json_mtg, true);
+			var json = json_stringify(data);
+			save_file(string("Data{0}", global.save_num + 1), json, true);
 			break;
 			
 			case "load":
-			var json_mtg = load_file(string("Data{0}", global.save_num + 1), true);
-			var data_mtg = json_parse(json_mtg);
+			var json = load_file(string("Data{0}", global.save_num + 1), true);
+			var data = json_parse(json);
 			
-			global.stats_mtg = data_mtg.mtg.stats_mtg;
-			global.items_mtg = data_mtg.mtg.items_mtg;
-			global.keys_mtg = data_mtg.mtg.keys_mtg;
-			global.locks_mtg = data_mtg.mtg.locks_mtg;
-			global.monsters_mtg = data_mtg.mtg.monsters_mtg;
-			global.totals_mtg = data_mtg.mtg.totals_mtg;
+			global.stats_mtg = data.mtg.stats;
+			global.items_mtg = data.mtg.items;
+			global.keys_mtg = data.mtg.keys;
+			global.locks_mtg = data.mtg.locks;
+			global.monsters_mtg = data.mtg.monsters;
+			global.totals_mtg = data.mtg.totals;
 			break;
 			
 			case "cleanup":

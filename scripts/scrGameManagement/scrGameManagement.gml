@@ -3,8 +3,8 @@ function save_game(position, save_x = -1, save_y = -1) {
 		global.save_player.sroom = room_get_name(room);
 		global.save_player.sx = round(objPlayer.x);
 		global.save_player.sy = round(objPlayer.y);
-		global.save_player.snewx = (save_x != -1 && save_y != -1) ? save_x : global.save_player.sx;
-		global.save_player.snewy = (save_x != -1 && save_y != -1) ? save_y : global.save_player.sy;
+		global.save_player.snewx = (save_x != -1) ? save_x : global.save_player.sx;
+		global.save_player.snewy = (save_y != -1) ? save_y : global.save_player.sy;
 		global.save_player.sangle = global.player.angle;
 		global.save_player.sgrav = global.grav;
 		global.save_player.sforms = global.forms;
@@ -22,12 +22,12 @@ function save_game(position, save_x = -1, save_y = -1) {
 		
 		#region ADDED BY MAGIC TOWER PACKAGE
 		mtg: {
-			stats_mtg: global.stats_mtg,
-			items_mtg: global.items_mtg,
-			keys_mtg: global.keys_mtg,
-			locks_mtg: global.locks_mtg,
-			monsters_mtg: global.monsters_mtg,
-			totals_mtg: global.totals_mtg
+			stats: global.stats_mtg,
+			items: global.items_mtg,
+			keys: global.keys_mtg,
+			locks: global.locks_mtg,
+			monsters: global.monsters_mtg,
+			totals: global.totals_mtg
 		},
 		#endregion
 		
@@ -74,12 +74,12 @@ function load_game(position) {
 	global.items = data.items;
 	
 	#region ADDED BY MAGIC TOWER PACKAGE
-	global.stats_mtg = data.mtg.stats_mtg;
-	global.items_mtg = data.mtg.items_mtg;
-	global.keys_mtg = data.mtg.keys_mtg;
-	global.locks_mtg = data.mtg.locks_mtg;
-	global.monsters_mtg = data.mtg.monsters_mtg;
-	global.totals_mtg = data.mtg.totals_mtg;
+	global.stats_mtg = data.mtg.stats;
+	global.items_mtg = data.mtg.items;
+	global.keys_mtg = data.mtg.keys;
+	global.locks_mtg = data.mtg.locks;
+	global.monsters_mtg = data.mtg.monsters;
+	global.totals_mtg = data.mtg.totals;
 	#endregion
 	
 	if (position > 0) {
