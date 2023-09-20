@@ -172,7 +172,7 @@ function start_game(diff) {
 	}
 }
 
-function restart_game() {
+function restart_game(position = 1) {
 	if (global.death_music) {
 	    audio_stop_sound(bgmGameOver);
 	    audio_resume_sound(global.current_music);
@@ -180,7 +180,7 @@ function restart_game() {
 	
 	var deaths = global.deaths;
 	var time = global.time;
-	load_game(true);
+	load_game(position);
 	global.deaths = deaths;
 	global.time = time;
 	

@@ -15,8 +15,12 @@ set_caption();
 #region Main Inputs
 if (global.game_started) {
 	if (!global.game_paused) {
-		if (is_pressed(global.controls.restart) && !global.controls_lock.restart) {
-			restart_game();
+		if (!global.controls_lock.restart) {
+			if (keyboard_check(vk_control) && is_pressed(global.controls.restart)) {
+				restart_game(2);
+			} else if (is_pressed(global.controls.restart)) {
+				restart_game();
+			}
 		}
 	} else {
 		change_volume();

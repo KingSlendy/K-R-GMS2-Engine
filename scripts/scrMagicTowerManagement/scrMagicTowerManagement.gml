@@ -43,21 +43,21 @@ function package_MTG(load_type = undefined) {
 			}
 			
 			global.items_mtg = {
-				health: array_create(999, undefined),
-				attack: array_create(999, undefined),
-				defense: array_create(999, undefined),
-				swords: array_create(999, undefined),
-				shields: array_create(999, undefined),
-				keys: array_create(999, undefined),
-				locks: array_create(999, undefined),
-				special: array_create(999, undefined),
+				health: [],
+				attack: [],
+				defense: [],
+				swords: [],
+				shields: [],
+				keys: [],
+				locks: [],
+				special: array_create(99, undefined),
 			}
 			
 			global.keys_mtg = {};
 			
 			global.locks_mtg = {};
 			
-			global.monsters_mtg = array_create(999, undefined);
+			global.monsters_mtg = [];
 			
 			global.totals_mtg = {
 				keys_used: 0,

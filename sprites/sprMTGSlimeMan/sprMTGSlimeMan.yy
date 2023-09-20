@@ -26,8 +26,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Other",
-    "path": "folders/Sprites/Objects/Packages/Magic Tower (General)/MTG Killers/Enemies/Other.yy",
+    "name": "Slimes",
+    "path": "folders/Sprites/Objects/Packages/Magic Tower (General)/MTG Killers/Enemies/Slimes.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

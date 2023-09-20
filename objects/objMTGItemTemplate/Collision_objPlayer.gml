@@ -1,4 +1,4 @@
-if (num > -1 && !global.items_mtg[$ type][num]) {
+if (num > -1) {
 	global.items_mtg[$ type][num] = true;
 			
 	var text_amount = (object_index == objMTGKey) ? amount : amount[image_index];
