@@ -25,9 +25,7 @@ function save_game(position, save_x = -1, save_y = -1) {
 			stats: global.stats_mtg,
 			items: global.items_mtg,
 			keys: global.keys_mtg,
-			locks: global.locks_mtg,
 			monsters: global.monsters_mtg,
-			totals: global.totals_mtg
 		},
 		#endregion
 		
@@ -77,9 +75,7 @@ function load_game(position) {
 	global.stats_mtg = data.mtg.stats;
 	global.items_mtg = data.mtg.items;
 	global.keys_mtg = data.mtg.keys;
-	global.locks_mtg = data.mtg.locks;
 	global.monsters_mtg = data.mtg.monsters;
-	global.totals_mtg = data.mtg.totals;
 	#endregion
 	
 	if (position > 0) {
@@ -87,11 +83,10 @@ function load_game(position) {
 		global.auto_save = false;
 		global.grav = global.save_player.sgrav;
 		global.forms = global.save_player.sforms;
-		if (position == 1) {
-			instance_create_layer(global.save_player.sx, global.save_player.sy, "Player", objPlayer);
-		} else if (position == 2) {
-			instance_create_layer(global.save_player.snewx, global.save_player.snewy, "Player", objPlayer);
-		}
+		
+		var load_x = (position == 1) ? global.save_player.sx : global.save_player.snewx;
+		var load_y = (position == 1) ? global.save_player.sy : global.save_player.snewy;
+		instance_create_layer(load_x, load_y, "Player", objPlayer);
 		room_goto(asset_get_index(global.save_player.sroom));
 	}
 	

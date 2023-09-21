@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objMTGLock",
+  "name": "objMTGSecretLock",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -33,12 +33,11 @@
   "physicsStartAwake": true,
   "properties": [
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"num","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"-1","varType":0,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"amount","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"1","varType":0,},
   ],
   "solid": false,
   "spriteId": {
-    "name": "sprMTGLock",
-    "path": "sprites/sprMTGLock/sprMTGLock.yy",
+    "name": "sprMTGSecretLock",
+    "path": "sprites/sprMTGSecretLock/sprMTGSecretLock.yy",
   },
   "spriteMaskId": null,
   "visible": true,

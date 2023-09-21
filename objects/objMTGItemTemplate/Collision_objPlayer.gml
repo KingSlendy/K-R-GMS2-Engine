@@ -4,7 +4,7 @@ if (num > -1) {
 	var text_amount = (object_index == objMTGKey) ? amount : amount[image_index];
 	if (text_amount > 0) {
 		text = instance_create_depth(x - sprite_width / 2, y - sprite_height, depth, objMTGAmountText);
-		text.amount = amount[image_index];
+		text.amount = text_amount;
 	}
 }
 

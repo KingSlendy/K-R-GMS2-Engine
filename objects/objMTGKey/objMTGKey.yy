@@ -34,8 +34,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "sprMTGBlankKey",
-    "path": "sprites/sprMTGBlankKey/sprMTGBlankKey.yy",
+    "name": "sprMTGKey",
+    "path": "sprites/sprMTGKey/sprMTGKey.yy",
   },
   "spriteMaskId": null,
   "visible": true,

@@ -7,9 +7,7 @@ function package_MTG(load_type = undefined) {
 					stats: global.stats_mtg,
 					items: global.items_mtg,
 					keys: global.keys_mtg,
-					locks: global.locks_mtg,
-					monsters: global.monsters_mtg,
-					totals: global.totals_mtg
+					monsters: global.monsters_mtg
 				}
 			}
 			
@@ -24,9 +22,7 @@ function package_MTG(load_type = undefined) {
 			global.stats_mtg = data.mtg.stats;
 			global.items_mtg = data.mtg.items;
 			global.keys_mtg = data.mtg.keys;
-			global.locks_mtg = data.mtg.locks;
 			global.monsters_mtg = data.mtg.monsters;
-			global.totals_mtg = data.mtg.totals;
 			break;
 			
 			case "cleanup":
@@ -35,11 +31,11 @@ function package_MTG(load_type = undefined) {
 			#region Arrays
 			global.stats_mtg = {
 				level: 0,
+				current_exp: 0,
+				required_exp: 20,
 				health: 1,
 				attack: 2,
 				defense: 0,
-				current_exp: 0,
-				required_exp: 20,
 			}
 			
 			global.items_mtg = {
@@ -54,15 +50,8 @@ function package_MTG(load_type = undefined) {
 			}
 			
 			global.keys_mtg = {};
-			
-			global.locks_mtg = {};
-			
+
 			global.monsters_mtg = [];
-			
-			global.totals_mtg = {
-				keys_used: 0,
-				kills: 0,
-			}
 			#endregion
 			
 			global.monster_skip = false;

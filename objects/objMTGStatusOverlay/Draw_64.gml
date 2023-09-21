@@ -29,7 +29,7 @@ var key_types = [
 ];
 
 for (var i = 0; i < array_length(key_types); i++) {
-    draw_sprite_ext(sprMTGKey, i, 64, 344 + 48 * i, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprMTGColoredKey, i, 64, 344 + 48 * i, 1, 1, 0, c_white, 1);
 }
 #endregion
 
@@ -51,10 +51,14 @@ for (var i = 0; i < array_length(stat_info); i++) {
     draw_text_outline(132, 128 + (8 * (i != 0)) + 48 * i, stat_info[i], c_black);
 }
 
+var yellow_key = (variable_struct_exists(global.keys_mtg, c_yellow)) ? global.keys_mtg[$ c_yellow] : 0;
+var blue_key = (variable_struct_exists(global.keys_mtg, c_blue)) ? global.keys_mtg[$ c_blue] : 0;
+var red_key = (variable_struct_exists(global.keys_mtg, c_red)) ? global.keys_mtg[$ c_red] : 0;
+
 var key_info = [
-    string("{0}", global.keys_mtg[$ c_yellow]), //Yellow
-    string("{0}", global.keys_mtg[$ c_blue]), //Blue
-    string("{0}", global.keys_mtg[$ c_red]), //Red
+    string("{0}", yellow_key), //Yellow
+    string("{0}", blue_key), //Blue
+    string("{0}", red_key), //Red
     
     /*
     string("{0}", global.items_mtg.keys), //Green
@@ -65,7 +69,7 @@ for (var i = 0; i < array_length(key_info); i++) {
     draw_text_outline(132, 328 + 48 * i, key_info[i], c_black);
 }
 
-draw_set_color(c_silver);
+draw_set_color(c_white);
 draw_set_font(fntMTGMenu2);
 draw_set_valign(fa_middle);
 draw_text_outline(140, 161, string("{0} / {1}", global.stats_mtg.current_exp, global.stats_mtg.required_exp), c_black);

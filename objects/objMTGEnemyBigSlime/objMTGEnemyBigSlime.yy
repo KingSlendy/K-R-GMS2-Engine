@@ -1,16 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objMTGEnemyBlackSlime",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-  ],
+  "name": "objMTGEnemyBigSlime",
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"health","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"12",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"experience","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"4",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"attack","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"6",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"defense","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"4",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"name","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"\"Black Slime\"",},
   ],
   "parent": {
     "name": "Slimes",

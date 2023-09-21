@@ -2,14 +2,13 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "objMTGEnemyRedSlime",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-  ],
+  "eventList": [],
   "managed": true,
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"health","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"5",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"experience","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"2",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"attack","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"4",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMTGEnemyTemplate","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"propertyId":{"name":"name","path":"objects/objMTGEnemyTemplate/objMTGEnemyTemplate.yy",},"value":"\"Red Slime\"",},
   ],
   "parent": {
     "name": "Slimes",
