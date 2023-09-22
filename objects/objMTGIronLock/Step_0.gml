@@ -1,5 +1,5 @@
 if (num > -1) {
-	//global.items_mtg[$ type][num] = true;
+	global.items_mtg[$ type][num] = true;
 	opened = true;
 }
 

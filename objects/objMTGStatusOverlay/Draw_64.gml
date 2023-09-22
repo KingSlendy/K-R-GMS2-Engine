@@ -29,7 +29,7 @@ var key_types = [
 ];
 
 for (var i = 0; i < array_length(key_types); i++) {
-    draw_sprite_ext(sprMTGColoredKey, i, 64, 344 + 48 * i, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprMTGItemColoredKey, i, 64, 344 + 48 * i, 1, 1, 0, c_white, 1);
 }
 #endregion
 

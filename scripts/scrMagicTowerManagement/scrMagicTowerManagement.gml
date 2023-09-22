@@ -32,7 +32,7 @@ function package_MTG(load_type = undefined) {
 			global.stats_mtg = {
 				level: 0,
 				current_exp: 0,
-				required_exp: 20,
+				needed_exp: 30,
 				health: 1,
 				attack: 2,
 				defense: 0,

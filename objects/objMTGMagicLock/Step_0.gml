@@ -1,12 +1,12 @@
 #region Required enemies killed
-if (num > -1) {// && array_length(global.monsters_mtg) > 0 && array_length(need_mobs) > 0) {
-	/*for (var i = 0; i < array_length(need_mobs); i++) {
+if (num > -1 && array_length(global.monsters_mtg) > 0 && array_length(need_mobs) > 0) {
+	for (var i = 0; i < array_length(need_mobs); i++) {
 		if (!global.monsters_mtg[i]) {
 			exit;
 		}
-	}*/
+	}
 	
-	//global.items_mtg[$ type][num] = true;
+	global.items_mtg[$ type][num] = true;
 	opened = true;
 }
 #endregion

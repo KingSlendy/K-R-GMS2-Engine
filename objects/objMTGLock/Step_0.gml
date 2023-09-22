@@ -5,6 +5,10 @@ if (collision_rectangle(bbox_left - 1, bbox_top - 1, bbox_right + 1, bbox_bottom
 			global.keys_mtg[$ image_blend] -= amount;
 			global.items_mtg[$ type][num] = true;
 			opened = true;
+			
+			with (objMTGStatusOverlay) {
+				overlay_init();
+			}
 		}
 	}
 }
