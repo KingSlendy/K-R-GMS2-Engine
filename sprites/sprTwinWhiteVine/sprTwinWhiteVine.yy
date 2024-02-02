@@ -7,7 +7,7 @@
   "bbox_right": 31,
   "bbox_top": 0,
   "bboxMode": 0,
-  "collisionKind": 4,
+  "collisionKind": 1,
   "collisionTolerance": 0,
   "DynamicTexturePage": false,
   "edgeFiltering": false,
@@ -52,7 +52,7 @@
   "origin": 4,
   "parent": {
     "name": "Twin",
-    "path": "folders/Sprites/Objects/Gimmicks/Vines/Jungle Adventure/Twin.yy",
+    "path": "folders/Sprites/Objects/Packages/Go The Jungle Adventure/Twin.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

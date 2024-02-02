@@ -2,10 +2,20 @@ function tangible_collision(obj) {
 	return (obj.image_alpha == 1);
 }
 
+/*function oriental_collision(obj) {
+	if (abs(global.grav) == 1) {
+		return (abs(image_angle) mod 0 == 180);
+		//return (abs(obj.image_angle) mod 0 == 360) ?? (abs(obj.image_angle) mod 0 == 180);
+	} else if (abs(global.grav) == 2) {
+		return (image_angle mod 0 == 90);
+		//return (obj.image_angle mod 0 == 90) ?? (obj.image_angle mod 0 == 270);
+	}
+}*/
+
 function dynamic_collision(setup = false, func = null, arg = null) {
 	if (setup) {
-	    xold = x;
-	    yold = y;
+	    xold = X;
+	    yold = Y;
 	} else {
 	    //Split these into two with blocks so a user event 1 runs only after every single block's user event 0
 	    with (objBlockDynamic) {
@@ -17,13 +27,13 @@ function dynamic_collision(setup = false, func = null, arg = null) {
 	        push_instance();
 	    }
 
-	    if (instance_place_check(x, y, objBlock, tangible_collision) != null && func != null) {
+	    if (p_instance_place(0, 0, objBlock) != null && func != null) {
 			func(arg);
 	    }
     
 	    //Set variables for next frame
-	    xold = x;
-	    yold = y;
+	    xold = X;
+	    yold = Y;
 	}
 }
 

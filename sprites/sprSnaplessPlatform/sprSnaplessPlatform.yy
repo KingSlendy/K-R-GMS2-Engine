@@ -7,7 +7,7 @@
   "bbox_right": 31,
   "bbox_top": 0,
   "bboxMode": 0,
-  "collisionKind": 4,
+  "collisionKind": 5,
   "collisionTolerance": 0,
   "DynamicTexturePage": false,
   "edgeFiltering": false,
@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Platforms",
-    "path": "folders/Sprites/Objects/Platforms.yy",
+    "name": "Dew Platforms",
+    "path": "folders/Sprites/Objects/Packages/Walk Out In The Morning Dew/Dew Platforms.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

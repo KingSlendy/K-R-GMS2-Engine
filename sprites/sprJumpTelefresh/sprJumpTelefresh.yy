@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Jumple Refrenture",
-    "path": "folders/Sprites/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
+    "name": "Go The Jumple Refrenture",
+    "path": "folders/Sprites/Objects/Packages/Go The Jumple Refrenture.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

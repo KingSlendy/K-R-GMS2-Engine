@@ -3,13 +3,14 @@
   "resourceVersion": "1.0",
   "name": "objTwinBlackVine",
   "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "Twin",
-    "path": "folders/Objects/Gimmicks/Vines/Jungle Adventure/Twin.yy",
+    "path": "folders/Objects/Packages/Go The Jungle Adventure/Twin.yy",
   },
   "parentObjectId": {
     "name": "objVine",
@@ -35,5 +36,8 @@
     "path": "sprites/sprTwinBlackVine/sprTwinBlackVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

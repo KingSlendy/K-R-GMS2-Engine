@@ -10,8 +10,8 @@
     "path": "folders/Objects/Killers/Spikes/Standard.yy",
   },
   "parentObjectId": {
-    "name": "objPlayerKiller",
-    "path": "objects/objPlayerKiller/objPlayerKiller.yy",
+    "name": "objSpikeController",
+    "path": "objects/objSpikeController/objSpikeController.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,5 +33,8 @@
     "path": "sprites/sprSpikeUp/sprSpikeUp.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "spike",
+  ],
   "visible": true,
 }

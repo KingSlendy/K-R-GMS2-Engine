@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Jungle Adventure",
-    "path": "folders/Objects/Gimmicks/Vines/Jungle Adventure.yy",
+    "name": "Go The Jungle Adventure",
+    "path": "folders/Objects/Packages/Go The Jungle Adventure.yy",
   },
   "parentObjectId": {
     "name": "objVine",
@@ -33,5 +33,8 @@
     "path": "sprites/sprStickyVine/sprStickyVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+  ],
   "visible": true,
 }

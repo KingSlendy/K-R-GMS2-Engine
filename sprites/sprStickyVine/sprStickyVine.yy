@@ -7,7 +7,7 @@
   "bbox_right": 31,
   "bbox_top": 0,
   "bboxMode": 0,
-  "collisionKind": 4,
+  "collisionKind": 1,
   "collisionTolerance": 0,
   "DynamicTexturePage": false,
   "edgeFiltering": false,
@@ -48,8 +48,8 @@
   },
   "origin": 4,
   "parent": {
-    "name": "Jungle Adventure",
-    "path": "folders/Sprites/Objects/Gimmicks/Vines/Jungle Adventure.yy",
+    "name": "Go The Jungle Adventure",
+    "path": "folders/Sprites/Objects/Packages/Go The Jungle Adventure.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

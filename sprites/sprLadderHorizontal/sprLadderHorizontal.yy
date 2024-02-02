@@ -13,19 +13,19 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b69b4dc7-af2c-4722-a600-a899267d12a6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4660b3f4-ed0f-40b5-9dda-37f55dc4731d",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 32,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c3ad8db2-4d59-47b9-bbfd-810b9557de38","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"26c5c36e-cc84-4167-abd0-624426817a33","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": {
     "resourceType": "GMNineSliceData",
     "resourceVersion": "1.0",
-    "bottom": 2,
+    "bottom": 0,
     "enabled": true,
     "guideColour": [
       4294902015,
@@ -44,7 +44,7 @@
       0,
       1,
     ],
-    "top": 2,
+    "top": 0,
   },
   "origin": 0,
   "parent": {
@@ -77,7 +77,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b69b4dc7-af2c-4722-a600-a899267d12a6","path":"sprites/sprLadderHorizontal/sprLadderHorizontal.yy",},},},"Disabled":false,"id":"c084c027-4bb1-4bd2-8c76-9376ea662e37","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4660b3f4-ed0f-40b5-9dda-37f55dc4731d","path":"sprites/sprLadderHorizontal/sprLadderHorizontal.yy",},},},"Disabled":false,"id":"1b358de4-385b-4da5-87f6-ef495bfdbdcd","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

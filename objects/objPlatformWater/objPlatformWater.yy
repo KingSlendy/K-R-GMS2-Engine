@@ -8,8 +8,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Ocean Wetventure",
-    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+    "name": "Go The Ocean Wetventure",
+    "path": "folders/Objects/Packages/Go The Ocean Wetventure.yy",
   },
   "parentObjectId": {
     "name": "objOceanWater",
@@ -35,5 +35,8 @@
     "path": "sprites/sprPlatformWater/sprPlatformWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

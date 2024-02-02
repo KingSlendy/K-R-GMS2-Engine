@@ -10,6 +10,10 @@ function is_released(control) {
 	return keyboard_check_released(control);
 }
 
+function is_buffered(control) {
+	return (place_meeting(x, y, objBufferSpeedField)) ? is_pressed(control) : is_held(control);
+}
+
 function control_bind(control) {
 	switch (control) {
 	    //Special
@@ -84,4 +88,30 @@ function control_bind(control) {
 	    //Other
 	    default: return chr(control);
 	}
+}
+
+function control_gravity(left, right, down, up) {
+    var directions = {};
+    directions[$ 1] = [left, right, down, up];
+    directions[$ -1] = (global.display.grav_control == 3) ? [right, left, down, up] : [left, right, down, up];
+	
+	if (global.display.grav_control == 4) {
+		directions[$ 2] = [down, up, left, right];
+		directions[$ -2] = [up, down, right, left];
+	} else {
+    	directions[$ 2] = (global.display.grav_control == 1) ? [right, left, down, up] : [left, right, down, up];
+    	directions[$ -2] = (global.display.grav_control == 2) ? [right, left, down, up] : [left, right, down, up];
+    }
+    var dir = directions[$ global.grav];
+
+    if (global.controls_reverse) {
+        array_reverse_ext(dir);
+    }
+
+    return {
+        left_direction: dir[0],
+        right_direction: dir[1],
+		down_direction: dir[2],
+		up_direction: dir[3],
+    };
 }

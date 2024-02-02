@@ -26,7 +26,7 @@
   "origin": 0,
   "parent": {
     "name": "Standard",
-    "path": "folders/Sprites/Objects/Killers/Spikes/Standard.yy",
+    "path": "folders/Sprites/Objects/Killers/Spikes/Masks/Standard.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -7,7 +7,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Fire",
-    "path": "folders/Objects/Gimmicks/Vines/Jungle Adventure/Fire.yy",
+    "path": "folders/Objects/Packages/Go The Jungle Adventure/Fire.yy",
   },
   "parentObjectId": {
     "name": "objVine",
@@ -33,5 +33,9 @@
     "path": "sprites/sprFireVine/sprFireVine.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "vine",
+    "speed",
+  ],
   "visible": true,
 }

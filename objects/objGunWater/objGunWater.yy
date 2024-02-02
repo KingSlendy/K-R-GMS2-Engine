@@ -9,8 +9,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"h","path":"objects/objOceanWater/objOceanWater.yy",},"value":"1",},
   ],
   "parent": {
-    "name": "Ocean Wetventure",
-    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+    "name": "Go The Ocean Wetventure",
+    "path": "folders/Objects/Packages/Go The Ocean Wetventure.yy",
   },
   "parentObjectId": {
     "name": "objOceanWater",
@@ -36,5 +36,8 @@
     "path": "sprites/sprGunWater/sprGunWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

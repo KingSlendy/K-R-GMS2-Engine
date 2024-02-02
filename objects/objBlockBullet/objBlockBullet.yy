@@ -2,12 +2,14 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "objBlockBullet",
-  "eventList": [],
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"objBullet","path":"objects/objBullet/objBullet.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Blocks",
-    "path": "folders/Objects/Blocks.yy",
+    "name": "Blockers",
+    "path": "folders/Objects/Blocks/Blockers.yy",
   },
   "parentObjectId": null,
   "persistent": false,

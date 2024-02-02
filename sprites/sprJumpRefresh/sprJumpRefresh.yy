@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Jump",
-    "path": "folders/Sprites/Objects/Gimmicks/Refreshers/Jump.yy",
+    "name": "Refreshers",
+    "path": "folders/Sprites/Objects/Gimmicks/Refreshers.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

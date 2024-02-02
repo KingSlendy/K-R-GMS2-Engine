@@ -5,5 +5,6 @@ global.display = {
 	bgm_volume: 1,
 	sfx_volume: 1,
 	fullscreen: false,
-	vsync: false
+	vsync: false,
+	grav_control: 0
 };

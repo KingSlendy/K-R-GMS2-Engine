@@ -35,5 +35,8 @@
     "path": "sprites/sprMovingSnapform/sprMovingSnapform.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "platform",
+  ],
   "visible": true,
 }

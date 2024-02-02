@@ -35,5 +35,8 @@
     "path": "sprites/sprWater3/sprWater3.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

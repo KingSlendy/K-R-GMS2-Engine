@@ -26,9 +26,12 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprLadderCentral",
-    "path": "sprites/sprLadderCentral/sprLadderCentral.yy",
+    "name": "sprLadder",
+    "path": "sprites/sprLadder/sprLadder.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "ladder",
+  ],
   "visible": true,
 }

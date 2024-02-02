@@ -1,2 +1,2 @@
-scroll_speed_h = hspd;
+scroll_speed_h = spd;
 event_inherited();

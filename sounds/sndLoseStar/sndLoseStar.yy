@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.615873,
   "parent": {
-    "name": "Misc",
-    "path": "folders/Sounds/SFX/Misc.yy",
+    "name": "Not Another Needle Game",
+    "path": "folders/Sounds/SFX/Packages/Not Another Needle Game.yy",
   },
   "preload": false,
   "sampleRate": 44100,

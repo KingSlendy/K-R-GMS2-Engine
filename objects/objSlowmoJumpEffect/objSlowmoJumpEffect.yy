@@ -11,7 +11,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Slowmo",
-    "path": "folders/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture/Slowmo.yy",
+    "path": "folders/Objects/Packages/Go The Jumple Refrenture/Slowmo.yy",
   },
   "parentObjectId": null,
   "persistent": false,

@@ -32,5 +32,8 @@
     "path": "sprites/sprCatharsisWater/sprCatharsisWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

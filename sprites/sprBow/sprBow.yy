@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 9,
   "parent": {
-    "name": "Equip",
-    "path": "folders/Sprites/Objects/Player/Equip.yy",
+    "name": "Standard",
+    "path": "folders/Sprites/Objects/Player/Skins/Standard.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

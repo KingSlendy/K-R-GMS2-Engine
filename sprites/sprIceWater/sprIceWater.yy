@@ -49,7 +49,7 @@
   "origin": 0,
   "parent": {
     "name": "Ice",
-    "path": "folders/Sprites/Objects/Gimmicks/Water/Ocean Wetventure/Ice.yy",
+    "path": "folders/Sprites/Objects/Packages/Go The Ocean Wetventure/Ice.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

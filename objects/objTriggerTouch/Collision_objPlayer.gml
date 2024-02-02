@@ -12,4 +12,8 @@ if (sound != null) {
 	audio_play_sound(sound, 0, sound_loop);
 }
 
+if (event_trigger != null) {
+	event_trigger();
+}
+
 instance_destroy();

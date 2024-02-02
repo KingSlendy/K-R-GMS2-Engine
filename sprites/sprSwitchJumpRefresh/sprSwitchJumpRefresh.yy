@@ -13,20 +13,21 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e1a0da25-deec-466a-bc90-97cbb48454cf",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"85b90074-7cb2-40bf-9881-dfe1dae56ea6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4fb235f7-182a-4d97-813c-4b79bfffaa5f",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 16,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"27513b59-5f3b-4e1d-bbbe-25a5bff02d9a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3560618a-8969-449d-94ec-95db05a47328","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
   "parent": {
-    "name": "Jumple Refrenture",
-    "path": "folders/Sprites/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
+    "name": "Go The Jumple Refrenture",
+    "path": "folders/Sprites/Objects/Packages/Go The Jumple Refrenture.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -43,7 +44,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 1.0,
+    "length": 2.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -54,7 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e1a0da25-deec-466a-bc90-97cbb48454cf","path":"sprites/sprSwitchJumpRefresh/sprSwitchJumpRefresh.yy",},},},"Disabled":false,"id":"8bc8d21d-d924-4292-afb4-02d466fded96","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"85b90074-7cb2-40bf-9881-dfe1dae56ea6","path":"sprites/sprSwitchJumpRefresh/sprSwitchJumpRefresh.yy",},},},"Disabled":false,"id":"ebb564ba-b5be-4043-bee7-dcfc91494d2a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4fb235f7-182a-4d97-813c-4b79bfffaa5f","path":"sprites/sprSwitchJumpRefresh/sprSwitchJumpRefresh.yy",},},},"Disabled":false,"id":"18d4b3b1-297f-43c6-9cdf-a6a36a8e9e7b","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

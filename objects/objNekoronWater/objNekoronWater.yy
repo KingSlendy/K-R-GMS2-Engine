@@ -32,5 +32,8 @@
     "path": "sprites/sprNekoronWater/sprNekoronWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

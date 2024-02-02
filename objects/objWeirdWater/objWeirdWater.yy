@@ -7,16 +7,14 @@
   "overriddenProperties": [
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"v","path":"objects/objOceanWater/objOceanWater.yy",},"value":"0.3",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"h","path":"objects/objOceanWater/objOceanWater.yy",},"value":"-0.5",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objIceWater","path":"objects/objIceWater/objIceWater.yy",},"propertyId":{"name":"time","path":"objects/objIceWater/objIceWater.yy",},"value":"0",},
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objIceWater","path":"objects/objIceWater/objIceWater.yy",},"propertyId":{"name":"slip","path":"objects/objIceWater/objIceWater.yy",},"value":"0",},
   ],
   "parent": {
-    "name": "Ocean Wetventure",
-    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+    "name": "Go The Ocean Wetventure",
+    "path": "folders/Objects/Packages/Go The Ocean Wetventure.yy",
   },
   "parentObjectId": {
-    "name": "objIceWater",
-    "path": "objects/objIceWater/objIceWater.yy",
+    "name": "objOceanWater",
+    "path": "objects/objOceanWater/objOceanWater.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -38,5 +36,8 @@
     "path": "sprites/sprWeirdWater/sprWeirdWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

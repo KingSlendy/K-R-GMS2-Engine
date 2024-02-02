@@ -10,8 +10,8 @@
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"objMovingPlatform","path":"objects/objMovingPlatform/objMovingPlatform.yy",},"propertyId":{"name":"snap","path":"objects/objMovingPlatform/objMovingPlatform.yy",},"value":"False",},
   ],
   "parent": {
-    "name": "Platforms",
-    "path": "folders/Objects/Platforms.yy",
+    "name": "Dew Platforms",
+    "path": "folders/Objects/Packages/Walk Out In The Morning Dew/Dew Platforms.yy",
   },
   "parentObjectId": {
     "name": "objMovingPlatform",
@@ -37,5 +37,8 @@
     "path": "sprites/sprSnaplessPlatform/sprSnaplessPlatform.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "platform",
+  ],
   "visible": true,
 }

@@ -32,10 +32,39 @@ function draw_text_outline(x, y, text, border_color) {
 	draw_text(x, y, text);
 }
 
-function draw_sprite_fog(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha, fog_color = c_black) {
+function draw_rectangle_ext(x, y, w, h, rot, outline) {
+    matrix_set(matrix_world, matrix_build(x, y, 0, 0, 0, rot, 1, 1, 1));
+    draw_rectangle(-w / 2, -h / 2, w / 2, h / 2, outline);
+    matrix_set(matrix_world, matrix_build_identity());
+}
+
+function draw_sprite_fog(sprite, subimg, x, y, xscale, yscale, rot, col, alpha, fog_color = c_black) {
 	gpu_set_fog(true, fog_color, 0, 0);
-	draw_sprite_ext(sprite, subimg, xx, yy, xscale, yscale, rot, col, alpha);
+	draw_sprite_ext(sprite, subimg, x, y, xscale, yscale, rot, col, alpha);
 	gpu_set_fog(false, c_black, 0, 0);
+}
+#endregion
+
+#region Physics
+function pivot_pos_x(px, py, dir) {
+	return lengthdir_x(px, dir) + lengthdir_x(py, dir - 90);
+}
+
+function pivot_pos_y(px, py, dir) {
+	return lengthdir_y(px, dir) + lengthdir_y(py, dir - 90);
+}
+
+function spd_dir() {
+    return point_direction(0, 0, hspd, vspd);
+}
+
+function spd_set(spd = spd_get(), dir = spd_dir()) {
+    hspd = lengthdir_x(spd, dir);
+    vspd = lengthdir_y(spd, dir);
+}
+
+function spd_get() {
+    return point_distance(0, 0, hspd, vspd);
 }
 #endregion
 

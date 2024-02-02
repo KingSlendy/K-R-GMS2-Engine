@@ -7,11 +7,11 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Slowmo",
-    "path": "folders/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture/Slowmo.yy",
+    "path": "folders/Objects/Packages/Go The Jumple Refrenture/Slowmo.yy",
   },
   "parentObjectId": {
-    "name": "objJumpRefresh",
-    "path": "objects/objJumpRefresh/objJumpRefresh.yy",
+    "name": "objJumpleRefrensh",
+    "path": "objects/objJumpleRefrensh/objJumpleRefrensh.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,5 +33,8 @@
     "path": "sprites/sprSlowmoJumpRefresh/sprSlowmoJumpRefresh.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+  ],
   "visible": true,
 }

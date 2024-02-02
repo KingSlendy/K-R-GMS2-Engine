@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.103424,
   "parent": {
-    "name": "Misc",
-    "path": "folders/Sounds/SFX/Misc.yy",
+    "name": "Crimson Needle 3",
+    "path": "folders/Sounds/SFX/Packages/Crimson Needle 3.yy",
   },
   "preload": false,
   "sampleRate": 44100,

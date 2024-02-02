@@ -6,12 +6,12 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Jumple Refrenture",
-    "path": "folders/Objects/Gimmicks/Refreshers/Jump/Jumple Refrenture.yy",
+    "name": "Go The Jumple Refrenture",
+    "path": "folders/Objects/Packages/Go The Jumple Refrenture.yy",
   },
   "parentObjectId": {
-    "name": "objJumpRefresh",
-    "path": "objects/objJumpRefresh/objJumpRefresh.yy",
+    "name": "objJumpleRefrensh",
+    "path": "objects/objJumpleRefrensh/objJumpleRefrensh.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,5 +33,8 @@
     "path": "sprites/sprFastJumpRefresh/sprFastJumpRefresh.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "refresher",
+  ],
   "visible": true,
 }

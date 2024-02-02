@@ -9,7 +9,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Up",
-    "path": "folders/Objects/Gimmicks/Boosters/Up.yy",
+    "path": "folders/Objects/Packages/Crimson Needle 3/CN3 Boosters/Up.yy",
   },
   "parentObjectId": null,
   "persistent": false,

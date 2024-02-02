@@ -35,5 +35,8 @@
     "path": "sprites/sprCherry/sprCherry.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "cherry",
+  ],
   "visible": true,
 }

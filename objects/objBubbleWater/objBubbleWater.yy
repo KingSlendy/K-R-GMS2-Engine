@@ -9,8 +9,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Ocean Wetventure",
-    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+    "name": "Go The Ocean Wetventure",
+    "path": "folders/Objects/Packages/Go The Ocean Wetventure.yy",
   },
   "parentObjectId": {
     "name": "objOceanWater",
@@ -30,7 +30,7 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"vspd","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"5","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"spd","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"5","varType":0,},
   ],
   "solid": false,
   "spriteId": {
@@ -38,5 +38,8 @@
     "path": "sprites/sprBubbleWater/sprBubbleWater.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }

@@ -13,8 +13,8 @@
     "path": "folders/Objects/Blocks.yy",
   },
   "parentObjectId": {
-    "name": "objBlock",
-    "path": "objects/objBlock/objBlock.yy",
+    "name": "objBlockDynamic",
+    "path": "objects/objBlockDynamic/objBlockDynamic.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -39,5 +39,8 @@
     "path": "sprites/sprPushBlock/sprPushBlock.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

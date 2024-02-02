@@ -48,8 +48,8 @@
   },
   "origin": 0,
   "parent": {
-    "name": "Vapor",
-    "path": "folders/Sprites/Objects/Gimmicks/Vapor.yy",
+    "name": "CN3 Vapor",
+    "path": "folders/Sprites/Objects/Packages/Crimson Needle 3/CN3 Vapor.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

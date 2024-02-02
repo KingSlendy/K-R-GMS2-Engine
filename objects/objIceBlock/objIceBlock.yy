@@ -10,8 +10,8 @@
     "path": "folders/Objects/Blocks.yy",
   },
   "parentObjectId": {
-    "name": "objBlock",
-    "path": "objects/objBlock/objBlock.yy",
+    "name": "objBlockDynamic",
+    "path": "objects/objBlockDynamic/objBlockDynamic.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -31,9 +31,12 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "sprSlipBlock",
-    "path": "sprites/sprSlipBlock/sprSlipBlock.yy",
+    "name": "sprIceBlock",
+    "path": "sprites/sprIceBlock/sprIceBlock.yy",
   },
   "spriteMaskId": null,
+  "tags": [
+    "block",
+  ],
   "visible": true,
 }

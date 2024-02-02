@@ -10,8 +10,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Ocean Wetventure",
-    "path": "folders/Objects/Gimmicks/Water/Ocean Wetventure.yy",
+    "name": "Go The Ocean Wetventure",
+    "path": "folders/Objects/Packages/Go The Ocean Wetventure.yy",
   },
   "parentObjectId": {
     "name": "objWater2",
@@ -35,7 +35,13 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"h","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":0,},
   ],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "sprWater2",
+    "path": "sprites/sprWater2/sprWater2.yy",
+  },
   "spriteMaskId": null,
+  "tags": [
+    "water",
+  ],
   "visible": true,
 }
