@@ -57,6 +57,12 @@ function player_fall() {
 	}
 }
 
+function reset_jumps() {
+	with (objPlayer) {
+		jump_left = jump_total - 1;
+	}
+}
+
 function player_shoot() {
 	var bullet_max = (global.slowshot) ? 10 : 4;
 	var bullet_object = (global.forms.telekid) ? objTelekid : objBullet;
@@ -96,12 +102,6 @@ function get_skin_sprite(action) {
 	}
 	
 	return sprites[$ action];
-}
-
-function reset_jumps() {
-	with (objPlayer) {
-		jump_left = jump_total - 1;
-	}
 }
 
 function kill_player() {
@@ -170,5 +170,60 @@ function flip_grav(grav = null, jump = true) {
 function turn_grav(jump = true) {
 	if (instance_exists(objPlayer)) {
 		global.grav = (abs(global.grav) == 1) ? -(2 * objPlayer.xscale) : objPlayer.xscale;
+	}
+}
+
+function check_vines(on_vine, dir_left_pressed, dir_right_pressed) {
+	if (on_vine == null || on_vine.tangible == 0) {
+		return;
+	}
+	
+	xscale = on_vine.tangible;
+				
+	if (on_vine.object_index != objIceVine) {
+		if (on_vine.object_index != objStickyVine) {
+			var vine_speed = (on_vine.object_index == objRiseVine) ? -1 : 1;
+			p_vspd((2 * vine_speed) * sign(global.grav));
+		} else {
+			p_vspd(0);
+			vine_mod.stick = true;
+		}
+	} 
+				
+	player_sprite("Slide");
+    
+	if ((on_vine.tangible == 1 && dir_right_pressed) || (on_vine.tangible == -1 && dir_left_pressed)) {
+		var check_tangible = (abs(global.grav) == 1) ? on_vine.tangible : -on_vine.tangible;
+		
+		if (is_held(global.controls.jump)) {
+			p_hspd((check_tangible == 1) ? 15 : -15);
+						
+			if (on_vine.object_index == objFlipVine) {
+				flip_grav(, false);
+			}
+						
+			if (on_vine.object_index == objTurnVine) {
+				turn_grav();
+			}
+						
+			p_vspd(-9 * sign(global.grav));
+			player_sprite("Jump");
+			audio_play_sound(sndVine, 0, false);
+						
+			if (on_vine.object_index == objTwinWhiteVine || on_vine.object_index == objTwinBlackVine) {
+				vine_mod.twin ^= true;
+			}
+		} else {
+			p_hspd((check_tangible == 1) ? 3 : -3);
+			player_sprite("Fall");
+		}
+	}
+				
+	if (on_vine.object_index == objFireVine) {
+		vine_mod.fire = true;
+	}
+				
+	if (on_vine.object_index == objLowGravVine) {
+		vine_mod.lowgrav = true;
 	}
 }

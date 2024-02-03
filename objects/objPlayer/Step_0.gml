@@ -12,6 +12,8 @@ var directions = control_gravity(
 
 var dir_left = is_buffered(directions.left_direction);
 var dir_right = is_buffered(directions.right_direction);
+var dir_left_pressed = is_pressed(directions.left_direction);
+var dir_right_pressed = is_pressed(directions.right_direction);
 var dir_down = is_held(directions.down_direction);
 var dir_up = is_held(directions.up_direction);
 var dir = 0;
@@ -333,67 +335,7 @@ if (!global.forms.lunarkid) {
 		    #endregion
 	
 			#region Vines
-			if (on_vine != null) {
-				xscale = (on_vine.image_xscale);
-				/*var relative_scales = {};
-				relative_scales[$ $"{1},{0}"] = 1;
-				relative_scales[$ $"{-1},{180}"] = -1;
-				relative_scales[$ $"{2},{90}"] = 1;
-				relative_scales[$ $"{-2},{270}"] = -1;
-				var check_scale = $"{global.grav},{on_vine.image_angle}";
-				
-				if (variable_struct_exists(relative_scales, check_scale)) {
-				    xscale = relative_scales[$ check_scale];
-				} else {
-				    xscale = 0;
-				}*/
-				
-			    if (on_vine.object_index != objIceVine) {
-					if (on_vine.object_index != objStickyVine) {
-						var vine_speed = (on_vine.object_index == objRiseVine) ? -1 : 1;
-						p_vspd((2 * vine_speed) * sign(global.grav));
-					} else {
-						p_vspd(0);
-						vine_mod.stick = true;
-					}
-				} 
-				
-			    player_sprite("Slide");
-    
-			    if ((on_vine.image_xscale == 1 && is_pressed(global.controls.right)) || (on_vine.image_xscale == -1 && is_pressed(global.controls.left))) {
-			        if (is_held(global.controls.jump)) {
-			            p_hspd((on_vine.image_xscale == 1) ? 15 : -15);
-						
-						if (on_vine.object_index == objFlipVine) {
-							flip_grav(, false);
-						}
-						
-						if (on_vine.object_index == objTurnVine) {
-							turn_grav();
-						}
-						
-						p_vspd(-9 * sign(global.grav));
-			      player_sprite("Jump");
-						audio_play_sound(sndVine, 0, false);
-						
-						if (on_vine.object_index == objTwinWhiteVine || on_vine.object_index == objTwinBlackVine) {
-							vine_mod.twin ^= true;
-						}
-			        } else {
-			            p_hspd((on_vine.image_xscale == 1) ? 3 : -3);
-			            player_sprite("Fall");
-			        }
-			    }
-				
-				if (on_vine.object_index == objFireVine) {
-					vine_mod.fire = true;
-				}
-				
-				if (on_vine.object_index == objLowGravVine) {
-					vine_mod.lowgrav = true;
-				}
-			}
-			
+			check_vines(on_vine, dir_left_pressed, dir_right_pressed);
 			vine_mod.count++;
 			
 			if (vine_mod.fire && vine_mod.count % 3 == 1) {
