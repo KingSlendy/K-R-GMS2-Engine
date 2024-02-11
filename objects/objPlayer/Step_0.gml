@@ -143,7 +143,7 @@ if (global.forms.lunarkid) { //Lunar Lander, aka "Rocket"
 		blah = true;
 		#endregion
 	} else {
-		image_angle = 90 * abs(global.grav) - (90 * sign(global.grav));
+		change_angle();
 	}
 }
 #endregion

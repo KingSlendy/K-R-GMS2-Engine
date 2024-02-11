@@ -57,6 +57,26 @@ function instance_place_check(x, y, obj, func = function(obj) { return true; } )
 	return found;
 }
 
+function collision_point_check(x, y, obj, prec, notme, func = function(obj) { return true; }) {
+	var list = ds_list_create();
+	var count = collision_point_list(x, y, obj, prec, notme, list, false);
+	var found = null;
+
+	for (var i = 0; i < count; i++) {
+	    var current = list[| i];
+
+	    if (current == noone || !func(current)) {
+	        continue;
+	    }
+
+	    found = current;
+	    break;
+	}
+
+	ds_list_destroy(list);
+	return found;
+}
+
 function move_bounce() {
 	//Simple block bounce that will preserve height
 	

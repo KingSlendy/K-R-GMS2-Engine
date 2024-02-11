@@ -9,6 +9,8 @@
 #macro Y p_y()
 #macro Hspd p_hspd()
 #macro Vspd p_vspd()
+#macro BBOX_TOP get_bbox_top()
+#macro BBOX_BOTTOM get_bbox_bottom()
 
 function p_x(val = null) { //Gets OR Sets the player's relative X position
     if (!instance_exists(objPlayer)) { 
@@ -112,4 +114,28 @@ function p_instance_place(xx, yy, obj, func = tangible_collision) { //Sets how t
     } else if (abs(global.grav) == 2) {
         return instance_place_check(x + yy, y + xx, obj, func);
     }
+}
+
+function p_collision_point(xx, yy, obj, prec, notme, func = tangible_collision) { //Sets how the player will collide with "obj" relative to the current gravity
+    if (abs(global.grav) == 1) {
+        return collision_point_check(xx, yy, obj, prec, notme, func);
+    } else if (abs(global.grav) == 2) {
+        return collision_point_check(yy, xx, obj, prec, notme, func);
+    }
+}
+
+function get_bbox_top() {
+	if (abs(global.grav) == 1) {
+		return (sign(global.grav) == 1) ? bbox_top : bbox_bottom;
+	} else if (abs(global.grav) == 2) {
+		return (sign(global.grav) == 1) ? bbox_left : bbox_right;
+	}
+}
+
+function get_bbox_bottom() {
+	if (abs(global.grav) == 1) {
+		return (sign(global.grav) == 1) ? bbox_bottom : bbox_top;
+	} else if (abs(global.grav) == 2) {
+		return (sign(global.grav) == 1) ? bbox_right : bbox_left;
+	}
 }

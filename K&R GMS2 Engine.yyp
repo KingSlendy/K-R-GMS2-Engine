@@ -600,6 +600,7 @@
     {"id":{"name":"objMTGAmountText","path":"objects/objMTGAmountText/objMTGAmountText.yy",},},
     {"id":{"name":"sprJumpleRefrensh","path":"sprites/sprJumpleRefrensh/sprJumpleRefrensh.yy",},},
     {"id":{"name":"sprMTGMobGateKeeper","path":"sprites/sprMTGMobGateKeeper/sprMTGMobGateKeeper.yy",},},
+    {"id":{"name":"rTestSideways","path":"rooms/rTestSideways/rTestSideways.yy",},},
     {"id":{"name":"sprSlowmoJumpRefresh","path":"sprites/sprSlowmoJumpRefresh/sprSlowmoJumpRefresh.yy",},},
     {"id":{"name":"sprSaveVeryHard","path":"sprites/sprSaveVeryHard/sprSaveVeryHard.yy",},},
     {"id":{"name":"sprRepulseVine","path":"sprites/sprRepulseVine/sprRepulseVine.yy",},},
@@ -908,8 +909,9 @@
     {"roomId":{"name":"rTestPlatforms","path":"rooms/rTestPlatforms/rTestPlatforms.yy",},},
     {"roomId":{"name":"rTestPlatformSpeed","path":"rooms/rTestPlatformSpeed/rTestPlatformSpeed.yy",},},
     {"roomId":{"name":"rTestLightVines","path":"rooms/rTestLightVines/rTestLightVines.yy",},},
-    {"roomId":{"name":"rTemplate","path":"rooms/rTemplate/rTemplate.yy",},},
+    {"roomId":{"name":"rTestSideways","path":"rooms/rTestSideways/rTestSideways.yy",},},
     {"roomId":{"name":"rTestMTGBattle","path":"rooms/rTestMTGBattle/rTestMTGBattle.yy",},},
+    {"roomId":{"name":"rTemplate","path":"rooms/rTemplate/rTemplate.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

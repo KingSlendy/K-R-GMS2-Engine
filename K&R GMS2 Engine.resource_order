@@ -435,6 +435,7 @@
     {"name":"sprBkgMTGBattle5","order":4,"path":"sprites/sprBkgMTGBattle5/sprBkgMTGBattle5.yy",},
     {"name":"sprMTGItemMagicElixir","order":4,"path":"sprites/sprMTGItemMagicElixir/sprMTGItemMagicElixir.yy",},
     {"name":"objMTGAmountText","order":1,"path":"objects/objMTGAmountText/objMTGAmountText.yy",},
+    {"name":"rTestSideways","order":13,"path":"rooms/rTestSideways/rTestSideways.yy",},
     {"name":"sprSlowmoJumpRefresh","order":8,"path":"sprites/sprSlowmoJumpRefresh/sprSlowmoJumpRefresh.yy",},
     {"name":"sprSaveVeryHard","order":3,"path":"sprites/sprSaveVeryHard/sprSaveVeryHard.yy",},
     {"name":"sprRepulseVine","order":4,"path":"sprites/sprRepulseVine/sprRepulseVine.yy",},

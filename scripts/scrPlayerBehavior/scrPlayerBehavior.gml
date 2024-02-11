@@ -156,8 +156,21 @@ function flip_grav(grav = null, jump = true) {
 		if (!global.forms.lunarkid) {
 		    with (objPlayer) {
 				set_mask();
+				change_angle();
 		        p_vspd(0);
-		        p_y(Y + 4 * sign(global.grav));
+				
+				var amount;
+				var coord = (abs(global.grav) == 1) ? x : y;
+				
+				if (p_collision_point(coord, BBOX_TOP, objBlock, true, true, tangible_collision) != null) {
+					amount = (sign(global.grav) == 1) ? 1 : -1;
+				} else if  (p_collision_point(coord, BBOX_BOTTOM, objBlock, true, true, tangible_collision) != null) {
+					amount = (sign(global.grav) == 1) ? -1 : 1;
+				}
+				
+				while (instance_place_check(x, y, objBlock, tangible_collision) != null) {
+					p_y(Y + amount);
+				}
 		    }
 		}
 
@@ -173,8 +186,12 @@ function turn_grav(jump = true) {
 	}
 }
 
+function change_angle() {
+	image_angle = 90 * abs(global.grav) - (90 * sign(global.grav));
+}
+
 function check_vines(on_vine, dir_left_pressed, dir_right_pressed) {
-	if (on_vine == null || on_vine.tangible == 0) {
+	if (on_block || on_vine == null || on_vine.tangible == 0) {
 		return;
 	}
 	
@@ -191,8 +208,15 @@ function check_vines(on_vine, dir_left_pressed, dir_right_pressed) {
 	} 
 				
 	player_sprite("Slide");
+	var check_left_pressed = dir_left_pressed;
+	var check_right_pressed = dir_right_pressed;
+	
+	if (global.grav == -2) {
+		check_left_pressed = dir_right_pressed;
+		check_right_pressed = dir_left_pressed;
+	}
     
-	if ((on_vine.tangible == 1 && dir_right_pressed) || (on_vine.tangible == -1 && dir_left_pressed)) {
+	if ((on_vine.tangible == 1 && check_right_pressed) || (on_vine.tangible == -1 && check_left_pressed)) {
 		var check_tangible = (abs(global.grav) == 1) ? on_vine.tangible : -on_vine.tangible;
 		
 		if (is_held(global.controls.jump)) {
