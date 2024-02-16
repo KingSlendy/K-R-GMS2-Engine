@@ -20,4 +20,4 @@ if (abs(global.grav) == 1) {
 	} else if (angle == 90) {
 		tangible = 1;
 	}
-}
+} 

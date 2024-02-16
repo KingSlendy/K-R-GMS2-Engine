@@ -248,7 +248,7 @@ if (!global.forms.lunarkid) {
 	
 	if (on_auto != null) {
 		p_hspd((abs(global.grav) == 1) ? max_hspd * xscale : max_hspd * -xscale);
-		player_sprite(PLAYER_ACTIONS.RUN);
+		player_sprite("Run");
 	}
 	
 	if (on_conveyor != null) {

@@ -66,10 +66,4 @@ if (global.debug_hitbox > 0) {
 if (hit > 0) {
 	draw_sprite_ext(sprPlayerHit, -1, hit_x, hit_y, 1, 1, 0, c_white, hit / global.debug_hit_time);
 }
-
-if (abs(global.grav) == 1) {
-	draw_sprite(sprPlayerHit, 0, x, get_bbox_top());
-} else if (abs(global.grav) == 2) {
-	draw_sprite(sprPlayerHit, 0, get_bbox_top(), y);
-}
 #endregion
