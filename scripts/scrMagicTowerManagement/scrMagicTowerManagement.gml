@@ -12,11 +12,11 @@ function package_MTG(load_type = undefined) {
 			}
 			
 			var json = json_stringify(data);
-			save_file(string("Data{0}", global.save_num + 1), json, true);
+			save_file($"Data{global.save_num + 1}", json, true);
 			break;
 			
 			case "load":
-			var json = load_file(string("Data{0}", global.save_num + 1), true);
+			var json = load_file($"Data{global.save_num + 1}", true);
 			var data = json_parse(json);
 			
 			global.stats_mtg = data.mtg.stats;

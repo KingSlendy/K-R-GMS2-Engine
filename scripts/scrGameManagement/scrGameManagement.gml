@@ -33,7 +33,7 @@ function save_game(position, save_x = -1, save_y = -1) {
 	};
 	
 	var json = json_stringify(data);
-	save_file(string("Data{0}", global.save_num + 1), json, true);
+	save_file($"Data{global.save_num + 1}", json, true);
 	
 	#region Online
 	if (global.connected && !global.online.race && position) {
@@ -61,7 +61,7 @@ function load_game(position) {
 		instance_destroy(objPlayer);
 	}
 	
-	var json = load_file(string("Data{0}", global.save_num + 1), true);
+	var json = load_file($"Data{global.save_num + 1}", true);
 	var data = json_parse(json);
 	
 	global.save_player = data.player;
@@ -146,7 +146,7 @@ function cleanup_game() {
 }
 
 function start_game(diff) {
-	var save = string("Data{0}", global.save_num + 1);
+	var save = $"Data{global.save_num + 1}";
 	var length = array_length(global.difficulties);
 
 	if (diff == length - 1) {

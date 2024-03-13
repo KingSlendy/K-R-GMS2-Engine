@@ -15,7 +15,7 @@ function player_jump() {
 			package_refrenture("player prejump");
 			package_wetventure("player prejump");
 				
-			p_vspd((-(jump_height[1] * sign(global.grav)) * jump_velocity));
+			p_vspd(-(jump_height[1] * sign(global.grav)) * jump_velocity);
 			package_refrenture("player postjump");
 			player_sprite("Jump");
 			

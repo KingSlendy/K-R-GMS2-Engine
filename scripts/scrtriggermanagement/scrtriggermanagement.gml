@@ -23,7 +23,7 @@ function TriggerKey(key, attributes) constructor {
 	}
 }
 
-function TriggerVariable(target, spd = abs(target), type = attribute_normal, times = -1, callback = function() { return true; }) constructor {
+function TriggerVariable(target, spd = null, type = attribute_normal, times = -1, callback = function() { return true; }) constructor {
 	self.target = target;
 	self.spd = spd;
 	self.type = type;

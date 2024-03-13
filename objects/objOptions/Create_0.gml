@@ -21,7 +21,7 @@ options = [
 				change_volume();
 			}
 		}, function() {
-			return string("{0}%", ceil(global.display.master_volume * 100));
+			return $"{ceil(global.display.master_volume * 100)}%";
 		}),
 		
 		new Option("BGM Volume: ", function() {
@@ -31,7 +31,7 @@ options = [
 				change_volume("bgm");
 			}
 		}, function() {
-			return string("{0}%", ceil(global.display.bgm_volume * 100));
+			return $"{ceil(global.display.bgm_volume * 100)}%";
 		}),
 		
 		new Option("SFX Volume: ", function() {
@@ -41,7 +41,7 @@ options = [
 				change_volume("sfx");
 			}
 		}, function() {
-			return string("{0}%", ceil(global.display.sfx_volume * 100));
+			return $"{ceil(global.display.sfx_volume * 100)}%";
 		}),
 		
 		new Option("Fullscreen: ", function() {
@@ -69,7 +69,7 @@ options = [
 				"Cyclical",
 				"Absolute"
 			];
-			return string("{0}", control_type[global.display.grav_control]);
+			return $"{control_type[global.display.grav_control]}";
 		}),
 		
 		new Option("Reset Defaults", function() {

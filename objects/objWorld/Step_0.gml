@@ -88,7 +88,10 @@ if (!global.game_paused) {
 	//Screenshot
 	if (is_pressed(global.controls_misc.screenshot)) {
 		var filename = get_string("Screenshot name: ", "");
-		screen_save(string("Screenshots/{0}", filename + ".png"));
+		/*if (filename == "") {
+			filename = $"screenshot{0}";
+		}*/
+		screen_save($"Screenshots/{filename}.png");
 	}
 }
 

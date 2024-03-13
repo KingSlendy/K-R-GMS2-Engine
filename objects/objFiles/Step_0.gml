@@ -20,7 +20,7 @@ switch (menu) {
 	    select[menu] %= global.total_saves;
     
 	    if (is_pressed(global.controls_menu.accept)) {
-	        select[1] = (file_exists(string("Data{0}", select[menu] + 1))) ? length - 1 : 0;
+	        select[1] = (file_exists($"Data{select[menu] + 1}")) ? length - 1 : 0;
 	        menu = 1;
 	        audio_play_sound(sndJump, 0, false);
 	    }
@@ -41,7 +41,7 @@ switch (menu) {
 	        audio_play_sound(sndDoubleJump, 0, false);
 	    }
 		
-	    if (!file_exists(string("Data{0}", select[0] + 1))) {
+	    if (!file_exists($"Data{select[0] + 1}")) {
 	        length--;
 	    }
         

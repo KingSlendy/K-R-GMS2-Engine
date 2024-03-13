@@ -52,13 +52,13 @@ for (var i = 0; i < array_length(stat_info); i++) {
 }
 
 var key_info = [
-    string("{0}", keys.yellow), //Yellow
-    string("{0}", keys.blue), //Blue
-    string("{0}", keys.red), //Red
+    $"{keys.yellow}", //Yellow
+    $"{keys.blue}", //Blue
+    $"{keys.red}", //Red
     
     /*
-    string("{0}", keys.green), //Green
-    string("{0}", keys.iron), //Iron
+    $"{keys.green}", //Green
+    $"{keys.iron}", //Iron
     */
 ];
 for (var i = 0; i < array_length(key_info); i++) {
@@ -68,7 +68,7 @@ for (var i = 0; i < array_length(key_info); i++) {
 draw_set_color(c_white);
 draw_set_font(fntMTGMenu2);
 draw_set_valign(fa_middle);
-draw_text_outline(140, 161, string("{0} / {1}", xp.current, xp.needed), c_black);
+draw_text_outline(140, 161, $"{xp.current} / {xp.needed}", c_black);
 #endregion
 
 draw_set_halign(fa_left);

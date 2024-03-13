@@ -7,7 +7,7 @@ for (var i = 0; i < global.total_saves; i++) {
 	draw_set_font(fntMenu);
     draw_set_color(c_black);
 	draw_set_halign(fa_left);
-    draw_text(x, y + spacing * i, string("Data{0}", i + 1));
+    draw_text(x, y + spacing * i, $"Data{i + 1}");
     
 	//Difficulty
 	draw_set_font(fntMenu2);
@@ -16,7 +16,7 @@ for (var i = 0; i < global.total_saves; i++) {
     var draw_diff = data.difficulty;
     
     if (menu == 1 && select[0] == i) {
-        draw_diff = string("< {0} >", global.difficulties[select[menu]]);
+        draw_diff = $"< {global.difficulties[select[menu]]} >";
     }
     
     draw_text(x + 48, y + 46 + spacing * i, draw_diff);
@@ -24,8 +24,8 @@ for (var i = 0; i < global.total_saves; i++) {
 	//Deaths and Time
 	draw_set_font(fntMenu3);
     draw_set_halign(fa_left);
-    draw_text(x, y + 78 + spacing * i, string("Deaths: {0}", data.deaths));
-    draw_text(x, y + 100 + spacing * i, string("Time: {0}", formatted_time(data.time)));
+    draw_text(x, y + 78 + spacing * i, $"Deaths: {data.deaths}");
+    draw_text(x, y + 100 + spacing * i, $"Time: {formatted_time(data.time)}");
     
 	//Secrets and Bosses
     for (var j = 0; j < array_length(global.items.secrets); j++) {

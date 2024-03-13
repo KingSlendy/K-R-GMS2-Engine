@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"Fonts","order":1,"path":"folders/Fonts.yy",},
     {"name":"Package","order":2,"path":"folders/Fonts/Package.yy",},
     {"name":"Not Another Magic Tower Game","order":1,"path":"folders/Fonts/Package/Not Another Magic Tower Game.yy",},
@@ -91,7 +91,6 @@
     {"name":"Packages","order":3,"path":"folders/Rooms/Packages.yy",},
     {"name":"8bit","order":1,"path":"folders/Rooms/Packages/8bit.yy",},
     {"name":"Magic Tower (General)","order":2,"path":"folders/Rooms/Packages/Magic Tower (General).yy",},
-    {"name":"Proper Test Rooms","order":1,"path":"folders/Rooms/Proper Test Rooms.yy",},
     {"name":"Test Rooms","order":2,"path":"folders/Rooms/Test Rooms.yy",},
     {"name":"Scripts","order":4,"path":"folders/Scripts.yy",},
     {"name":"Misc","order":3,"path":"folders/Scripts/Misc.yy",},
@@ -223,7 +222,7 @@
     {"name":"Tilesets","order":1,"path":"folders/Sprites/Tilesets.yy",},
     {"name":"Tilesets","order":3,"path":"folders/Tilesets.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
     {"name":"sprJumpDefresh","order":1,"path":"sprites/sprJumpDefresh/sprJumpDefresh.yy",},
     {"name":"sprIceVine","order":1,"path":"sprites/sprIceVine/sprIceVine.yy",},
     {"name":"scrOptionsConfig","order":2,"path":"scripts/scrOptionsConfig/scrOptionsConfig.yy",},
@@ -634,6 +633,5 @@
     {"name":"sprRotateGravUp","order":1,"path":"sprites/sprRotateGravUp/sprRotateGravUp.yy",},
     {"name":"sprSpikeBlock","order":3,"path":"sprites/sprSpikeBlock/sprSpikeBlock.yy",},
     {"name":"sprItemBoss8","order":7,"path":"sprites/sprItemBoss8/sprItemBoss8.yy",},
-    {"name":"scrPlayerVines","order":2,"path":"scripts/scrPlayerVines/scrPlayerVines.yy",},
   ],
 }
