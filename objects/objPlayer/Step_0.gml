@@ -12,10 +12,13 @@ var directions = control_gravity(
 
 var dir_left = is_buffered(directions.left_direction);
 var dir_right = is_buffered(directions.right_direction);
-var dir_left_pressed = is_pressed(directions.left_direction);
-var dir_right_pressed = is_pressed(directions.right_direction);
 var dir_down = is_held(directions.down_direction);
 var dir_up = is_held(directions.up_direction);
+
+var dir_left_pressed = is_pressed(directions.left_direction);
+var dir_right_pressed = is_pressed(directions.right_direction);
+var dir_down_pressed = is_pressed(directions.down_direction);
+var dir_up_pressed = is_pressed(directions.up_direction);
 var dir = 0;
 
 package_nang("player prestep");
@@ -383,58 +386,189 @@ p_vspd(Vspd + grav);
 p_x(X + Hspd);
 p_y(Y + Vspd);
 
-#region Collision with block
-var block = p_instance_place(0, 0, objBlock);
-
-if (block != null) {
-	x = xprevious;
-	y = yprevious;
+	#region Collision with slopes (unfinished)
+	var slope = p_instance_place(0, 0, objSlope);
+	var slope_check = false;
+	var htest = 0;
+	var yslope = 0;
 	
-	if (global.forms.lunarkid) {
-		kill_player();
-	} else {
-		#region Detect horizontal collision
-		if (p_instance_place(Hspd, 0, objBlock) != null) {
-			while (p_instance_place(sign(Hspd), 0, objBlock) == null) {
-				p_x(X + sign(Hspd));
-			}
-	
-			p_hspd(0);
-		}
-		#endregion
-
-		#region Detect vertical collision
-		if (p_instance_place(0, Vspd, objBlock) != null) {
-			while (p_instance_place(0, sign(Vspd), objBlock) == null) {
-				p_y(Y + sign(Vspd));
-			}
-	
-			if (Vspd * global.grav > 0) {
-				reset_jumps();
-			}
-	
-			p_vspd(0);
-			grav = 0;
-		}
-		#endregion
-
-		#region Detect diagonal collision
-		if (p_instance_place(Hspd, Vspd, objBlock, tangible_collision) != null) {
-			var platform = p_instance_place(0, Vspd, objPlatform);
-			
-			if (!platform || p_instance_place(0, 0, platform) != null) {
-				p_hspd(0);
-			} else {
-				p_vspd(0);
-			}
-		}
-		#endregion
+	if (slope != null) {
+		x = xprevious;
+		y = yprevious;
 		
-		p_x(X + Hspd);
-		p_y(Y + Vspd);
+		if (global.forms.lunarkid) {
+			kill_player();
+		} else {
+			var steepness = abs(Hspd) * (slope.image_xscale + slope.image_yscale);
+			
+			#region Falling onto
+			if (p_instance_place(Hspd, Vspd, objSlope) != null 
+			&& Vspd * sign(global.grav) > 0) {
+				#region Last Position
+				var xlast = x;
+				var ylast = y;
+				var hlast = Hspd;
+				var vlast = Vspd;
+				#endregion
+				
+				if (p_instance_place(0, Vspd, objBlock) != null) {
+					while (p_instance_place(0, sign(Vspd), objBlock) == null) {
+						p_y(Y + sign(Vspd));
+					}
+	
+					p_vspd(0);
+					grav = 0;
+				}
+				
+				if (p_instance_place(0, sign(global.grav), objBlock) != null && p_instance_place(0, 0, objBlock) == null) {
+					reset_jumps();
+				} else {
+					p_x(xlast);
+					p_y(ylast);
+					p_hspd(hlast);
+					p_vspd(vlast);
+				}
+			}
+			#endregion
+			
+			#region Moving down
+			if (on_block != null) {
+				var on_slope = p_instance_place(0, sign(global.grav), objSlope);
+				slope_check = true;
+				htest = Hspd;
+				
+				while (slope_check) {
+					yslope = 0;
+					
+					while (p_instance_place(htest, -yslope + sign(global.grav), objSlope) == null 
+					|| (on_slope != null && p_instance_place(htest, -yslope + sign(global.grav), objBlock) == null) 
+					&& (yslope * sign(global.grav) > -floor(steepness * (htest / Hspd)))) {
+						yslope -= sign(global.grav);
+					}
+					
+					if (p_instance_place(htest, -yslope + sign(global.grav), objSlope) != null 
+					|| (on_slope != null && p_instance_place(htest, -yslope + sign(global.grav), objBlock) == null)) {
+						if (yslope != 0 && p_instance_place(htest, -yslope, objBlock) == null) {
+							p_y(Y - yslope);
+							p_x(X + htest);
+							p_hspd(0);
+							slope_check = false;
+						} else {
+							#region Horizontal Displacement
+							if (htest > 0) {
+								htest--;
+								if (htest <= 0) {
+									slope_check = false;
+								}
+							} else if (htest < 0) {
+								htest++;
+								if (htest >= 0) {
+									slope_check = false;
+								}
+							} else {
+								slope_check = false;
+							}
+							#endregion
+						}
+					}
+				}
+			}
+			#endregion
+			
+			#region Moving up
+			if (p_instance_place(Hspd, 0, objSlope) != null) {
+				slope_check = true;
+				htest = Hspd;
+				
+				while (slope_check) {
+					yslope = 0;
+					while (p_instance_place(htest, -yslope, objSlope) != null 
+					&& yslope * sign(global.grav) < floor(steepness * (htest / Hspd))) {
+						yslope += sign(global.grav);
+					}
+					
+					if (p_instance_place(htest, -yslope, objSlope) == null) {
+						p_y(Y - yslope);
+						p_x(X + htest);
+						p_hspd(0);
+						slope_check = false;
+					} else {
+						#region Horizontal Displacement
+						if (htest > 0) {
+							htest--;
+							if (htest <= 0) {
+								slope_check = false;
+							}
+						} else if (htest < 0) {
+							htest++;
+							if (htest <= 0) {
+								slope_check = false;
+							}
+						} else {
+							slope_check = false;
+						}
+						#endregion
+					}
+				}
+			}
+			#endregion
+		}
 	}
-}
-xsafe = xprevious + hspd;
-ysafe = yprevious + vspd;
-#endregion
+	#endregion
+
+	#region Collision with block
+	var block = p_instance_place(0, 0, objBlock);
+
+	if (block != null) {
+		x = xprevious;
+		y = yprevious;
+	
+		if (global.forms.lunarkid) {
+			kill_player();
+		} else {
+			#region Detect horizontal collision
+			if (p_instance_place(Hspd, 0, objBlock) != null) {
+				while (p_instance_place(sign(Hspd), 0, objBlock) == null) {
+					p_x(X + sign(Hspd));
+				}
+	
+				p_hspd(0);
+			}
+			#endregion
+
+			#region Detect vertical collision
+			if (p_instance_place(0, Vspd, objBlock) != null) {
+				while (p_instance_place(0, sign(Vspd), objBlock) == null) {
+					p_y(Y + sign(Vspd));
+				}
+	
+				if (Vspd * sign(global.grav) > 0) {
+					reset_jumps();
+				}
+	
+				p_vspd(0);
+				grav = 0;
+			}
+			#endregion
+
+			#region Detect diagonal collision
+			if (p_instance_place(Hspd, Vspd, objBlock) != null) {
+				var platform = p_instance_place(0, Vspd, objPlatform);
+			
+				if (!platform || p_instance_place(0, 0, platform) != null) {
+					p_hspd(0);
+				} else {
+					p_vspd(0);
+				}
+			}
+			#endregion
+		
+			p_x(X + Hspd);
+			p_y(Y + Vspd);
+		}
+	}
+	xsafe = xprevious + hspd;
+	ysafe = yprevious + vspd;
+	#endregion
+
 #endregion

@@ -29,29 +29,23 @@ on_block = false;
 on_ice = false;
 on_auto = false;
 
-for (var i = 0; i < 5; i++) {
-	test_dist[i] = 0;
-}
-
 on_conveyor = false;
 on_elevator = false;
 
 on_platform = false;
 on_ladder = false;
-#endregion
 
-lunar_start = false;
-
-test_dist = {
-	orig: 0,
-	xpos: 0,
-	ypos: 0,
-	xneg: 0,
-	yneg: 0
+for (var i = 0; i < 5; i++) {
+	test_dist[i] = 0;
 }
 
-frozen = false;
+xsafe = x;
+ysafe = y;
 
+dynamic_collision(true);
+#endregion
+
+#region Skins
 skins = {
 	"Normal": {
 		"Idle": sprPlayerIdle,
@@ -69,18 +63,14 @@ skins = {
 		"Linekid": sprPlayerLinekid
 	}
 };
+skin = "Normal";
+#endregion
 
 #region Actions
 lunar_start = false;
 frozen = false;
 
-skin = "Normal";
 reset_jumps();
-
-xsafe = x;
-ysafe = y;
-
-dynamic_collision(true);
 
 hit = 0;
 hit_x = x;

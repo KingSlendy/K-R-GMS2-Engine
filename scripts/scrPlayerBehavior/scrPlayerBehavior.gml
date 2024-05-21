@@ -186,10 +186,6 @@ function turn_grav(jump = true) {
 	}
 }
 
-function change_angle() {
-	image_angle = 90 * abs(global.grav) - (90 * sign(global.grav));
-}
-
 function check_vines(on_vine, dir_left_pressed, dir_right_pressed) {
 	if (on_block || on_vine == null || on_vine.tangible == 0) {
 		return;

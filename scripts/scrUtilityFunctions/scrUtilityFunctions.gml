@@ -17,31 +17,25 @@ function array_pick(array) {
 }
 #endregion
 
-#region Drawing
-function draw_text_outline(x, y, text, border_color) {
-	var color = draw_get_color();
-	draw_set_color(border_color);
+#region Structs
+function struct_all(struct) {
+    var names = variable_struct_get_names(struct);
 
-	for (var i = -1; i < 2; i++) {
-	    for (var j = -1; j < 2; j++) {
-	        draw_text(x + j, y + i, text);
-	    }
-	}
+    for (var i = 0; i < array_length(names); i++) {
+        if (!struct[$ names[i]]) {
+            return false;
+        }
+    }
 
-	draw_set_colour(color);
-	draw_text(x, y, text);
+    return true;
 }
 
-function draw_rectangle_ext(x, y, w, h, rot, outline) {
-    matrix_set(matrix_world, matrix_build(x, y, 0, 0, 0, rot, 1, 1, 1));
-    draw_rectangle(-w / 2, -h / 2, w / 2, h / 2, outline);
-    matrix_set(matrix_world, matrix_build_identity());
-}
-
-function draw_sprite_fog(sprite, subimg, x, y, xscale, yscale, rot, col, alpha, fog_color = c_black) {
-	gpu_set_fog(true, fog_color, 0, 0);
-	draw_sprite_ext(sprite, subimg, x, y, xscale, yscale, rot, col, alpha);
-	gpu_set_fog(false, c_black, 0, 0);
+function struct_set_all(struct, value) {
+    var names = variable_struct_get_names(struct);
+    
+    for (var i = 0; i < array_length(names); i++) {
+        struct[$ names[i]] = value;
+    }
 }
 #endregion
 
@@ -66,24 +60,29 @@ function spd_set(spd = spd_get(), dir = spd_dir()) {
 function spd_get() {
     return point_distance(0, 0, hspd, vspd);
 }
+
+function change_angle() {
+	image_angle = 90 * abs(global.grav) - (90 * sign(global.grav));
+}
+
+function mask_angle(object) {
+	var dir = -1;
+	if (!no_mask) {
+		if (image_angle mod 360 == 90 || image_angle mod 360 == -270) {
+			dir = sprSpikeUp;
+		} else if (abs(image_angle) mod 360 == 180) {
+			dir = sprSpikeLeft;
+		} else if (image_angle mod 360 == 270 || image_angle mod 360 == -90) {
+			dir = sprSpikeDown;	
+		} else if (image_angle mod 360 == 0) {
+			dir = sprSpikeRight;
+		}
+	}
+	object.mask_index = dir;
+}
 #endregion
 
 #region Other
-function camera_properties(num) {
-	var cam = view_camera[num];
-	
-	return {
-		view_cam: cam,
-		view_x: camera_get_view_x(cam),
-		view_y: camera_get_view_y(cam),
-		view_w: camera_get_view_width(cam),
-		view_h: camera_get_view_height(cam),
-		view_xw: camera_get_view_x(cam) + camera_get_view_width(cam),
-		view_yh: camera_get_view_y(cam) + camera_get_view_height(cam),
-		view_angle: camera_get_view_angle(cam),
-	};
-}
-
 function remap(value, from1, to1, from2, to2) {
 	return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 }
@@ -98,26 +97,6 @@ function approach(val1, val2, amount) {
 	} else {
 		return max(val1 - amount, val2);
 	}
-}
-
-function struct_all(struct) {
-    var names = variable_struct_get_names(struct);
-
-    for (var i = 0; i < array_length(names); i++) {
-        if (!struct[$ names[i]]) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-function struct_set_all(struct, value) {
-    var names = variable_struct_get_names(struct);
-    
-    for (var i = 0; i < array_length(names); i++) {
-        struct[$ names[i]] = value;
-    }
 }
 
 function seconds_to_frames(seconds) {

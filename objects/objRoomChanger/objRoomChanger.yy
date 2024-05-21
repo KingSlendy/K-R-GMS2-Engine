@@ -26,11 +26,11 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"room_to","filters":[
+    {"$GMObjectProperty":"v1","%Name":"room_to","filters":[
         "GMRoom",
-      ],"listItems":[],"multiselect":false,"name":"room_to","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"rTemplate","varType":5,},
-    {"$GMObjectProperty":"","%Name":"warp_x","filters":[],"listItems":[],"multiselect":false,"name":"warp_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
-    {"$GMObjectProperty":"","%Name":"warp_y","filters":[],"listItems":[],"multiselect":false,"name":"warp_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
+      ],"listItems":[],"multiselect":false,"name":"room_to","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"rTemplate","varType":5,},
+    {"$GMObjectProperty":"v1","%Name":"warp_x","filters":[],"listItems":[],"multiselect":false,"name":"warp_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"warp_y","filters":[],"listItems":[],"multiselect":false,"name":"warp_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

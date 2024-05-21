@@ -1,4 +1,5 @@
-event_inherited();
+mask_index = sprite_index;
+spike_sprite();
 var draw_funcs = {};
 
 #region Standard Spikes
