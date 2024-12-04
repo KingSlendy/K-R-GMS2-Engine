@@ -52,8 +52,8 @@ function player_jump() {
 }
 
 function player_fall() {
-	if (Vspd * sign(global.grav) < 0) {
-		p_vspd(Vspd * 0.45);
+	if (VSPD * sign(global.grav) < 0) {
+		p_vspd(VSPD * 0.45);
 	}
 }
 
@@ -150,34 +150,57 @@ function set_mask() {
 }
 
 function flip_grav(grav = null, jump = true) {
-	if (instance_exists(objPlayer)) {
-		global.grav = (grav == null) ? global.grav * -1 : grav;
+    if (instance_exists(objPlayer)) {
+        global.grav = (grav == null) ? global.grav * -1 : grav;
 
-		if (!global.forms.lunarkid) {
-		    with (objPlayer) {
-				set_mask();
-				change_angle();
-		        p_vspd(0);
-				
-				var amount;
-				var coord = (abs(global.grav) == 1) ? x : y;
-				
-				if (p_collision_point(coord, BBOX_TOP, objBlock, true, true, tangible_collision) != null) {
-					amount = (sign(global.grav) == 1) ? 1 : -1;
-				} else if  (p_collision_point(coord, BBOX_BOTTOM, objBlock, true, true, tangible_collision) != null) {
-					amount = (sign(global.grav) == 1) ? -1 : 1;
-				}
-				
-				while (instance_place_check(x, y, objBlock, tangible_collision) != null) {
-					p_y(Y + amount);
-				}
-		    }
-		}
+        if (!global.forms.lunarkid) {
+            with (objPlayer) {
+                set_mask();
+                change_angle();
+                p_vspd(0);
+                
+                var amount_y = 0;
+                
+                if (p_collision_line(BBOX_LEFT, BBOX_TOP, BBOX_RIGHT, BBOX_TOP, objBlock, true, true, tangible_collision) != null) {
+                    amount_y = (sign(global.grav) == 1) ? 1 : -1;
+                } else if  (p_collision_line(BBOX_LEFT, BBOX_BOTTOM, BBOX_RIGHT, BBOX_TOP, objBlock, true, true, tangible_collision) != null) {
+                    amount_y = (sign(global.grav) == 1) ? -1 : 1;
+                }
+                
+                if (amount_y != 0) {
+                    while (instance_place_check(x, y, objBlock, tangible_collision) != null) {
+                        p_y(Y + amount_y);
+                    }
+                }
+                
+                var amount_x = 0;
+                
+                if (p_collision_line(BBOX_LEFT, BBOX_TOP, BBOX_LEFT, BBOX_BOTTOM, objBlock, true, true, tangible_collision) != null) {
+                    amount_x = (sign(global.grav) == 1) ? 1 : -1;
+                    
+                    if (abs(global.grav) == 2) {
+                        amount_x *= -1;
+                    }
+                } else if (p_collision_line(BBOX_RIGHT, BBOX_TOP, BBOX_RIGHT, BBOX_BOTTOM, objBlock, true, true, tangible_collision) != null) {
+                    amount_x = (sign(global.grav) == 1) ? -1 : 1;
+                    
+                    if (abs(global.grav) == 2) {
+                        amount_x *= -1;
+                    }
+                }
+                
+                if (amount_x != 0) {
+                    while (instance_place_check(x, y, objBlock, tangible_collision) != null) {
+                        p_x(X + amount_x);
+                    }
+                }
+            }
+        }
 
-		if (jump) {
-			reset_jumps();
-		}
-	}
+        if (jump) {
+            reset_jumps();
+        }
+    }
 }
 
 function turn_grav(jump = true) {

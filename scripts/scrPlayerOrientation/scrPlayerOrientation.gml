@@ -7,8 +7,10 @@
 
 #macro X p_x()
 #macro Y p_y()
-#macro Hspd p_hspd()
-#macro Vspd p_vspd()
+#macro HSPD p_hspd()
+#macro VSPD p_vspd()
+#macro BBOX_LEFT get_bbox_left()
+#macro BBOX_RIGHT get_bbox_right()
 #macro BBOX_TOP get_bbox_top()
 #macro BBOX_BOTTOM get_bbox_bottom()
 
@@ -122,6 +124,30 @@ function p_collision_point(xx, yy, obj, prec, notme, func = tangible_collision) 
     } else if (abs(global.grav) == 2) {
         return collision_point_check(yy, xx, obj, prec, notme, func);
     }
+}
+
+function p_collision_line(xx1, yy1, xx2, yy2, obj, prec, notme, func = tangible_collision) { //Sets how the player will collide with "obj" relative to the current gravity
+    if (abs(global.grav) == 1) {
+        return collision_line_check(xx1, yy1, xx2, yy2, obj, prec, notme, func);
+    } else if (abs(global.grav) == 2) {
+        return collision_line_check(yy1, xx1, yy2, xx2, obj, prec, notme, func);
+    }
+}
+
+function get_bbox_left() {
+	if (abs(global.grav) == 1) {
+		return (sign(global.grav) == 1) ? bbox_left : bbox_right;
+	} else if (abs(global.grav) == 2) {
+		return (sign(global.grav) == 1) ? bbox_bottom : bbox_top;
+	}
+}
+
+function get_bbox_right() {
+	if (abs(global.grav) == 1) {
+		return (sign(global.grav) == 1) ? bbox_right : bbox_left;
+	} else if (abs(global.grav) == 2) {
+		return (sign(global.grav) == 1) ? bbox_top : bbox_bottom;
+	}
 }
 
 function get_bbox_top() {

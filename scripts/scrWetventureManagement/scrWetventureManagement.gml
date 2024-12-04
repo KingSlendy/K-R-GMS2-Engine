@@ -15,7 +15,7 @@ function package_wetventure(load_type = undefined) {
 		break;
 		
 		case "player prestep": //Handles collision with Weird Water and Poison Water
-		frozen += (p_instance_place(0, 0, objWeirdWater) != null && Hspd != 0);
+		frozen += (p_instance_place(0, 0, objWeirdWater) != null && HSPD != 0);
 		
 		if (collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, objPoisonWater, 0, 0) != noone) {
 		    poison_time = approach(poison_time, 0, 1);
@@ -62,5 +62,5 @@ function wetventure_gun_accelerate() {
 		p_hspd(-(max_hspd * 2) * accel_dir);
 	}
 	
-	p_hspd(approach(Hspd, 0, 0.1));
+	p_hspd(approach(HSPD, 0, 0.1));
 }

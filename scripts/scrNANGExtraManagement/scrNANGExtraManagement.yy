@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrNANGExtraManagement",
   "isCompatibility":false,
   "isDnD":false,

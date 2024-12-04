@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrRefrentureManagement",
   "isCompatibility":false,
   "isDnD":false,

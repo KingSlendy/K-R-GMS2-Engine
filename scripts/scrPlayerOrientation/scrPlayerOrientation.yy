@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrPlayerOrientation",
   "isCompatibility":false,
   "isDnD":false,

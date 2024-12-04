@@ -3,7 +3,7 @@ function package_nangextra(load_type = undefined) {
 	
 	switch(load_type) {
 		case "player prestep":
-		frozen += (p_instance_place(0, 0, objAutoSpeedField) != null && Hspd != 0);
+		frozen += (p_instance_place(0, 0, objAutoSpeedField) != null && HSPD != 0);
 		break;
 
 		case "player step":

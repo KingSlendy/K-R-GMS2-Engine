@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrTriggerManagement",
   "isCompatibility":false,
   "isDnD":false,

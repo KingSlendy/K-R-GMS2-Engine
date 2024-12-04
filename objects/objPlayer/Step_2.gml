@@ -30,7 +30,7 @@ if (!global.forms.lunarkid) {
 			bottom: (abs(global.grav) == 1) ? platform.bbox_bottom : platform.bbox_right,
 		};
 
-		if ((sign(global.grav) == 1 && Y - Vspd / 2 <= p.top) || (sign(global.grav) == -1 && Y - Vspd / 2 >= p.bottom)) {
+		if ((sign(global.grav) == 1 && Y - VSPD / 2 <= p.top) || (sign(global.grav) == -1 && Y - VSPD / 2 >= p.bottom)) {
 			p_y((sign(global.grav) == 1) ? p.top - 9 : p.bottom + 10);
 			p_vspd(platform.vspd);
 			

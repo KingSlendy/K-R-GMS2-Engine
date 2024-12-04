@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scrWetventureManagement",
   "isCompatibility":false,
   "isDnD":false,

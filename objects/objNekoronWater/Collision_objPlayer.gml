@@ -5,7 +5,7 @@ with (objPlayer) {
 		audio_play_sound(sndDoubleJump, 0, false);
 	}
 	
-	if (Vspd * sign(global.grav) > 2) {
+	if (VSPD * sign(global.grav) > 2) {
 		p_vspd(2 * sign(global.grav));
 	}
 }
