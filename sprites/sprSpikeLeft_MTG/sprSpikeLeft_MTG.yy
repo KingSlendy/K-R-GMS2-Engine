@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"sprSpikeLeft_MTG",
   "bboxMode":0,
   "bbox_bottom":31,
@@ -12,13 +12,13 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"9ae92a1f-b7a0-459f-809c-11bf78084037","name":"9ae92a1f-b7a0-459f-809c-11bf78084037","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"13af5ca9-0769-4599-8727-08935fc0cfce","name":"13af5ca9-0769-4599-8727-08935fc0cfce","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"3e6322f3-b35f-49f1-aa8d-b0c2331d958b","name":"3e6322f3-b35f-49f1-aa8d-b0c2331d958b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"6f30c26b-a5ad-4f01-a05c-f3e4fb147681","name":"6f30c26b-a5ad-4f01-a05c-f3e4fb147681","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"acb9e707-fed4-4fb5-85ff-13f39bb8ee7d","name":"acb9e707-fed4-4fb5-85ff-13f39bb8ee7d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"68eefd1a-7301-41c9-80e8-fa3f623cbc87","name":"68eefd1a-7301-41c9-80e8-fa3f623cbc87","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"777f19e3-3efc-471f-a8a1-d03c5c85f026","name":"777f19e3-3efc-471f-a8a1-d03c5c85f026","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"9ae92a1f-b7a0-459f-809c-11bf78084037","name":"9ae92a1f-b7a0-459f-809c-11bf78084037","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"13af5ca9-0769-4599-8727-08935fc0cfce","name":"13af5ca9-0769-4599-8727-08935fc0cfce","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"3e6322f3-b35f-49f1-aa8d-b0c2331d958b","name":"3e6322f3-b35f-49f1-aa8d-b0c2331d958b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"6f30c26b-a5ad-4f01-a05c-f3e4fb147681","name":"6f30c26b-a5ad-4f01-a05c-f3e4fb147681","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"acb9e707-fed4-4fb5-85ff-13f39bb8ee7d","name":"acb9e707-fed4-4fb5-85ff-13f39bb8ee7d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"68eefd1a-7301-41c9-80e8-fa3f623cbc87","name":"68eefd1a-7301-41c9-80e8-fa3f623cbc87","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"777f19e3-3efc-471f-a8a1-d03c5c85f026","name":"777f19e3-3efc-471f-a8a1-d03c5c85f026","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -38,7 +38,7 @@
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
-    "$GMSequence":"",
+    "$GMSequence":"v1",
     "%Name":"sprSpikeLeft_MTG",
     "autoRecord":true,
     "backdropHeight":768,
@@ -74,27 +74,13 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9ae92a1f-b7a0-459f-809c-11bf78084037","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"2db4c8f7-7638-4747-8d5d-109642589b45","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"13af5ca9-0769-4599-8727-08935fc0cfce","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"0898deb0-d16e-47f1-95ad-671e222b87ca","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3e6322f3-b35f-49f1-aa8d-b0c2331d958b","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"daab2c7a-f2fa-4e31-a616-2f947de32305","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"6f30c26b-a5ad-4f01-a05c-f3e4fb147681","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"932b36d2-37b2-46e1-9219-ffda3b56f3b5","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"acb9e707-fed4-4fb5-85ff-13f39bb8ee7d","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"c4cc642d-ebb4-447b-a6f1-99242d87175d","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"68eefd1a-7301-41c9-80e8-fa3f623cbc87","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"037eb3ee-4c76-4ce3-a5c9-9d09ee0ed02d","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"777f19e3-3efc-471f-a8a1-d03c5c85f026","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"1a0c67b4-bf84-4d44-b463-8887084cbf00","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"9ae92a1f-b7a0-459f-809c-11bf78084037","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"2db4c8f7-7638-4747-8d5d-109642589b45","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"13af5ca9-0769-4599-8727-08935fc0cfce","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"0898deb0-d16e-47f1-95ad-671e222b87ca","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"3e6322f3-b35f-49f1-aa8d-b0c2331d958b","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"daab2c7a-f2fa-4e31-a616-2f947de32305","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"6f30c26b-a5ad-4f01-a05c-f3e4fb147681","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"932b36d2-37b2-46e1-9219-ffda3b56f3b5","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"acb9e707-fed4-4fb5-85ff-13f39bb8ee7d","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"c4cc642d-ebb4-447b-a6f1-99242d87175d","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"68eefd1a-7301-41c9-80e8-fa3f623cbc87","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"037eb3ee-4c76-4ce3-a5c9-9d09ee0ed02d","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"777f19e3-3efc-471f-a8a1-d03c5c85f026","path":"sprites/sprSpikeLeft_MTG/sprSpikeLeft_MTG.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"1a0c67b4-bf84-4d44-b463-8887084cbf00","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

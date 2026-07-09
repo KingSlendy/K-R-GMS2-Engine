@@ -5,7 +5,7 @@
   "managed":true,
   "name":"objSaveVeryHard",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objSave","path":"objects/objSave/objSave.yy",},"propertyId":{"name":"difficulty","path":"objects/objSave/objSave.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"2",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objSave","path":"objects/objSave/objSave.yy",},"propertyId":{"name":"difficulty","path":"objects/objSave/objSave.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"2",},
   ],
   "parent":{
     "name":"Saves",

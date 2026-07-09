@@ -7,7 +7,7 @@
   "managed":true,
   "name":"objItemBoss6",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objItemTemplate","path":"objects/objItemTemplate/objItemTemplate.yy",},"propertyId":{"name":"num","path":"objects/objItemTemplate/objItemTemplate.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"5",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objItemTemplate","path":"objects/objItemTemplate/objItemTemplate.yy",},"propertyId":{"name":"num","path":"objects/objItemTemplate/objItemTemplate.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"5",},
   ],
   "parent":{
     "name":"Bosses",

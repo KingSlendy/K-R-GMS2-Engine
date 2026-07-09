@@ -5,7 +5,7 @@
   "managed":true,
   "name":"objJumpDefresh",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objJumpRefresh","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"propertyId":{"name":"refresh_frames","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"20",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objJumpRefresh","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"propertyId":{"name":"refresh_frames","path":"objects/objJumpRefresh/objJumpRefresh.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"20",},
   ],
   "parent":{
     "name":"Go The Jumple Refrenture",

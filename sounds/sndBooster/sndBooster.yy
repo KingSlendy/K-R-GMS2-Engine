@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"sndBooster",
   "audioGroupId":{
     "name":"audiogroup_SFX",
     "path":"audiogroups/audiogroup_SFX",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":1,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":0.103424,
+  "exportDir":"",
   "name":"sndBooster",
   "parent":{
     "name":"Crimson Needle 3",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"sndBooster.wav",
-  "type":1,
   "volume":1.0,
 }

@@ -126,7 +126,7 @@ options = [
 		}),
 		
 		new Option("Name: ", function() {
-			var name = get_string("Input name", "");
+			var name = get_string("Input name", global.online.name);
 			name = string_replace(name, "\n", "\\n");
 			
 			if (name == "") {
@@ -159,13 +159,13 @@ options = [
 		}),
 		
 		new Option("TCP Port: ", function() {
-			global.online.tcp = get_integer("Enter TCP port", 3003);
+			global.online.tcp = get_integer("Enter TCP port", 8002);
 		}, function() {
 			return string(global.online.tcp);
 		}),
 		
 		new Option("UDP Port: ", function() {
-			global.online.udp = get_integer("Enter UDP port", 3005);
+			global.online.udp = get_integer("Enter UDP port", 8003);
 		}, function() {
 			return string(global.online.udp);
 		}),

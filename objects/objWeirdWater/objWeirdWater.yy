@@ -5,8 +5,8 @@
   "managed":true,
   "name":"objWeirdWater",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"v","path":"objects/objOceanWater/objOceanWater.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.3",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"h","path":"objects/objOceanWater/objOceanWater.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"-0.5",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"v","path":"objects/objOceanWater/objOceanWater.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.3",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objOceanWater","path":"objects/objOceanWater/objOceanWater.yy",},"propertyId":{"name":"h","path":"objects/objOceanWater/objOceanWater.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"-0.5",},
   ],
   "parent":{
     "name":"Go The Ocean Wetventure",

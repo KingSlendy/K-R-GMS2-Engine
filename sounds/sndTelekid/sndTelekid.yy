@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"sndTelekid",
   "audioGroupId":{
     "name":"audiogroup_SFX",
     "path":"audiogroups/audiogroup_SFX",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":1,
   "compression":0,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":0.25254,
+  "exportDir":"",
   "name":"sndTelekid",
   "parent":{
     "name":"Not Another Needle Game",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"sndTelekid.wav",
-  "type":1,
   "volume":1.0,
 }

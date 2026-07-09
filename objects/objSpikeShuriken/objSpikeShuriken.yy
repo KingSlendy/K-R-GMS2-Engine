@@ -27,7 +27,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"center","filters":[],"listItems":[],"multiselect":false,"name":"center","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sprBlock_GuyBrown","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"center","filters":[],"listItems":[],"multiselect":false,"name":"center","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"sprBlock_GuyBrown","path":"sprites/sprBlock_GuyBrown/sprBlock_GuyBrown.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sprBlock_GuyBrown","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

@@ -1,10 +1,10 @@
 {
-  "$GMProject":"",
+  "$GMProject":"v1",
   "%Name":"K&R GMS2 Engine",
   "AudioGroups":[
-    {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMAudioGroup":"","%Name":"audiogroup_BGM","name":"audiogroup_BGM","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMAudioGroup":"","%Name":"audiogroup_SFX","name":"audiogroup_SFX","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_BGM","exportDir":"","name":"audiogroup_BGM","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_SFX","exportDir":"","name":"audiogroup_SFX","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -272,11 +272,12 @@
     {"$GMFolder":"","%Name":"Tilesets","folderPath":"folders/Sprites/Tilesets.yy","name":"Tilesets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Tilesets","folderPath":"folders/Tilesets.yy","name":"Tilesets","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
+  "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.1.171",
+    "IDEVersion":"2026.0.0.16",
   },
   "name":"K&R GMS2 Engine",
   "resources":[
@@ -439,6 +440,7 @@
     {"id":{"name":"objRotateGravDown","path":"objects/objRotateGravDown/objRotateGravDown.yy",},},
     {"id":{"name":"objRotateGravLeft","path":"objects/objRotateGravLeft/objRotateGravLeft.yy",},},
     {"id":{"name":"objRotateGravRight","path":"objects/objRotateGravRight/objRotateGravRight.yy",},},
+    {"id":{"name":"objRotateGravTemplate","path":"objects/objRotateGravTemplate/objRotateGravTemplate.yy",},},
     {"id":{"name":"objRotateGravUp","path":"objects/objRotateGravUp/objRotateGravUp.yy",},},
     {"id":{"name":"objSave","path":"objects/objSave/objSave.yy",},},
     {"id":{"name":"objSaveImpossible","path":"objects/objSaveImpossible/objSaveImpossible.yy",},},

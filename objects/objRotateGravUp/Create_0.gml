@@ -1,3 +1,3 @@
-spin = false;
-angle = camera_properties(0).view_angle;
+event_inherited();
 view_target = 180;
+grav = -1;

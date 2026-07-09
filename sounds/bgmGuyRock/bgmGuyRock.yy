@@ -1,15 +1,17 @@
 {
-  "$GMSound":"",
+  "$GMSound":"v2",
   "%Name":"bgmGuyRock",
   "audioGroupId":{
     "name":"audiogroup_BGM",
     "path":"audiogroups/audiogroup_BGM",
   },
   "bitDepth":1,
-  "bitRate":128,
+  "channelFormat":0,
   "compression":1,
+  "compressionQuality":4,
   "conversionMode":0,
   "duration":190.45877,
+  "exportDir":"",
   "name":"bgmGuyRock",
   "parent":{
     "name":"BGM",
@@ -20,6 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"bgmGuyRock.mp3",
-  "type":0,
   "volume":1.0,
 }

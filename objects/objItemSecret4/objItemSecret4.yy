@@ -7,7 +7,7 @@
   "managed":true,
   "name":"objItemSecret4",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objItemTemplate","path":"objects/objItemTemplate/objItemTemplate.yy",},"propertyId":{"name":"num","path":"objects/objItemTemplate/objItemTemplate.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objItemTemplate","path":"objects/objItemTemplate/objItemTemplate.yy",},"propertyId":{"name":"num","path":"objects/objItemTemplate/objItemTemplate.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"3",},
   ],
   "parent":{
     "name":"Secrets",

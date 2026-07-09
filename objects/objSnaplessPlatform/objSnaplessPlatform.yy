@@ -7,7 +7,7 @@
   "managed":true,
   "name":"objSnaplessPlatform",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objMovingPlatform","path":"objects/objMovingPlatform/objMovingPlatform.yy",},"propertyId":{"name":"snap","path":"objects/objMovingPlatform/objMovingPlatform.yy",},"resource":null,"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"False",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objMovingPlatform","path":"objects/objMovingPlatform/objMovingPlatform.yy",},"propertyId":{"name":"snap","path":"objects/objMovingPlatform/objMovingPlatform.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"False",},
   ],
   "parent":{
     "name":"Dew Platforms",

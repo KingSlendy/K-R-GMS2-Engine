@@ -29,8 +29,8 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"slip","filters":[],"listItems":[],"multiselect":false,"name":"slip","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.15","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"time","filters":[],"listItems":[],"multiselect":false,"name":"time","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":null,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"irandom(249)","varType":4,},
+    {"$GMObjectProperty":"v2","%Name":"slip","filters":[],"listItems":[],"multiselect":false,"name":"slip","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.15","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"time","filters":[],"listItems":[],"multiselect":false,"name":"time","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"irandom(249)","varType":4,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
