@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndVCoin",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.167755,
+  "exportDir":"",
+  "name":"sndVCoin",
+  "parent":{
+    "name":"Run The Marathon",
+    "path":"folders/Sounds/SFX/Packages/Run The Marathon.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndVCoin.wav",
+  "volume":1.0,
+}

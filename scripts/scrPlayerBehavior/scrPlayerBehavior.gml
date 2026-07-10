@@ -1,78 +1,25 @@
 function player_jump() {
 	if (global.forms.vkid == 0) {
 		#region Jumping
-		var platform = instance_place_check(x, y + global.grav, objPlatform, tangible_collision);
+		var platform = p_instance_place(0, sign(global.grav), objPlatform);
 		
-		if (jump_total > 0 && (on_block != null || (platform != null && platform.visible) || on_platform || instance_place_check(x, y + global.grav, objWater1, tangible_collision) != null || on_ladder)) {
-			vspd = -(jump_height[0] * global.grav);
+		if (jump_total > 0 && (on_block != null || (platform != null && platform.visible) || on_platform || p_instance_place(0, sign(global.grav), objWater1) != null || on_ladder)) {
+			p_vspd(-(jump_height[0] * sign(global.grav)));
 			on_ladder = false;
 			player_sprite("Jump");
 			reset_jumps();
 			audio_play_sound(sndJump, 0, false);
-		} else if (jump_left > 0 || instance_place_check(x, y + global.grav, objWater2, tangible_collision) != null || jump_total == -1) {
-			var jump_velocity = 1;
+		} else if (jump_left > 0 || p_instance_place(0, global.grav, objWater2) != null || jump_total == -1) {
+			jump_velocity = 1;
 			
-			#region Refresher Modifiers	
-			if (jump_mod.slowmo == 1) { //slowmo djump
-				if (!instance_exists(objSlowmoJumpEffect)) {
-					instance_create_layer(0, 0, layer, objSlowmoJumpEffect);
-				}
+			package_refrenture("player prejump");
+			package_wetventure("player prejump");
 				
-				jump_mod.slowmo = 2;
-			} else {
-				instance_destroy(objSlowmoJumpEffect);
-			}
-			
-			if (jump_mod.swap == 1) { //switch djump
-				jump_mod.swap = 0;
-				audio_play_sound(sndJumpSwap, 0, false);
-			}
-			
-			if (jump_mod.fast == 1) { //fast djump
-				jump_mod.fast = 2;
-			}
-			
-			if (jump_mod.tele == 1) { //teleport djump
-				var tele_x = 96 * xscale;
-				
-				if (instance_place_check(x + tele_x, y, objBlock, tangible_collision) == null) {
-					x += tele_x;
-					audio_play_sound(sndJumpTele, 0, false);
-				}
-				
-				xprevious = x;
-				yprevious = y;
-				jump_mod.tele = 0;
-			}
-			
-			if (jump_mod.flip == 1) { //flip djump
-				flip_grav();
-				jump_mod.flip = 2;
-			}
-			#endregion
-			
-			#region Water Modifiers
-			if (instance_place_check(x, y, objFlipWater, tangible_collision) != null) {
-				flip_grav();
-			}
-			
-			if (instance_place_check(x, y, objPlatformWater, tangible_collision) != null) {
-				grav_amount = 0.4;
-			}
-			
-			var bubble = instance_place_check(x, y, objBubbleWater, tangible_collision);
-			
-			if (bubble != null && global.grav == -sign(bubble.vspd)) {
-				jump_velocity = 1.25;
-			}
-			#endregion
-				
-			vspd = -((jump_height[1] * global.grav) * jump_velocity);
-			jump_mod.high = 2;
-			jump_mod.low = 2;
+			p_vspd(-(jump_height[1] * sign(global.grav)) * jump_velocity);
+			package_refrenture("player postjump");
 			player_sprite("Jump");
 			
-			if (instance_place_check(x, y + global.grav, objWater3, tangible_collision) == null) {
+			if (p_instance_place(0, sign(global.grav), objWater3) == null) {
 				if (jump_left > 0) {
 					jump_left--;
 				}
@@ -89,10 +36,12 @@ function player_jump() {
 			if (on_block != null) {
 				if (global.forms.vkid == 1) {
 					flip_grav();
+				} else if (global.forms.vkid == 2) {
+					turn_grav();
 				}
 				
-				vspd = (jump_height[0] * global.grav);
-				var sound = (global.grav == -1) ? sndVFlipDown : sndVFlipUp;
+				p_vspd(jump_height[0] * sign(global.grav));
+				var sound = (sign(global.grav) == -1) ? sndVFlipDown : sndVFlipUp;
 				audio_play_sound(sound, 0, false);
 			}
 		} else {
@@ -103,15 +52,21 @@ function player_jump() {
 }
 
 function player_fall() {
-	if (vspd * global.grav < 0) {
-		vspd *= 0.45;
+	if (VSPD * sign(global.grav) < 0) {
+		p_vspd(VSPD * 0.45);
+	}
+}
+
+function reset_jumps() {
+	with (objPlayer) {
+		jump_left = jump_total - 1;
 	}
 }
 
 function player_shoot() {
 	var bullet_max = (global.slowshot) ? 10 : 4;
-	var bullet_object = (global.forms.telekid) ? objPlayerTeleport : objBullet;
-	var shoot_sound = (global.forms.telekid) ? sndTeleport : sndShoot;
+	var bullet_object = (global.forms.telekid) ? objTelekid : objBullet;
+	var shoot_sound = (global.forms.telekid) ? sndTelekid : sndShoot;
 	
 	if (global.forms.telekid) {
 		bullet_max = 1;
@@ -147,12 +102,6 @@ function get_skin_sprite(action) {
 	}
 	
 	return sprites[$ action];
-}
-
-function reset_jumps() {
-	with (objPlayer) {
-		jump_left = jump_total - 1;
-	}
 }
 
 function kill_player() {
@@ -196,26 +145,128 @@ function set_mask() {
 	if (global.forms.dotkid || global.forms.lunarkid || global.forms.linekid) {
 		mask_index = sprite_index;
 	} else {
-		if (abs(global.grav) == 1) {
-			mask_index = (global.grav == 1) ? sprPlayerMask : sprPlayerMaskFlipped;
-		} else if (abs(global.grav) == 2) {
-			mask_index = (global.grav == 2) ? sprPlayerMaskX : sprPlayerMaskXFlipped;
-		}
+		mask_index = sprPlayerMask;
 	}
 }
 
-function flip_grav(jump = true) {
-	if (instance_exists(objPlayer)) {
-	    global.grav *= -1;
+function flip_grav(grav = null, jump = true) {
+    if (instance_exists(objPlayer)) {
+        global.grav = (grav == null) ? global.grav * -1 : grav;
 
-	    with (objPlayer) {
-			set_mask();
-	        vspd = 0;
-	        y += 4 * global.grav;
-	    }
-    
-		if (jump) {
-			reset_jumps();
+        if (!global.forms.lunarkid) {
+            with (objPlayer) {
+                set_mask();
+                change_angle();
+                p_vspd(0);
+                
+                var amount_y = 0;
+                
+                if (p_collision_line(BBOX_LEFT, BBOX_TOP, BBOX_RIGHT, BBOX_TOP, objBlock, true, true, tangible_collision) != null) {
+                    amount_y = (sign(global.grav) == 1) ? 1 : -1;
+                } else if  (p_collision_line(BBOX_LEFT, BBOX_BOTTOM, BBOX_RIGHT, BBOX_TOP, objBlock, true, true, tangible_collision) != null) {
+                    amount_y = (sign(global.grav) == 1) ? -1 : 1;
+                }
+                
+                if (amount_y != 0) {
+                    while (instance_place_check(x, y, objBlock, tangible_collision) != null) {
+                        p_y(Y + amount_y);
+                    }
+                }
+                
+                var amount_x = 0;
+                
+                if (p_collision_line(BBOX_LEFT, BBOX_TOP, BBOX_LEFT, BBOX_BOTTOM, objBlock, true, true, tangible_collision) != null) {
+                    amount_x = (sign(global.grav) == 1) ? 1 : -1;
+                    
+                    if (abs(global.grav) == 2) {
+                        amount_x *= -1;
+                    }
+                } else if (p_collision_line(BBOX_RIGHT, BBOX_TOP, BBOX_RIGHT, BBOX_BOTTOM, objBlock, true, true, tangible_collision) != null) {
+                    amount_x = (sign(global.grav) == 1) ? -1 : 1;
+                    
+                    if (abs(global.grav) == 2) {
+                        amount_x *= -1;
+                    }
+                }
+                
+                if (amount_x != 0) {
+                    while (instance_place_check(x, y, objBlock, tangible_collision) != null) {
+                        p_x(X + amount_x);
+                    }
+                }
+            }
+        }
+
+        if (jump) {
+            reset_jumps();
+        }
+    }
+}
+
+function turn_grav(jump = true) {
+	if (instance_exists(objPlayer)) {
+		global.grav = (abs(global.grav) == 1) ? -(2 * objPlayer.xscale) : objPlayer.xscale;
+	}
+}
+
+function check_vines(on_vine, dir_left_pressed, dir_right_pressed) {
+	if (on_block || on_vine == null || on_vine.tangible == 0) {
+		return;
+	}
+	
+	xscale = on_vine.tangible;
+				
+	if (on_vine.object_index != objIceVine) {
+		if (on_vine.object_index != objStickyVine) {
+			var vine_speed = (on_vine.object_index == objRiseVine) ? -1 : 1;
+			p_vspd((2 * vine_speed) * sign(global.grav));
+		} else {
+			p_vspd(0);
+			vine_mod.stick = true;
 		}
+	} 
+				
+	player_sprite("Slide");
+	var check_left_pressed = dir_left_pressed;
+	var check_right_pressed = dir_right_pressed;
+	
+	if (global.grav == -2) {
+		check_left_pressed = dir_right_pressed;
+		check_right_pressed = dir_left_pressed;
+	}
+    
+	if ((on_vine.tangible == 1 && check_right_pressed) || (on_vine.tangible == -1 && check_left_pressed)) {
+		var check_tangible = (abs(global.grav) == 1) ? on_vine.tangible : -on_vine.tangible;
+		
+		if (is_held(global.controls.jump)) {
+			p_hspd((check_tangible == 1) ? 15 : -15);
+						
+			if (on_vine.object_index == objFlipVine) {
+				flip_grav(, false);
+			}
+						
+			if (on_vine.object_index == objTurnVine) {
+				turn_grav();
+			}
+						
+			p_vspd(-9 * sign(global.grav));
+			player_sprite("Jump");
+			audio_play_sound(sndVine, 0, false);
+						
+			if (on_vine.object_index == objTwinWhiteVine || on_vine.object_index == objTwinBlackVine) {
+				vine_mod.twin ^= true;
+			}
+		} else {
+			p_hspd((check_tangible == 1) ? 3 : -3);
+			player_sprite("Fall");
+		}
+	}
+				
+	if (on_vine.object_index == objFireVine) {
+		vine_mod.fire = true;
+	}
+				
+	if (on_vine.object_index == objLowGravVine) {
+		vine_mod.lowgrav = true;
 	}
 }

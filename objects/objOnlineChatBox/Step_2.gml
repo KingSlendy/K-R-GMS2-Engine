@@ -8,7 +8,7 @@ if (instance_exists(__ONLINE_f)) {
 	exit;
 }
 
-if(__ONLINE_fade){
+if (__ONLINE_fade) {
 	__ONLINE_fadeAlpha -= 0.02;
 	
 	if (__ONLINE_fadeAlpha <= 0) {

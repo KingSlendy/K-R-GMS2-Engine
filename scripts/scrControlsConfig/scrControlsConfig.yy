@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrControlsConfig",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Initialization",
-    "path": "folders/Scripts/System/Initialization.yy",
+  "$GMScript":"v1",
+  "%Name":"scrControlsConfig",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrControlsConfig",
+  "parent":{
+    "name":"Initialization",
+    "path":"folders/Scripts/System/Initialization.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

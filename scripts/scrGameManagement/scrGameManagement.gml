@@ -1,8 +1,10 @@
-function save_game(position) {
+function save_game(position, save_x = -1, save_y = -1) {
 	if (position) {
 		global.save_player.sroom = room_get_name(room);
-		global.save_player.sx = floor(objPlayer.x);
-		global.save_player.sy = floor(objPlayer.y);
+		global.save_player.sx = round(objPlayer.x);
+		global.save_player.sy = round(objPlayer.y);
+		global.save_player.snewx = (save_x != -1) ? save_x : global.save_player.sx;
+		global.save_player.snewy = (save_y != -1) ? save_y : global.save_player.sy;
 		global.save_player.sangle = global.player.angle;
 		global.save_player.sgrav = global.grav;
 		global.save_player.sforms = global.forms;
@@ -18,11 +20,20 @@ function save_game(position) {
 			clear: global.clear
 		},
 		
-		items: global.items
+		#region ADDED BY MAGIC TOWER PACKAGE
+		mtg: {
+			stats: global.stats_mtg,
+			items: global.items_mtg,
+			keys: global.keys_mtg,
+			monsters: global.monsters_mtg,
+		},
+		#endregion
+		
+		items: global.items,
 	};
 	
 	var json = json_stringify(data);
-	save_file(string("Data{0}", global.save_num + 1), json, true);
+	save_file($"Data{global.save_num + 1}", json, true);
 	
 	#region Online
 	if (global.connected && !global.online.race && position) {
@@ -50,7 +61,7 @@ function load_game(position) {
 		instance_destroy(objPlayer);
 	}
 	
-	var json = load_file(string("Data{0}", global.save_num + 1), true);
+	var json = load_file($"Data{global.save_num + 1}", true);
 	var data = json_parse(json);
 	
 	global.save_player = data.player;
@@ -60,11 +71,22 @@ function load_game(position) {
 	global.clear = data.info.clear;
 	global.items = data.items;
 	
-	if (position) {
+	#region ADDED BY MAGIC TOWER PACKAGE
+	global.stats_mtg = data.mtg.stats;
+	global.items_mtg = data.mtg.items;
+	global.keys_mtg = data.mtg.keys;
+	global.monsters_mtg = data.mtg.monsters;
+	#endregion
+	
+	if (position > 0) {
 		global.game_started = true;
 		global.auto_save = false;
 		global.grav = global.save_player.sgrav;
-		instance_create_layer(global.save_player.sx, global.save_player.sy, "Player", objPlayer);
+		global.forms = global.save_player.sforms;
+		
+		var load_x = (position == 1) ? global.save_player.sx : global.save_player.snewx;
+		var load_y = (position == 1) ? global.save_player.sy : global.save_player.snewy;
+		instance_create_layer(load_x, load_y, "Player", objPlayer);
 		room_goto(asset_get_index(global.save_player.sroom));
 	}
 	
@@ -119,11 +141,12 @@ function cleanup_game() {
 		bosses: array_create(8, false)
 	};
 	
+	package_MTG("cleanup");
 	make_particles("vines");
 }
 
 function start_game(diff) {
-	var save = string("Data{0}", global.save_num + 1);
+	var save = $"Data{global.save_num + 1}";
 	var length = array_length(global.difficulties);
 
 	if (diff == length - 1) {
@@ -144,7 +167,7 @@ function start_game(diff) {
 	}
 }
 
-function restart_game() {
+function restart_game(position = 1) {
 	if (global.death_music) {
 	    audio_stop_sound(bgmGameOver);
 	    audio_resume_sound(global.current_music);
@@ -152,7 +175,7 @@ function restart_game() {
 	
 	var deaths = global.deaths;
 	var time = global.time;
-	load_game(true);
+	load_game(position);
 	global.deaths = deaths;
 	global.time = time;
 	
@@ -208,7 +231,7 @@ function set_display() {
 }
 
 function change_volume(type = "master") {
-	var dir = (is_held(global.controls.right) - is_held(global.controls.left));
+	var dir = (is_held(global.controls_menu.right) - is_held(global.controls_menu.left));
 	global.display[$ type + "_volume"] += 0.01 * dir;
 	global.display[$ type + "_volume"] = clamp(global.display[$ type + "_volume"], 0, 1);
 }

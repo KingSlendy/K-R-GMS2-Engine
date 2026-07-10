@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrInitDebug",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Initialization",
-    "path": "folders/Scripts/System/Initialization.yy",
+  "$GMScript":"v1",
+  "%Name":"scrInitDebug",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrInitDebug",
+  "parent":{
+    "name":"Initialization",
+    "path":"folders/Scripts/System/Initialization.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

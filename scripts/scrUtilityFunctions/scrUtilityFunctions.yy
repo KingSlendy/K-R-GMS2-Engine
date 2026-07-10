@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrUtilityFunctions",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Misc",
-    "path": "folders/Scripts/Misc.yy",
+  "$GMScript":"v1",
+  "%Name":"scrUtilityFunctions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrUtilityFunctions",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/Scripts/Misc.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

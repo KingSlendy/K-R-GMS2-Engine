@@ -4,7 +4,7 @@ trigger_types = {};
 var tt = trigger_types;
 
 tt[$ attribute_normal] = function(id, attribute, key) {
-	if (is_real(attribute.target)) {
+	if (is_real(attribute.target) && attribute.spd != null) {
 		var value = approach(variable_instance_get(id, key), attribute.target, attribute.spd);
     } else {
         var value = attribute.target;
@@ -18,7 +18,7 @@ tt[$ attribute_normal] = function(id, attribute, key) {
 }
 
 tt[$ attribute_loop] = function(id, attribute, key) {
-	if (is_real(attribute.target)) {
+	if (is_real(attribute.target) && attribute.spd != null) {
 		var value = approach(variable_instance_get(id, key), attribute.target, attribute.spd);
     } else {
         var value = attribute.target;
@@ -33,7 +33,7 @@ tt[$ attribute_loop] = function(id, attribute, key) {
 }
 
 tt[$ attribute_loop_reverse]  = function(id, attribute, key) {
-	if (is_real(attribute.target)) {
+	if (is_real(attribute.target) && attribute.spd != null) {
 		var value = approach(variable_instance_get(id, key), attribute.target, attribute.spd);
     } else {
         var value = attribute.target;

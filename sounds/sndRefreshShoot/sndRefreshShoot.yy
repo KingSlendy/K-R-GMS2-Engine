@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndRefreshShoot",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.593651,
+  "exportDir":"",
+  "name":"sndRefreshShoot",
+  "parent":{
+    "name":"Crimson Needle 3",
+    "path":"folders/Sounds/SFX/Packages/Crimson Needle 3.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndRefreshShoot.wav",
+  "volume":1.0,
+}

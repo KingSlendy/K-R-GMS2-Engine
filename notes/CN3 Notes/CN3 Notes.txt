@@ -1,0 +1,14 @@
+Asset Package themed around Crimson Needle 3.
+
+Assets marked in Red are mandatory for other features to function.
+Assets marked in Green are features of interest you might wish to add.
+Assets marked in Yellow are cosmetic.
+
+
+
+Additional information:
+	- Updraft sprite has been modified to have a checkered sprite to match the other Vapor sprites.
+	- Downwards Boosters have additional assets for Refreshing, and Cherry versions to match Upwards Boosters.
+	- Gravity Blocks have 2 additional color variations for Right and Left gravity flippers.
+	
+	

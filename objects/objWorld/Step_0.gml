@@ -15,8 +15,12 @@ set_caption();
 #region Main Inputs
 if (global.game_started) {
 	if (!global.game_paused) {
-		if (is_pressed(global.controls.restart) && !global.controls_lock.restart) {
-			restart_game();
+		if (!global.controls_lock.restart) {
+			if (keyboard_check(vk_control) && is_pressed(global.controls.restart)) {
+				restart_game(2);
+			} else if (is_pressed(global.controls.restart)) {
+				restart_game();
+			}
 		}
 	} else {
 		change_volume();
@@ -84,7 +88,10 @@ if (!global.game_paused) {
 	//Screenshot
 	if (is_pressed(global.controls_misc.screenshot)) {
 		var filename = get_string("Screenshot name: ", "");
-		screen_save(string("Screenshots/{0}", filename + ".png"));
+		/*if (filename == "") {
+			filename = $"screenshot{0}";
+		}*/
+		screen_save($"Screenshots/{filename}.png");
 	}
 }
 
@@ -108,11 +115,7 @@ if (global.debug_enable && global.game_started) {
 		global.debug_hitbox++;
 		global.debug_hitbox %= 3;
 	}
-	
-	if (keyboard_check(vk_control) && is_pressed(ord("B"))) {
-		global.collision_type ^= true;
-	}
-	
+
 	if (instance_exists(objPlayer)) {
 		if (global.debug_inf_jump) {
 			reset_jumps();
@@ -135,19 +138,25 @@ if (global.debug_enable && global.game_started) {
 			global.forms.lunarkid ^= true;
 			
 			with (objPlayer) {
+				p_y(Y - 6);
+				speed = 0;
 				grav_amount = 0;
 			}
 		}
 		
 		if (keyboard_check_pressed(ord("5"))) {
 			global.forms.linekid ^= true;
+			
+			with (objPlayer) {
+				p_y(Y - 4);
+			}
 		}
 	
 		if (is_held(global.controls_debug.teleport)) {
 			with (objPlayer) {
 				x = mouse_x;
 				y = mouse_y;
-				vspd = 0;
+				p_vspd(0);
 			}
 		}
 	

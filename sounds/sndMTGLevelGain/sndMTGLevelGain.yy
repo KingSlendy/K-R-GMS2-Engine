@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndMTGLevelGain",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.4,
+  "exportDir":"",
+  "name":"sndMTGLevelGain",
+  "parent":{
+    "name":"Magic Tower (General)",
+    "path":"folders/Sounds/SFX/Packages/Magic Tower (General).yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndMTGLevelGain.wav",
+  "volume":1.0,
+}

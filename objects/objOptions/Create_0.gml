@@ -21,7 +21,7 @@ options = [
 				change_volume();
 			}
 		}, function() {
-			return string("{0}%", ceil(global.display.master_volume * 100));
+			return $"{ceil(global.display.master_volume * 100)}%";
 		}),
 		
 		new Option("BGM Volume: ", function() {
@@ -31,7 +31,7 @@ options = [
 				change_volume("bgm");
 			}
 		}, function() {
-			return string("{0}%", ceil(global.display.bgm_volume * 100));
+			return $"{ceil(global.display.bgm_volume * 100)}%";
 		}),
 		
 		new Option("SFX Volume: ", function() {
@@ -41,7 +41,7 @@ options = [
 				change_volume("sfx");
 			}
 		}, function() {
-			return string("{0}%", ceil(global.display.sfx_volume * 100));
+			return $"{ceil(global.display.sfx_volume * 100)}%";
 		}),
 		
 		new Option("Fullscreen: ", function() {
@@ -56,6 +56,20 @@ options = [
 			set_display();
 		}, function() {
 			return (global.display.vsync) ? "Yes" : "No";
+		}),
+		
+		new Option("Gravity Controls: ", function() {
+			global.display.grav_control += 1;
+			global.display.grav_control %= 5;
+		}, function() {
+			var control_type = [
+				"Default",
+				"Inverse Right",
+				"Inverse Left",
+				"Cyclical",
+				"Absolute"
+			];
+			return $"{control_type[global.display.grav_control]}";
 		}),
 		
 		new Option("Reset Defaults", function() {
@@ -112,7 +126,7 @@ options = [
 		}),
 		
 		new Option("Name: ", function() {
-			var name = get_string("Input name", "");
+			var name = get_string("Input name", global.online.name);
 			name = string_replace(name, "\n", "\\n");
 			
 			if (name == "") {
@@ -145,13 +159,13 @@ options = [
 		}),
 		
 		new Option("TCP Port: ", function() {
-			global.online.tcp = get_integer("Enter TCP port", 3003);
+			global.online.tcp = get_integer("Enter TCP port", 8002);
 		}, function() {
 			return string(global.online.tcp);
 		}),
 		
 		new Option("UDP Port: ", function() {
-			global.online.udp = get_integer("Enter UDP port", 3005);
+			global.online.udp = get_integer("Enter UDP port", 8003);
 		}, function() {
 			return string(global.online.udp);
 		}),

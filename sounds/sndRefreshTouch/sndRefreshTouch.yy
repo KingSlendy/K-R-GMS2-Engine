@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndRefreshTouch",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.10932,
+  "exportDir":"",
+  "name":"sndRefreshTouch",
+  "parent":{
+    "name":"Stop Crying Myself To Sleep",
+    "path":"folders/Sounds/SFX/Packages/Stop Crying Myself To Sleep.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndRefreshTouch.wav",
+  "volume":1.0,
+}

@@ -3,4 +3,4 @@ if (global.auto_save) {
 	global.auto_save = false;
 }
 
-global.vine_toggle = 0;
+vine_mod.toggle = false;

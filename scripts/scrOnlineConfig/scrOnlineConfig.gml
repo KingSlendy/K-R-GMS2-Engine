@@ -3,7 +3,7 @@ global.online = {
 	name: "Anonymous",
 	password: "",
 	race: true,
-	server: "dappermink.com",
+	server: "iwannastartaparty.com",
 	tcp: 8002,
 	udp: 8003
 };

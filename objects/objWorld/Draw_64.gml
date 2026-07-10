@@ -16,9 +16,9 @@ if (global.game_paused) {
 	draw_set_halign(fa_left);
 	
 	draw_set_font(fntPause2);
-    draw_text(20, 516, string("Master Volume: {0}%", ceil(global.display.master_volume * 100)));
-    draw_text(20, 541, string("Deaths: {0}", global.deaths));
-    draw_text(20, 566, string("Time: {0}", formatted_time(global.time)));
+    draw_text(20, 516, $"Master Volume: {ceil(global.display.master_volume * 100)}%");
+    draw_text(20, 541, $"Deaths: {global.deaths}");
+    draw_text(20, 566, $"Time: {formatted_time(global.time)}");
 }
 #endregion
 
@@ -55,8 +55,9 @@ if (global.overlay) {
         yy = objPlayer.y;
         vspd = objPlayer.vspd;
 			
-		align = objPlayer.max_hspd % 3;
-		align_relative = xx % 3;
+		var xpos = (abs(global.grav) == 1) ? xx : yy;
+		align = xpos % objPlayer.max_hspd;
+		align_relative = xpos % 3;
 		
 		angle = objPlayer.image_angle;
 			
@@ -70,15 +71,15 @@ if (global.overlay) {
 		
 	#region Draw Overlay Info
 	var info = [
-		string("FPS: {0} (real: {1})", fps, fps_real),
-		string("X: {0} (hspd: {1})", xx, hspd),
-		string("Y: {0} (vspd: {1})", yy, vspd),
-		string("Align: {0} (relative: {1})", align, align_relative),
-		string("Angle: {0}", angle),
-		string("Gravity: {0} (direction: {1})", grav, grav_dir),
-		string("Jumps: {0} (total: {1})", jump_left, jump_total),
-		string("Room: {0} (number: {1})", room_get_name(room), room),
-		string("Object counter: {0}", instance_count),
+		$"FPS: {fps} (real: {fps_real})",
+		$"X: {xx} (hspd: {hspd})",
+		$"Y: {yy} (vspd: {vspd})",
+		$"Align: {align} (relative: {align_relative})",
+		$"Angle: {angle}",
+		$"Gravity: {grav} (direction: {grav_dir})",
+		$"Jumps: {jump_left} (total: {jump_total})",
+		$"Room: {room_get_name(room)} (number: {room})",
+		$"Object counter: {instance_count}",
 	];
 		
 	var length = array_length(info);

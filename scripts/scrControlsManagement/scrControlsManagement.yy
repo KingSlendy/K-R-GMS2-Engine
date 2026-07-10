@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrControlsManagement",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Management",
-    "path": "folders/Scripts/System/Management.yy",
+  "$GMScript":"v1",
+  "%Name":"scrControlsManagement",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrControlsManagement",
+  "parent":{
+    "name":"Management",
+    "path":"folders/Scripts/System/Management.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

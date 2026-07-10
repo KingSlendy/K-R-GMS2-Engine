@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndTeleJump",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.25322,
+  "exportDir":"",
+  "name":"sndTeleJump",
+  "parent":{
+    "name":"Go The Jumple Refrenture",
+    "path":"folders/Sounds/SFX/Packages/Go The Jumple Refrenture.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndTeleJump.wav",
+  "volume":1.0,
+}

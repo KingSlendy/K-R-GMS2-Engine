@@ -1,7 +1,7 @@
-if (global.grav == -sign(vspd)) {
-    if (other.vspd * global.grav > 0) {
-        other.vspd = 0.5 * global.grav;
+if (sign(global.grav) == -sign(VSPD)) {
+    if (VSPD * sign(global.grav) > 0) {
+        p_vspd(0.5 * sign(global.grav));
     }
 } else {
-    other.vspd = approach(other.vspd, vspd, 0.15);
+    p_vspd(approach(VSPD, spd, 0.15));
 }

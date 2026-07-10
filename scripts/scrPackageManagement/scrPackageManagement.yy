@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scrPackageManagement",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrPackageManagement",
+  "parent":{
+    "name":"Packages",
+    "path":"folders/Scripts/Packages.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

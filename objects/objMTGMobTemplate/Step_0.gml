@@ -1,0 +1,1 @@
+status = (global.stats_mtg.attack <= defense) ? 2 : !(global.stats_mtg.defense >= attack);

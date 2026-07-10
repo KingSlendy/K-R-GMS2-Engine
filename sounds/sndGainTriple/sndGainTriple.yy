@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndGainTriple",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.097347,
+  "exportDir":"",
+  "name":"sndGainTriple",
+  "parent":{
+    "name":"Crimson Needle 3",
+    "path":"folders/Sounds/SFX/Packages/Crimson Needle 3.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndGainTriple.wav",
+  "volume":1.0,
+}

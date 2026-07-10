@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sndSwitchForm",
+  "audioGroupId":{
+    "name":"audiogroup_SFX",
+    "path":"audiogroups/audiogroup_SFX",
+  },
+  "bitDepth":1,
+  "channelFormat":1,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.052948,
+  "exportDir":"",
+  "name":"sndSwitchForm",
+  "parent":{
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndSwitchForm.wav",
+  "volume":1.0,
+}
