@@ -16,7 +16,11 @@ function package_jungleadventure(load_type = undefined) {
 		
 		case "player prestep": //Reset the active water modifiers
 		if (on_block != null || on_platform) {
-			struct_set_all(vine_mod, 0);
+			vine_mod.stick = 0;
+			vine_mod.lowgrav = 0;
+			vine_mod.fire = 0;
+			
+			vine_mod.count = 0;
 		}
 		break;
 	}
