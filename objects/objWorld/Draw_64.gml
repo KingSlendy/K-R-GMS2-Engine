@@ -7,23 +7,27 @@ if (global.game_paused) {
 	draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
 	draw_set_alpha(1);
 	
-	draw_set_font(fntPause);
-	draw_set_color(c_white);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle);
-	draw_text(display_get_gui_width() / 2, display_get_gui_height() / 2, "PAUSED");
-	draw_set_valign(fa_top);
-	draw_set_halign(fa_left);
+	if (!instance_exists(objOptions)) {
+		draw_set_font(fntPause);
+		draw_set_color(c_white);
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		draw_text_outline(display_get_gui_width() / 2, display_get_gui_height() / 2, "PAUSED", c_black);
+		draw_set_valign(fa_top);
+		draw_set_halign(fa_left);
 	
-	draw_set_font(fntPause2);
-    draw_text(20, 516, $"Master Volume: {ceil(global.display.master_volume * 100)}%");
-    draw_text(20, 541, $"Deaths: {global.deaths}");
-    draw_text(20, 566, $"Time: {formatted_time(global.time)}");
+		draw_set_font(fntPause2);
+	    draw_text_outline(20, 541, $"Deaths: {global.deaths}", c_black);
+	    draw_text_outline(20, 566, $"Time: {formatted_time(global.time)}", c_black);
+		draw_set_halign(fa_right);
+		draw_text_outline(display_get_gui_width() - 20, 566, $"[{control_bind(global.controls_menu.accept)}] Options", c_black);
+		draw_set_halign(fa_left);
+	}
 }
 #endregion
 
 #region Debug Overlay
-if (global.overlay) {
+if (global.overlay && global.debug_enable) {
     var spacing = 20;
     draw_set_font(fntMenu3);
 	draw_set_color(c_white);

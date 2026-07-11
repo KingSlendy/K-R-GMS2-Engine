@@ -23,7 +23,10 @@ if (global.game_started) {
 			}
 		}
 	} else {
-		change_volume();
+		if (!instance_exists(objOptions) && is_pressed(global.controls_menu.accept)) {
+			instance_create_layer(192, 48, layer, objOptions);
+			audio_play_sound(sndJump, 0, false);
+		}
 	}
 
 	if (pause_delay < global.total_pause_delay) {
@@ -40,6 +43,10 @@ if (global.game_started) {
 		
 			if (sprite_exists(pause_screen)) {
 				sprite_delete(pause_screen);
+			}
+			
+			if (instance_exists(objOptions)) {
+				instance_destroy(objOptions);
 			}
 		
 			io_clear();

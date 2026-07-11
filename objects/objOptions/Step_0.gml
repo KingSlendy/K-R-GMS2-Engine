@@ -40,7 +40,12 @@ switch (menu) {
     
 	    if (is_pressed(global.controls_menu.back)) {
 	        save_config();
-	        room_goto(rFiles);
+			
+	        if (room == rOptions) {
+				room_goto(rFiles);
+			} else {
+				instance_destroy();
+			}
 	    }
 		break;
 		
