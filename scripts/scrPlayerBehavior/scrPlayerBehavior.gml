@@ -138,7 +138,7 @@ function outside_room() {
 	    return false;
 	}
 	
-	return (objPlayer.x < 0 || objPlayer.x > room_width || objPlayer.y < 0 || objPlayer.y > room_height);
+	return (objPlayer.bbox_right < 0 || objPlayer.bbox_left > room_width || objPlayer.bbox_bottom < 0 || objPlayer.bbox_top > room_height);
 }
 
 function set_mask() {
